@@ -1,0 +1,440 @@
+TUntitled
+v7
+r0
+t286926674.014559
+cCheck dependencies
+cProcessInfoPlistFile /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Info.plist Untitled-Info.plist
+cCompileXIB /Users/Bob/Documents/Untitled/MainWindow.xib
+cCompileXIB /Users/Bob/Documents/Untitled/DetailView.xib
+cCompileXIB /Users/Bob/Documents/Untitled/MasterView.xib
+cProcessPCH /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-chyyqmujzdcntlfrdayytolaqisb/Untitled_Prefix.pch.gch Untitled_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/main.o /Users/Bob/Documents/Untitled/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/UntitledAppDelegate.o /Users/Bob/Documents/Untitled/Classes/UntitledAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/PagesViewController.o /Users/Bob/Documents/Untitled/Classes/PagesViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/SavedSearchController.o /Users/Bob/Documents/Untitled/Classes/SavedSearchController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/MasterViewController.o /Users/Bob/Documents/Untitled/Classes/MasterViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/DetailViewController.o /Users/Bob/Documents/Untitled/Classes/DetailViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/SavedSearchesController.o /Users/Bob/Documents/Untitled/Classes/SavedSearchesController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Untitled normal i386
+cGenerateDSYMFile /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app.dSYM /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Untitled
+cTouch /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk
+c000000004B685ACA0000000000000110
+t1265130186
+s272
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004B567172000000000026F020
+t1263956338
+s2551840
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004B56718B0000000000288B20
+t1263956363
+s2657056
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004B56717E0000000000001355
+t1263956350
+s4949
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004B56A2960000000000000970
+t1263968918
+s2416
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004B56A324000000000211C6C0
+t1263969060
+s34719424
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/Availability.h
+c000000004B4D00900000000000001A1A
+t1263337616
+s6682
+
+N/Users/Bob/Documents/Untitled/Classes/ SavedSearchesController.h
+c000000004B69BFA20000000000000169
+t1265221538
+s361
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/Untitled/Classes/ SavedSearchesController.m
+c000000004B69C1E90000000000000BBD
+t1265222121
+s3005
+i"SavedSearchesController.h"
+i"UntitledAppDelegate.h"
+
+N/Users/Bob/Documents/Untitled/Classes/DetailViewController.h
+c000000004B68A95D0000000000000271
+t1265150301
+s625
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/Untitled/Classes/DetailViewController.m
+c000000004B68AA5C0000000000000D5F
+t1265150556
+s3423
+i"DetailViewController.h"
+i"MasterViewController.h"
+i"PagesViewController.h"
+
+N/Users/Bob/Documents/Untitled/Classes/MasterViewController.h
+c000000004B69EFCE0000000000000218
+t1265233870
+s536
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/Untitled/Classes/MasterViewController.m
+c000000004B69ECDB0000000000000C1B
+t1265233115
+s3099
+i"MasterViewController.h"
+i"DetailViewController.h"
+
+N/Users/Bob/Documents/Untitled/Classes/PagesViewController.h
+c000000004B68AA3D00000000000000E9
+t1265150525
+s233
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/Untitled/Classes/PagesViewController.m
+c000000004B68A8750000000000000837
+t1265150069
+s2103
+i"PagesViewController.h"
+
+N/Users/Bob/Documents/Untitled/Classes/SavedSearchController.h
+c000000004B69C5BC0000000000000154
+t1265223100
+s340
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m
+c000000004B69E91F0000000000000CA4
+t1265232159
+s3236
+i"SavedSearchController.h"
+i"UntitledAppDelegate.h"
+
+N/Users/Bob/Documents/Untitled/Classes/SavedSearchesController.h
+c000000004B69BFA20000000000000169
+t1265221538
+s361
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/Untitled/Classes/SavedSearchesController.m
+c000000004B69EFCC0000000000000E25
+t1265233868
+s3621
+i"SavedSearchesController.h"
+i"SavedSearchController.h"
+i"UntitledAppDelegate.h"
+i"MasterViewController.h"
+
+N/Users/Bob/Documents/Untitled/Classes/UntitledAppDelegate.h
+c000000004B69E41800000000000003A1
+t1265230872
+s929
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/Untitled/Classes/UntitledAppDelegate.m
+c000000004B69ECD900000000000007B5
+t1265233113
+s1973
+i"UntitledAppDelegate.h"
+i"MasterViewController.h"
+i"DetailViewController.h"
+
+N/Users/Bob/Documents/Untitled/DetailView.xib
+c000000004B69AF2B0000000000006B55
+t1265217323
+s27477
+
+N/Users/Bob/Documents/Untitled/MainWindow.xib
+c000000004B69E7A60000000000004AEB
+t1265231782
+s19179
+
+N/Users/Bob/Documents/Untitled/MasterView.xib
+c000000004B69EC680000000000005C1F
+t1265233000
+s23583
+
+N/Users/Bob/Documents/Untitled/Untitled_Prefix.pch
+c000000004B68935F0000000000000142
+t1265144671
+s322
+i<Availability.h>
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app
+t1265233874
+s272
+
+N/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app.dSYM
+t1265233874
+s102
+
+N/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/DetailView.nib
+t1265232727
+s1914
+
+N/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Info.plist
+t1265232727
+s595
+
+N/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/MainWindow.nib
+t1265232727
+s955
+
+N/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/MasterView.nib
+t1265233122
+s1378
+
+N/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/PkgInfo
+t1265232727
+s8
+
+N/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Untitled
+t1265233873
+s42212
+
+N/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/ SavedSearchesController.o
+t2
+s0
+
+N/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/DetailViewController.o
+t1265233873
+s41628
+
+N/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/MasterViewController.o
+t1265233873
+s37904
+
+N/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/PagesViewController.o
+t1265232729
+s36952
+
+N/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/SavedSearchController.o
+t1265232729
+s51404
+
+N/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/SavedSearchesController.o
+t1265233873
+s51000
+
+N/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/Untitled.LinkFileList
+c000000004B69EB570000000000000387
+t1265232727
+s903
+
+N/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/UntitledAppDelegate.o
+t1265233873
+s47108
+
+N/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/main.o
+t1265232729
+s5924
+
+N/Users/Bob/Documents/Untitled/main.m
+c000000004B68935F0000000000000163
+t1265144671
+s355
+i<UIKit/UIKit.h>
+
+N/var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-chyyqmujzdcntlfrdayytolaqisb/Untitled_Prefix.pch.gch
+t1265232729
+s13719376
+
+NUntitled-Info.plist
+c000000004B68935F000000000000038D
+t1265144671
+s909
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies286926673#286926673#0(0"0(0#1#0"4300903632#0"0#
+
+CCompileC "build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/ SavedSearchesController.o" "/Users/Bob/Documents/Untitled/Classes/ SavedSearchesController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/DetailViewController.o /Users/Bob/Documents/Untitled/Classes/DetailViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s286926673.725625
+e286926673.828143
+r1
+xCompileC
+xbuild/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/DetailViewController.o
+x/Users/Bob/Documents/Untitled/Classes/DetailViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@68"Compile /Users/Bob/Documents/Untitled/Classes/DetailViewController.m286926673#286926673#0(0"0(0#0#60"/Users/Bob/Documents/Untitled/Classes/DetailViewController.m4300903632#1818"    cd /Users/Bob/Documents/Untitled    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-generated-files.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-own-target-headers.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-all-target-headers.hmap -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-project-headers.hmap -F/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator -I/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/include -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources/i386 -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-chyyqmujzdcntlfrdayytolaqisb/Untitled_Prefix.pch -c /Users/Bob/Documents/Untitled/Classes/DetailViewController.m -o /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/DetailViewController.o0#
+
+CCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/MasterViewController.o /Users/Bob/Documents/Untitled/Classes/MasterViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s286926673.626884
+e286926673.725495
+r1
+xCompileC
+xbuild/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/MasterViewController.o
+x/Users/Bob/Documents/Untitled/Classes/MasterViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@68"Compile /Users/Bob/Documents/Untitled/Classes/MasterViewController.m286926673#286926673#0(0"0(0#0#60"/Users/Bob/Documents/Untitled/Classes/MasterViewController.m4300903632#1818"    cd /Users/Bob/Documents/Untitled    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-generated-files.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-own-target-headers.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-all-target-headers.hmap -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-project-headers.hmap -F/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator -I/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/include -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources/i386 -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-chyyqmujzdcntlfrdayytolaqisb/Untitled_Prefix.pch -c /Users/Bob/Documents/Untitled/Classes/MasterViewController.m -o /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/MasterViewController.o0#
+
+CCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/PagesViewController.o /Users/Bob/Documents/Untitled/Classes/PagesViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s286925529.581069
+e286925529.695562
+r1
+xCompileC
+xbuild/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/PagesViewController.o
+x/Users/Bob/Documents/Untitled/Classes/PagesViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/Bob/Documents/Untitled/Classes/PagesViewController.m: In function '-[PagesViewController initWithFrame:]':
+o/Users/Bob/Documents/Untitled/Classes/PagesViewController.m:16: warning: 'UITableViewController' may not respond to '-initWithFrame:'
+o/Users/Bob/Documents/Untitled/Classes/PagesViewController.m:16: warning: (Messages without a matching method signature
+o/Users/Bob/Documents/Untitled/Classes/PagesViewController.m:16: warning: will be assumed to return 'id' and accept
+o/Users/Bob/Documents/Untitled/Classes/PagesViewController.m:16: warning: '...' as arguments.)
+lSLF07#2@67"Compile /Users/Bob/Documents/Untitled/Classes/PagesViewController.m286925529#286925529#0(576"/Users/Bob/Documents/Untitled/Classes/PagesViewController.m: In function '-[PagesViewController initWithFrame:]':/Users/Bob/Documents/Untitled/Classes/PagesViewController.m:16: warning: 'UITableViewController' may not respond to '-initWithFrame:'/Users/Bob/Documents/Untitled/Classes/PagesViewController.m:16: warning: (Messages without a matching method signature/Users/Bob/Documents/Untitled/Classes/PagesViewController.m:16: warning: will be assumed to return 'id' and accept/Users/Bob/Documents/Untitled/Classes/PagesViewController.m:16: warning: '...' as arguments.)2(22@60"'UITableViewController' may not respond to '-initWithFrame:'286925529#114#134#0(6@59"/Users/Bob/Documents/Untitled/Classes/PagesViewController.m286842869#16#0#16#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)286925529#248#119#0(6@59"/Users/Bob/Documents/Untitled/Classes/PagesViewController.m286842869#16#0#16#0#0"0(0#0#59"/Users/Bob/Documents/Untitled/Classes/PagesViewController.m4300903632#1816"    cd /Users/Bob/Documents/Untitled    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-generated-files.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-own-target-headers.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-all-target-headers.hmap -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-project-headers.hmap -F/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator -I/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/include -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources/i386 -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-chyyqmujzdcntlfrdayytolaqisb/Untitled_Prefix.pch -c /Users/Bob/Documents/Untitled/Classes/PagesViewController.m -o /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/PagesViewController.o0#
+
+CCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/SavedSearchController.o /Users/Bob/Documents/Untitled/Classes/SavedSearchController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s286925529.806994
+e286925529.920343
+r1
+xCompileC
+xbuild/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/SavedSearchController.o
+x/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m: In function '-[SavedSearchController tableView:cellForRowAtIndexPath:]':
+o/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m:47: warning: 'setText:' is deprecated (declared at /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h:210)
+o/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m: In function '-[SavedSearchController tableView:didSelectRowAtIndexPath:]':
+o/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m:61: warning: unused variable 'delegate'
+o/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m:60: warning: unused variable 'rowString'
+lSLF07#2@69"Compile /Users/Bob/Documents/Untitled/Classes/SavedSearchController.m286925529#286925529#0(749"/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m: In function '-[SavedSearchController tableView:cellForRowAtIndexPath:]':/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m:47: warning: 'setText:' is deprecated (declared at /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h:210)/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m: In function '-[SavedSearchController tableView:didSelectRowAtIndexPath:]':/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m:61: warning: unused variable 'delegate'/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m:60: warning: unused variable 'rowString'3(22@194"'setText:' is deprecated (declared at /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h:210)286925529#136#270#0(6@61"/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m286924959#47#0#47#0#33"'*' is deprecated (declared at *)0(22@26"Unused variable 'delegate'286925529#544#102#0(6@61"/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m286924959#61#0#61#0#19"unused variable '*'0(22@27"Unused variable 'rowString'286925529#646#103#0(6@61"/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m286924959#60#0#60#0#19"unused variable '*'0(0#0#61"/Users/Bob/Documents/Untitled/Classes/SavedSearchController.m4300903632#1820"    cd /Users/Bob/Documents/Untitled    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-generated-files.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-own-target-headers.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-all-target-headers.hmap -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-project-headers.hmap -F/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator -I/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/include -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources/i386 -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-chyyqmujzdcntlfrdayytolaqisb/Untitled_Prefix.pch -c /Users/Bob/Documents/Untitled/Classes/SavedSearchController.m -o /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/SavedSearchController.o0#
+
+CCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/SavedSearchesController.o /Users/Bob/Documents/Untitled/Classes/SavedSearchesController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s286926673.828270
+e286926673.938841
+r1
+xCompileC
+xbuild/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/SavedSearchesController.o
+x/Users/Bob/Documents/Untitled/Classes/SavedSearchesController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/Bob/Documents/Untitled/Classes/SavedSearchesController.m: In function '-[SavedSearchesController tableView:cellForRowAtIndexPath:]':
+o/Users/Bob/Documents/Untitled/Classes/SavedSearchesController.m:100: warning: 'setText:' is deprecated (declared at /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h:210)
+lSLF07#2@71"Compile /Users/Bob/Documents/Untitled/Classes/SavedSearchesController.m286926673#286926673#0(413"/Users/Bob/Documents/Untitled/Classes/SavedSearchesController.m: In function '-[SavedSearchesController tableView:cellForRowAtIndexPath:]':/Users/Bob/Documents/Untitled/Classes/SavedSearchesController.m:100: warning: 'setText:' is deprecated (declared at /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h:210)1(22@194"'setText:' is deprecated (declared at /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h:210)286926673#140#273#0(6@63"/Users/Bob/Documents/Untitled/Classes/SavedSearchesController.m286926668#100#0#100#0#33"'*' is deprecated (declared at *)0(0#0#63"/Users/Bob/Documents/Untitled/Classes/SavedSearchesController.m4300903632#1824"    cd /Users/Bob/Documents/Untitled    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-generated-files.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-own-target-headers.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-all-target-headers.hmap -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-project-headers.hmap -F/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator -I/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/include -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources/i386 -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-chyyqmujzdcntlfrdayytolaqisb/Untitled_Prefix.pch -c /Users/Bob/Documents/Untitled/Classes/SavedSearchesController.m -o /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/SavedSearchesController.o0#
+
+CCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/UntitledAppDelegate.o /Users/Bob/Documents/Untitled/Classes/UntitledAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s286926673.516634
+e286926673.626753
+r1
+xCompileC
+xbuild/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/UntitledAppDelegate.o
+x/Users/Bob/Documents/Untitled/Classes/UntitledAppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Users/Bob/Documents/Untitled/Classes/UntitledAppDelegate.m286926673#286926673#0(0"0(0#0#59"/Users/Bob/Documents/Untitled/Classes/UntitledAppDelegate.m4300903632#1816"    cd /Users/Bob/Documents/Untitled    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-generated-files.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-own-target-headers.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-all-target-headers.hmap -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-project-headers.hmap -F/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator -I/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/include -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources/i386 -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-chyyqmujzdcntlfrdayytolaqisb/Untitled_Prefix.pch -c /Users/Bob/Documents/Untitled/Classes/UntitledAppDelegate.m -o /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/UntitledAppDelegate.o0#
+
+CCompileC build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/main.o /Users/Bob/Documents/Untitled/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s286925529.131499
+e286925529.263160
+r1
+xCompileC
+xbuild/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/main.o
+x/Users/Bob/Documents/Untitled/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@44"Compile /Users/Bob/Documents/Untitled/main.m286925529#286925529#0(0"0(0#0#36"/Users/Bob/Documents/Untitled/main.m4300903632#1778"    cd /Users/Bob/Documents/Untitled    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-generated-files.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-own-target-headers.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-all-target-headers.hmap -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-project-headers.hmap -F/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator -I/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/include -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources/i386 -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-chyyqmujzdcntlfrdayytolaqisb/Untitled_Prefix.pch -c /Users/Bob/Documents/Untitled/main.m -o /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/main.o0#
+
+CCompileXIB /Users/Bob/Documents/Untitled/DetailView.xib
+s286925527.160739
+e286925527.710131
+r1
+xCompileXIB
+x/Users/Bob/Documents/Untitled/DetailView.xib
+lSLF07#2@25"CompileXIB DetailView.xib286925527#286925527#0(0"0(0#0#44"/Users/Bob/Documents/Untitled/DetailView.xib4300903632#454"    cd /Users/Bob/Documents/Untitled    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/DetailView.nib /Users/Bob/Documents/Untitled/DetailView.xib0#
+
+CCompileXIB /Users/Bob/Documents/Untitled/MainWindow.xib
+s286925527.158215
+e286925527.658608
+r1
+xCompileXIB
+x/Users/Bob/Documents/Untitled/MainWindow.xib
+lSLF07#2@25"CompileXIB MainWindow.xib286925527#286925527#0(0"0(0#0#44"/Users/Bob/Documents/Untitled/MainWindow.xib4300903632#454"    cd /Users/Bob/Documents/Untitled    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/MainWindow.nib /Users/Bob/Documents/Untitled/MainWindow.xib0#
+
+CCompileXIB /Users/Bob/Documents/Untitled/MasterView.xib
+s286925920.919397
+e286925922.663312
+r1
+xCompileXIB
+x/Users/Bob/Documents/Untitled/MasterView.xib
+lSLF07#2@25"CompileXIB MasterView.xib286925920#286925922#0(0"0(0#0#44"/Users/Bob/Documents/Untitled/MasterView.xib4300903632#454"    cd /Users/Bob/Documents/Untitled    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/MasterView.nib /Users/Bob/Documents/Untitled/MasterView.xib0#
+
+CGenerateDSYMFile /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app.dSYM /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Untitled
+s286926673.972417
+e286926674.008921
+r1
+xGenerateDSYMFile
+x/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app.dSYM
+x/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Untitled
+lSLF07#2@112"GenerateDSYMFile build/Debug-iphonesimulator/Untitled.app.dSYM build/Debug-iphonesimulator/Untitled.app/Untitled286926673#286926674#0(0"0(0#0#79"/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Untitled4300903632#359"    cd /Users/Bob/Documents/Untitled    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Untitled -o /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app.dSYM0#
+
+CLd /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Untitled normal i386
+s286926673.938957
+e286926673.972295
+r1
+xLd
+x/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Untitled
+xnormal
+xi386
+lSLF07#2@84"Link /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Untitled286926673#286926674#0(0"0(0#0#0"4300903632#822"    cd /Users/Bob/Documents/Untitled    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -L/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator -F/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator -filelist /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Objects-normal/i386/Untitled.LinkFileList -mmacosx-version-min=10.5 -framework Foundation -framework UIKit -framework CoreGraphics -o /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Untitled0#
+
+CProcessInfoPlistFile /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Info.plist Untitled-Info.plist
+s286925527.128442
+e286925527.158094
+r1
+xProcessInfoPlistFile
+x/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Info.plist
+xUntitled-Info.plist
+lSLF07#2@27"Process Untitled-Info.plist286925527#286925527#0(0"0(0#0#49"/Users/Bob/Documents/Untitled/Untitled-Info.plist4300903632#455"    cd /Users/Bob/Documents/Untitled    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility Untitled-Info.plist -genpkginfo /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app/Info.plist0#
+
+CProcessPCH /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-chyyqmujzdcntlfrdayytolaqisb/Untitled_Prefix.pch.gch Untitled_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s286925528.138186
+e286925529.131225
+r1
+xProcessPCH
+x/var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-chyyqmujzdcntlfrdayytolaqisb/Untitled_Prefix.pch.gch
+xUntitled_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@30"Precompile Untitled_Prefix.pch286925528#286925529#0(0"0(0#0#49"/Users/Bob/Documents/Untitled/Untitled_Prefix.pch4300903632#1678"    cd /Users/Bob/Documents/Untitled    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-generated-files.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-own-target-headers.hmap -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-all-target-headers.hmap -iquote /Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/Untitled-project-headers.hmap -F/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator -I/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/include -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources/i386 -I/Users/Bob/Documents/Untitled/build/Untitled.build/Debug-iphonesimulator/Untitled.build/DerivedSources -c /Users/Bob/Documents/Untitled/Untitled_Prefix.pch -o /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-chyyqmujzdcntlfrdayytolaqisb/Untitled_Prefix.pch.gch0#
+
+CTouch /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app
+s286926674.009040
+e286926674.014499
+r1
+xTouch
+x/Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app
+lSLF07#2@76"Touch /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app286926674#286926674#0(0"0(0#0#0"4300903632#261"    cd /Users/Bob/Documents/Untitled    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/Bob/Documents/Untitled/build/Debug-iphonesimulator/Untitled.app0#
+
