@@ -7,32 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D3623260D0F684500981E51 /* UntitledAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* UntitledAppDelegate.m */; };
+		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		2804200B108E984D000629CD /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28042008108E984D000629CD /* MasterViewController.m */; };
-		2804200C108E984D000629CD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2804200A108E984D000629CD /* DetailViewController.m */; };
-		2804203C108E9BAB000629CD /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2804203B108E9BAB000629CD /* DetailView.xib */; };
+		2804200B108E984D000629CD /* SavedSearchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28042008108E984D000629CD /* SavedSearchesViewController.m */; };
+		2804200C108E984D000629CD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2804200A108E984D000629CD /* MainViewController.m */; };
+		2804203C108E9BAB000629CD /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2804203B108E9BAB000629CD /* MainView.xib */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		C49090FB1119F54D007F30BA /* SavedSearchesController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49090FA1119F54D007F30BA /* SavedSearchesController.m */; };
 		C49091071119F99D007F30BA /* SavedSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49091061119F99D007F30BA /* SavedSearchController.m */; };
+		C4D82853111B1DD000947677 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D82852111B1DD000947677 /* Page.m */; };
+		C4D82856111B1DE400947677 /* SavedSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D82855111B1DE400947677 /* SavedSearch.m */; };
 		C4F0B14C1118DF6B0036B900 /* PagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F0B14B1118DF6B0036B900 /* PagesViewController.m */; };
-		C4F0B18B1118E6570036B900 /* MasterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F0B18A1118E6570036B900 /* MasterView.xib */; };
+		C4F0B18B1118E6570036B900 /* SavedSearchesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F0B18A1118E6570036B900 /* SavedSearchesView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* UntitledAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UntitledAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* UntitledAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UntitledAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* Untitled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Untitled.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* InfoNgen Pub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InfoNgen Pub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		28042007108E984D000629CD /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		28042008108E984D000629CD /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		28042009108E984D000629CD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		2804200A108E984D000629CD /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		2804203B108E9BAB000629CD /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		28042007108E984D000629CD /* SavedSearchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedSearchesViewController.h; sourceTree = "<group>"; };
+		28042008108E984D000629CD /* SavedSearchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearchesViewController.m; sourceTree = "<group>"; };
+		28042009108E984D000629CD /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		2804200A108E984D000629CD /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		2804203B108E9BAB000629CD /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* Untitled_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Untitled_Prefix.pch; sourceTree = "<group>"; };
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -42,9 +44,13 @@
 		C49090FA1119F54D007F30BA /* SavedSearchesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearchesController.m; sourceTree = "<group>"; };
 		C49091051119F99D007F30BA /* SavedSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedSearchController.h; sourceTree = "<group>"; };
 		C49091061119F99D007F30BA /* SavedSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearchController.m; sourceTree = "<group>"; };
+		C4D82851111B1DD000947677 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
+		C4D82852111B1DD000947677 /* Page.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page.m; sourceTree = "<group>"; };
+		C4D82854111B1DE400947677 /* SavedSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedSearch.h; sourceTree = "<group>"; };
+		C4D82855111B1DE400947677 /* SavedSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearch.m; sourceTree = "<group>"; };
 		C4F0B14A1118DF6B0036B900 /* PagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagesViewController.h; sourceTree = "<group>"; };
 		C4F0B14B1118DF6B0036B900 /* PagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagesViewController.m; sourceTree = "<group>"; };
-		C4F0B18A1118E6570036B900 /* MasterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MasterView.xib; sourceTree = "<group>"; };
+		C4F0B18A1118E6570036B900 /* SavedSearchesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedSearchesView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,18 +70,22 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1D3623240D0F684500981E51 /* UntitledAppDelegate.h */,
-				1D3623250D0F684500981E51 /* UntitledAppDelegate.m */,
-				28042007108E984D000629CD /* MasterViewController.h */,
-				28042008108E984D000629CD /* MasterViewController.m */,
-				28042009108E984D000629CD /* DetailViewController.h */,
-				2804200A108E984D000629CD /* DetailViewController.m */,
+				1D3623240D0F684500981E51 /* AppDelegate.h */,
+				1D3623250D0F684500981E51 /* AppDelegate.m */,
+				28042007108E984D000629CD /* SavedSearchesViewController.h */,
+				28042008108E984D000629CD /* SavedSearchesViewController.m */,
+				28042009108E984D000629CD /* MainViewController.h */,
+				2804200A108E984D000629CD /* MainViewController.m */,
 				C4F0B14A1118DF6B0036B900 /* PagesViewController.h */,
 				C4F0B14B1118DF6B0036B900 /* PagesViewController.m */,
 				C49090F91119F54D007F30BA /* SavedSearchesController.h */,
 				C49090FA1119F54D007F30BA /* SavedSearchesController.m */,
 				C49091051119F99D007F30BA /* SavedSearchController.h */,
 				C49091061119F99D007F30BA /* SavedSearchController.m */,
+				C4D82851111B1DD000947677 /* Page.h */,
+				C4D82852111B1DD000947677 /* Page.m */,
+				C4D82854111B1DE400947677 /* SavedSearch.h */,
+				C4D82855111B1DE400947677 /* SavedSearch.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -83,7 +93,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* Untitled.app */,
+				1D6058910D05DD3D006BFB54 /* InfoNgen Pub.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,9 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
-				2804203B108E9BAB000629CD /* DetailView.xib */,
+				2804203B108E9BAB000629CD /* MainView.xib */,
 				8D1107310486CEB800E47090 /* Untitled-Info.plist */,
-				C4F0B18A1118E6570036B900 /* MasterView.xib */,
+				C4F0B18A1118E6570036B900 /* SavedSearchesView.xib */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -133,9 +143,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* Untitled */ = {
+		1D6058900D05DD3D006BFB54 /* InfoNgen Pub */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Untitled" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "InfoNgen Pub" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -145,9 +155,9 @@
 			);
 			dependencies = (
 			);
-			name = Untitled;
+			name = "InfoNgen Pub";
 			productName = Untitled;
-			productReference = 1D6058910D05DD3D006BFB54 /* Untitled.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* InfoNgen Pub.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -155,6 +165,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = InfoNgen;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Untitled" */;
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
@@ -169,7 +182,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* Untitled */,
+				1D6058900D05DD3D006BFB54 /* InfoNgen Pub */,
 			);
 		};
 /* End PBXProject section */
@@ -180,8 +193,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
-				2804203C108E9BAB000629CD /* DetailView.xib in Resources */,
-				C4F0B18B1118E6570036B900 /* MasterView.xib in Resources */,
+				2804203C108E9BAB000629CD /* MainView.xib in Resources */,
+				C4F0B18B1118E6570036B900 /* SavedSearchesView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,12 +206,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				1D3623260D0F684500981E51 /* UntitledAppDelegate.m in Sources */,
-				2804200B108E984D000629CD /* MasterViewController.m in Sources */,
-				2804200C108E984D000629CD /* DetailViewController.m in Sources */,
+				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
+				2804200B108E984D000629CD /* SavedSearchesViewController.m in Sources */,
+				2804200C108E984D000629CD /* MainViewController.m in Sources */,
 				C4F0B14C1118DF6B0036B900 /* PagesViewController.m in Sources */,
 				C49090FB1119F54D007F30BA /* SavedSearchesController.m in Sources */,
 				C49091071119F99D007F30BA /* SavedSearchController.m in Sources */,
+				C4D82853111B1DD000947677 /* Page.m in Sources */,
+				C4D82856111B1DE400947677 /* SavedSearch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,8 +230,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Untitled_Prefix.pch;
 				INFOPLIST_FILE = "Untitled-Info.plist";
-				PRODUCT_NAME = Untitled;
+				PRODUCT_NAME = "InfoNgen Pub";
 				TARGETED_DEVICE_FAMILY = 2;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -263,7 +279,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Untitled" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "InfoNgen Pub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,

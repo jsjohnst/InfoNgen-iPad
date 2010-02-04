@@ -19,20 +19,10 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 // The size the view should be when presented in a popover.
 - (CGSize)contentSizeForViewInPopoverView {
     return CGSizeMake(320.0, 600.0);
 }
-
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
     // Return the number of sections.
@@ -62,10 +52,6 @@
     return cell;
 }
 
-
-#pragma mark -
-#pragma mark Table view delegate
-
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     /*
@@ -73,8 +59,6 @@
      */
     //detailViewController.detailItem = [NSString stringWithFormat:@"Row %d", indexPath.row];
 }
-
-
 
 - (void)dealloc {
     [super dealloc];

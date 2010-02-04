@@ -101,7 +101,7 @@
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="2.IBEditorWindowLastContentRect">{{522, 91}, {783, 915}}</string>
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="3.CustomClassName">UntitledAppDelegate</string>
+				<string key="3.CustomClassName">AppDelegate</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
@@ -113,7 +113,21 @@
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
-					<string key="className">DetailViewController</string>
+					<string key="className">AppDelegate</string>
+					<string key="superclassName">NSObject</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="mainViewController">MainViewController</string>
+						<string key="savedSearchesViewController">SavedSearchesViewController</string>
+						<string key="splitViewController">UISplitViewController</string>
+						<string key="window">UIWindow</string>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Classes/AppDelegate.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">MainViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
 						<string key="NS.key.0">showPagesTable:</string>
@@ -125,41 +139,19 @@
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/DetailViewController.h</string>
+						<string key="minorKey">Classes/MainViewController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">MasterViewController</string>
+					<string key="className">SavedSearchesViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="detailViewController">DetailViewController</string>
+						<string key="mainViewController">MainViewController</string>
 						<string key="savedSearchNavController">UINavigationController</string>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/MasterViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">MasterViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBUserSource</string>
-						<string key="minorKey"/>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">UntitledAppDelegate</string>
-					<string key="superclassName">NSObject</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="detailViewController">DetailViewController</string>
-						<string key="masterViewController">MasterViewController</string>
-						<string key="splitViewController">UISplitViewController</string>
-						<string key="window">UIWindow</string>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/UntitledAppDelegate.h</string>
+						<string key="minorKey">Classes/SavedSearchesViewController.h</string>
 					</object>
 				</object>
 			</array>
