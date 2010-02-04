@@ -8,14 +8,22 @@
 
 #import "SavedSearchController.h"
 #import "AppDelegate.h"
+#import "SavedSearch.h"
+#import	"SearchResult.h"
 
 @implementation SavedSearchController
-@synthesize list;
+@synthesize savedSearch;
 
 - (NSInteger)tableView:(UITableView*)tableView
  numberOfRowsInSection:(NSInteger)section{
-	
-	return [self.list count];
+	if(self.savedSearch.items!=nil)
+	{
+		return [self.savedSearch.items count];
+	}
+	else 
+	{
+		return 0;
+	}
 }
 
 - (UITableViewCell * )tableView:(UITableView*)tableView
@@ -26,9 +34,11 @@
 	if(cell==nil){
 		cell=[[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:savedSearchControllerCell] autorelease];
 	}
-	NSUInteger row=[indexPath row];
-	NSString * rowString=[self.list objectAtIndex:row];
-	cell.text=rowString;
+	
+	SearchResult * searchResult=[self.savedSearch.items objectAtIndex:indexPath.row];
+	
+	cell.textLabel.text=[searchResult headline];
+	
 	return cell;
 }
 
@@ -40,28 +50,42 @@
 -(void)tableView:(UITableView*)tableView
 didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	NSUInteger row=[indexPath row];
-	NSString * rowString=[self.list objectAtIndex:row];
-	AppDelegate * delegate=
-	[[UIApplication sharedApplication] delegate];
+	SearchResult * result=[self.savedSearch.items objectAtIndex:indexPath.row];
 	
-	//delegate.detailViewController.title=rowString;
+	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+	
 }
 
 -(void)tableView:(UITableView*)tableView
 accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-	UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"Disclosure Button Pressed" message:@"This is the message" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	SearchResult * result=[self.savedSearch.items objectAtIndex:indexPath.row];
+	
+	UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"Disclosure Button Pressed" message:[result headline] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+
 	[alert show];
 	[alert release];
+}
+
+- (void)updateStart
+{
+	[self.savedSearch update];
+	[self performSelectorOnMainThread:@selector(updateEnd) withObject:nil waitUntilDone:NO];
+}
+
+- (void)updateEnd
+{
+	// reload table...
+	[self.tableView reloadData];
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	
-	NSArray * array=[[NSArray alloc] initWithObjects:@"Headline One",@"Headline Two",nil];
-	self.list=array;
-	[array release];
+	// update in the background...
+	[self performSelectorInBackground:@selector(updateStart) withObject:nil];
+	
+	//[self.savedSearch update];
 	
     [super viewDidLoad];
 }
@@ -81,7 +105,7 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 
 
 - (void)dealloc {
-	[list release];
+	[savedSearch release];
     [super dealloc];
 }
 

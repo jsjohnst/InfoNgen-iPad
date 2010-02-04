@@ -7,16 +7,36 @@
 //
 
 #import "PagesViewController.h"
-
+#import "Page.h"
 
 @implementation PagesViewController
-
+@synthesize pages;
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         // Initialization code
     }
     return self;
+}
+
+- (void)viewDidLoad {
+	
+	NSMutableArray * array=[[NSMutableArray alloc] init];
+	
+	for(int i=0;i<20;i++)
+	{
+		Page * page=[[Page alloc] initWithName:[NSString stringWithFormat:@"Page %d",i]];
+		
+		[array addObject:page];
+		
+		[page release];
+	}
+	
+	self.pages=array;
+	
+	[array release];
+	
+	[super viewDidLoad];
 }
 
 // The size the view should be when presented in a popover.
@@ -32,7 +52,7 @@
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 10;
+    return [pages count];
 }
 
 
@@ -48,19 +68,27 @@
     }
     
     // Get the object to display and set the value in the cell.
-    cell.textLabel.text = [NSString stringWithFormat:@"Page %d", indexPath.row];
+    Page * page=[pages objectAtIndex:indexPath.row];
+	
+	cell.textLabel.text = page.name;
+	
     return cell;
 }
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    /*
-     When a row is selected, set the detail view controller's detail item to the item associated with the selected row.
-     */
-    //detailViewController.detailItem = [NSString stringWithFormat:@"Row %d", indexPath.row];
+
+	NSUInteger row=[indexPath row];
+	Page * page=[self.pages objectAtIndex:row];
+	
+	UIAlertView * alert=[[UIAlertView alloc] initWithTitle:page.name message:@"Page selected" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+	
 }
 
 - (void)dealloc {
+	[pages release];
     [super dealloc];
 }
 

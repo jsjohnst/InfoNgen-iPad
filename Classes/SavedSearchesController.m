@@ -10,21 +10,29 @@
 #import "SavedSearchController.h"
 #import "AppDelegate.h"
 #import "SavedSearchesViewController.h"
+#import "SavedSearch.h"
+
 
 @implementation SavedSearchesController
 @synthesize controllers;
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+	
 	self.title=@"Saved Searches";
+	
 	NSMutableArray *array=[[NSMutableArray alloc] init];
 	
-	for(int i=0;i<10;i++)
+	for(int i=0;i<20;i++)
 	{
 		SavedSearchController *ss=[[SavedSearchController alloc] initWithStyle:UITableViewStylePlain];
-	
+		
+		ss.savedSearch=[[SavedSearch alloc] initWithName:[NSString stringWithFormat:@"Saved Search %d",i] withUrl:@"http://www.infongen.com/ss.rss"];
+		
 		ss.title=[NSString stringWithFormat:@"Saved Search %d",i];
+		
 		[array addObject:ss];
+		
 		[ss release];
 	}
 
@@ -64,9 +72,8 @@
 	if(cell==nil){
 		cell=[[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:rootViewControllerCell] autorelease];
 	}
-	NSUInteger row=[indexPath row];
-	SavedSearchController * controller =	[controllers objectAtIndex:row];
-	cell.text=controller.title;
+	SavedSearchController * controller = [controllers objectAtIndex:indexPath.row];
+	cell.textLabel.text=controller.savedSearch.name;
 	return cell;
 }
 
@@ -79,10 +86,8 @@ accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
 -(void)tableView:(UITableView*)tableView
 didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	NSUInteger row=[indexPath row];
-	SavedSearchController *nextController=[self.controllers objectAtIndex:row];
-	AppDelegate * delegate=
-	[[UIApplication sharedApplication] delegate];
+	SavedSearchController *nextController=[self.controllers objectAtIndex:indexPath.row];
+	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
 	SavedSearchesViewController * savedSearchesViewController=delegate.savedSearchesViewController;
 	UINavigationController * nav = savedSearchesViewController.savedSearchNavController;
 	[nav pushViewController:nextController animated:YES];

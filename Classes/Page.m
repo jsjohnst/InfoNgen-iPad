@@ -11,6 +11,25 @@
 @implementation Page
 @synthesize name,items;
 
+- (id) init
+{
+	return [self initWithName:@"Unknown"];
+}
+
+- (id) initWithName:(NSString *)theName 
+{
+	if(![super init])
+	{
+		return nil;
+	}
+	
+	self.name=theName;
+	self.items=[[NSArray alloc] init];
+	
+	return self;
+}
+
+
 - (void) save
 {
 	// TODO: save this some place

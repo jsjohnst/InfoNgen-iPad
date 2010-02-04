@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SavedSearch.h"
 
 @interface SavedSearchController : UITableViewController<UITableViewDelegate,UITableViewDataSource> {
-	NSArray * list;
+	SavedSearch * savedSearch;
 }
-@property(nonatomic,retain) NSArray *list;
+@property(nonatomic,retain) SavedSearch * savedSearch;
 
 
 @end

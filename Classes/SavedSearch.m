@@ -7,7 +7,7 @@
 //
 
 #import "SavedSearch.h"
-
+#import "SearchResult.h"
 
 @implementation SavedSearch
 @synthesize name,url,items,lastUpdated;
@@ -17,15 +17,15 @@
 	return [self initWithName:@"Unknown" withUrl:@"http://noplace.com"];
 }
 
-- (id) initWithName:(NSString *)name withUrl:(NSString *) url
+- (id) initWithName:(NSString *)theName withUrl:(NSString *) theUrl
 {
 	if(![super init])
 	{
 		return nil;
 	}
 	
-	self.name=name;
-	self.url=url;
+	self.name=theName;
+	self.url=theUrl;
 	self.items=[[NSArray alloc] init];
 	self.lastUpdated=[[NSDate alloc] init];
 	
@@ -34,7 +34,30 @@
 
 - (void) update
 {
-	// TODO: get items from URL... set lastUpdated=now
+	[items release];
+	NSMutableArray * array=[[NSMutableArray alloc] init];
+	
+	int x=0;
+	// create artificial delay...
+	for (int j=0; j<5000000; j++) {
+		x=j*2;
+	}
+	
+	for(int i=0;i<50;i++)
+	{
+		SearchResult * result=[[SearchResult alloc] initWithHeadline:@"This is the headline" withUrl:@"http://www.cnn.com" withSynopsis:@"This is the headline synopsis. It has a few sentences in it.  Here is another one." withDate:[[NSDate alloc] init]];
+	
+		[array addObject:result];
+		
+		[result release];
+	}
+	
+	self.items=array;
+	
+	[array release];
+	
+	[lastUpdated release];
+	lastUpdated=[[NSDate alloc] init];
 }
 
 - (void) dealloc

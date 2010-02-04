@@ -20,6 +20,8 @@
     
     mainViewController = [[MainViewController alloc] initWithNibName:@"MainView" bundle:nil];
 	
+	mainViewController.savedSearchesViewController=savedSearchesViewController;
+	
     savedSearchesViewController.mainViewController = mainViewController;
     
 	// setup a split view with saved searches on the left side and the main view on the right side

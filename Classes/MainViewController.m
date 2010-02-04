@@ -12,7 +12,7 @@
 
 @implementation MainViewController
 
-@synthesize navigationBar,popoverController, detailItem;
+@synthesize navigationBar,popoverController,pagesPopoverController,popoverController2, detailItem,savedSearchesViewController;
 
 /*
  When setting the detail item, update the view and dismiss the popover controller if it's showing.
@@ -32,7 +32,7 @@
 
 - (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc {
     
-    barButtonItem.title = @"Search";
+    barButtonItem.title = @"Searches";
     [navigationBar.topItem setLeftBarButtonItem:barButtonItem animated:YES];
 	
 	self.popoverController = pc;
@@ -54,10 +54,24 @@
 - (IBAction)showPagesTable:(id)sender{
 		
 	PagesViewController *pages=[[PagesViewController alloc] init];
-	UIPopoverController *p=[[UIPopoverController alloc] initWithContentViewController:pages];
-	p.delegate=self;
-	[p presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	// TODO: cache this and reuse it?
+	if (self.pagesPopoverController==nil) {
+		pagesPopoverController=[[UIPopoverController alloc] initWithContentViewController:pages];
+	}
+	
+	pagesPopoverController.delegate=self;
+	[pagesPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 	[pages release];
+}
+
+- (IBAction)showSavedSearches:(id)sender
+{
+	if (self.popoverController2==nil) {
+		self.popoverController2=[[UIPopoverController alloc] initWithContentViewController:savedSearchesViewController];
+	
+	}
+	self.popoverController2.delegate=self;
+	[self.popoverController2 presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)viewDidUnload {
@@ -68,6 +82,8 @@
 
 - (void)dealloc {
     [popoverController release];
+	[popoverController2 release];
+    [pagesPopoverController release];
     [navigationBar release];
     
     [detailItem release];

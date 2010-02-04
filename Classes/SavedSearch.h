@@ -19,6 +19,8 @@
 @property(nonatomic,retain) NSArray * items;
 @property(nonatomic,retain) NSDate * lastUpdated;
 
+- (id) initWithName:(NSString *)theName withUrl:(NSString *) theUrl;
+
 - (void) update;
 
 

@@ -10,7 +10,8 @@
 
 
 @interface PagesViewController : UITableViewController {
-
+	NSArray * pages;
 }
+@property(nonatomic,retain) NSArray * pages;
 
 @end
