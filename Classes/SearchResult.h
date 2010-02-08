@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <Foundation/NSDate.h>
 
 @interface SearchResult : NSObject {
 	NSString * headline;

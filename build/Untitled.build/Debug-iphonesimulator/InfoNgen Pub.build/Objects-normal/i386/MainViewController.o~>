@@ -1,0 +1,2 @@
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m: In function '-[MainViewController tableView:didSelectRowAtIndexPath:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m:171: warning: unused variable 'row'

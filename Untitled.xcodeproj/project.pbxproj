@@ -16,7 +16,11 @@
 		2804203C108E9BAB000629CD /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2804203B108E9BAB000629CD /* MainView.xib */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+		C4158C22112097500070FE54 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4158C21112097500070FE54 /* SearchResultCell.m */; };
+		C4158C24112097710070FE54 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4158C23112097710070FE54 /* SearchResultCell.xib */; };
 		C42DAD09111B4EE2006EEAC3 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C42DAD08111B4EE2006EEAC3 /* SearchResult.m */; };
+		C46EB7231120A42B00FFB032 /* UILabelEx.m in Sources */ = {isa = PBXBuildFile; fileRef = C46EB7221120A42B00FFB032 /* UILabelEx.m */; };
+		C46EB7D51120C35200FFB032 /* NewPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46EB7D41120C35200FFB032 /* NewPage.xib */; };
 		C49090FB1119F54D007F30BA /* SavedSearchesController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49090FA1119F54D007F30BA /* SavedSearchesController.m */; };
 		C49091071119F99D007F30BA /* SavedSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49091061119F99D007F30BA /* SavedSearchController.m */; };
 		C4D82853111B1DD000947677 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D82852111B1DD000947677 /* Page.m */; };
@@ -41,8 +45,14 @@
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Untitled-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Untitled-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		C4158C20112097500070FE54 /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
+		C4158C21112097500070FE54 /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
+		C4158C23112097710070FE54 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		C42DAD07111B4EE2006EEAC3 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
 		C42DAD08111B4EE2006EEAC3 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+		C46EB7211120A42B00FFB032 /* UILabelEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelEx.h; sourceTree = "<group>"; };
+		C46EB7221120A42B00FFB032 /* UILabelEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelEx.m; sourceTree = "<group>"; };
+		C46EB7D41120C35200FFB032 /* NewPage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPage.xib; sourceTree = "<group>"; };
 		C49090F91119F54D007F30BA /* SavedSearchesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedSearchesController.h; sourceTree = "<group>"; };
 		C49090FA1119F54D007F30BA /* SavedSearchesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearchesController.m; sourceTree = "<group>"; };
 		C49091051119F99D007F30BA /* SavedSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedSearchController.h; sourceTree = "<group>"; };
@@ -91,6 +101,10 @@
 				C4D82855111B1DE400947677 /* SavedSearch.m */,
 				C42DAD07111B4EE2006EEAC3 /* SearchResult.h */,
 				C42DAD08111B4EE2006EEAC3 /* SearchResult.m */,
+				C4158C20112097500070FE54 /* SearchResultCell.h */,
+				C4158C21112097500070FE54 /* SearchResultCell.m */,
+				C46EB7211120A42B00FFB032 /* UILabelEx.h */,
+				C46EB7221120A42B00FFB032 /* UILabelEx.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -131,6 +145,8 @@
 				2804203B108E9BAB000629CD /* MainView.xib */,
 				8D1107310486CEB800E47090 /* Untitled-Info.plist */,
 				C4F0B18A1118E6570036B900 /* SavedSearchesView.xib */,
+				C4158C23112097710070FE54 /* SearchResultCell.xib */,
+				C46EB7D41120C35200FFB032 /* NewPage.xib */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -200,6 +216,8 @@
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				2804203C108E9BAB000629CD /* MainView.xib in Resources */,
 				C4F0B18B1118E6570036B900 /* SavedSearchesView.xib in Resources */,
+				C4158C24112097710070FE54 /* SearchResultCell.xib in Resources */,
+				C46EB7D51120C35200FFB032 /* NewPage.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +238,8 @@
 				C4D82853111B1DD000947677 /* Page.m in Sources */,
 				C4D82856111B1DE400947677 /* SavedSearch.m in Sources */,
 				C42DAD09111B4EE2006EEAC3 /* SearchResult.m in Sources */,
+				C4158C22112097500070FE54 /* SearchResultCell.m in Sources */,
+				C46EB7231120A42B00FFB032 /* UILabelEx.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

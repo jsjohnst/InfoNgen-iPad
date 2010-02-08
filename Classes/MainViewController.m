@@ -10,26 +10,17 @@
 #import "SavedSearchesViewController.h"
 #import "PagesViewController.h"
 #import "Page.h"
+#import "SearchResultCell.h"
+#import "SearchResult.h"
 
 @implementation MainViewController
 
 @synthesize page,pageTableView,navigationBar,popoverController,pagesPopoverController,popoverController2,savedSearchesViewController;
 
-/*
- When setting the detail item, update the view and dismiss the popover controller if it's showing.
- */
-/*- (void)setDetailItem:(id)newDetailItem {
-    if (detailItem != newDetailItem) {
-        [detailItem release];
-        detailItem = [newDetailItem retain];
-        
-        navigationBar.topItem.title = [detailItem description];
-    }
-
-    if (popoverController != nil) {
-        [popoverController dismissPopoverAnimated:YES];
-    }        
-}*/
+- (IBAction)newPage:(id)sender
+{
+	
+}
 
 - (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc {
     
@@ -44,7 +35,6 @@
 	self.page=thePage;
 	
 	navigationBar.topItem.title=thePage.name;
-	//self.title=thePage.name;
 	
 	[pagesPopoverController dismissPopoverAnimated:YES];
 	
@@ -53,21 +43,8 @@
 
 - (void)renderPage
 {
-	//[pageTableView release];
 	[pageTableView reloadData];
-	
-	/*if(self.page!=nil)
-	{
-		//[self.view subview
-		//pageTableView=[[UITableView alloc] init];
-		//pageTableView.delegate=self;
-		//pageTableView.dataSource=self;
-		
-		//[self.view addSubview:pageTableView];
-		//[pageTableView release];
-	}*/
 }
-
 
 // Called when the view is shown again in the split view, invalidating the button and popover controller.
 - (void)splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
@@ -84,11 +61,9 @@
 - (IBAction)showPagesTable:(id)sender{
 		
 	PagesViewController *pages=[[PagesViewController alloc] init];
-	// TODO: cache this and reuse it?
 	if (self.pagesPopoverController==nil) {
 		pagesPopoverController=[[UIPopoverController alloc] initWithContentViewController:pages];
 	}
-	
 	pagesPopoverController.delegate=self;
 	[pagesPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 	[pages release];
@@ -98,18 +73,20 @@
 {
 	if (self.popoverController2==nil) {
 		self.popoverController2=[[UIPopoverController alloc] initWithContentViewController:savedSearchesViewController];
-	
 	}
 	self.popoverController2.delegate=self;
 	[self.popoverController2 presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
+- (IBAction) toggleEditPage
+{
+	[self.pageTableView setEditing:!self.pageTableView.editing animated:YES];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
     // Return the number of sections.
     return 1;
 }
-
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
@@ -122,45 +99,84 @@
 		return [self.page.items count];
 	}
 }
-
-
+- (void) setWidth:(id)obj width:(CGFloat)width
+{
+	CGRect rect=[obj frame];
+	CGSize size=rect.size;
+	size.width=width;
+	rect.size=size;
+	[obj setFrame:rect];
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-	static NSString *CellIdentifier = @"CellIdentifier";
+	static NSString *CellIdentifier = @"SearchResultCellIdentifier";
 	
-	// Dequeue or create a cell of the appropriate type.
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	SearchResultCell *cell = (SearchResultCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
-	cell.textLabel.text =[[self.page.items objectAtIndex:indexPath.row] description];
+    	NSArray * nib=[[NSBundle mainBundle] loadNibNamed:@"SearchResultCell" owner:self options:nil];
+		
+		cell=[nib objectAtIndex:0];
 	
-    // Get the object to display and set the value in the cell.
-    //Page * page=[pages objectAtIndex:indexPath.row];
+		[self setWidth:cell width:796];
+		[self setWidth:cell.headlineLabel width:700];
+		[self setWidth:cell.synopsisLabel width:700];
+		[self setWidth:cell.dateLabel width:700];
+	}
 	
-	//cell.textLabel.text = page.name;
+	SearchResult * result=(SearchResult *)[self.page.items objectAtIndex:indexPath.row];
 	
+	cell.headlineLabel.text=[result headline];
+	cell.dateLabel.text=[[result date] description];
+	cell.synopsisLabel.text=[result synopsis];
+		
     return cell;
 }
 
-- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (CGFloat)tableView:(UITableView*)tableView
+heightForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+	return 80;
+}
+
+- (BOOL) tableView:(UITableView*)tableView
+canMoveRowAtIndexPath:(NSIndexPath*)indexPath
+{
+	return YES;
+}
+
+- (void)tableView:(UITableView*)tableView 
+moveRowAtIndexPath:(NSIndexPath*)fromIndexPath
+toIndexPath:(NSIndexPath*)toIndexPath
+{
+	NSUInteger fromRow=[fromIndexPath row];
+	NSUInteger toRow=[toIndexPath row];
 	
+	 id object=[[self.page.items objectAtIndex:fromRow] retain];
+	 [self.page.items removeObjectAtIndex:fromRow];
+	 [self.page.items insertObject:object atIndex:toRow];
+	 [object release];
+}
+	 
+- (void) tableView:(UITableView*)tableView
+	 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+	 forRowAtIndexPath:(NSIndexPath*)indexPath
+{
+	NSUInteger row=[indexPath	row];
+	[self.page.items removeObjectAtIndex:row];
+	[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+		
+- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
+{
 	NSUInteger row=[indexPath row];
 	
 	UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"Selected page item" message:@"Page item selected" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	 [alert show];
 	 [alert release];
-	 
 }
-
-
 
 - (void)viewDidUnload {
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
     self.popoverController = nil;
 }
 
@@ -170,8 +186,7 @@
     [pagesPopoverController release];
     [navigationBar release];
 	[pageTableView release];
-    
-    //[detailItem release];
+    [page release];
     [super dealloc];
 }
 

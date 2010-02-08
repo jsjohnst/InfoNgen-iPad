@@ -38,5 +38,7 @@
 - (void)renderPage;
 - (IBAction)showPagesTable:(id)sender;
 - (IBAction)showSavedSearches:(id)sender;
+- (IBAction) toggleEditPage;
+- (IBAction) newPage:(id)sender;
 
 @end

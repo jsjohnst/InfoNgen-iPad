@@ -39,7 +39,7 @@
 	
 	int x=0;
 	// create artificial delay...
-	for (int j=0; j<5000000; j++) {
+	for (int j=0; j<500000000; j++) {
 		x=j*2;
 	}
 	
