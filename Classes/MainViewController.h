@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @class SavedSearchesViewController;
+@class Page;
 
-@interface MainViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> {
+@interface MainViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate,UITableViewDelegate,UITableViewDataSource> {
     
     UIPopoverController *popoverController;
 	UIPopoverController *popoverController2;
@@ -18,7 +19,9 @@
 	
     UINavigationBar *navigationBar;
     SavedSearchesViewController * savedSearchesViewController;
-    id detailItem;
+	Page * page;
+	UITableView * pageTableView;
+    //id detailItem;
 }
 
 @property (nonatomic, retain) UIPopoverController *popoverController;
@@ -27,8 +30,12 @@
 
 @property(nonatomic,retain) SavedSearchesViewController * savedSearchesViewController;
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
-@property (nonatomic, retain) id detailItem;
+@property (nonatomic,retain) IBOutlet UITableView *pageTableView;
+//@property (nonatomic, retain) id detailItem;
+@property (nonatomic,retain) Page * page;
 
+- (void)setCurrentPage:(Page*)thePage;
+- (void)renderPage;
 - (IBAction)showPagesTable:(id)sender;
 - (IBAction)showSavedSearches:(id)sender;
 

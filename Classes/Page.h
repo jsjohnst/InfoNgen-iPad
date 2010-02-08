@@ -10,10 +10,10 @@
 
 @interface Page : NSObject {
 	NSString * name;
-	NSArray * items;
+	NSMutableArray * items;
 }
 @property(nonatomic,retain) NSString * name;
-@property(nonatomic,retain) NSArray * items;
+@property(nonatomic,retain) NSMutableArray * items;
 
 - (void) save;
 

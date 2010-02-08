@@ -1,7 +1,7 @@
 TInfoNgen Pub
 v7
 r0
-t287009174.054650
+t287342077.863627
 cCheck dependencies
 cProcessInfoPlistFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/Info.plist" Untitled-Info.plist
 cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/MainWindow.xib
@@ -12,13 +12,13 @@ cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects
 cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/MainViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/PagesViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Page.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearch.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearch.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResult.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SearchResult.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub_vers.o" "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c" normal i386 c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/PagesViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cLd "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" normal i386
 cGenerateDSYMFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"
 cTouch "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app"
@@ -59,57 +59,60 @@ t1263337616
 s6682
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.h
-c000000004B6AEFF0000000000000031E
-t1265299440
+c000000004B702EE7000000000000031E
+t1265643239
 s798
 i<UIKit/UIKit.h>
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m
-c000000004B6AFA6E0000000000000625
-t1265302126
+c000000004B702EE70000000000000625
+t1265643239
 s1573
 i"AppDelegate.h"
 i"SavedSearchesViewController.h"
 i"MainViewController.h"
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.h
-c000000004B6B0076000000000000043C
-t1265303670
-s1084
+c000000004B704233000000000000054A
+t1265648179
+s1354
 i<UIKit/UIKit.h>
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m
-c000000004B6B00C50000000000000BFA
-t1265303749
-s3066
+c000000004B7046630000000000001428
+t1265649251
+s5160
 i"MainViewController.h"
 i"SavedSearchesViewController.h"
 i"PagesViewController.h"
+i"Page.h"
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.h
-c000000004B6AE7910000000000000178
-t1265297297
-s376
+c000000004B7043D50000000000000186
+t1265648597
+s390
 i<Foundation/Foundation.h>
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m
-c000000004B6B2040000000000000026E
-t1265311808
-s622
+c000000004B7043D70000000000000275
+t1265648599
+s629
 i"Page.h"
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.h
-c000000004B6B203E0000000000000127
-t1265311806
+c000000004B702EE70000000000000127
+t1265643239
 s295
 i<UIKit/UIKit.h>
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m
-c000000004B6B20CE00000000000008E7
-t1265311950
-s2279
+c000000004B70466800000000000009E1
+t1265649256
+s2529
 i"PagesViewController.h"
 i"Page.h"
+i"MainViewController.h"
+i"AppDelegate.h"
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearch.h
 c000000004B6B1BA30000000000000230
@@ -132,23 +135,25 @@ i<UIKit/UIKit.h>
 i"SavedSearch.h"
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m
-c000000004B6B31560000000000000B0E
-t1265316182
-s2830
+c000000004B7044180000000000000C88
+t1265648664
+s3208
 i"SavedSearchController.h"
 i"AppDelegate.h"
 i"SavedSearch.h"
 i"SearchResult.h"
+i"MainViewController.h"
+i"Page.h"
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.h
-c000000004B69BFA20000000000000169
-t1265221538
+c000000004B702EE70000000000000169
+t1265643239
 s361
 i<UIKit/UIKit.h>
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.m
-c000000004B6B2C7B0000000000000AEC
-t1265314939
+c000000004B702EE70000000000000AEC
+t1265643239
 s2796
 i"SavedSearchesController.h"
 i"SavedSearchController.h"
@@ -157,14 +162,14 @@ i"SavedSearchesViewController.h"
 i"SavedSearch.h"
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesViewController.h
-c000000004B6AEF910000000000000212
-t1265299345
+c000000004B702EE70000000000000212
+t1265643239
 s530
 i<UIKit/UIKit.h>
 
 N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesViewController.m
-c000000004B6AF3150000000000000373
-t1265300245
+c000000004B702EE70000000000000373
+t1265643239
 s883
 i"SavedSearchesViewController.h"
 i"MainViewController.h"
@@ -187,9 +192,9 @@ t1265309409
 s1705
 
 N/Users/Bob/Documents/InfoNgen-Publisher/MainView.xib
-c000000004B6AFC99000000000000736D
-t1265302681
-s29549
+c000000004B7045070000000000007E46
+t1265648903
+s32326
 
 N/Users/Bob/Documents/InfoNgen-Publisher/MainWindow.xib
 c000000004B6AF03E0000000000004988
@@ -210,11 +215,11 @@ i<Foundation/Foundation.h>
 i<UIKit/UIKit.h>
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app
-t1265316374
+t1265649277
 s306
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM
-t1265316374
+t1265649277
 s102
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/Icon.png
@@ -226,12 +231,12 @@ t1265309474
 s611
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub
-t1265316373
-s53148
+t1265649277
+s58516
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/MainView.nib
-t1265309475
-s2070
+t1265648910
+s2316
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/MainWindow.nib
 t1265309475
@@ -255,8 +260,8 @@ t1265309474
 s202
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o
-t1265309477
-s47136
+t1265648185
+s47172
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub.LinkFileList
 c000000004B6B20470000000000000606
@@ -268,32 +273,32 @@ t1265309476
 s2144
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/MainViewController.o
-t1265311816
-s47216
+t1265649274
+s59584
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Page.o
-t1265311816
-s10764
+t1265648610
+s10860
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/PagesViewController.o
-t1265311957
-s44520
+t1265649277
+s45236
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearch.o
 t1265316373
 s14336
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o
-t1265316185
-s53076
+t1265648665
+s54016
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesController.o
-t1265314944
+t1265643239
 s51816
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesViewController.o
-t1265309477
-s38164
+t1265648185
+s38200
 
 N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResult.o
 t1265311988
@@ -329,11 +334,11 @@ s909
 
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies287009173#287009173#0(0"0(0#1#0"4300903632#0"0#
+lSLF07#2@18"Check dependencies287342073#287342073#0(0"0(0#1#0"4300903632#0"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s287002276.993114
-e287002277.085362
+s287340985.367927
+e287340985.466760
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o
@@ -342,7 +347,7 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@69"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m287002276#287002277#0(0"0(0#0#61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m4300903632#1968"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o"0#
+lSLF07#2@69"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m287340985#287340985#0(0"0(0#0#61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m4300903632#1968"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub_vers.o" "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c" normal i386 c com.apple.compilers.gcc.4_2
 s287002276.913291
@@ -358,8 +363,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@144"Compile /Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c287002276#287002276#0(0"0(0#0#136"/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c4300903632#1869"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -c "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c" -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub_vers.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/MainViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s287004616.003083
-e287004616.135215
+s287342073.391629
+e287342074.294101
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/MainViewController.o
@@ -368,11 +373,13 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@76"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m287004616#287004616#0(0"0(0#0#68"/Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m4300903632#1982"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/MainViewController.o"0#
+o/Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m: In function '-[MainViewController tableView:didSelectRowAtIndexPath:]':
+o/Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m:151: warning: unused variable 'row'
+lSLF07#2@76"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m287342073#287342074#0(247"/Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m: In function '-[MainViewController tableView:didSelectRowAtIndexPath:]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m:151: warning: unused variable 'row'1(22@21"Unused variable 'row'287342074#142#105#0(6@68"/Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m287342051#151#0#151#0#19"unused variable '*'0(0#0#68"/Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m4300903632#1982"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/MainViewController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Page.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s287004616.394678
-e287004616.562493
+s287341410.655497
+e287341410.745316
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Page.o
@@ -386,11 +393,11 @@ o/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:16: warning: 'Page' may 
 o/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:16: warning: (Messages without a matching method signature
 o/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:16: warning: will be assumed to return 'id' and accept
 o/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:16: warning: '...' as arguments.)
-lSLF07#2@62"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m287004616#287004616#0(508"/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m: In function '-[Page init]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:16: warning: 'Page' may not respond to '-initWithName:'/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:16: warning: (Messages without a matching method signature/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:16: warning: will be assumed to return 'id' and accept/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:16: warning: '...' as arguments.)2(22@42"'Page' may not respond to '-initWithName:'287004616#84#111#0(6@54"/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m287004608#16#0#16#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)287004616#195#114#0(6@54"/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m287004608#16#0#16#0#0"0(0#0#54"/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m4300903632#1954"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Page.o"0#
+lSLF07#2@62"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m287341410#287341410#0(508"/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m: In function '-[Page init]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:16: warning: 'Page' may not respond to '-initWithName:'/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:16: warning: (Messages without a matching method signature/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:16: warning: will be assumed to return 'id' and accept/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:16: warning: '...' as arguments.)2(22@42"'Page' may not respond to '-initWithName:'287341410#84#111#0(6@54"/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m287341399#16#0#16#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)287341410#195#114#0(6@54"/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m287341399#16#0#16#0#0"0(0#0#54"/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m4300903632#1954"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Page.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/PagesViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s287004757.772130
-e287004757.973742
+s287342074.294231
+e287342077.757812
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/PagesViewController.o
@@ -400,11 +407,11 @@ xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
 o/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m: In function '-[PagesViewController initWithFrame:]':
-o/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:16: warning: 'UITableViewController' may not respond to '-initWithFrame:'
-o/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:16: warning: (Messages without a matching method signature
-o/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:16: warning: will be assumed to return 'id' and accept
-o/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:16: warning: '...' as arguments.)
-lSLF07#2@77"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m287004757#287004758#0(626"/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m: In function '-[PagesViewController initWithFrame:]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:16: warning: 'UITableViewController' may not respond to '-initWithFrame:'/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:16: warning: (Messages without a matching method signature/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:16: warning: will be assumed to return 'id' and accept/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:16: warning: '...' as arguments.)2(22@60"'UITableViewController' may not respond to '-initWithFrame:'287004757#124#144#0(6@69"/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m287004750#16#0#16#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)287004757#268#129#0(6@69"/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m287004750#16#0#16#0#0"0(0#0#69"/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m4300903632#1984"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/PagesViewController.o"0#
+o/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:18: warning: 'UITableViewController' may not respond to '-initWithFrame:'
+o/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:18: warning: (Messages without a matching method signature
+o/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:18: warning: will be assumed to return 'id' and accept
+o/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:18: warning: '...' as arguments.)
+lSLF07#2@77"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m287342074#287342077#0(626"/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m: In function '-[PagesViewController initWithFrame:]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:18: warning: 'UITableViewController' may not respond to '-initWithFrame:'/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:18: warning: (Messages without a matching method signature/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:18: warning: will be assumed to return 'id' and accept/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m:18: warning: '...' as arguments.)2(22@60"'UITableViewController' may not respond to '-initWithFrame:'287342077#124#144#0(6@69"/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m287342056#18#0#18#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)287342077#268#129#0(6@69"/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m287342056#18#0#18#0#0"0(0#0#69"/Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m4300903632#1984"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/PagesViewController.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/PagesViewController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearch.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearch.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s287009173.595123
@@ -420,8 +427,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@69"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearch.m287009173#287009173#0(0"0(0#0#61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearch.m4300903632#1968"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearch.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearch.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s287008985.217952
-e287008985.432297
+s287341465.069088
+e287341465.484205
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o
@@ -431,9 +438,9 @@ xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
 o/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m: In function '-[SavedSearchController tableView:didSelectRowAtIndexPath:]':
-o/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m:55: warning: unused variable 'delegate'
-o/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m:53: warning: unused variable 'result'
-lSLF07#2@79"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m287008985#287008985#0(370"/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m: In function '-[SavedSearchController tableView:didSelectRowAtIndexPath:]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m:55: warning: unused variable 'delegate'/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m:53: warning: unused variable 'result'2(22@26"Unused variable 'delegate'287008985#148#112#0(6@71"/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m287008982#55#0#55#0#19"unused variable '*'0(22@24"Unused variable 'result'287008985#260#110#0(6@71"/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m287008982#53#0#53#0#19"unused variable '*'0(0#0#71"/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m4300903632#1988"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o"0#
+o/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m:57: warning: unused variable 'delegate'
+o/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m:55: warning: unused variable 'result'
+lSLF07#2@79"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m287341465#287341465#0(370"/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m: In function '-[SavedSearchController tableView:didSelectRowAtIndexPath:]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m:57: warning: unused variable 'delegate'/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m:55: warning: unused variable 'result'2(22@26"Unused variable 'delegate'287341465#148#112#0(6@71"/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m287341464#57#0#57#0#19"unused variable '*'0(22@24"Unused variable 'result'287341465#260#110#0(6@71"/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m287341464#55#0#55#0#19"unused variable '*'0(0#0#71"/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m4300903632#1988"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s287007744.189033
@@ -449,8 +456,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@81"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.m287007744#287007744#0(0"0(0#0#73"/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.m4300903632#1992"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s287002277.085504
-e287002277.185173
+s287340985.466898
+e287340985.558833
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesViewController.o
@@ -459,7 +466,7 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@85"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesViewController.m287002277#287002277#0(0"0(0#0#77"/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesViewController.m4300903632#2000"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesViewController.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesViewController.o"0#
+lSLF07#2@85"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesViewController.m287340985#287340985#0(0"0(0#0#77"/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesViewController.m4300903632#2000"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesViewController.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesViewController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResult.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SearchResult.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s287004788.444626
@@ -489,14 +496,12 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@54"Compile /Users/Bob/Documents/InfoNgen-Publisher/main.m287002276#287002276#0(0"0(0#0#46"/Users/Bob/Documents/InfoNgen-Publisher/main.m4300903632#1946"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cvjnnkgsrmqyrietxrtekrvnydio/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/main.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/main.o"0#
 
 CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/MainView.xib
-s287002274.455961
-e287002275.553047
+s287341708.980339
+e287341710.258581
 r1
 xCompileXIB
 x/Users/Bob/Documents/InfoNgen-Publisher/MainView.xib
-o2010-02-04 13:51:15.232 Interface Builder Cocoa Touch Tool[12928:903] CFPreferences: user home directory at /Users/Bob/Library/Application Support/iPhone Simulator/User is unavailable. User domains will be volatile.
-o2010-02-04 13:51:15.467 Interface Builder Cocoa Touch Tool[12930:903] CFPreferences: user home directory at /Users/Bob/Library/Application Support/iPhone Simulator/User is unavailable. User domains will be volatile.
-lSLF07#2@23"CompileXIB MainView.xib287002274#287002275#0(432"2010-02-04 13:51:15.232 Interface Builder Cocoa Touch Tool[12928:903] CFPreferences: user home directory at /Users/Bob/Library/Application Support/iPhone Simulator/User is unavailable. User domains will be volatile.2010-02-04 13:51:15.467 Interface Builder Cocoa Touch Tool[12930:903] CFPreferences: user home directory at /Users/Bob/Library/Application Support/iPhone Simulator/User is unavailable. User domains will be volatile.0(0#0#52"/Users/Bob/Documents/InfoNgen-Publisher/MainView.xib4300903632#486"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/MainView.nib" /Users/Bob/Documents/InfoNgen-Publisher/MainView.xib0#
+lSLF07#2@23"CompileXIB MainView.xib287341708#287341710#0(0"0(0#0#52"/Users/Bob/Documents/InfoNgen-Publisher/MainView.xib4300903632#486"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/MainView.nib" /Users/Bob/Documents/InfoNgen-Publisher/MainView.xib0#
 
 CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/MainWindow.xib
 s287002274.433071
@@ -536,23 +541,23 @@ xicon.png
 lSLF07#2@13"Copy icon.png287000997#287000997#0(0"0(0#0#48"/Users/Bob/Documents/InfoNgen-Publisher/icon.png4300903632#462"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/Bob/Documents/InfoNgen-Publisher/icon.png "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app"0#
 
 CGenerateDSYMFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"
-s287009173.893689
-e287009174.050867
+s287342077.810336
+e287342077.859374
 r1
 xGenerateDSYMFile
 x/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM
 x/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub
-lSLF07#2@128"GenerateDSYMFile "build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"287009173#287009174#0(0"0(0#0#97"/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub4300903632#405"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM"0#
+lSLF07#2@128"GenerateDSYMFile "build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"287342077#287342077#0(0"0(0#0#97"/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub4300903632#405"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM"0#
 
 CLd "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" normal i386
-s287009173.781646
-e287009173.893553
+s287342077.758063
+e287342077.810173
 r1
 xLd
 x/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub
 xnormal
 xi386
-lSLF07#2@102"Link /Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub287009173#287009173#0(0"0(0#0#0"4300903632#892"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -L/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -filelist "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub.LinkFileList" -mmacosx-version-min=10.5 -framework Foundation -framework UIKit -framework CoreGraphics -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"0#
+lSLF07#2@102"Link /Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub287342077#287342077#0(0"0(0#0#0"4300903632#892"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -L/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -filelist "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub.LinkFileList" -mmacosx-version-min=10.5 -framework Foundation -framework UIKit -framework CoreGraphics -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"0#
 
 CProcessInfoPlistFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/Info.plist" Untitled-Info.plist
 s287002274.406504
@@ -590,10 +595,10 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@30"Precompile Untitled_Prefix.pch286993425#286993427#0(0"0(0#0#59"/Users/Bob/Documents/InfoNgen-Publisher/Untitled_Prefix.pch4300903632#1830"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -c /Users/Bob/Documents/InfoNgen-Publisher/Untitled_Prefix.pch -o /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-ewxbgoqlwnqntrbwnwmhmbjxpmtz/Untitled_Prefix.pch.gch0#
 
 CTouch "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app"
-s287009174.050987
-e287009174.054587
+s287342077.859487
+e287342077.863569
 r1
 xTouch
 x/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app
-lSLF07#2@90"Touch /Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app287009174#287009174#0(0"0(0#0#0"4300903632#287"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app"0#
+lSLF07#2@90"Touch /Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app287342077#287342077#0(0"0(0#0#0"4300903632#287"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app"0#
 

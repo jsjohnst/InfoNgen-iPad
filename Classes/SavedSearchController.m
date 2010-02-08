@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "SavedSearch.h"
 #import	"SearchResult.h"
+#import "MainViewController.h"
+#import "Page.h"
 
 @implementation SavedSearchController
 @synthesize savedSearch;
@@ -61,10 +63,24 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
 	SearchResult * result=[self.savedSearch.items objectAtIndex:indexPath.row];
 	
-	UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"Disclosure Button Pressed" message:[result headline] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	// add to current page...
+	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+	MainViewController * mainViewController=delegate.mainViewController;
+	Page * page=mainViewController.page;
+	if(page!=nil)
+	{
+		[page.items addObject:result];
+		[mainViewController renderPage];
+	}
+	else {
+		UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"No current page" message:@"Please select a page to add headlines to" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 
-	[alert show];
-	[alert release];
+		[alert show];
+		[alert release];
+	}
+
+	 
+	
 }
 
 - (void)updateStart

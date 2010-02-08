@@ -8,6 +8,8 @@
 
 #import "PagesViewController.h"
 #import "Page.h"
+#import "MainViewController.h"
+#import "AppDelegate.h"
 
 @implementation PagesViewController
 @synthesize pages;
@@ -79,11 +81,17 @@
     
 
 	NSUInteger row=[indexPath row];
+	
 	Page * page=[self.pages objectAtIndex:row];
 	
-	UIAlertView * alert=[[UIAlertView alloc] initWithTitle:page.name message:@"Page selected" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-	[alert show];
-	[alert release];
+	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+	MainViewController * mainViewController=delegate.mainViewController;
+	
+	[mainViewController setCurrentPage:page];
+	
+	//UIAlertView * alert=[[UIAlertView alloc] initWithTitle:page.name message:@"Page selected" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	//[alert show];
+	//[alert release];
 	
 }
 

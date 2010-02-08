@@ -24,7 +24,7 @@
 	}
 	
 	self.name=theName;
-	self.items=[[NSArray alloc] init];
+	self.items=[[NSMutableArray alloc] init];
 	
 	return self;
 }
