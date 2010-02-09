@@ -29,6 +29,29 @@
 	return self;
 }
 
+- (void)encodeWithCoder:(NSCoder*)encoder
+{
+	[encoder encodeObject:name forKey:@"name"];
+	[encoder encodeObject:items forKey:@"items"];
+}
+
+- (id)initWithCoder:(NSCoder*)decoder
+{
+	if(self==[super init])
+	{
+		self.name=[decoder decodeObjectForKey:@"name"];
+		self.items=[decoder decodeObjectForKey:@"items"];
+	}
+	return self;
+}
+
+-(id)copyWithZone:(NSZone*)zone
+{
+	Page * copy=[[[self class] allocWithZone:zone] init];
+	copy.name=[self.name copy];
+	copy.items=[self.items copy];
+	return copy;
+}
 
 - (void) save
 {

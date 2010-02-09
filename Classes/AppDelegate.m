@@ -12,10 +12,13 @@
 
 @implementation AppDelegate
 
-@synthesize window,splitViewController, savedSearchesViewController, mainViewController;
+@synthesize pages,savedSearches,window,splitViewController, savedSearchesViewController, mainViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
+	// get archived state...
+	[self loadArchivedData];
+	
 	savedSearchesViewController = [[SavedSearchesViewController alloc] initWithNibName:@"SavedSearchesView" bundle:nil];
     
     mainViewController = [[MainViewController alloc] initWithNibName:@"MainView" bundle:nil];
@@ -36,13 +39,78 @@
     return YES;
 }
 
+- (NSString *)dataFilePath
+{
+	NSArray * paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString * documentsDirectory = [paths objectAtIndex:0];
+	return [documentsDirectory stringByAppendingPathComponent:@"archive"];
+}
+
+- (void) loadArchivedData
+{
+	NSData * data =[[NSMutableData alloc]
+					initWithContentsOfFile:[self dataFilePath]];
+	
+	NSKeyedUnarchiver * unarchiver = [[NSKeyedUnarchiver alloc]
+									  initForReadingWithData:data];
+	
+	pages=[unarchiver decodeObjectForKey:@"pages"];
+	
+	savedSearches=[unarchiver decodeObjectForKey:@"savedSearches"];
+	
+	if(pages==nil)
+	{
+		pages=[[NSMutableArray alloc] init];
+	}
+	if(savedSearches==nil)
+	{
+		savedSearches=[[NSMutableArray alloc] init];
+	}
+	
+	[unarchiver finishDecoding];
+	
+	[unarchiver	release];
+	
+	[data release];
+}
+
+- (void) saveData
+{
+	if(pages!=nil || savedSearches!=nil)
+	{
+		NSMutableData * data=[[NSMutableData alloc] init];
+		
+		NSKeyedArchiver * archiver=[[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+		
+		if(pages!=nil)
+		{
+			[archiver encodeObject:pages forKey:@"pages"];
+		}
+		if(savedSearches!=nil)
+		{
+			[archiver encodeObject:savedSearches forKey:@"savedSearches"];
+		}
+		
+		[archiver finishEncoding];
+		
+		[data writeToFile:[self dataFilePath] atomically:YES];
+		
+		[archiver release];
+		
+		[data release];
+	}
+}
+
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Save data if appropriate
+	[self saveData];
 }
 
 - (void)dealloc {
     [splitViewController release];
     [window release];
+	[pages release];
+	[savedSearches release];
     [super dealloc];
 }
 

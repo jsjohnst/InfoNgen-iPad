@@ -10,28 +10,30 @@
 
 @class SavedSearchesViewController;
 @class Page;
+@class PagesViewController;
 
 @interface MainViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate,UITableViewDelegate,UITableViewDataSource> {
     
     UIPopoverController *popoverController;
 	UIPopoverController *popoverController2;
 	UIPopoverController *pagesPopoverController;
-	
-    UINavigationBar *navigationBar;
+	PagesViewController *pagesViewController;
+	IBOutlet UIView * newPageView;
+	UINavigationBar *navigationBar;
     SavedSearchesViewController * savedSearchesViewController;
 	Page * page;
 	UITableView * pageTableView;
-    //id detailItem;
+    IBOutlet UITextField * pageName;
 }
-
+@property (nonatomic,retain) IBOutlet UIView * newPageView;
+@property(nonatomic,retain) IBOutlet UITextField * pageName;
+@property (nonatomic,retain) PagesViewController * pagesViewController;
 @property (nonatomic, retain) UIPopoverController *popoverController;
 @property (nonatomic, retain) UIPopoverController *popoverController2;
 @property (nonatomic, retain) UIPopoverController *pagesPopoverController;
-
 @property(nonatomic,retain) SavedSearchesViewController * savedSearchesViewController;
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
 @property (nonatomic,retain) IBOutlet UITableView *pageTableView;
-//@property (nonatomic, retain) id detailItem;
 @property (nonatomic,retain) Page * page;
 
 - (void)setCurrentPage:(Page*)thePage;
@@ -40,5 +42,7 @@
 - (IBAction)showSavedSearches:(id)sender;
 - (IBAction) toggleEditPage;
 - (IBAction) newPage:(id)sender;
+- (IBAction) createNewPage:(id)sender;
+- (IBAction) cancelNewPage:(id)sender;
 
 @end

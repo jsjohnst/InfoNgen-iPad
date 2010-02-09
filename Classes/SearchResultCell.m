@@ -8,7 +8,6 @@
 
 #import "SearchResultCell.h"
 
-
 @implementation SearchResultCell
 
 @synthesize headlineLabel,synopsisLabel,dateLabel;
@@ -19,7 +18,6 @@
     }
     return self;
 }
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
 

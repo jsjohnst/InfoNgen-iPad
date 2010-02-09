@@ -42,7 +42,6 @@
 		NSArray * nib=[[NSBundle mainBundle] loadNibNamed:@"SearchResultCell" owner:self options:nil];
 		
 		cell=[nib objectAtIndex:0];
-		
 	}
 	
 	SearchResult * searchResult=[self.savedSearch.items objectAtIndex:indexPath.row];
@@ -79,9 +78,7 @@ didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 		[alert release];
 	}
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	
 }
-
 
 - (CGFloat)tableView:(UITableView*)tableView
 heightForRowAtIndexPath:(NSIndexPath*)indexPath
@@ -103,7 +100,8 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 		[page.items addObject:result];
 		[mainViewController renderPage];
 	}
-	else {
+	else 
+	{
 		UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"No current page" message:@"Please select a page to add headlines to" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 
 		[alert show];

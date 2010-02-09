@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Foundation/NSDate.h>
 
-@interface SearchResult : NSObject {
+@interface SearchResult : NSObject  <NSCoding, NSCopying> {
 	NSString * headline;
 	NSString * url;
 	NSString * synopsis;

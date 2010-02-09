@@ -18,11 +18,19 @@
     UISplitViewController *splitViewController;
     SavedSearchesViewController *savedSearchesViewController;
     MainViewController *mainViewController;
+	NSMutableArray * pages;
+	NSMutableArray * savedSearches;
 }
 
+@property (retain) NSMutableArray * pages;
+@property (retain) NSMutableArray * savedSearches;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic,retain) IBOutlet UISplitViewController *splitViewController;
 @property (nonatomic,retain) IBOutlet SavedSearchesViewController *savedSearchesViewController;
 @property (nonatomic,retain) IBOutlet MainViewController *mainViewController;
+
+- (NSString *)dataFilePath;
+- (void) loadArchivedData;
+- (void) saveData;
 
 @end

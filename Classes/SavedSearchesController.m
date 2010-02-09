@@ -19,22 +19,40 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	
-	self.title=@"Saved Searches";
+	self.title=@"Searches";
 	
 	NSMutableArray *array=[[NSMutableArray alloc] init];
 	
-	for(int i=0;i<20;i++)
+	// get saved searches from delegate...
+	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+	
+	if([delegate.savedSearches count]==0)
+	{
+		// add some test objects...
+		for(int i=0;i<20;i++)
+		{
+			SavedSearch * savedSearch=[[SavedSearch alloc] initWithName:[NSString stringWithFormat:@"Saved Search %d",i] withUrl:@"http://www.infongen.com/ss.rss"];
+			
+			[delegate.savedSearches addObject:savedSearch];
+			
+			[savedSearch release];
+		}
+	}
+	
+	for (int i=0; i<[delegate.savedSearches count]; i++) 
 	{
 		SavedSearchController *ss=[[SavedSearchController alloc] initWithStyle:UITableViewStylePlain];
+					
+		SavedSearch * savedSearch=[delegate.savedSearches objectAtIndex:i];
 		
-		ss.savedSearch=[[SavedSearch alloc] initWithName:[NSString stringWithFormat:@"Saved Search %d",i] withUrl:@"http://www.infongen.com/ss.rss"];
-		
-		ss.title=[NSString stringWithFormat:@"Saved Search %d",i];
+		ss.savedSearch=savedSearch;
+		//ss.title=savedSearch.name;
 		
 		[array addObject:ss];
 		
 		[ss release];
 	}
+	
 
 	self.controllers=array;
 	[array release];
@@ -50,8 +68,6 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)dealloc {

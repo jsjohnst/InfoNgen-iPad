@@ -8,14 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Page : NSObject {
+@interface Page : NSObject <NSCoding, NSCopying>{
 	NSString * name;
 	NSMutableArray * items;
 }
 @property(nonatomic,retain) NSString * name;
-@property(nonatomic,retain) NSMutableArray * items;
-
-- (void) save;
+@property(retain) NSMutableArray * items;
+ - (void) save;
 
 - (void) delete;
 

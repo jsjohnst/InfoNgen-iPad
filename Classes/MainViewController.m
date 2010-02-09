@@ -12,14 +12,49 @@
 #import "Page.h"
 #import "SearchResultCell.h"
 #import "SearchResult.h"
+#import "AppDelegate.h"
 
 @implementation MainViewController
 
-@synthesize page,pageTableView,navigationBar,popoverController,pagesPopoverController,popoverController2,savedSearchesViewController;
+@synthesize page,pageName,pagesViewController,newPageView,pageTableView,navigationBar,popoverController,pagesPopoverController,popoverController2,savedSearchesViewController;
+
+- (void)viewDidLoad {
+	pagesViewController=[[PagesViewController alloc] init];	
+	// get pages from delegate...
+	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+
+	pagesViewController.pages=delegate.pages;
+}
 
 - (IBAction)newPage:(id)sender
 {
+	[pageTableView addSubview:newPageView];
+}
+
+- (IBAction) createNewPage:(id)sender
+{
+	NSString * name=pageName.text;
 	
+	if ([name length] > 0) {
+		
+		//pagesViewController.pages
+		Page * newPage=[[Page alloc] initWithName:name];
+		if (pagesViewController.pages==nil) {
+			NSMutableArray * a=[[NSMutableArray alloc]init];
+			pagesViewController.pages=a;
+			[a release];
+		}
+		[pagesViewController.pages addObject:newPage];
+		[self setCurrentPage:newPage];
+		[newPage release];
+	}
+	
+	[newPageView removeFromSuperview];
+}
+
+- (IBAction) cancelNewPage:(id)sender
+{
+	[newPageView removeFromSuperview];
 }
 
 - (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc {
@@ -59,14 +94,11 @@
 }
 
 - (IBAction)showPagesTable:(id)sender{
-		
-	PagesViewController *pages=[[PagesViewController alloc] init];
 	if (self.pagesPopoverController==nil) {
-		pagesPopoverController=[[UIPopoverController alloc] initWithContentViewController:pages];
+		pagesPopoverController=[[UIPopoverController alloc] initWithContentViewController:pagesViewController];
 	}
 	pagesPopoverController.delegate=self;
 	[pagesPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-	[pages release];
 }
 
 - (IBAction)showSavedSearches:(id)sender
@@ -168,8 +200,6 @@ toIndexPath:(NSIndexPath*)toIndexPath
 		
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	NSUInteger row=[indexPath row];
-	
 	UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"Selected page item" message:@"Page item selected" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	 [alert show];
 	 [alert release];
@@ -183,9 +213,11 @@ toIndexPath:(NSIndexPath*)toIndexPath
 - (void)dealloc {
     [popoverController release];
 	[popoverController2 release];
+	[newPageView release];
     [pagesPopoverController release];
     [navigationBar release];
 	[pageTableView release];
+	[PagesViewController release];
     [page release];
     [super dealloc];
 }

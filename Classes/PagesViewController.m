@@ -22,24 +22,9 @@
 }
 
 - (void)viewDidLoad {
-	
-	NSMutableArray * array=[[NSMutableArray alloc] init];
-	
-	for(int i=0;i<20;i++)
-	{
-		Page * page=[[Page alloc] initWithName:[NSString stringWithFormat:@"Page %d",i]];
-		
-		[array addObject:page];
-		
-		[page release];
-	}
-	
-	self.pages=array;
-	
-	[array release];
-	
 	[super viewDidLoad];
 }
+
 
 // The size the view should be when presented in a popover.
 - (CGSize)contentSizeForViewInPopoverView {
@@ -77,22 +62,14 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-
-	NSUInteger row=[indexPath row];
-	
-	Page * page=[self.pages objectAtIndex:row];
+- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+	Page * page=[self.pages objectAtIndex:indexPath.row];
 	
 	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
 	MainViewController * mainViewController=delegate.mainViewController;
 	
 	[mainViewController setCurrentPage:page];
-	
-	//UIAlertView * alert=[[UIAlertView alloc] initWithTitle:page.name message:@"Page selected" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-	//[alert show];
-	//[alert release];
-	
 }
 
 - (void)dealloc {

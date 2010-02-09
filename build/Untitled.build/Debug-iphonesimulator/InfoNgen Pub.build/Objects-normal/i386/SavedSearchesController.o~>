@@ -1,7 +1,0 @@
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.m:17: error: no declaration of property 'savedSearches' found in the interface
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.m: In function '-[SavedSearchesController viewDidLoad]':
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.m:26: error: 'savedSearches' undeclared (first use in this function)
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.m:26: error: (Each undeclared identifier is reported only once
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.m:26: error: for each function it appears in.)
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.m: In function '-[SavedSearchesController dealloc]':
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesController.m:59: error: 'savedSearches' undeclared (first use in this function)
