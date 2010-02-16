@@ -9,15 +9,28 @@
 #import "AppDelegate.h"
 #import "SavedSearchesViewController.h"
 #import "MainViewController.h"
+#import "LoginTicket.h"
 
 @implementation AppDelegate
 
-@synthesize pages,savedSearches,window,splitViewController, savedSearchesViewController, mainViewController;
+@synthesize pages,loginTicket,progressView,savedSearches,window,splitViewController, savedSearchesViewController, mainViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
 	// get archived state...
 	[self loadArchivedData];
+	
+	// get login ticket
+	NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+	
+	NSString * username=[defaults objectForKey:@"username"];
+	NSString * password=[defaults objectForKey:@"password"];
+	
+	// TODO: when first run, make user register username/password?
+	
+	if(username==nil) username=@"bob.stewart@ii";
+	if(password==nil) password=@"Welcome01";
+	
 	
 	savedSearchesViewController = [[SavedSearchesViewController alloc] initWithNibName:@"SavedSearchesView" bundle:nil];
     
@@ -34,9 +47,35 @@
     
     // Add the split view controller's view to the window and display.
     [window addSubview:splitViewController.view];
-    [window makeKeyAndVisible];
     
+	progressView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [progressView setCenter:CGPointMake(368.0f, 498.0f)];
+    [progressView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+    [progressView startAnimating];
+	
+
+	// add progress indicator so we can login and get login ticket and load users saved searches, etc.
+	[splitViewController.view addSubview:progressView];
+	
+	[window makeKeyAndVisible];
+    
+	// TODO: make spinner in middle of screen regardless of orientation...
+	
+	self.loginTicket=[[LoginTicket alloc] initWithUsername:username password:password delegate:self];
+	
+	
     return YES;
+}
+
+// Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	return YES;
+}
+
+- (void)loginTicketDidFinish:(LoginTicket*)ticket
+{
+	[progressView stopAnimating];
+	[progressView removeFromSuperview];
 }
 
 - (NSString *)dataFilePath
@@ -54,9 +93,9 @@
 	NSKeyedUnarchiver * unarchiver = [[NSKeyedUnarchiver alloc]
 									  initForReadingWithData:data];
 	
-	pages=[unarchiver decodeObjectForKey:@"pages"];
+	self.pages=[unarchiver decodeObjectForKey:@"pages"];
 	
-	savedSearches=[unarchiver decodeObjectForKey:@"savedSearches"];
+	self.savedSearches=[unarchiver decodeObjectForKey:@"savedSearches"];
 	
 	if(pages==nil)
 	{
@@ -111,6 +150,8 @@
     [window release];
 	[pages release];
 	[savedSearches release];
+	[progressView release];
+	[loginTicket release];
     [super dealloc];
 }
 

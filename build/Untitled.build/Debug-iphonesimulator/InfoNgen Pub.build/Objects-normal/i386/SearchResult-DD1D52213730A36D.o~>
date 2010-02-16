@@ -1,0 +1,5 @@
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m: In function '-[SearchResult init]':
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:17: warning: 'SearchResult' may not respond to '-initWithHeadline:withUrl:withSynopsis:withDate:'
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:17: warning: (Messages without a matching method signature
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:17: warning: will be assumed to return 'id' and accept
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:17: warning: '...' as arguments.)
