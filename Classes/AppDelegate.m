@@ -10,6 +10,8 @@
 #import "SavedSearchesViewController.h"
 #import "MainViewController.h"
 #import "LoginTicket.h"
+#import "SearchClient.h"
+#import "SavedSearch.h"
 
 @implementation AppDelegate
 
@@ -23,14 +25,19 @@
 	// get login ticket
 	NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
 	
+	NSString * server=[defaults objectForKey:@"server"];
 	NSString * username=[defaults objectForKey:@"username"];
 	NSString * password=[defaults objectForKey:@"password"];
 	
 	// TODO: when first run, make user register username/password?
+	if(server==nil) server="http://sa.infongen.com";
 	
 	if(username==nil) username=@"bob.stewart@ii";
 	if(password==nil) password=@"Welcome01";
 	
+	SearchClient * client=[[SearchClient alloc] initWithServer:server withUsername:username withPassword:password];
+	
+	self.savedSearches=[client getSavedSearchesForUser:username password:password];
 	
 	savedSearchesViewController = [[SavedSearchesViewController alloc] initWithNibName:@"SavedSearchesView" bundle:nil];
     
@@ -48,21 +55,23 @@
     // Add the split view controller's view to the window and display.
     [window addSubview:splitViewController.view];
     
-	progressView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
-    [progressView setCenter:CGPointMake(368.0f, 498.0f)];
-    [progressView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
-    [progressView startAnimating];
+	///progressView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    //[progressView setCenter:CGPointMake(368.0f, 498.0f)];
+    //[progressView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+    //[progressView startAnimating];
 	
 
 	// add progress indicator so we can login and get login ticket and load users saved searches, etc.
-	[splitViewController.view addSubview:progressView];
+	//[splitViewController.view addSubview:progressView];
 	
 	[window makeKeyAndVisible];
     
 	// TODO: make spinner in middle of screen regardless of orientation...
 	
-	self.loginTicket=[[LoginTicket alloc] initWithUsername:username password:password delegate:self];
+	self.loginTicket=[[LoginTicket alloc] initWithUsername:username password:password];
 	
+	//[progressView stopAnimating];
+	//[progressView removeFromSuperview];
 	
     return YES;
 }
@@ -71,12 +80,12 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return YES;
 }
-
+/*
 - (void)loginTicketDidFinish:(LoginTicket*)ticket
 {
 	[progressView stopAnimating];
 	[progressView removeFromSuperview];
-}
+}*/
 
 - (NSString *)dataFilePath
 {
@@ -95,16 +104,16 @@
 	
 	self.pages=[unarchiver decodeObjectForKey:@"pages"];
 	
-	self.savedSearches=[unarchiver decodeObjectForKey:@"savedSearches"];
+	//self.savedSearches=[unarchiver decodeObjectForKey:@"savedSearches"];
 	
 	if(pages==nil)
 	{
 		pages=[[NSMutableArray alloc] init];
 	}
-	if(savedSearches==nil)
-	{
-		savedSearches=[[NSMutableArray alloc] init];
-	}
+	//if(savedSearches==nil)
+	/////{
+	//	savedSearches=[[NSMutableArray alloc] init];
+	//}
 	
 	[unarchiver finishDecoding];
 	
@@ -125,10 +134,10 @@
 		{
 			[archiver encodeObject:pages forKey:@"pages"];
 		}
-		if(savedSearches!=nil)
-		{
-			[archiver encodeObject:savedSearches forKey:@"savedSearches"];
-		}
+		//if(savedSearches!=nil)
+		///{
+		////	[archiver encodeObject:savedSearches forKey:@"savedSearches"];
+		//}
 		
 		[archiver finishEncoding];
 		
@@ -150,7 +159,7 @@
     [window release];
 	[pages release];
 	[savedSearches release];
-	[progressView release];
+	//[progressView release];
 	[loginTicket release];
     [super dealloc];
 }

@@ -26,7 +26,7 @@
 	// get saved searches from delegate...
 	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
 	
-	if([delegate.savedSearches count]==0)
+	/*if([delegate.savedSearches count]==0)
 	{
 		// add some test objects...
 		for(int i=0;i<20;i++)
@@ -37,7 +37,7 @@
 			
 			[savedSearch release];
 		}
-	}
+	}*/
 	
 	for (int i=0; i<[delegate.savedSearches count]; i++) 
 	{

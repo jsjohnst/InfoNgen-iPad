@@ -13,6 +13,8 @@
 #import "FacetField.h"
 #import "FacetValue.h"
 #import "Base64.h"
+#import "LoginTicket.h"
+#import "SavedSearch.h"
 
 @implementation SearchClient
 @synthesize serverUrl,username,password;
@@ -42,6 +44,67 @@
 	return [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 }
 
+
+- (NSArray*) getSavedSearchesForUser:(NSString*)username password:(NSString*)password
+{
+	NSMutableArray * searches=[[NSMutableArray alloc] init];
+	
+	LoginTicket * ticket=[[LoginTicket alloc] initWithUsername:username password:password];
+	
+	NSURL * url=[NSURL URLWithString:@"http://www.infongen.com/DynamicDataProcessor.aspx?page=ManageSearches"];
+	
+	
+	NSMutableURLRequest * request=[NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
+	
+	[request setHTTPMethod:@"POST"];
+	
+	[request addValue:@"ExecuteCommand (*)" forHTTPHeaderField:@"mAction"];
+	[request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+	[request addValue:[NSString stringWithFormat:@"iiAuth=%@",ticket.ticket] forHTTPHeaderField:@"Cookie"];
+	
+	
+	NSString *post = @"ctltype=InfoNgen.TouchPoint.Modules.Common.Search.AllSavedSearches&mname=Common.AllSavedSearches&prntid=_cc_ctl18n_c&xml=true";
+	
+	NSLog(post);
+	
+	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+	
+	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+	
+	[request addValue:postLength forHTTPHeaderField:@"Content-Length"];
+	
+	[request setHTTPBody:postData];
+		
+	NSURLResponse * response=NULL;
+	
+	NSData * data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];	
+	
+	if(data)
+	{
+		CXMLDocument *xmlParser = [[[CXMLDocument alloc] initWithData:data options:0 error:nil] autorelease];
+		
+		NSArray * searchItems = [xmlParser nodesForXPath:@"//SearchItem" error:nil];
+		
+		// Loop through the resultNodes to access each items actual data
+		for (CXMLElement *searchItem in searchItems) {
+			// <SearchItem index="4"><PageId>Feeds</PageId><ID>241052525</ID><Title>Microsoft</Title><AlrId>0</AlrId></SearchItem>
+			NSString * ID=[[[searchItem elementsForName:@"ID"] objectAtIndex:0] stringValue];
+			NSString * Title=[[[searchItem elementsForName:@"Title"] objectAtIndex:0] stringValue];
+			
+			SavedSearch * savedSearch=[[SavedSearch alloc] initWithName:Title withID:ID withUrl:[NSString stringWithFormat:@"http://rss.infongen.com/search.rss?name=%@",Title]];
+			
+			[searches addObject:savedSearch];
+			
+			[savedSearch release];
+	
+		}
+	}
+	
+	[ticket release];
+	
+	return searches;
+	
+}
 
 - (SearchResults *) search:(SearchArguments *) args
 {

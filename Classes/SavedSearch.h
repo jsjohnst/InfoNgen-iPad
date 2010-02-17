@@ -10,16 +10,19 @@
 
 @interface SavedSearch : NSObject <NSCoding, NSCopying>{
 	NSString * name;
+	NSString * ID;
 	NSString * url;
 	NSMutableArray * items;
 	NSDate * lastUpdated;
 }
 @property(nonatomic,retain) NSString * name;
+@property(nonatomic,retain) NSString * ID;
+
 @property(nonatomic,retain) NSString * url;
 @property(retain) NSMutableArray * items;
 @property(nonatomic,retain) NSDate * lastUpdated;
 
-- (id) initWithName:(NSString *)theName withUrl:(NSString *) theUrl;
+- (id) initWithName:(NSString *)theName withID:(NSString*) theID withUrl:(NSString *) theUrl;
 
 - (void) update;
 

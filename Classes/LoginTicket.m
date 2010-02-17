@@ -22,7 +22,74 @@
 	//return [result autorelease];
 }
 
-- (id) initWithUsername:(NSString *)username password:(NSString *) password delegate:(id)delegate
+- (id) initWithUsername:(NSString *)username password:(NSString *) password
+{
+	if(![super init])
+	{
+		return nil;
+	}
+	
+	self.ticket=nil;
+	
+	NSURL * URL=[NSURL URLWithString:@"http://www.infongen.com/loginsm.aspx"];
+	
+	
+	NSMutableURLRequest * request=[NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
+	
+	[request setHTTPMethod:@"POST"];
+	
+	[request addValue:@"www.infongen.com" forHTTPHeaderField:@"Host"];
+	[request addValue:@"Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US; rv:1.9.0.17) Gecko/2009122116 Firefox/3.0.17 (.NET CLR 3.5.30729)" forHTTPHeaderField:@"User-Agent"];
+	[request addValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
+	[request addValue:@"http://www.infongen.com/loginsm.aspx" forHTTPHeaderField:@"Referer"];
+	[request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+	
+	NSString *post = [NSString stringWithFormat:@"AuthenticationErrorGuid=18fa53a074934c938c49e35dbcf62324&__VIEWSTATE=%@&btn=SignIn&userLogin=%@&userPassword=%@", 
+					  [self urlEncodeValue:@"/wEPDwUJMTQ2OTM0MDA0ZGTK/OdHxdKPVviHT6StBiN8J/jusQ=="],
+					  [self urlEncodeValue:username],					  
+					  [self urlEncodeValue:password]
+					  ];
+	
+	NSLog(post);
+	
+	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+	
+	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+	
+	[request addValue:postLength forHTTPHeaderField:@"Content-Length"];
+	
+	[request setHTTPBody:postData];
+	
+	NSURLResponse * response=NULL;
+	
+	NSData * data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+	
+	NSHTTPCookieStorage * cookieStorage=[NSHTTPCookieStorage sharedHTTPCookieStorage];
+	
+	NSArray * cookies=[cookieStorage cookiesForURL:URL];
+	
+	for(int i=0;i<[cookies count];i++)
+	{
+		NSHTTPCookie * cookie=[cookies objectAtIndex:i];
+		if([cookie.name isEqualToString:@"iiAuth"])
+		{
+			NSLog(@"ticket=%@",cookie.value);
+			
+			self.ticket=cookie.value;
+			break;
+		}
+	}
+	
+	if(!self.ticket)
+	{
+		NSLog(@"Failed to get login cookie!");
+	}
+
+	
+	return self;
+	
+}
+- (id) initAsyncWithUsername:(NSString *)username password:(NSString *) password delegate:(id)delegate
 {
 	if(![super init])
 	{
