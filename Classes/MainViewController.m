@@ -139,6 +139,12 @@
 	rect.size=size;
 	[obj setFrame:rect];
 }
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+	[self.pageTableView reloadData];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	static NSString *CellIdentifier = @"SearchResultCellIdentifier";
@@ -148,18 +154,55 @@
     	NSArray * nib=[[NSBundle mainBundle] loadNibNamed:@"SearchResultCell" owner:self options:nil];
 		
 		cell=[nib objectAtIndex:0];
-	
-		[self setWidth:cell width:796];
-		[self setWidth:cell.headlineLabel width:700];
-		[self setWidth:cell.synopsisLabel width:700];
-		[self setWidth:cell.dateLabel width:700];
 	}
+		int cellWidth=768;
+		int textWidth=700;
+		
+		// 1024x768
+		// in portrait view we have full width for table (768 wide)
+		// in landscape we have 1024 - 320 = 704 wide
+		switch([self interfaceOrientation])
+		{
+			case UIInterfaceOrientationPortrait:
+			case UIInterfaceOrientationPortraitUpsideDown:
+				cellWidth=768;
+				textWidth=700;
+				break;
+			case UIInterfaceOrientationLandscapeLeft:
+			case UIInterfaceOrientationLandscapeRight:
+				cellWidth=704;
+				textWidth=640;
+				break;
+			default:
+				break;
+		}
+		
+		[self setWidth:cell width:cellWidth];
+		[self setWidth:cell.headlineLabel width:textWidth];
+		[self setWidth:cell.synopsisLabel width:textWidth];
+		[self setWidth:cell.dateLabel width:textWidth];
+	//}
 	
 	SearchResult * result=(SearchResult *)[self.page.items objectAtIndex:indexPath.row];
 	
 	cell.headlineLabel.text=[result headline];
 	cell.dateLabel.text=[[result date] description];
 	cell.synopsisLabel.text=[result synopsis];
+	
+	/*NSString * text=result.synopsis;
+	
+	if(text!=nil && [text length]>0)
+	{
+		CGSize constraint = CGSizeMake(700.0f, 20000.0f);
+	
+		CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:12.0f] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+	
+		CGFloat height = MIN(MAX(size.height, 60.0f),250.0f);
+	 
+		[cell.synopsisLabel setFrame:CGRectMake(10.0f, 10.0f, textWidth, MIN(MAX(size.height, 40.0f),200.0f))];
+		
+	}	*/
+	
 		
     return cell;
 }
@@ -168,6 +211,26 @@
 heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	return 80;
+	
+	// get size of synopsis...
+	/*SearchResult * result=(SearchResult *)[self.page.items objectAtIndex:indexPath.row];
+	
+	NSString * text=result.synopsis;
+	
+	if(text==nil || [text length]==0)
+	{
+		return 80;
+	}
+	else {
+	
+		CGSize constraint = CGSizeMake(700.0f, 20000.0f);
+	
+		CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:12.0f] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+	
+		CGFloat height = MIN(MAX(size.height, 60.0f),250.0f);
+	
+		return height + 20.0f;
+	}*/
 }
 
 - (BOOL) tableView:(UITableView*)tableView

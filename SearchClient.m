@@ -45,14 +45,13 @@
 }
 
 
-- (NSArray*) getSavedSearchesForUser:(NSString*)username password:(NSString*)password
+- (NSMutableArray*) getSavedSearchesForUser
 {
 	NSMutableArray * searches=[[NSMutableArray alloc] init];
 	
-	LoginTicket * ticket=[[LoginTicket alloc] initWithUsername:username password:password];
+	LoginTicket * ticket=[[LoginTicket alloc] initWithUsername:self.username password:self.password];
 	
 	NSURL * url=[NSURL URLWithString:@"http://www.infongen.com/DynamicDataProcessor.aspx?page=ManageSearches"];
-	
 	
 	NSMutableURLRequest * request=[NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
 	
@@ -92,6 +91,9 @@
 			NSString * Title=[[[searchItem elementsForName:@"Title"] objectAtIndex:0] stringValue];
 			
 			SavedSearch * savedSearch=[[SavedSearch alloc] initWithName:Title withID:ID withUrl:[NSString stringWithFormat:@"http://rss.infongen.com/search.rss?name=%@",Title]];
+			
+			savedSearch.username=self.username;
+			savedSearch.password=self.password;
 			
 			[searches addObject:savedSearch];
 			

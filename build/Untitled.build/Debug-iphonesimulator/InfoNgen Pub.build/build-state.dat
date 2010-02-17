@@ -1,7 +1,7 @@
 TInfoNgen Pub
 v7
 r0
-t288067142.714553
+t288143097.109225
 cCheck dependencies
 cProcessInfoPlistFile "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/Info.plist" Untitled-Info.plist
 cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/MainWindow.xib
@@ -42,6 +42,7 @@ cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects
 cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResult.o" /Users/bstewart/Documents/InfoNgen-iPad/SearchResult.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResults.o" /Users/bstewart/Documents/InfoNgen-iPad/SearchResults.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/LoginTicket.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UserSettings.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/UserSettings.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub_vers.o" "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c" normal i386 c com.apple.compilers.gcc.4_2
 cLd "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" normal i386
 cGenerateDSYMFile "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"
@@ -236,32 +237,33 @@ i<libxml/xpath.h>
 i<libxml/xpathInternals.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.h
-c000000004B7B3BCF00000000000004D4
-t1266367439
-s1236
+c000000004B7C0D2D0000000000000417
+t1266421037
+s1047
 i<UIKit/UIKit.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m
-c000000004B7B5019000000000000135C
-t1266372633
-s4956
+c000000004B7C1C140000000000000DAE
+t1266424852
+s3502
 i"AppDelegate.h"
 i"SavedSearchesViewController.h"
 i"MainViewController.h"
 i"LoginTicket.h"
 i"SearchClient.h"
 i"SavedSearch.h"
+i"UserSettings.h"
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.h
-c000000004B7B44510000000000000234
-t1266369617
-s564
+c000000004B7C0D2D00000000000001B6
+t1266421037
+s438
 i<Foundation/Foundation.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m
-c000000004B7B56980000000000001ABE
-t1266374296
-s6846
+c000000004B7C19EA0000000000000C5C
+t1266424298
+s3164
 i"LoginTicket.h"
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.h
@@ -271,9 +273,9 @@ s1752
 i<UIKit/UIKit.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m
-c000000004B79EDEA0000000000001994
-t1266281962
-s6548
+c000000004B7C7F780000000000001FEB
+t1266450296
+s8171
 i"MainViewController.h"
 i"SavedSearchesViewController.h"
 i"PagesViewController.h"
@@ -310,15 +312,15 @@ i"MainViewController.h"
 i"AppDelegate.h"
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.h
-c000000004B7B4C00000000000000029E
-t1266371584
-s670
+c000000004B7C18BD0000000000000330
+t1266423997
+s816
 i<Foundation/Foundation.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m
-c000000004B7B56C600000000000013A9
-t1266374342
-s5033
+c000000004B7C19EA000000000000102C
+t1266424298
+s4140
 i"SavedSearch.h"
 i"SearchResult.h"
 i"Base64.h"
@@ -332,9 +334,9 @@ i<UIKit/UIKit.h>
 i"SavedSearch.h"
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchController.m
-c000000004B79EDEA0000000000000FD0
-t1266281962
-s4048
+c000000004B7C03E7000000000000101F
+t1266418663
+s4127
 i"SavedSearchController.h"
 i"AppDelegate.h"
 i"SavedSearch.h"
@@ -350,9 +352,9 @@ s361
 i<UIKit/UIKit.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchesController.m
-c000000004B7B50170000000000000C3B
-t1266372631
-s3131
+c000000004B7C05C20000000000000AF6
+t1266419138
+s2806
 i"SavedSearchesController.h"
 i"SavedSearchController.h"
 i"AppDelegate.h"
@@ -403,6 +405,18 @@ c000000004B79EDEA0000000000000598
 t1266281962
 s1432
 i"UILabelEx.h"
+
+N/Users/bstewart/Documents/InfoNgen-iPad/Classes/UserSettings.h
+c000000004B7C18BD0000000000000145
+t1266423997
+s325
+i<Foundation/Foundation.h>
+
+N/Users/bstewart/Documents/InfoNgen-iPad/Classes/UserSettings.m
+c000000004B7C18FB000000000000056B
+t1266424059
+s1387
+i"UserSettings.h"
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Creation/CXMLDocument_CreationExtensions.h
 c000000004B7B3BCF0000000000000814
@@ -513,17 +527,17 @@ s2363
 i"SearchArguments.h"
 
 N/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.h
-c000000004B7B44510000000000000329
-t1266369617
-s809
+c000000004B7C0D2D00000000000002FF
+t1266421037
+s767
 i<Foundation/Foundation.h>
 i"SearchResults.h"
 i"SearchArguments.h"
 
 N/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m
-c000000004B7B4E910000000000001EE2
-t1266372241
-s7906
+c000000004B7C18BD0000000000001F12
+t1266423997
+s7954
 i"SearchClient.h"
 i"TouchXML.h"
 i"SearchResults.h"
@@ -604,20 +618,20 @@ i<Foundation/Foundation.h>
 i<UIKit/UIKit.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app
-t1266374342
-s374
+t1266450297
+s408
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM
-t1266374342
+t1266450297
 s102
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/Info.plist
-t1266367799
-s611
+t1266440898
+s818
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub
-t1266374342
-s145676
+t1266450297
+s140672
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/MainView.nib
 t1266367799
@@ -632,7 +646,7 @@ t1266367800
 s2280
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/PkgInfo
-t1266367799
+t1266440898
 s8
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/SavedSearchesView.nib
@@ -647,14 +661,18 @@ N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pu
 t1266367800
 s170
 
+N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/icon.png
+t1266420088
+s2505
+
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c
 c000000004B7B3D3700000000000000CA
 t1266367799
 s202
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o
-t1266372643
-s59468
+t1266424852
+s56688
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Base64.o
 t1266367802
@@ -713,48 +731,48 @@ t1266367802
 s11552
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub.LinkFileList
-c000000004B7B3D3700000000000011A0
-t1266367799
-s4512
+c000000004B7C18C10000000000001229
+t1266424001
+s4649
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub_vers.o
 t1266367802
 s2144
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/LoginTicket.o
-t1266374299
-s24288
+t1266424300
+s16148
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/MainViewController.o
-t1266367801
-s74928
+t1266450297
+s75220
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Page.o
 t1266367801
 s13664
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/PagesViewController.o
-t1266367801
-s45556
+t1266421042
+s45084
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearch.o
-t1266374342
-s28792
+t1266424300
+s25892
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o
-t1266371584
-s57248
+t1266424001
+s57276
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesController.o
-t1266372643
-s52764
+t1266424001
+s52432
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesViewController.o
 t1266367801
 s38976
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Search.o
-t1266369617
+t1266421042
 s13324
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchArguments.o
@@ -762,8 +780,8 @@ t1266367802
 s13956
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchClient.o
-t1266372242
-s34900
+t1266424001
+s35140
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResult.o
 t1266367802
@@ -781,9 +799,18 @@ N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimula
 t1266367801
 s13124
 
+N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UserSettings.o
+t1266424064
+s9712
+
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/main.o
 t1266367801
 s5944
+
+N/Users/bstewart/Documents/InfoNgen-iPad/icon.png
+c000000004B6EC36B00000000000009C9
+t1265550187
+s2505
 
 N/Users/bstewart/Documents/InfoNgen-iPad/main.m
 c000000004B6E2A030000000000000163
@@ -796,17 +823,17 @@ t1266367801
 s13756272
 
 NUntitled-Info.plist
-c000000004B6E2A03000000000000038D
-t1265510915
-s909
+c000000004B7C5AC1000000000000047A
+t1266440897
+s1146
 
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies288067142#288067142#0(0"0(0#1#0"4300907768#0"0#
+lSLF07#2@18"Check dependencies288143096#288143096#0(0"0(0#1#0"4300907768#0"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s288065443.731937
-e288065443.957249
+s288117652.839247
+e288117653.013141
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o
@@ -815,10 +842,7 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m: In function '-[AppDelegate application:didFinishLaunchingWithOptions:]':
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:33: warning: assignment from incompatible pointer type
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:40: warning: incompatible Objective-C types 'struct NSArray *', expected 'struct NSMutableArray *' when passing argument 1 of 'setSavedSearches:' from distinct Objective-C type
-lSLF07#2@69"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m288065443#288065443#0(492"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m: In function '-[AppDelegate application:didFinishLaunchingWithOptions:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:33: warning: assignment from incompatible pointer type/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:40: warning: incompatible Objective-C types 'struct NSArray *', expected 'struct NSMutableArray *' when passing argument 1 of 'setSavedSearches:' from distinct Objective-C type2(22@41"Assignment from incompatible pointer type288065443#136#117#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m288065433#33#0#33#0#41"assignment from incompatible pointer type0(22@163"Incompatible Objective-C types 'struct NSArray *', expected 'struct NSMutableArray *' when passing argument 1 of 'setSavedSearches:' from distinct Objective-C type288065443#253#239#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m288065433#40#0#40#0#0"0(0#0#61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m4300907768#2074"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o"0#
+lSLF07#2@69"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m288117652#288117653#0(0"0(0#0#61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m4300907768#2074"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Base64.o" /Users/bstewart/Documents/InfoNgen-iPad/Base64.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s288060602.348063
@@ -1018,8 +1042,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@144"Compile /Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c288060602#288060602#0(0"0(0#0#136"/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c4300907768#1975"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -c "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c" -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub_vers.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/LoginTicket.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s288067099.006521
-e288067099.165014
+s288117100.765820
+e288117100.940978
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/LoginTicket.o
@@ -1029,24 +1053,12 @@ xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m: In function '-[LoginTicket initWithUsername:password:]':
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:53: warning: format not a string literal and no format arguments
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:65: warning: unused variable 'data'
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m: In function '-[LoginTicket initAsyncWithUsername:password:delegate:]':
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:99: warning: local declaration of 'delegate' hides instance variable
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:122: warning: format not a string literal and no format arguments
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:135: warning: unused variable 'theConnection'
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m: In function '-[LoginTicket connection:didFailWithError:]':
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:196: warning: no '-loginTicketDidFinish:' method found
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:196: warning: (Messages without a matching method signature
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:196: warning: will be assumed to return 'id' and accept
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:196: warning: '...' as arguments.)
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m: In function '-[LoginTicket connectionDidFinishLoading:]':
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:218: warning: no '-loginTicketDidFinish:' method found
-lSLF07#2@69"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m288067099#288067099#0(1660"/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m: In function '-[LoginTicket initWithUsername:password:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:53: warning: format not a string literal and no format arguments/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:65: warning: unused variable 'data'/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m: In function '-[LoginTicket initAsyncWithUsername:password:delegate:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:99: warning: local declaration of 'delegate' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:122: warning: format not a string literal and no format arguments/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:135: warning: unused variable 'theConnection'/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m: In function '-[LoginTicket connection:didFailWithError:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:196: warning: no '-loginTicketDidFinish:' method found/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:196: warning: (Messages without a matching method signature/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:196: warning: will be assumed to return 'id' and accept/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:196: warning: '...' as arguments.)/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m: In function '-[LoginTicket connectionDidFinishLoading:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:218: warning: no '-loginTicketDidFinish:' method found8(22@51"Format not a string literal and no format arguments288067099#120#127#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m288067096#53#0#53#0#51"format not a string literal and no format arguments0(22@22"Unused variable 'data'288067099#247#98#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m288067096#65#0#65#0#19"unused variable '*'0(22@55"Local declaration of 'delegate' hides instance variable288067099#479#131#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m288067096#99#0#99#0#0"0(22@51"Format not a string literal and no format arguments288067099#610#128#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m288067096#122#0#122#0#51"format not a string literal and no format arguments0(22@31"Unused variable 'theConnection'288067099#738#108#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m288067096#135#0#135#0#19"unused variable '*'0(22@40"No '-loginTicketDidFinish:' method found288067099#968#117#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m288067096#196#0#196#0#19"no '*' method found0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)288067099#1085#122#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m288067096#196#0#196#0#0"0(22@40"No '-loginTicketDidFinish:' method found288067099#1543#117#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m288067096#218#0#218#0#19"no '*' method found0(0#0#61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m4300907768#2074"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/LoginTicket.o"0#
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:88: warning: unused variable 'data'
+lSLF07#2@69"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m288117100#288117100#0(218"/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m: In function '-[LoginTicket initWithUsername:password:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m:88: warning: unused variable 'data'1(22@22"Unused variable 'data'288117100#120#98#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m288117098#88#0#88#0#19"unused variable '*'0(0#0#61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m4300907768#2074"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/LoginTicket.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/MainViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s288060601.462862
-e288060601.603908
+s288143096.655724
+e288143097.030410
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/MainViewController.o
@@ -1055,7 +1067,7 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@76"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m288060601#288060601#0(0"0(0#0#68"/Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m4300907768#2088"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/MainViewController.o"0#
+lSLF07#2@76"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m288143096#288143097#0(0"0(0#0#68"/Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m4300907768#2088"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/MainViewController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Page.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/Page.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s288060601.664455
@@ -1076,8 +1088,8 @@ o/Users/bstewart/Documents/InfoNgen-iPad/Classes/Page.m:16: warning: '...' as ar
 lSLF07#2@62"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/Page.m288060601#288060601#0(508"/Users/bstewart/Documents/InfoNgen-iPad/Classes/Page.m: In function '-[Page init]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/Page.m:16: warning: 'Page' may not respond to '-initWithName:'/Users/bstewart/Documents/InfoNgen-iPad/Classes/Page.m:16: warning: (Messages without a matching method signature/Users/bstewart/Documents/InfoNgen-iPad/Classes/Page.m:16: warning: will be assumed to return 'id' and accept/Users/bstewart/Documents/InfoNgen-iPad/Classes/Page.m:16: warning: '...' as arguments.)2(22@42"'Page' may not respond to '-initWithName:'288060601#84#111#0(6@54"/Users/bstewart/Documents/InfoNgen-iPad/Classes/Page.m287974762#16#0#16#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)288060601#195#114#0(6@54"/Users/bstewart/Documents/InfoNgen-iPad/Classes/Page.m287974762#16#0#16#0#0"0(0#0#54"/Users/bstewart/Documents/InfoNgen-iPad/Classes/Page.m4300907768#2060"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/Page.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Page.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/PagesViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s288060601.479809
-e288060601.573834
+s288113842.612800
+e288113842.715502
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/PagesViewController.o
@@ -1091,11 +1103,11 @@ o/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:18: warni
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:18: warning: (Messages without a matching method signature
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:18: warning: will be assumed to return 'id' and accept
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:18: warning: '...' as arguments.)
-lSLF07#2@77"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m288060601#288060601#0(626"/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m: In function '-[PagesViewController initWithFrame:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:18: warning: 'UITableViewController' may not respond to '-initWithFrame:'/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:18: warning: (Messages without a matching method signature/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:18: warning: will be assumed to return 'id' and accept/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:18: warning: '...' as arguments.)2(22@60"'UITableViewController' may not respond to '-initWithFrame:'288060601#124#144#0(6@69"/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m287974762#18#0#18#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)288060601#268#129#0(6@69"/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m287974762#18#0#18#0#0"0(0#0#69"/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m4300907768#2090"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/PagesViewController.o"0#
+lSLF07#2@77"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m288113842#288113842#0(626"/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m: In function '-[PagesViewController initWithFrame:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:18: warning: 'UITableViewController' may not respond to '-initWithFrame:'/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:18: warning: (Messages without a matching method signature/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:18: warning: will be assumed to return 'id' and accept/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:18: warning: '...' as arguments.)2(22@60"'UITableViewController' may not respond to '-initWithFrame:'288113842#124#144#0(6@69"/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m287974762#18#0#18#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)288113842#268#129#0(6@69"/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m287974762#18#0#18#0#0"0(0#0#69"/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m4300907768#2090"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/PagesViewController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearch.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s288067142.322241
-e288067142.625052
+s288117100.699341
+e288117100.938281
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearch.o
@@ -1110,13 +1122,12 @@ o/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:19: warning: (Mes
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:19: warning: will be assumed to return 'id' and accept
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:19: warning: '...' as arguments.)
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m: In function '-[SavedSearch update]':
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:106: warning: format not a string literal and no format arguments
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:131: warning: unused variable 'pubDate'
-lSLF07#2@69"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m288067142#288067142#0(895"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m: In function '-[SavedSearch init]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:19: warning: 'SavedSearch' may not respond to '-initWithName:withUrl:'/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:19: warning: (Messages without a matching method signature/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:19: warning: will be assumed to return 'id' and accept/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:19: warning: '...' as arguments.)/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m: In function '-[SavedSearch update]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:106: warning: format not a string literal and no format arguments/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:131: warning: unused variable 'pubDate'4(22@57"'SavedSearch' may not respond to '-initWithName:withUrl:'288067142#98#133#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m288067142#19#0#19#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)288067142#231#121#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m288067142#19#0#19#0#0"0(22@51"Format not a string literal and no format arguments288067142#665#128#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m288067142#106#0#106#0#51"format not a string literal and no format arguments0(22@25"Unused variable 'pubDate'288067142#793#102#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m288067142#131#0#131#0#19"unused variable '*'0(0#0#61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m4300907768#2074"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearch.o"0#
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:117: warning: unused variable 'pubDate'
+lSLF07#2@69"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m288117100#288117100#0(767"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m: In function '-[SavedSearch init]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:19: warning: 'SavedSearch' may not respond to '-initWithName:withUrl:'/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:19: warning: (Messages without a matching method signature/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:19: warning: will be assumed to return 'id' and accept/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:19: warning: '...' as arguments.)/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m: In function '-[SavedSearch update]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m:117: warning: unused variable 'pubDate'3(22@57"'SavedSearch' may not respond to '-initWithName:withUrl:'288117100#98#133#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m288117098#19#0#19#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)288117100#231#121#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m288117098#19#0#19#0#0"0(22@25"Unused variable 'pubDate'288117100#665#102#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m288117098#117#0#117#0#19"unused variable '*'0(0#0#61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m4300907768#2074"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearch.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s288064384.574424
-e288064384.741241
+s288116801.480746
+e288116801.579304
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o
@@ -1125,11 +1136,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@79"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchController.m288064384#288064384#0(0"0(0#0#71"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchController.m4300907768#2094"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o"0#
+lSLF07#2@79"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchController.m288116801#288116801#0(0"0(0#0#71"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchController.m4300907768#2094"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchesController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s288065443.820638
-e288065443.994037
+s288116801.425448
+e288116801.512614
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesController.o
@@ -1138,7 +1149,7 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@81"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchesController.m288065443#288065444#0(0"0(0#0#73"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchesController.m4300907768#2098"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchesController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesController.o"0#
+lSLF07#2@81"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchesController.m288116801#288116801#0(0"0(0#0#73"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchesController.m4300907768#2098"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchesController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchesViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s288060601.406619
@@ -1154,8 +1165,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@85"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchesViewController.m288060601#288060601#0(0"0(0#0#77"/Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchesViewController.m4300907768#2106"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchesViewController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesViewController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Search.o" /Users/bstewart/Documents/InfoNgen-iPad/Search.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s288062417.338786
-e288062417.427495
+s288113842.738369
+e288113842.800855
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Search.o
@@ -1164,7 +1175,7 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@56"Compile /Users/bstewart/Documents/InfoNgen-iPad/Search.m288062417#288062417#0(0"0(0#0#48"/Users/bstewart/Documents/InfoNgen-iPad/Search.m4300907768#2056"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Search.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Search.o"0#
+lSLF07#2@56"Compile /Users/bstewart/Documents/InfoNgen-iPad/Search.m288113842#288113842#0(0"0(0#0#48"/Users/bstewart/Documents/InfoNgen-iPad/Search.m4300907768#2056"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Search.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Search.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchArguments.o" /Users/bstewart/Documents/InfoNgen-iPad/SearchArguments.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s288060602.506471
@@ -1182,8 +1193,8 @@ o/Users/bstewart/Documents/InfoNgen-iPad/SearchArguments.m:19: warning: local de
 lSLF07#2@65"Compile /Users/bstewart/Documents/InfoNgen-iPad/SearchArguments.m288060602#288060602#0(232"/Users/bstewart/Documents/InfoNgen-iPad/SearchArguments.m: In function '-[SearchArguments initWithQuery:]':/Users/bstewart/Documents/InfoNgen-iPad/SearchArguments.m:19: warning: local declaration of 'query' hides instance variable1(22@52"Local declaration of 'query' hides instance variable288060602#108#124#0(6@57"/Users/bstewart/Documents/InfoNgen-iPad/SearchArguments.m288060239#19#0#19#0#0"0(0#0#57"/Users/bstewart/Documents/InfoNgen-iPad/SearchArguments.m4300907768#2074"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/SearchArguments.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchArguments.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchClient.o" /Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s288065041.944452
-e288065042.195490
+s288116801.581012
+e288116801.748729
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchClient.o
@@ -1192,14 +1203,12 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-o/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m: In function '-[SearchClient getSavedSearchesForUser:password:]':
-o/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:52: warning: local declaration of 'username' hides instance variable
-o/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:52: warning: local declaration of 'password' hides instance variable
-o/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:68: warning: format not a string literal and no format arguments
+o/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m: In function '-[SearchClient getSavedSearchesForUser]':
+o/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:67: warning: format not a string literal and no format arguments
 o/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m: In function '-[SearchClient search:]':
-o/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:120: warning: format not a string literal and no format arguments
-o/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:225: warning: format not a string literal and no format arguments
-lSLF07#2@62"Compile /Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m288065041#288065042#0(826"/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m: In function '-[SearchClient getSavedSearchesForUser:password:]':/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:52: warning: local declaration of 'username' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:52: warning: local declaration of 'password' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:68: warning: format not a string literal and no format arguments/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m: In function '-[SearchClient search:]':/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:120: warning: format not a string literal and no format arguments/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:225: warning: format not a string literal and no format arguments5(22@55"Local declaration of 'username' hides instance variable288065042#121#124#0(6@54"/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m288065041#52#0#52#0#0"0(22@55"Local declaration of 'password' hides instance variable288065042#245#124#0(6@54"/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m288065041#52#0#52#0#0"0(22@51"Format not a string literal and no format arguments288065042#369#120#0(6@54"/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m288065041#68#0#68#0#51"format not a string literal and no format arguments0(22@51"Format not a string literal and no format arguments288065042#584#121#0(6@54"/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m288065041#120#0#120#0#51"format not a string literal and no format arguments0(22@51"Format not a string literal and no format arguments288065042#705#121#0(6@54"/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m288065041#225#0#225#0#51"format not a string literal and no format arguments0(0#0#54"/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m4300907768#2068"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchClient.o"0#
+o/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:122: warning: format not a string literal and no format arguments
+o/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:227: warning: format not a string literal and no format arguments
+lSLF07#2@62"Compile /Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m288116801#288116801#0(568"/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m: In function '-[SearchClient getSavedSearchesForUser]':/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:67: warning: format not a string literal and no format arguments/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m: In function '-[SearchClient search:]':/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:122: warning: format not a string literal and no format arguments/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m:227: warning: format not a string literal and no format arguments3(22@51"Format not a string literal and no format arguments288116801#111#120#0(6@54"/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m288116797#67#0#67#0#51"format not a string literal and no format arguments0(22@51"Format not a string literal and no format arguments288116801#326#121#0(6@54"/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m288116797#122#0#122#0#51"format not a string literal and no format arguments0(22@51"Format not a string literal and no format arguments288116801#447#121#0(6@54"/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m288116797#227#0#227#0#51"format not a string literal and no format arguments0(0#0#54"/Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m4300907768#2068"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchClient.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResult.o" /Users/bstewart/Documents/InfoNgen-iPad/SearchResult.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s288060602.584381
@@ -1252,6 +1261,19 @@ xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@67"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/UILabelEx.m288060601#288060601#0(0"0(0#0#59"/Users/bstewart/Documents/InfoNgen-iPad/Classes/UILabelEx.m4300907768#2070"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/UILabelEx.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UILabelEx.o"0#
+
+CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UserSettings.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/UserSettings.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s288116864.676551
+e288116864.782319
+r1
+xCompileC
+xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UserSettings.o
+x/Users/bstewart/Documents/InfoNgen-iPad/Classes/UserSettings.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@70"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/UserSettings.m288116864#288116864#0(0"0(0#0#62"/Users/bstewart/Documents/InfoNgen-iPad/Classes/UserSettings.m4300907768#2076"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/UserSettings.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UserSettings.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/main.o" /Users/bstewart/Documents/InfoNgen-iPad/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s288060601.267543
@@ -1320,33 +1342,42 @@ xbuild/Debug-iphonesimulator/InfoNgen Pub.app/Settings.bundle
 xSettings.bundle
 lSLF07#2@20"Copy Settings.bundle288060600#288060600#0(0"0(0#0#55"/Users/bstewart/Documents/InfoNgen-iPad/Settings.bundle4300907768#469"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/bstewart/Documents/InfoNgen-iPad/Settings.bundle "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app"0#
 
+CCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/icon.png" icon.png
+s288112888.648749
+e288112888.671836
+r1
+xCpResource
+xbuild/Debug-iphonesimulator/InfoNgen Pub.app/icon.png
+xicon.png
+lSLF07#2@13"Copy icon.png288112888#288112888#0(0"0(0#0#48"/Users/bstewart/Documents/InfoNgen-iPad/icon.png4300907768#462"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/bstewart/Documents/InfoNgen-iPad/icon.png "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app"0#
+
 CGenerateDSYMFile "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"
-s288067142.669569
-e288067142.711878
+s288143097.071505
+e288143097.106512
 r1
 xGenerateDSYMFile
 x/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM
 x/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub
-lSLF07#2@128"GenerateDSYMFile "build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"288067142#288067142#0(0"0(0#0#97"/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub4300907768#405"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM"0#
+lSLF07#2@128"GenerateDSYMFile "build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"288143097#288143097#0(0"0(0#0#97"/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub4300907768#405"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM"0#
 
 CLd "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" normal i386
-s288067142.625150
-e288067142.669221
+s288143097.030512
+e288143097.071376
 r1
 xLd
 x/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub
 xnormal
 xi386
-lSLF07#2@102"Link /Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub288067142#288067142#0(0"0(0#0#0"4300907768#899"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -L/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -filelist "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub.LinkFileList" -mmacosx-version-min=10.5 -lxml2 -framework Foundation -framework UIKit -framework CoreGraphics -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"0#
+lSLF07#2@102"Link /Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub288143097#288143097#0(0"0(0#0#0"4300907768#899"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -L/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -filelist "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub.LinkFileList" -mmacosx-version-min=10.5 -lxml2 -framework Foundation -framework UIKit -framework CoreGraphics -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"0#
 
 CProcessInfoPlistFile "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/Info.plist" Untitled-Info.plist
-s288060599.185079
-e288060599.260031
+s288133698.287342
+e288133698.293910
 r1
 xProcessInfoPlistFile
 x/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/Info.plist
 xUntitled-Info.plist
-lSLF07#2@27"Process Untitled-Info.plist288060599#288060599#0(0"0(0#0#59"/Users/bstewart/Documents/InfoNgen-iPad/Untitled-Info.plist7074983908746013696#497"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility Untitled-Info.plist -genpkginfo "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/PkgInfo" -expandbuildsettings -format binary -platform iphonesimulator -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/Info.plist"0#
+lSLF07#2@27"Process Untitled-Info.plist288133698#288133698#0(0"0(0#0#59"/Users/bstewart/Documents/InfoNgen-iPad/Untitled-Info.plist4300907768#497"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility Untitled-Info.plist -genpkginfo "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/PkgInfo" -expandbuildsettings -format binary -platform iphonesimulator -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/Info.plist"0#
 
 CProcessPCH /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch.gch Untitled_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
 s288060600.409881
@@ -1362,10 +1393,10 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@30"Precompile Untitled_Prefix.pch288060600#288060601#0(0"0(0#0#59"/Users/bstewart/Documents/InfoNgen-iPad/Untitled_Prefix.pch4300907768#1936"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -c /Users/bstewart/Documents/InfoNgen-iPad/Untitled_Prefix.pch -o /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cnksejdabpykbcfygrdhobtnsldy/Untitled_Prefix.pch.gch0#
 
 CTouch "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app"
-s288067142.711976
-e288067142.714516
+s288143097.106610
+e288143097.109181
 r1
 xTouch
 x/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app
-lSLF07#2@90"Touch /Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app288067142#288067142#0(0"0(0#0#0"4300907768#287"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app"0#
+lSLF07#2@90"Touch /Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app288143097#288143097#0(0"0(0#0#0"4300907768#287"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app"0#
 

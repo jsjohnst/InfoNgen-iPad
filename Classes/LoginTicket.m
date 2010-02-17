@@ -8,8 +8,11 @@
 
 #import "LoginTicket.h"
 
+#define kLoginTicketURL @"http://www.infongen.com/loginsm.aspx"
+#define kLoginTicketCookieName @"iiAuth"
+
 @implementation LoginTicket
-@synthesize ticket,delegate;
+@synthesize ticket;
 
 - (NSString *)urlEncodeValue:(NSString *)str
 {
@@ -22,6 +25,25 @@
 	//return [result autorelease];
 }
 
+
+
+- (NSString*) getAuthCookie
+{
+	NSHTTPCookieStorage * cookieStorage=[NSHTTPCookieStorage sharedHTTPCookieStorage];
+	
+	NSArray * cookies=[cookieStorage cookiesForURL:[NSURL URLWithString:kLoginTicketURL]];
+	
+	for(int i=0;i<[cookies count];i++)
+	{
+		NSHTTPCookie * cookie=[cookies objectAtIndex:i];
+		if([cookie.name isEqualToString:kLoginTicketCookieName])
+		{
+			return cookie.value;
+		}
+	}
+	return nil;
+}
+
 - (id) initWithUsername:(NSString *)username password:(NSString *) password
 {
 	if(![super init])
@@ -29,199 +51,49 @@
 		return nil;
 	}
 	
-	self.ticket=nil;
-	
-	NSURL * URL=[NSURL URLWithString:@"http://www.infongen.com/loginsm.aspx"];
-	
-	
-	NSMutableURLRequest * request=[NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
-	
-	[request setHTTPMethod:@"POST"];
-	
-	[request addValue:@"www.infongen.com" forHTTPHeaderField:@"Host"];
-	[request addValue:@"Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US; rv:1.9.0.17) Gecko/2009122116 Firefox/3.0.17 (.NET CLR 3.5.30729)" forHTTPHeaderField:@"User-Agent"];
-	[request addValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
-	[request addValue:@"http://www.infongen.com/loginsm.aspx" forHTTPHeaderField:@"Referer"];
-	[request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-	
-	NSString *post = [NSString stringWithFormat:@"AuthenticationErrorGuid=18fa53a074934c938c49e35dbcf62324&__VIEWSTATE=%@&btn=SignIn&userLogin=%@&userPassword=%@", 
-					  [self urlEncodeValue:@"/wEPDwUJMTQ2OTM0MDA0ZGTK/OdHxdKPVviHT6StBiN8J/jusQ=="],
-					  [self urlEncodeValue:username],					  
-					  [self urlEncodeValue:password]
-					  ];
-	
-	NSLog(post);
-	
-	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-	
-	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-	
-	[request addValue:postLength forHTTPHeaderField:@"Content-Length"];
-	
-	[request setHTTPBody:postData];
-	
-	NSURLResponse * response=NULL;
-	
-	NSData * data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-	
-	NSHTTPCookieStorage * cookieStorage=[NSHTTPCookieStorage sharedHTTPCookieStorage];
-	
-	NSArray * cookies=[cookieStorage cookiesForURL:URL];
-	
-	for(int i=0;i<[cookies count];i++)
-	{
-		NSHTTPCookie * cookie=[cookies objectAtIndex:i];
-		if([cookie.name isEqualToString:@"iiAuth"])
-		{
-			NSLog(@"ticket=%@",cookie.value);
-			
-			self.ticket=cookie.value;
-			break;
-		}
-	}
+	self.ticket=[self getAuthCookie];
 	
 	if(!self.ticket)
 	{
-		NSLog(@"Failed to get login cookie!");
-	}
-
 	
-	return self;
+		NSURL * URL=[NSURL URLWithString:kLoginTicketURL];
 	
-}
-- (id) initAsyncWithUsername:(NSString *)username password:(NSString *) password delegate:(id)delegate
-{
-	if(![super init])
-	{
-		return nil;
-	}
+		NSMutableURLRequest * request=[NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
 	
-	self.delegate=delegate;
-	self.ticket=nil;
+		[request setHTTPMethod:@"POST"];
 	
-	NSURL * URL=[NSURL URLWithString:@"http://www.infongen.com/loginsm.aspx"];
+		[request addValue:@"www.infongen.com" forHTTPHeaderField:@"Host"];
+		[request addValue:@"Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US; rv:1.9.0.17) Gecko/2009122116 Firefox/3.0.17 (.NET CLR 3.5.30729)" forHTTPHeaderField:@"User-Agent"];
+		[request addValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
+		[request addValue:kLoginTicketURL forHTTPHeaderField:@"Referer"];
+		[request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
 	
-	//NSHTTPURLResponse * response=NULL;
-	
-	NSMutableURLRequest * request=[NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
-	
-	[request setHTTPMethod:@"POST"];
-	
-	[request addValue:@"www.infongen.com" forHTTPHeaderField:@"Host"];
-	[request addValue:@"Mozilla/5.0 (Windows; U; Windows NT 5.2; en-US; rv:1.9.0.17) Gecko/2009122116 Firefox/3.0.17 (.NET CLR 3.5.30729)" forHTTPHeaderField:@"User-Agent"];
-	[request addValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
-	[request addValue:@"http://www.infongen.com/loginsm.aspx" forHTTPHeaderField:@"Referer"];
-	[request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-	
-	NSString *post = [NSString stringWithFormat:@"AuthenticationErrorGuid=18fa53a074934c938c49e35dbcf62324&__VIEWSTATE=%@&btn=SignIn&userLogin=%@&userPassword=%@", 
+		NSString *post = [NSString stringWithFormat:@"AuthenticationErrorGuid=18fa53a074934c938c49e35dbcf62324&__VIEWSTATE=%@&btn=SignIn&userLogin=%@&userPassword=%@", 
 					  [self urlEncodeValue:@"/wEPDwUJMTQ2OTM0MDA0ZGTK/OdHxdKPVviHT6StBiN8J/jusQ=="],
 					  [self urlEncodeValue:username],					  
 					  [self urlEncodeValue:password]
 					  ];
 	
-	NSLog(post);
 	
-	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+		NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
 	
-	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+		NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
 	
-	[request addValue:postLength forHTTPHeaderField:@"Content-Length"];
+		[request addValue:postLength forHTTPHeaderField:@"Content-Length"];
 	
-	[request setHTTPBody:postData];
+		[request setHTTPBody:postData];
 	
+		NSURLResponse * response=NULL;
 	
+		NSData * data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
 	
-	
-	NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:request delegate:self];
-	
-	
-	
-	
-	return self;
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-	NSLog(@"didReceiveResponse");
-}
-
-- (NSURLRequest *)connection:(NSURLConnection *)connection
-willSendRequest:(NSURLRequest *)request redirectResponse:
-(NSURLResponse *)redirectResponse {
-
-	NSLog(@"redirectResponse");
-
-	if(redirectResponse) {
-	
-		NSHTTPURLResponse *response = (NSHTTPURLResponse *)redirectResponse;       
-		
-		//NSDictionary * headers=[response allHeaderFields];
-		
-		NSLog(@"status=%d",[response statusCode]);
-		
-		NSArray * cookies=[NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL:[NSURL URLWithString:@"http://www.infongen.com/loginsm.aspx"]];
-		
-		for(int i=0;i<[cookies count];i++)
-		{
-			NSHTTPCookie * cookie=[cookies objectAtIndex:i];
-			if([cookie.name isEqualToString:@"iiAuth"])
-			{
-				NSLog(@"ticket=%@",cookie.value);
-				int j=0;
-				for(int i=0;i<1000000000;i++)
-				{
-					j=i+2;
-				}
-				self.ticket=cookie.value;
-			}
-		}
-						   
-		return nil;
+		self.ticket=[self getAuthCookie];
 	}
-	else 
-	{
-		NSLog(@"redirectResponse is nil");
-		return request;
-	}
-	
-}
-
-- (void)connection:(NSURLConnection *)connection
-  didFailWithError:(NSError *)error
-{
-	NSLog(@"didFailWithError");
-    // release the connection, and the data object
-    [connection release];
-    
-	[self.delegate loginTicketDidFinish:self];
-    // inform the user
-    NSLog(@"Connection failed! Error - %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-	NSLog(@"didReceiveData");
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    // do something with the data
-    // receivedData is declared as a method instance elsewhere
-    NSLog(@"connectionDidFinishLoading");
-	
-	
-    // release the connection, and the data object
-    [connection release];
-
-	[self.delegate loginTicketDidFinish:self];
-
+	return self;	
 }
 
 - (void)dealloc {
-	[ticket release];
-	[delegate release];
+	[ticket release]; 
 	[super dealloc];
 }
 @end

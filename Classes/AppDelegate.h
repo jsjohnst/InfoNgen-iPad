@@ -21,11 +21,9 @@
     MainViewController *mainViewController;
 	NSMutableArray * pages;
 	NSMutableArray * savedSearches;
-	UIActivityIndicatorView * progressView;
-	LoginTicket * loginTicket;
+	
 }
-@property(nonatomic,retain) LoginTicket * loginTicket;
-@property(nonatomic,retain) UIActivityIndicatorView * progressView;
+
 @property (retain) NSMutableArray * pages;
 @property (retain) NSMutableArray * savedSearches;
 @property (nonatomic, retain) IBOutlet UIWindow *window;

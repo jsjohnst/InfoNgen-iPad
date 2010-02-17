@@ -113,7 +113,9 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
 	UIApplication* app = [UIApplication sharedApplication];
 	app.networkActivityIndicatorVisible = YES;
-	[self.savedSearch update];
+	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+    [self.savedSearch update];
+	[pool drain];
 	app.networkActivityIndicatorVisible = NO;
 	[self performSelectorOnMainThread:@selector(updateEnd) withObject:nil waitUntilDone:NO];
 }

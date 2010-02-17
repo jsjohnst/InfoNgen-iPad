@@ -24,6 +24,6 @@
 
 - (SearchResults*) search:(SearchArguments*) args;
 
-- (NSArray*) getSavedSearchesForUser:(NSString*)username password:(NSString*)password;
+- (NSMutableArray*) getSavedSearchesForUser;
 
 @end

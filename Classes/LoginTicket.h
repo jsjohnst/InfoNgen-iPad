@@ -11,15 +11,14 @@
 
 @interface LoginTicket : NSObject {
 	NSString * ticket;
-	id delegate;
+	 
 }
 @property(nonatomic,retain) NSString * ticket;
-@property(nonatomic,retain) id delegate;
-
+ 
 - (NSString *)urlEncodeValue:(NSString *)str;
 
 - (id) initWithUsername:(NSString *)username password:(NSString *)password;
 
-- (id) initAsyncWithUsername:(NSString *)username password:(NSString *) password delegate:(id)delegate;
+- (NSString*) getAuthCookie;
 
 @end

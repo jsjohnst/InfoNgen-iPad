@@ -8,15 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SavedSearch : NSObject <NSCoding, NSCopying>{
+@interface SavedSearch : NSObject { //<NSCoding, NSCopying>{
 	NSString * name;
 	NSString * ID;
 	NSString * url;
 	NSMutableArray * items;
 	NSDate * lastUpdated;
+	NSString * username;
+	NSString * password;
 }
 @property(nonatomic,retain) NSString * name;
 @property(nonatomic,retain) NSString * ID;
+@property(nonatomic,retain) NSString * username;
+@property(nonatomic,retain) NSString * password;
 
 @property(nonatomic,retain) NSString * url;
 @property(retain) NSMutableArray * items;

@@ -12,7 +12,7 @@
 #import "TouchXML.h"
 
 @implementation SavedSearch
-@synthesize name,url,items,lastUpdated,ID;
+@synthesize name,url,items,username,password,lastUpdated,ID;
 
 - (id) init
 {
@@ -34,7 +34,7 @@
 	
 	return self;
 }
-
+/*
 - (void)encodeWithCoder:(NSCoder*)encoder
 {
 	[encoder encodeObject:name forKey:@"name"];
@@ -68,28 +68,19 @@
 	copy.items=[self.items copy];
 	return copy;
 }
-
+*/
 - (void) update
 {
 	if(items==nil || [items count]==0)
 	{
-	//[items release];
-	
-		
 		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy
 														   timeoutInterval:90.0];
 		// use FF user agent so server is ok with us...
 		[request setValue: @"Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1.16) Gecko/20080702 Firefox/2.0.0.16" forHTTPHeaderField: @"User-Agent"];
 		
-		
-		NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-		
-		NSString * username=[defaults objectForKey:@"username"];
-		NSString * password=[defaults objectForKey:@"password"];
-		
-		if (username!=nil && password!=nil && [username length]>0)
+		if (self.username!=nil && self.password!=nil && [self.username length]>0)
 		{
-			NSString *authString = [Base64 encode:[[NSString stringWithFormat:@"%@:%@",username,password] dataUsingEncoding:NSUTF8StringEncoding]]; 
+			NSString *authString = [Base64 encode:[[NSString stringWithFormat:@"%@:%@",self.username,self.password] dataUsingEncoding:NSUTF8StringEncoding]]; 
 			[request setValue:[NSString stringWithFormat:@"Basic %@", authString] forHTTPHeaderField:@"Authorization"];
 		}
 		
@@ -100,10 +91,7 @@
 							  @"rixml", 
 							  nil];
 		
-		
 		CXMLDocument *xmlParser = [[[CXMLDocument alloc] initWithData:data options:0 error:nil] autorelease];
-		
-		NSLog([xmlParser description]);
 		
 		// Set the resultNodes Array to contain an object for every instance of an  node in our RSS feed
 		NSArray * itemNodes = [xmlParser nodesForXPath:@"//item" error:nil];
@@ -114,7 +102,6 @@
 		for (CXMLElement *itemNode in itemNodes) {
 			NSArray * contentNodes=[itemNode nodesForXPath:@".//rixml:Synopsis" namespaceMappings:nsdict error:nil];
 			
-			//NSArray * contentNodes=[itemNode nodesForXPath:@"rixml:Synopsis" error:nil];
 			NSString * synopsis=nil;
 			
 			if (contentNodes) {
@@ -126,7 +113,6 @@
 			}
 			
 			NSString * title=[[[itemNode elementsForName:@"title"] objectAtIndex:0] stringValue];
-			//NSString * description=[[[itemNode elementsForName:@"description"] objectAtIndex:0] stringValue];
 			NSString * link=[[[itemNode elementsForName:@"link"] objectAtIndex:0] stringValue];
 			NSString * pubDate=[[[itemNode elementsForName:@"pubDate"] objectAtIndex:0] stringValue];
 			
@@ -138,32 +124,12 @@
 			
 		}
 		 
-		
-	/*int x=0;
-		
-	// create artificial delay to simulate network traffic...
-	for (int j=0; j<500000000; j++) {
-		x=j*2;
-	}
-		
-	NSMutableArray * array=[[NSMutableArray alloc] init];
+		self.items=array;
 	
-	for(int i=0;i<50;i++)
-	{
-		SearchResult * result=[[SearchResult alloc] initWithHeadline:@"This is the headline" withUrl:@"http://www.cnn.com" withSynopsis:@"This is the headline synopsis. It has a few sentences in it.  Here is another one." withDate:[[NSDate alloc] init]];
+		[array release];
 	
-		[array addObject:result];
-		
-		[result release];
-	}*/
-	
-	//[items release];	
-	self.items=array;
-	
-	[array release];
-	
-	[lastUpdated release];
-	lastUpdated=[[NSDate alloc] init];
+		[lastUpdated release];
+		lastUpdated=[[NSDate alloc] init];
 	}
 }
 
@@ -173,6 +139,8 @@
 	[url release];
 	[ID release];
 	[items release];
+	[username release];
+	[password release];
 	[lastUpdated release];
 	[super dealloc];
 }
