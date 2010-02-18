@@ -26,6 +26,8 @@
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * stopButton;
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * reloadButton;
 
-
+-(NSString*) getString:(NSString*)javascript;
+-(NSInteger) getInt:(NSString*)javascript;
+-(IBAction) getImages;
 
 @end

@@ -12,6 +12,55 @@
 @implementation DocumentViewController
 @synthesize webView,searchResult,backButton,forwardButton,stopButton,reloadButton;
 
+-(NSString*) getString:(NSString*)javascript
+{
+	return [self.webView stringByEvaluatingJavaScriptFromString:javascript];
+}
+
+-(NSInteger) getInt:(NSString*)javascript
+{
+	NSString * s=[self getString:javascript];
+	if(s && [s length]>0)
+	{
+		return [s intValue];
+	}
+	else {
+		return 0;
+	}
+
+}
+
+-(IBAction) getImages
+{
+	//NSString * javascript=@"function(){var imgSources='test';for(var i=0;i<document.images.length;i++){imgSources+=document.images[i].src+';';}return imgSources;}();";
+	
+	
+	// get # of images on page
+	
+	NSInteger num_images=[self getInt:@"document.images.length"];
+	
+	NSMutableArray *images=[[NSMutableArray alloc] init];
+	
+	for(int i=0;i<num_images;i++)
+	{
+		NSString * src=[self getString:[NSString stringWithFormat:@"document.images[%d].src",i]];
+		NSInteger width=[self getInt:[NSString stringWithFormat:@"document.images[%d].width",i]];
+		NSInteger height=[self getInt:[NSString stringWithFormat:@"document.images[%d].height",i]];
+		
+		if(width>1 && height>1)
+		{
+			[images addObject:src];
+		}
+	}
+	
+	// TODO: sort by size and present user with largest images to choose from (calculate area)
+	// TODO: filter out images that are not "squarish" in size
+	// TODO: filter out images that look like ads...
+	
+	[images release];
+	
+	
+}
 
 - (void)viewDidLoad {
 	
@@ -71,6 +120,10 @@
 		navController.navigationBar.topItem.rightBarButtonItem=nil;
 	}
 }
+
+
+
+
 
 //Sent after a web view starts loading content.
 - (void)webViewDidStartLoad:(UIWebView *)webView
