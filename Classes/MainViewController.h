@@ -11,36 +11,32 @@
 @class SavedSearchesViewController;
 @class Page;
 @class PagesViewController;
+@class PageViewController;
 
-@interface MainViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate,UITableViewDelegate,UITableViewDataSource> {
+@interface MainViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> {
     
-    UIPopoverController *popoverController;
-	UIPopoverController *popoverController2;
+	UIPopoverController *searchesPopoverController;
 	UIPopoverController *pagesPopoverController;
 	PagesViewController *pagesViewController;
+	IBOutlet PageViewController *pageViewController;
 	IBOutlet UIView * newPageView;
-	UINavigationBar *navigationBar;
     SavedSearchesViewController * savedSearchesViewController;
-	Page * page;
-	UITableView * pageTableView;
     IBOutlet UITextField * pageName;
+	IBOutlet UINavigationController *navController;
 }
+
 @property (nonatomic,retain) IBOutlet UIView * newPageView;
 @property(nonatomic,retain) IBOutlet UITextField * pageName;
 @property (nonatomic,retain) PagesViewController * pagesViewController;
-@property (nonatomic, retain) UIPopoverController *popoverController;
-@property (nonatomic, retain) UIPopoverController *popoverController2;
+@property (nonatomic,retain) IBOutlet  PageViewController * pageViewController;
+@property (nonatomic, retain) UIPopoverController *searchesPopoverController;
 @property (nonatomic, retain) UIPopoverController *pagesPopoverController;
 @property(nonatomic,retain) SavedSearchesViewController * savedSearchesViewController;
-@property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
-@property (nonatomic,retain) IBOutlet UITableView *pageTableView;
-@property (nonatomic,retain) Page * page;
+@property (nonatomic,retain) IBOutlet UINavigationController *navController;
 
 - (void)setCurrentPage:(Page*)thePage;
-- (void)renderPage;
 - (IBAction)showPagesTable:(id)sender;
 - (IBAction)showSavedSearches:(id)sender;
-- (IBAction) toggleEditPage;
 - (IBAction) newPage:(id)sender;
 - (IBAction) createNewPage:(id)sender;
 - (IBAction) cancelNewPage:(id)sender;

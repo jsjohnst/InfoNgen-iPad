@@ -34,14 +34,12 @@
 		
 		ss.savedSearch=savedSearch;
 		ss.title=savedSearch.name;
-		//ss.title=savedSearch.name;
 		
 		[array addObject:ss];
 		
 		[ss release];
 	}
 	
-
 	self.controllers=array;
 	[array release];
 	[super viewDidLoad];

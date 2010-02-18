@@ -13,7 +13,7 @@
 #import "MainViewController.h"
 #import "Page.h"
 #import "SearchResultCell.h"
-
+#import "PageViewController.h"
 
 @implementation SavedSearchController
 @synthesize savedSearch;
@@ -63,12 +63,12 @@ didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 	
 	MainViewController * mainViewController=delegate.mainViewController;
 	
-	Page * page=mainViewController.page;
+	Page * page=mainViewController.pageViewController.page;
 	
 	if(page!=nil)
 	{
 		[page.items addObject:result];
-		[mainViewController renderPage];
+		[mainViewController.pageViewController renderPage];
 	}
 	else 
 	{
@@ -94,11 +94,11 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 	// add to current page...
 	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
 	MainViewController * mainViewController=delegate.mainViewController;
-	Page * page=mainViewController.page;
+	Page * page=mainViewController.pageViewController.page;
 	if(page!=nil)
 	{
 		[page.items addObject:result];
-		[mainViewController renderPage];
+		[mainViewController.pageViewController renderPage];
 	}
 	else 
 	{

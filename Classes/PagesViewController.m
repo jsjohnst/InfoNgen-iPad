@@ -25,7 +25,6 @@
 	[super viewDidLoad];
 }
 
-
 // The size the view should be when presented in a popover.
 - (CGSize)contentSizeForViewInPopoverView {
     return CGSizeMake(320.0, 600.0);
@@ -36,12 +35,10 @@
     return 1;
 }
 
-
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return [pages count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
