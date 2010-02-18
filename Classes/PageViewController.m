@@ -10,6 +10,7 @@
 #import "SearchResult.h"
 #import "SearchResultCell.h"
 #import "Page.h"
+#import "DocumentViewController.h"
 
 @implementation PageViewController
 @synthesize pageTableView,page;
@@ -28,7 +29,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
     // Return the number of sections.
@@ -97,7 +97,7 @@
 	[self setWidth:cell.headlineLabel width:textWidth];
 	[self setWidth:cell.synopsisLabel width:textWidth];
 	[self setWidth:cell.dateLabel width:textWidth];
-	//}
+	
 	
 	SearchResult * result=(SearchResult *)[self.page.items objectAtIndex:indexPath.row];
 	
@@ -179,43 +179,24 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	//UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"Selected page item" message:@"Page item selected" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-	// [alert show];
-	// [alert release];
+	SearchResult * result=(SearchResult *)[self.page.items objectAtIndex:indexPath.row];
 	
-	//UINavigationItem * item=[[UINavigationItem alloc] initWithTitle:@"Document"];
+	if(result.url && [result.url length]>0)
+	{
+		DocumentViewController * docViewController=[[DocumentViewController alloc] initWithNibName:@"DocumentView" bundle:nil];
 	
-	//[navController.navigationBar pushNavigationItem:item animated:YES];
+		docViewController.searchResult=result;
 	
-	//[item release];
+		UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	
-	//DocumentViewController *nextController=[[DocumentViewController alloc] init];
-	
-	
-	
-	/*
-	 SavedSearchController *nextController=[self.controllers objectAtIndex:indexPath.row];
-	 AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
-	 SavedSearchesViewController * savedSearchesViewController=delegate.savedSearchesViewController;
-	 UINavigationController * nav = savedSearchesViewController.savedSearchNavController;
-	 [nav pushViewController:nextController animated:YES];*/
-}
-
-- (void)viewDidUnload {
-    // Release any retained subviews of the main view.
-    //self.popoverController = nil;
+		[navController pushViewController:docViewController animated:YES];
+		[docViewController release];
+	}
 }
 
 - (void)dealloc {
-    //[popoverController release];
-	//[popoverController2 release];
-	//[newPageView release];
-    //[pagesPopoverController release];
-    //[navigationBar release];
-	//[navController release];
-	[pageTableView release];
-	//[PagesViewController release];
-    [page release];
+    [pageTableView release];
+	[page release];
     [super dealloc];
 }
 @end

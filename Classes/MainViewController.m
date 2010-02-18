@@ -115,14 +115,8 @@
 	[self.searchesPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
-- (void)viewDidUnload {
-    // Release any retained subviews of the main view.
-    //self.popoverController = nil;
-}
-
 - (void)dealloc {
-    //[popoverController release];
-	[searchesPopoverController release];
+    [searchesPopoverController release];
 	[newPageView release];
     [pagesPopoverController release];
 	[pageViewController release];

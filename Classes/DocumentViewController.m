@@ -7,40 +7,100 @@
 //
 
 #import "DocumentViewController.h"
-
+#import "SearchResult.h"
 
 @implementation DocumentViewController
+@synthesize webView,searchResult,backButton,forwardButton,stopButton,reloadButton;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    [super viewDidLoad];
+	
+	if(self.searchResult)
+	{
+		if(self.searchResult.url && [self.searchResult.url length]>0)
+		{
+			NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:[NSURL
+																	URLWithString:self.searchResult.url] 
+																	  cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:90.0];
+	
+			NSLog(@"loadRequest");
+			[self.webView loadRequest: theRequest];
+			NSLog(@"after loadRequest");
+			NSLog(@"setNeedsDisplay");
+			[self.webView setNeedsDisplay];
+			NSLog(@"after setNeedsDisplay");
+		}
+	}
+	
+	[super viewDidLoad];
 }
-*/
 
-/*
+//Sent if a web view failed to load content.
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+	NSLog(@"didFailLoadWithError");
+	self.stopButton.enabled=NO;
+	self.reloadButton.enabled=YES;
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	if(navController)
+	{
+		navController.navigationBar.topItem.title=nil;
+		navController.navigationBar.topItem.rightBarButtonItem=nil;
+	}
+}
+
+//Sent before a web view begins loading content.
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+	NSLog(@"shouldStartLoadWithRequest");
+	return YES;
+}
+
+//Sent after a web view finishes loading content.
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+	NSLog(@"webViewDidFinishLoad");
+	self.stopButton.enabled=NO;
+	self.reloadButton.enabled=YES;
+	self.backButton.enabled=self.webView.canGoBack;
+	self.forwardButton.enabled=self.webView.canGoForward;
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	if(navController)
+	{
+		navController.navigationBar.topItem.title=nil;
+		navController.navigationBar.topItem.rightBarButtonItem=nil;
+	}
+}
+
+//Sent after a web view starts loading content.
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+	NSLog(@"webViewDidStartLoad");
+	self.stopButton.enabled=YES;
+	self.reloadButton.enabled=YES;
+	
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	if(navController)
+	{
+		navController.navigationBar.topItem.title=@"Loading...";
+		
+		UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+		activityIndicator.activityIndicatorViewStyle=UIActivityIndicatorViewStyleGray;
+		[activityIndicator startAnimating];
+		UIBarButtonItem *activityItem = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
+		[activityIndicator release];
+		navController.navigationBar.topItem.rightBarButtonItem = activityItem;
+		[activityItem release];
+	
+	}
+}
+
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
-*/
+
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -57,6 +117,13 @@
 
 
 - (void)dealloc {
+	webView.delegate=nil;
+	[webView release];
+	[searchResult release];
+	[backButton release];
+	[forwardButton release];
+	[stopButton release];
+	[reloadButton release];
     [super dealloc];
 }
 

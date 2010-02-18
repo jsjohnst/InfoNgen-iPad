@@ -7,10 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SearchResult;
 
-
-@interface DocumentViewController : UIViewController {
-
+@interface DocumentViewController : UIViewController <UIWebViewDelegate> {
+	IBOutlet UIWebView * webView;
+	IBOutlet UIBarButtonItem * backButton;
+	IBOutlet UIBarButtonItem * forwardButton;
+	IBOutlet UIBarButtonItem * stopButton;
+	IBOutlet UIBarButtonItem * reloadButton;
+	
+	SearchResult * searchResult;
 }
+
+@property(nonatomic,retain) IBOutlet UIWebView * webView;
+@property(nonatomic,retain) SearchResult * searchResult;
+@property(nonatomic,retain) IBOutlet UIBarButtonItem * backButton;
+@property(nonatomic,retain) IBOutlet UIBarButtonItem * forwardButton;
+@property(nonatomic,retain) IBOutlet UIBarButtonItem * stopButton;
+@property(nonatomic,retain) IBOutlet UIBarButtonItem * reloadButton;
+
+
 
 @end

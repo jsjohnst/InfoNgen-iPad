@@ -46,6 +46,7 @@
 		C4BF00E0112DBD860005AA73 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BF00DF112DBD860005AA73 /* PageViewController.m */; };
 		C4BF00E3112DBDBB0005AA73 /* DocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BF00E2112DBDBB0005AA73 /* DocumentViewController.m */; };
 		C4BF00F7112DC41C0005AA73 /* PageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4BF00F6112DC41C0005AA73 /* PageView.xib */; };
+		C4BF01BB112DCE820005AA73 /* DocumentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4BF01BA112DCE820005AA73 /* DocumentView.xib */; };
 		C4D82853111B1DD000947677 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D82852111B1DD000947677 /* Page.m */; };
 		C4D82856111B1DE400947677 /* SavedSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D82855111B1DE400947677 /* SavedSearch.m */; };
 		C4E34D25112B1E6E00F193D9 /* LoginTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E34D24112B1E6E00F193D9 /* LoginTicket.m */; };
@@ -126,6 +127,7 @@
 		C4BF00E1112DBDBB0005AA73 /* DocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentViewController.h; sourceTree = "<group>"; };
 		C4BF00E2112DBDBB0005AA73 /* DocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentViewController.m; sourceTree = "<group>"; };
 		C4BF00F6112DC41C0005AA73 /* PageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageView.xib; sourceTree = "<group>"; };
+		C4BF01BA112DCE820005AA73 /* DocumentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentView.xib; sourceTree = "<group>"; };
 		C4D82851111B1DD000947677 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
 		C4D82852111B1DD000947677 /* Page.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page.m; sourceTree = "<group>"; };
 		C4D82854111B1DE400947677 /* SavedSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedSearch.h; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				C4158C23112097710070FE54 /* SearchResultCell.xib */,
 				C46EB7D41120C35200FFB032 /* NewPage.xib */,
 				C4BF00F6112DC41C0005AA73 /* PageView.xib */,
+				C4BF01BA112DCE820005AA73 /* DocumentView.xib */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				C46EB7D51120C35200FFB032 /* NewPage.xib in Resources */,
 				C47EB35D112B027E00DDD1D5 /* Settings.bundle in Resources */,
 				C4BF00F7112DC41C0005AA73 /* PageView.xib in Resources */,
+				C4BF01BB112DCE820005AA73 /* DocumentView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
