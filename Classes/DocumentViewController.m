@@ -8,6 +8,7 @@
 
 #import "DocumentViewController.h"
 #import "SearchResult.h"
+#import "DocumentImage.h"
 
 @implementation DocumentViewController
 @synthesize webView,searchResult,backButton,forwardButton,stopButton,reloadButton;
@@ -32,9 +33,6 @@
 
 -(IBAction) getImages
 {
-	//NSString * javascript=@"function(){var imgSources='test';for(var i=0;i<document.images.length;i++){imgSources+=document.images[i].src+';';}return imgSources;}();";
-	
-	
 	// get # of images on page
 	
 	NSInteger num_images=[self getInt:@"document.images.length"];
@@ -44,18 +42,55 @@
 	for(int i=0;i<num_images;i++)
 	{
 		NSString * src=[self getString:[NSString stringWithFormat:@"document.images[%d].src",i]];
+		// TODO:handle relative URLs here...
+		
 		NSInteger width=[self getInt:[NSString stringWithFormat:@"document.images[%d].width",i]];
 		NSInteger height=[self getInt:[NSString stringWithFormat:@"document.images[%d].height",i]];
 		
-		if(width>1 && height>1)
+		// ignore small images
+		if(width>16 && height>16)
 		{
-			[images addObject:src];
+			DocumentImage * image=[[DocumentImage alloc] init];
+			
+			image.width=width;
+			image.height=height;
+			image.area=width * height;
+			image.src=src;
+			
+			[images addObject:image];
+			
+			[image release];
 		}
 	}
 	
 	// TODO: sort by size and present user with largest images to choose from (calculate area)
+	NSSortDescriptor *areaSorter = [[NSSortDescriptor alloc] initWithKey:@"area" ascending:NO];
+	
+	[images sortUsingDescriptors:[NSArray arrayWithObject:areaSorter]];
+	
+	if([images count]>10)
+	{
+		[images removeObjectsInRange:NSMakeRange(10, [images count]-10)];
+	}
+	
+	DocumentImage * img;
+	
+	for(img in images)
+	{
+		UIImage * m=[img getImage];
+		if(m)
+		{
+			
+			
+			[m release];
+		}
+	}
+	
+	
+	
 	// TODO: filter out images that are not "squarish" in size
 	// TODO: filter out images that look like ads...
+	
 	
 	[images release];
 	

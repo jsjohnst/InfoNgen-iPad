@@ -14,12 +14,12 @@
 @implementation PagesViewController
 @synthesize pages;
 
-- (id)initWithFrame:(CGRect)frame {
+/*- (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         // Initialization code
     }
     return self;
-}
+}*/
 
 - (void)viewDidLoad {
 	[super viewDidLoad];

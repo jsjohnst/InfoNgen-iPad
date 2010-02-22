@@ -1,0 +1,5 @@
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m: In function '-[DocumentViewController getImages]':
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:80: warning: 'DocumentImage' may not respond to '-getImage'
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:80: warning: (Messages without a matching method signature
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:80: warning: will be assumed to return 'id' and accept
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:80: warning: '...' as arguments.)

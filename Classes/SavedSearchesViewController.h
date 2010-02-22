@@ -15,5 +15,5 @@
 	IBOutlet UINavigationController *savedSearchNavController;
 }
 @property (nonatomic,retain) IBOutlet UINavigationController *savedSearchNavController;
-@property (nonatomic, retain) IBOutlet MainViewController *mainViewController;
+@property (nonatomic, retain) MainViewController *mainViewController;
 @end
