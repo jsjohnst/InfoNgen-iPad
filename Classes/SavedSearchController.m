@@ -97,7 +97,10 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 	Page * page=mainViewController.pageViewController.page;
 	if(page!=nil)
 	{
-		[page.items addObject:result];
+		SearchResult * copy=[result copyWithZone:NULL];
+		
+		[page.items addObject:copy];
+		
 		[mainViewController.pageViewController renderPage];
 	}
 	else 

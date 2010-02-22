@@ -29,7 +29,18 @@
 	[self.view addSubview:navController.view];
 
 }
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+	NSLog(@"didShowViewController");
+}
 
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+	NSLog(@"willShowViewController");
+	
+	[viewController viewWillAppear:animated];
+}
 - (IBAction)newPage:(id)sender
 {
 	[self.view addSubview:newPageView];

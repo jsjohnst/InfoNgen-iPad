@@ -25,9 +25,12 @@
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * forwardButton;
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * stopButton;
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * reloadButton;
+- (NSString *)flattenHTML:(NSString *)html;
 
 -(NSString*) getString:(NSString*)javascript;
 -(NSInteger) getInt:(NSString*)javascript;
 -(IBAction) getImages;
+-(IBAction) getText;
+-(IBAction) edit;
 
 @end

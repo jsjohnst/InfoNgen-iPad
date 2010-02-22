@@ -14,12 +14,13 @@
 	NSInteger width;
 	NSInteger height;
 	NSInteger area;
+	UIImage * image;
 }
 @property(nonatomic,retain) NSString * src;
 @property(nonatomic) NSInteger width;
 @property(nonatomic) NSInteger height;
 @property(nonatomic) NSInteger area;
-
+@property(nonatomic,retain) UIImage * image;
 - (UIImage *) getImage;
 
 

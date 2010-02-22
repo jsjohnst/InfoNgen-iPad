@@ -11,13 +11,40 @@
 #import "SearchResultCell.h"
 #import "Page.h"
 #import "DocumentViewController.h"
+#import "NewsletterDetailViewController.h"
 
 @implementation PageViewController
 @synthesize pageTableView,page;
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	NSLog(@"viewWillAppear");
+	[pageTableView reloadData];
+
+	[super viewWillAppear:animated];
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+	NSLog(@"viewDidAppear");
+	[pageTableView reloadData];
+	
+	[super viewDidAppear:animated];
+}
 - (void)renderPage
 {
 	[pageTableView reloadData];
+}
+
+
+- (IBAction) settings
+{
+	NewsletterDetailViewController * settingsController=[[NewsletterDetailViewController alloc] initWithNibName:@"NewsletterDetailView" bundle:nil];
+	
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	
+	[navController pushViewController:settingsController animated:YES];
+	[settingsController release];
 }
 
 - (IBAction) toggleEditPage

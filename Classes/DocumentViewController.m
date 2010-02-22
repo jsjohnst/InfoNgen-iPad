@@ -9,14 +9,24 @@
 #import "DocumentViewController.h"
 #import "SearchResult.h"
 #import "DocumentImage.h"
+#import "ImagePickerViewController.h"
+#import "DocumentTextViewController.h"
+#import "DocumentEditViewController.h"
 
 @implementation DocumentViewController
 @synthesize webView,searchResult,backButton,forwardButton,stopButton,reloadButton;
 
 -(NSString*) getString:(NSString*)javascript
 {
-	return [self.webView stringByEvaluatingJavaScriptFromString:javascript];
-}
+	if(javascript && [javascript length]>0)
+	{
+		return [self.webView stringByEvaluatingJavaScriptFromString:javascript];
+	}
+	else
+	{
+		return nil;
+	}
+}	
 
 -(NSInteger) getInt:(NSString*)javascript
 {
@@ -29,6 +39,87 @@
 		return 0;
 	}
 
+}
+
+
+- (NSString *)flattenHTML:(NSString *)html {
+	
+    NSScanner *theScanner;
+    NSString *text = nil;
+	
+	// relplace <p> with line break
+	// replace <br> with line break
+	// replace &nbsp; with space
+	// replace &amp; with &
+	// replace other encodings as they come up...
+	
+	
+    theScanner = [NSScanner scannerWithString:html];
+	
+    while ([theScanner isAtEnd] == NO) {
+		
+        // find start of tag
+        [theScanner scanUpToString:@"<" intoString:NULL] ; 
+		
+        // find end of tag
+        [theScanner scanUpToString:@">" intoString:&text] ;
+		
+        // replace the found tag with a space
+        //(you can filter multi-spaces out later if you wish)
+        html = [html stringByReplacingOccurrencesOfString:
+				[ NSString stringWithFormat:@"%@>", text]
+											   withString:@""];
+		
+    } // while //
+    
+    return html;
+	
+}
+
+- (IBAction) getText
+{
+	// get javascript file from bundle...
+	
+	NSString * path=[[NSBundle mainBundle] pathForResource:@"readability" ofType:@"js"];
+	
+	if (path) {
+		NSString *javascript = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+	
+		if(javascript)
+		{
+			// insert javascript functions into the document
+			[self getString:javascript];
+	
+			NSString * text=[self getString:@"readability.extractArticleText()"];
+	
+			text=[self flattenHTML:text];
+			
+			// render extracted text in scrollable text view and allow user to select portions of the text for the synopsis
+
+			DocumentTextViewController * textController=[[DocumentTextViewController alloc] initWithNibName:@"DocumentTextView" bundle:nil];
+	
+			textController.searchResult=self.searchResult;
+			textController.text=text;
+	
+			UINavigationController * navController=(UINavigationController*)[self parentViewController];
+			
+			[navController pushViewController:textController animated:YES];
+			[textController release];
+		}
+	}
+}
+
+-(IBAction) edit
+{
+	DocumentEditViewController * editController=[[DocumentEditViewController alloc] initWithNibName:@"DocumentEditView" bundle:nil];
+	
+	editController.searchResult=self.searchResult;
+	
+	
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	
+	[navController pushViewController:editController animated:YES];
+	[editController release];
 }
 
 -(IBAction) getImages
@@ -75,18 +166,30 @@
 	
 	DocumentImage * img;
 	
+	ImagePickerViewController * imgViewController=[[ImagePickerViewController alloc] initWithNibName:@"ImagePickerView" bundle:nil];
+	
+	NSMutableArray * array=[[NSMutableArray alloc] init];
+	
 	for(img in images)
 	{
 		UIImage * m=[img getImage];
 		if(m)
 		{
+			img.image=m;
 			
+			[array addObject:img];
 			
 			[m release];
 		}
 	}
 	
+	imgViewController.images=array;
 	
+	[array release];
+	
+	[self.view addSubview:imgViewController.view];
+	
+	//[imgViewController release];
 	
 	// TODO: filter out images that are not "squarish" in size
 	// TODO: filter out images that look like ads...
@@ -155,10 +258,6 @@
 		navController.navigationBar.topItem.rightBarButtonItem=nil;
 	}
 }
-
-
-
-
 
 //Sent after a web view starts loading content.
 - (void)webViewDidStartLoad:(UIWebView *)webView

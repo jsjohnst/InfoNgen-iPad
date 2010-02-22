@@ -18,5 +18,6 @@
 
 - (void)renderPage;
 - (IBAction) toggleEditPage;
+- (IBAction) settings;
 
 @end

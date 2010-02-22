@@ -50,6 +50,16 @@
 		C4BF01BB112DCE820005AA73 /* DocumentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4BF01BA112DCE820005AA73 /* DocumentView.xib */; };
 		C4D82853111B1DD000947677 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D82852111B1DD000947677 /* Page.m */; };
 		C4D82856111B1DE400947677 /* SavedSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D82855111B1DE400947677 /* SavedSearch.m */; };
+		C4E13B701132D11300FC8A44 /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E13B6F1132D11300FC8A44 /* ImagePickerViewController.m */; };
+		C4E13B8C1132D29200FC8A44 /* ImagePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E13B8B1132D29200FC8A44 /* ImagePickerView.xib */; };
+		C4E13C101132E7B300FC8A44 /* readability.js in Resources */ = {isa = PBXBuildFile; fileRef = C4E13C0F1132E7B300FC8A44 /* readability.js */; };
+		C4E13C4B1132F34E00FC8A44 /* DocumentTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E13C4A1132F34E00FC8A44 /* DocumentTextViewController.m */; };
+		C4E13C4D1132F4CE00FC8A44 /* DocumentTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E13C4C1132F4CE00FC8A44 /* DocumentTextView.xib */; };
+		C4E13C7F11330A6700FC8A44 /* DocumentEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E13C7E11330A6700FC8A44 /* DocumentEditViewController.m */; };
+		C4E13C8111330B7400FC8A44 /* DocumentEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E13C8011330B7400FC8A44 /* DocumentEditView.xib */; };
+		C4E13CCE11331FAA00FC8A44 /* NewsletterDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E13CCD11331FAA00FC8A44 /* NewsletterDetailView.xib */; };
+		C4E13CD71133254900FC8A44 /* NewsletterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E13CD61133254900FC8A44 /* NewsletterDetailViewController.m */; };
+		C4E13D39113339B800FC8A44 /* EditableTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E13D38113339B800FC8A44 /* EditableTableCell.m */; };
 		C4E34D25112B1E6E00F193D9 /* LoginTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E34D24112B1E6E00F193D9 /* LoginTicket.m */; };
 		C4F0B14C1118DF6B0036B900 /* PagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F0B14B1118DF6B0036B900 /* PagesViewController.m */; };
 		C4F0B18B1118E6570036B900 /* SavedSearchesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F0B18A1118E6570036B900 /* SavedSearchesView.xib */; };
@@ -135,6 +145,21 @@
 		C4D82852111B1DD000947677 /* Page.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page.m; sourceTree = "<group>"; };
 		C4D82854111B1DE400947677 /* SavedSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedSearch.h; sourceTree = "<group>"; };
 		C4D82855111B1DE400947677 /* SavedSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearch.m; sourceTree = "<group>"; };
+		C4E13B6E1132D11300FC8A44 /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerViewController.h; sourceTree = "<group>"; };
+		C4E13B6F1132D11300FC8A44 /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerViewController.m; sourceTree = "<group>"; };
+		C4E13B8B1132D29200FC8A44 /* ImagePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePickerView.xib; sourceTree = "<group>"; };
+		C4E13C0F1132E7B300FC8A44 /* readability.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = readability.js; sourceTree = "<group>"; };
+		C4E13C491132F34E00FC8A44 /* DocumentTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentTextViewController.h; sourceTree = "<group>"; };
+		C4E13C4A1132F34E00FC8A44 /* DocumentTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentTextViewController.m; sourceTree = "<group>"; };
+		C4E13C4C1132F4CE00FC8A44 /* DocumentTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentTextView.xib; sourceTree = "<group>"; };
+		C4E13C7D11330A6700FC8A44 /* DocumentEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentEditViewController.h; sourceTree = "<group>"; };
+		C4E13C7E11330A6700FC8A44 /* DocumentEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentEditViewController.m; sourceTree = "<group>"; };
+		C4E13C8011330B7400FC8A44 /* DocumentEditView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentEditView.xib; sourceTree = "<group>"; };
+		C4E13CCD11331FAA00FC8A44 /* NewsletterDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsletterDetailView.xib; sourceTree = "<group>"; };
+		C4E13CD51133254900FC8A44 /* NewsletterDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsletterDetailViewController.h; sourceTree = "<group>"; };
+		C4E13CD61133254900FC8A44 /* NewsletterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsletterDetailViewController.m; sourceTree = "<group>"; };
+		C4E13D37113339B800FC8A44 /* EditableTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableTableCell.h; sourceTree = "<group>"; };
+		C4E13D38113339B800FC8A44 /* EditableTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableTableCell.m; sourceTree = "<group>"; };
 		C4E34D23112B1E6E00F193D9 /* LoginTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTicket.h; sourceTree = "<group>"; };
 		C4E34D24112B1E6E00F193D9 /* LoginTicket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTicket.m; sourceTree = "<group>"; };
 		C4F0B14A1118DF6B0036B900 /* PagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagesViewController.h; sourceTree = "<group>"; };
@@ -187,6 +212,16 @@
 				C4BF00E2112DBDBB0005AA73 /* DocumentViewController.m */,
 				B04298A4112EE05F00627F07 /* DocumentImage.h */,
 				B04298A5112EE05F00627F07 /* DocumentImage.m */,
+				C4E13B6E1132D11300FC8A44 /* ImagePickerViewController.h */,
+				C4E13B6F1132D11300FC8A44 /* ImagePickerViewController.m */,
+				C4E13C491132F34E00FC8A44 /* DocumentTextViewController.h */,
+				C4E13C4A1132F34E00FC8A44 /* DocumentTextViewController.m */,
+				C4E13C7D11330A6700FC8A44 /* DocumentEditViewController.h */,
+				C4E13C7E11330A6700FC8A44 /* DocumentEditViewController.m */,
+				C4E13CD51133254900FC8A44 /* NewsletterDetailViewController.h */,
+				C4E13CD61133254900FC8A44 /* NewsletterDetailViewController.m */,
+				C4E13D37113339B800FC8A44 /* EditableTableCell.h */,
+				C4E13D38113339B800FC8A44 /* EditableTableCell.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -224,6 +259,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources-iPad */ = {
 			isa = PBXGroup;
 			children = (
+				C4E13C0F1132E7B300FC8A44 /* readability.js */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				2804203B108E9BAB000629CD /* MainView.xib */,
 				8D1107310486CEB800E47090 /* Untitled-Info.plist */,
@@ -232,6 +268,10 @@
 				C46EB7D41120C35200FFB032 /* NewPage.xib */,
 				C4BF00F6112DC41C0005AA73 /* PageView.xib */,
 				C4BF01BA112DCE820005AA73 /* DocumentView.xib */,
+				C4E13B8B1132D29200FC8A44 /* ImagePickerView.xib */,
+				C4E13C4C1132F4CE00FC8A44 /* DocumentTextView.xib */,
+				C4E13C8011330B7400FC8A44 /* DocumentEditView.xib */,
+				C4E13CCD11331FAA00FC8A44 /* NewsletterDetailView.xib */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -379,6 +419,11 @@
 				C47EB35D112B027E00DDD1D5 /* Settings.bundle in Resources */,
 				C4BF00F7112DC41C0005AA73 /* PageView.xib in Resources */,
 				C4BF01BB112DCE820005AA73 /* DocumentView.xib in Resources */,
+				C4E13B8C1132D29200FC8A44 /* ImagePickerView.xib in Resources */,
+				C4E13C101132E7B300FC8A44 /* readability.js in Resources */,
+				C4E13C4D1132F4CE00FC8A44 /* DocumentTextView.xib in Resources */,
+				C4E13C8111330B7400FC8A44 /* DocumentEditView.xib in Resources */,
+				C4E13CCE11331FAA00FC8A44 /* NewsletterDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +469,11 @@
 				C4BF00E0112DBD860005AA73 /* PageViewController.m in Sources */,
 				C4BF00E3112DBDBB0005AA73 /* DocumentViewController.m in Sources */,
 				B04298A6112EE05F00627F07 /* DocumentImage.m in Sources */,
+				C4E13B701132D11300FC8A44 /* ImagePickerViewController.m in Sources */,
+				C4E13C4B1132F34E00FC8A44 /* DocumentTextViewController.m in Sources */,
+				C4E13C7F11330A6700FC8A44 /* DocumentEditViewController.m in Sources */,
+				C4E13CD71133254900FC8A44 /* NewsletterDetailViewController.m in Sources */,
+				C4E13D39113339B800FC8A44 /* EditableTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

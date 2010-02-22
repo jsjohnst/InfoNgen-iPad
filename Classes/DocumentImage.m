@@ -10,7 +10,7 @@
 
 
 @implementation DocumentImage
-@synthesize src,width,height,area;
+@synthesize src,width,height,area,image;
 
 - (UIImage *) getImage
 {
@@ -27,7 +27,7 @@
 
 - (void)dealloc {
 	[src release];
-
+	[image release];
 	[super dealloc];
 }
 
