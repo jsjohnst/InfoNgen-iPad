@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 
 
-@interface PagesViewController : UITableViewController {
+@interface PagesViewController : UIViewController {
 	NSMutableArray * pages;
+	IBOutlet UITableView * pagesTable;
 }
 @property(nonatomic,retain) NSMutableArray * pages;
+@property(nonatomic,retain) IBOutlet UITableView * pagesTable;
+
+
+- (IBAction) newPage;
 
 @end

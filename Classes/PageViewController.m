@@ -14,12 +14,21 @@
 #import "NewsletterDetailViewController.h"
 
 @implementation PageViewController
-@synthesize pageTableView,page;
+@synthesize pageTableView,page,editMoveButton,editSettingsButton;
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	NSLog(@"viewWillAppear");
+
+	if(self.page)
+	{
+		UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	
+		navController.navigationBar.backItem.title=self.page.name;
+		//navController.navigationBar.topItem.title=self.page.name;
+	}
+	
 	[pageTableView reloadData];
 
 	[super viewWillAppear:animated];
@@ -36,10 +45,13 @@
 	[pageTableView reloadData];
 }
 
+ 
 
 - (IBAction) settings
 {
 	NewsletterDetailViewController * settingsController=[[NewsletterDetailViewController alloc] initWithNibName:@"NewsletterDetailView" bundle:nil];
+	
+	settingsController.page=self.page;
 	
 	UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	
@@ -223,6 +235,8 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 
 - (void)dealloc {
     [pageTableView release];
+	[editMoveButton release];
+	[editSettingsButton release];
 	[page release];
     [super dealloc];
 }

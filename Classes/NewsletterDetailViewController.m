@@ -8,63 +8,22 @@
 
 #import "NewsletterDetailViewController.h"
 #import "EditableTableCell.h"
+#import "Page.h"
+#import "SegmentedTableCell.h"
 
 @implementation NewsletterDetailViewController
-@synthesize settingsTable;
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
+@synthesize settingsTable,page;
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-*/
-
-/*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return YES;
 }
-*/
-
-
- /*
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-}*/
-
-/*
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	
-}*/
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 	return 3;
 }
-
-/*
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-	
-}*/
 
 - (void) switched
 {
@@ -75,12 +34,36 @@
 	[a release];
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+	self.page.name=textField.text;
+}
+
+- (void) publishTypeChanged:(id)sender{
+	UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+	
+	self.page.publishType=[segmentedControl titleForSegmentAtIndex:[segmentedControl selectedSegmentIndex]];
+}
+
+- (void) emailFormatChanged:(id)sender{
+	UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+	
+	self.page.emailFormat=[segmentedControl titleForSegmentAtIndex:[segmentedControl selectedSegmentIndex]];
+}
+
+- (void) rssEnabledChanged:(id)sender
+{
+	UISwitch * s=(UISwitch*)sender;
+	
+	self.page.rssEnabled=s.isOn;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell *cell;
     
-	
 	switch (indexPath.section) {
+		
 		case kTitleSection:
 			{
 				switch (indexPath.row) {
@@ -88,78 +71,103 @@
 					{
 						EditableTableCell * textFormCell=[[[EditableTableCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
 						
-						textFormCell.textField.text=@"Newsletter Title";
-						//textFormCell.textField.delegate=self;
+						textFormCell.textField.text=self.page.name;
+						textFormCell.textField.delegate=self;
 						cell=textFormCell;
-						//cell.textLabel.text="@Title:";
 					}
-						break;
-					 
-					
+					break;
 				}
 			}
 			break;
+		
 		case kLogoImageSection:
-		{
-			switch (indexPath.row) {
+			{
+				switch (indexPath.row) {
 				 
-				case kLogoImageRow:
-				{
-					cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
-					cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-					cell.textLabel.text = @"Logo Image";
-				}
+					case kLogoImageRow:
+					{
+						cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
+						cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+						cell.textLabel.text = @"Logo Image";
+					}
 					
+				}
 			}
-		}
 			break;
 			
 		case kPublishingSection:
 			{
-	
-	 
-				
 				switch (indexPath.row) {
 					 
-						 
 					case kRssEnabledRow:
 						{
 							cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
 							UISwitch *mySwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
+							
+							[mySwitch setOn:self.page.rssEnabled animated:NO];
+							
 							[cell addSubview:mySwitch];
 							cell.accessoryView = mySwitch;
 							
-							[(UISwitch *)cell.accessoryView addTarget:self action:@selector(switched)
+							[(UISwitch *)cell.accessoryView addTarget:self action:@selector(rssEnabledChanged:)
 													 forControlEvents:UIControlEventValueChanged];
 							
 							
 							[mySwitch release];
-							cell.textLabel.text = @"RSS Enabled";
+							cell.textLabel.text = @"RSS Output";
 						}
 						break;
-					case kPdfEnabledRow:
+						
+					case kEmailFormatRow:
 						{
-							cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
-							UISwitch *mySwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
-							[cell addSubview:mySwitch];
-							cell.accessoryView = mySwitch;
+							SegmentedTableCell * segmentedCell=[[SegmentedTableCell alloc] initWithStyle:UITableViewCellStyleDefault
+																						 reuseIdentifier:nil buttonNames:[NSArray arrayWithObjects:@"HTML", @"PDF", nil]];
 							
-							[(UISwitch *)cell.accessoryView addTarget:self action:@selector(switched)
-													 forControlEvents:UIControlEventValueChanged];
+							if([self.page.emailFormat isEqualToString:@"PDF"])
+							{
+								segmentedCell.segmentedControl.selectedSegmentIndex=1;
+							}
+							else
+							{
+								segmentedCell.segmentedControl.selectedSegmentIndex=0;
+							}
 							
-							cell.textLabel.text = @"PDF Enabled";
-							[mySwitch release];
+							[segmentedCell.segmentedControl addTarget:self action:@selector(emailFormatChanged:) forControlEvents:UIControlEventValueChanged];
+							
+							cell=segmentedCell;
+							cell.textLabel.text=@"Email Format";
 						}
 						break;
 					
+					case kScheduleTypeRow:
+						{
+							SegmentedTableCell * segmentedCell=[[SegmentedTableCell alloc] initWithStyle:UITableViewCellStyleDefault
+																						 reuseIdentifier:nil buttonNames:[NSArray arrayWithObjects:@"Preview", @"Publish", nil]];
+							
+							if([self.page.publishType isEqualToString:@"Publish"])
+							{
+								segmentedCell.segmentedControl.selectedSegmentIndex=1;
+							}
+							else
+							{
+								segmentedCell.segmentedControl.selectedSegmentIndex=0;
+							}
+							
+							[segmentedCell.segmentedControl addTarget:self action:@selector(publishTypeChanged:) forControlEvents:UIControlEventValueChanged];
+							
+							cell=segmentedCell;
+							cell.textLabel.text=@"Publish Type";
+						}
+						break;
+						
 					case kScheduleRow:
 						{
 							cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
 							cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;	
 							cell.textLabel.text = @"Schedule";
-							
 						}
 						break;
+					
 					case kSubscribersRow:
 						{
 							cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
@@ -172,10 +180,7 @@
 			}
 	}
 	
-	    
-	//cell.textLabel.text = [NSString stringWithFormat:@"Cell for %d:%d",indexPath.section,indexPath.row];
-	
-    return cell;
+	return cell;
 	
 }
 
@@ -187,23 +192,15 @@
 		case kLogoImageSection:
 			return 1;
 		case kPublishingSection:
-			return 4;
+			return 5;
 	}
 	return 0;
 }
 
-
-/*- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
-{
-	
-}*/
-/*- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
-{
-	return [NSString stringWithFormat:@"footer title %d",section];
-}*/
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	switch (section) {
+	switch (section) 
+	{
 		case kTitleSection:
 			return @"Title";
 		case kLogoImageSection:
@@ -211,7 +208,7 @@
 		case kPublishingSection:
 			return @"Publishing Settings";
 	}
-
+	return nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -230,7 +227,7 @@
 
 - (void)dealloc {
 	[settingsTable release];
-	
+	[page release];
     [super dealloc];
 }
 

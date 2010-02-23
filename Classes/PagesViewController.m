@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 
 @implementation PagesViewController
-@synthesize pages;
+@synthesize pages,pagesTable;
 
 /*- (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -23,6 +23,27 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[self.pagesTable reloadData];
+	
+	[super viewDidAppear:animated];
+}
+
+- (IBAction) newPage
+{
+	Page * newPage=[[Page alloc] initWithName:@"Untitled"];
+	
+	[self.pages addObject:newPage];
+	
+	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+	MainViewController * mainViewController=delegate.mainViewController;
+	
+	[mainViewController setCurrentPage:newPage];	
+	
+	[newPage release];
 }
 
 // The size the view should be when presented in a popover.
@@ -71,6 +92,7 @@
 
 - (void)dealloc {
 	[pages release];
+	[pagesTable release];
     [super dealloc];
 }
 

@@ -51,8 +51,8 @@
     
     //  Make the clear button appear automatically.
     [_textField setClearButtonMode:UITextFieldViewModeWhileEditing];
-    [_textField setBackgroundColor:[UIColor whiteColor]];
-    [_textField setOpaque:YES];
+    //[_textField setBackgroundColor:[UIColor whiteColor]];
+    //[_textField setOpaque:YES];
     
     [[self contentView] addSubview:_textField];
     self.textField=_textField;

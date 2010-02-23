@@ -15,17 +15,25 @@
 #define kLogoImageRow 0
 
 #define kPublishingSection 2
-#define kScheduleRow 0
-#define kRssEnabledRow 1
-#define kPdfEnabledRow 2
-#define kSubscribersRow 3
+#define kScheduleTypeRow 0
+#define kScheduleRow 1
 
+#define kRssEnabledRow 2
+#define kEmailFormatRow 3
+#define kSubscribersRow 4
 
-@interface NewsletterDetailViewController : UIViewController {
+@class Page;
+
+@interface NewsletterDetailViewController : UIViewController <UITextFieldDelegate> {
 	IBOutlet UITableView * settingsTable;
+	Page * page;
 }
+
 @property(nonatomic,retain) IBOutlet UITableView * settingsTable;
+@property(nonatomic,retain) Page * page;
 
-
+- (void) emailFormatChanged:(id)sender;
+- (void) publishTypeChanged:(id)sender;
+- (void) rssEnabledChanged:(id)sender;
 
 @end

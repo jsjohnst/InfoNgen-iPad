@@ -20,7 +20,7 @@
 @synthesize pageName,pagesViewController,pageViewController,newPageView,navController,pagesPopoverController,searchesPopoverController,savedSearchesViewController;
 
 - (void)viewDidLoad {
-	pagesViewController=[[PagesViewController alloc] init];	
+	pagesViewController=[[PagesViewController alloc] initWithNibName:@"PagesView" bundle:nil];
 	// get pages from delegate...
 	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
 
@@ -85,6 +85,12 @@
 - (void)setCurrentPage:(Page*)thePage
 {
 	pageViewController.page=thePage;
+	
+	if(thePage)
+	{
+		pageViewController.editSettingsButton.enabled=YES;
+		pageViewController.editMoveButton.enabled=YES;
+	}
 	
 	navController.navigationBar.topItem.title=thePage.name;
 	
