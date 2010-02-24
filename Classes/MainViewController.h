@@ -19,13 +19,11 @@
 	UIPopoverController *pagesPopoverController;
 	PagesViewController *pagesViewController;
 	IBOutlet PageViewController *pageViewController;
-	IBOutlet UIView * newPageView;
-    SavedSearchesViewController * savedSearchesViewController;
+	SavedSearchesViewController * savedSearchesViewController;
     IBOutlet UITextField * pageName;
 	IBOutlet UINavigationController *navController;
 }
 
-@property (nonatomic,retain) IBOutlet UIView * newPageView;
 @property(nonatomic,retain) IBOutlet UITextField * pageName;
 @property (nonatomic,retain) PagesViewController * pagesViewController;
 @property (nonatomic,retain) IBOutlet  PageViewController * pageViewController;
@@ -37,8 +35,6 @@
 - (void)setCurrentPage:(Page*)thePage;
 - (IBAction)showPagesTable:(id)sender;
 - (IBAction)showSavedSearches:(id)sender;
-- (IBAction) newPage:(id)sender;
-- (IBAction) createNewPage:(id)sender;
-- (IBAction) cancelNewPage:(id)sender;
+
 
 @end

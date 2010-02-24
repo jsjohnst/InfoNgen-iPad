@@ -1,0 +1,6 @@
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m:145: warning: property 'newPageView' requires method '-newPageView' to be defined - use @synthesize, @dynamic or provide a method implementation
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m:145: warning: property 'newPageView' requires the method 'setNewPageView:' to be defined - use @synthesize, @dynamic or provide a method implementation
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m:145: warning: incomplete implementation of class 'MainViewController'
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m:145: warning: method definition for '-cancelNewPage:' not found
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m:145: warning: method definition for '-createNewPage:' not found
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/MainViewController.m:145: warning: method definition for '-newPage:' not found

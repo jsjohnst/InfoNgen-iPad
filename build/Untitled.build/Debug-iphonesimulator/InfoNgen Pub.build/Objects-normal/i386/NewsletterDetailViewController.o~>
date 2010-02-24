@@ -1,2 +1,0 @@
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterDetailViewController.m: In function '-[NewsletterDetailViewController tableView:cellForRowAtIndexPath:]':
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterDetailViewController.m:75: warning: class 'NewsletterDetailViewController' does not implement the 'UITextFieldDelegate' protocol

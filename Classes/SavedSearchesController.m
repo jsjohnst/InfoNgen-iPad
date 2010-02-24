@@ -19,7 +19,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	
-	self.title=@"Searches";
+	self.title=@"Saved Searches";
 	
 	NSMutableArray *array=[[NSMutableArray alloc] init];
 	

@@ -16,6 +16,7 @@
 @implementation DocumentViewController
 @synthesize webView,searchResult,backButton,forwardButton,stopButton,reloadButton;
 
+/*
 -(NSString*) getString:(NSString*)javascript
 {
 	if(javascript && [javascript length]>0)
@@ -199,7 +200,7 @@
 	
 	
 }
-
+*/
 - (void)viewDidLoad {
 	
 	if(self.searchResult)

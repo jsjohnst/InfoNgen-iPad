@@ -44,6 +44,8 @@
 	[mainViewController setCurrentPage:newPage];	
 	
 	[newPage release];
+	
+	[mainViewController.pageViewController settings];
 }
 
 // The size the view should be when presented in a popover.

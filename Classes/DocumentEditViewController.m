@@ -9,10 +9,12 @@
 #import "DocumentEditViewController.h"
 #import "SearchResult.h"
 #import "DocumentTextViewController.h"
+#import "DocumentViewController.h"
 
 @implementation DocumentEditViewController
 @synthesize searchResult,headlineTextField,synopsisTextView;
 
+/*
 - (IBAction) cancel
 {
 	
@@ -21,8 +23,34 @@
 {
 	self.searchResult.headline=headlineTextField.text;
 	self.searchResult.synopsis=synopsisTextView.text;
+}*/
+
+- (IBAction) getUrl
+{
+	if(self.searchResult.url && [self.searchResult.url length]>0)
+	{
+		DocumentViewController * docViewController=[[DocumentViewController alloc] initWithNibName:@"DocumentView" bundle:nil];
+		
+		docViewController.searchResult=self.searchResult;
+		
+		UINavigationController * navController=(UINavigationController*)[self parentViewController];
+		
+		[navController pushViewController:docViewController animated:YES];
+		[docViewController release];
+	}
 }
-- (IBAction) getText
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+	self.searchResult.headline=textField.text;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+	self.searchResult.synopsis=textView.text;
+}
+
+/*- (IBAction) getText
 {
 	// get javascript file from bundle...
 	
@@ -55,8 +83,7 @@
 			[textController release];
 		}
 	}
-	
-}
+}*/
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -81,7 +108,9 @@
 	self.headlineTextField.text=searchResult.headline;
 	self.synopsisTextView.text=searchResult.synopsis;
 	
-    [super viewDidLoad];
+	
+
+	[super viewDidLoad];
 }
 
 

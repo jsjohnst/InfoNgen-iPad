@@ -12,6 +12,7 @@
 #import "Page.h"
 #import "DocumentViewController.h"
 #import "NewsletterDetailViewController.h"
+#import "DocumentEditViewController.h"
 
 @implementation PageViewController
 @synthesize pageTableView,page,editMoveButton,editSettingsButton;
@@ -56,6 +57,9 @@
 	UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	
 	[navController pushViewController:settingsController animated:YES];
+	
+	navController.navigationBar.topItem.title=@"Newsletter Settings";
+	
 	[settingsController release];
 }
 
@@ -220,17 +224,18 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 {
 	SearchResult * result=(SearchResult *)[self.page.items objectAtIndex:indexPath.row];
 	
-	if(result.url && [result.url length]>0)
-	{
-		DocumentViewController * docViewController=[[DocumentViewController alloc] initWithNibName:@"DocumentView" bundle:nil];
+	DocumentEditViewController * editController=[[DocumentEditViewController alloc] initWithNibName:@"DocumentEditView" bundle:nil];
 	
-		docViewController.searchResult=result;
+	editController.searchResult=result;
 	
-		UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	
-		[navController pushViewController:docViewController animated:YES];
-		[docViewController release];
-	}
+	[navController pushViewController:editController animated:YES];
+	
+	navController.navigationBar.topItem.title=@"Edit Headline";
+	
+	[editController release];
+	
 }
 
 - (void)dealloc {

@@ -17,7 +17,7 @@
 
 @implementation MainViewController
 
-@synthesize pageName,pagesViewController,pageViewController,newPageView,navController,pagesPopoverController,searchesPopoverController,savedSearchesViewController;
+@synthesize pageName,pagesViewController,pageViewController,navController,pagesPopoverController,searchesPopoverController,savedSearchesViewController;
 
 - (void)viewDidLoad {
 	pagesViewController=[[PagesViewController alloc] initWithNibName:@"PagesView" bundle:nil];
@@ -41,12 +41,13 @@
 	
 	[viewController viewWillAppear:animated];
 }
+/*
 - (IBAction)newPage:(id)sender
 {
 	[self.view addSubview:newPageView];
-}
+}*/
 
-- (IBAction) createNewPage:(id)sender
+/*- (IBAction) createNewPage:(id)sender
 {
 	NSString * name=pageName.text;
 	
@@ -64,16 +65,16 @@
 	}
 	
 	[newPageView removeFromSuperview];
-}
-
+}*/
+/*
 - (IBAction) cancelNewPage:(id)sender
 {
 	[newPageView removeFromSuperview];
 }
-
+*/
 - (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc {
     
-    barButtonItem.title = @"Searches";
+    barButtonItem.title = @"Saved Searches";
 	
 	UINavigationItem * firstItem=[[navController.navigationBar items] objectAtIndex:0];
 	
@@ -134,8 +135,7 @@
 
 - (void)dealloc {
     [searchesPopoverController release];
-	[newPageView release];
-    [pagesPopoverController release];
+	[pagesPopoverController release];
 	[pageViewController release];
     [navController release];
 	[PagesViewController release];

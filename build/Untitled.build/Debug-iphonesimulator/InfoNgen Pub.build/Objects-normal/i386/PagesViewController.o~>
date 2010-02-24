@@ -1,0 +1,5 @@
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m: In function '-[PagesViewController newPage]':
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:48: warning: no '-settings' method found
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:48: warning: (Messages without a matching method signature
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:48: warning: will be assumed to return 'id' and accept
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/PagesViewController.m:48: warning: '...' as arguments.)
