@@ -1,0 +1,18 @@
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:17: error: no declaration of property 'selectImageButton' found in the interface
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m: In function '-[DocumentViewController webView:didFailLoadWithError:]':
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:285: error: request for member 'selectImageButton' in something not a structure or union
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m: In function '-[DocumentViewController appendSynopsis:]':
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:349: warning: format not a string literal and no format arguments
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m: In function '-[DocumentViewController webViewDidFinishLoad:]':
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:387: error: request for member 'selectImageButton' in something not a structure or union
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m: In function '-[DocumentViewController webViewDidStartLoad:]':
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:404: error: request for member 'selectImageButton' in something not a structure or union
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m: In function '-[DocumentViewController dealloc]':
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:448: error: 'selectImageButton' undeclared (first use in this function)
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:448: error: (Each undeclared identifier is reported only once
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:448: error: for each function it appears in.)
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m: At top level:
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:455: warning: property 'stopButton' requires method '-stopButton' to be defined - use @synthesize, @dynamic or provide a method implementation
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:455: warning: property 'stopButton' requires the method 'setStopButton:' to be defined - use @synthesize, @dynamic or provide a method implementation
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:455: warning: property 'reloadButton' requires method '-reloadButton' to be defined - use @synthesize, @dynamic or provide a method implementation
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentViewController.m:455: warning: property 'reloadButton' requires the method 'setReloadButton:' to be defined - use @synthesize, @dynamic or provide a method implementation

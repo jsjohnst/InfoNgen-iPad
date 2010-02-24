@@ -41,16 +41,21 @@
         return nil;
     }
     
-    CGRect bounds = [[self contentView] bounds];
-    CGRect rect = CGRectInset(bounds, 20.0, 10.0);
+    //CGRect bounds = [[self contentView] bounds];
+	
+	 
+//CGRect rect = CGRectInset(bounds, 20.0, 10.0);
+	
+	CGRect rect=CGRectMake(10.0, 10.0, 640.0, 20.0);
+	
     UITextField * _textField = [[UITextField alloc] initWithFrame:rect];
     
     //  Set the keyboard's return key label to 'Next'.
     //
-    [_textField setReturnKeyType:UIReturnKeyNext];
+    //[_textField setReturnKeyType:UIReturnKeyNext];
     
     //  Make the clear button appear automatically.
-    [_textField setClearButtonMode:UITextFieldViewModeWhileEditing];
+    //[_textField setClearButtonMode:UITextFieldViewModeWhileEditing];
     //[_textField setBackgroundColor:[UIColor whiteColor]];
     //[_textField setOpaque:YES];
     

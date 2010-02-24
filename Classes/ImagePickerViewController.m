@@ -10,50 +10,9 @@
 
 
 @implementation ImagePickerViewController
-@synthesize images,pickerView;
+ 
 
-
-- (IBAction) pick
-{	
-	[self.view removeFromSuperview];
-}
-
-- (IBAction) cancel
-{
-	[self.view removeFromSuperview];
-}
-
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-	return [NSString stringWithFormat:@"Title for row %d",row ];
-}
-
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
-{
-	UIImageView * imgView=[[UIImageView alloc] initWithImage:[[images objectAtIndex:row] image]];
-	
-	return imgView;
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-	
-}
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-	return 1;
-}
-
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-	return [images count];
-}
-
-
-
+ 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -85,6 +44,15 @@
 }
 */
 
+
+- (void)imagePickerController:(UIImagePickerController *)picker 
+		didFinishPickingImage:(UIImage *)image
+				  editingInfo:(NSDictionary *)editingInfo
+{
+	NSLog(@"didFinishPickingImage");
+	
+}
+
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -100,8 +68,7 @@
 
 
 - (void)dealloc {
-	[images release];
-	[pickerView release];
+	 
     [super dealloc];
 }
 

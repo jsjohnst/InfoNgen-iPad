@@ -10,20 +10,11 @@
 #import "SearchResult.h"
 #import "DocumentTextViewController.h"
 #import "DocumentViewController.h"
+#import "EditableTableCell.h"
+#import "TextViewTableCell.h"
 
 @implementation DocumentEditViewController
-@synthesize searchResult,headlineTextField,synopsisTextView;
-
-/*
-- (IBAction) cancel
-{
-	
-}
-- (IBAction) save
-{
-	self.searchResult.headline=headlineTextField.text;
-	self.searchResult.synopsis=synopsisTextView.text;
-}*/
+@synthesize searchResult,editTable;
 
 - (IBAction) getUrl
 {
@@ -47,7 +38,14 @@
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-	self.searchResult.synopsis=textView.text;
+	if(textView.tag==kCommentsSection)
+	{
+		self.searchResult.notes=textView.text;
+	}
+	if(textView.tag==kSynopsisSection)
+	{
+		self.searchResult.synopsis=textView.text;
+	}
 }
 
 /*- (IBAction) getText
@@ -85,42 +83,138 @@
 	}
 }*/
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	
-	self.headlineTextField.text=searchResult.headline;
-	self.synopsisTextView.text=searchResult.synopsis;
-	
-	
-
 	[super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	NSLog(@"documentEditViewController.viewWillAppear");
 
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	//self.imageView.image=searchResult.image;
+	//self.synopsisTextView.text=searchResult.synopsis;
+	NSLog(@"calling reloaddata");
+	[self.editTable reloadData];
+	
+	[super viewWillAppear:animated];
 }
-*/
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	NSLog(@"numberOfSectionsInTableView");
+	return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	UITableViewCell *cell;
+    
+	NSLog(@"cellForRowAtIndexPath");
+	
+	switch(indexPath.section)
+	{
+		case kHeadlineSection:
+		{
+			EditableTableCell * textFormCell=[[[EditableTableCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
+			textFormCell.textField.text=self.searchResult.headline;
+			textFormCell.textField.delegate=self;
+			cell=textFormCell;
+		}
+		break;
+		case kUrlSection:
+		{
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
+			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+			cell.textLabel.text = self.searchResult.url;
+		}
+		break;
+		case kSynopsisSection:	
+		{
+			TextViewTableCell * textViewCell=[[[TextViewTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
+			
+			textViewCell.textView.text=self.searchResult.synopsis;
+			textViewCell.textView.tag=kSynopsisSection;
+			textViewCell.textView.delegate=self;
+			
+			cell=textViewCell;
+		}
+			break;
+		case kCommentsSection:
+		{
+			TextViewTableCell * textViewCell=[[[TextViewTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
+			
+			textViewCell.textView.text=self.searchResult.notes;
+			textViewCell.textView.tag=kCommentsSection;
+			textViewCell.textView.delegate=self;
+			
+			cell=textViewCell;
+		}
+			break;
+		case kImageSection:
+		{
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
+			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+			cell.imageView.image=self.searchResult.image;
+		}
+			break;
+	}
+		 
+	return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	NSLog(@"numberOfRowsInSection");
+	
+	return 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	switch (section) 
+	{
+		case kHeadlineSection:
+			return @"Headline";
+		case kUrlSection:
+			return @"Link";
+		case kSynopsisSection:
+			return @"Synopsis";
+		case kCommentsSection:
+			return @"Comments";
+		case kImageSection:
+			return @"Image";
+	}
+	return nil;
+}
+
+- (CGFloat)tableView:(UITableView*)tableView
+heightForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+	switch(indexPath.section)
+	{
+		case kSynopsisSection:
+			return 220.0;
+		case kCommentsSection:
+			return 220.0;
+		case kImageSection:
+			if(self.searchResult.image)
+			{
+				return self.searchResult.image.size.height + 20.0;
+			}
+	}
+	return 40.0;
+}
+
+- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+	if(indexPath.section==kUrlSection && indexPath.row==kUrlRow)
+	{
+		// open page
+		[self getUrl];
+	}
+}
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -138,9 +232,7 @@
 
 - (void)dealloc {
 	[searchResult release];
-	[headlineTextField release];
-	[synopsisTextView release];
-	
+		[editTable release];
     [super dealloc];
 }
 

@@ -13,9 +13,9 @@
 	IBOutlet UIWebView * webView;
 	IBOutlet UIBarButtonItem * backButton;
 	IBOutlet UIBarButtonItem * forwardButton;
-	IBOutlet UIBarButtonItem * stopButton;
-	IBOutlet UIBarButtonItem * reloadButton;
-	
+	//IBOutlet UIBarButtonItem * stopButton;
+	//IBOutlet UIBarButtonItem * reloadButton;
+	IBOutlet UIBarButtonItem * selectImageButton;
 	SearchResult * searchResult;
 }
 
@@ -23,13 +23,18 @@
 @property(nonatomic,retain) SearchResult * searchResult;
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * backButton;
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * forwardButton;
-@property(nonatomic,retain) IBOutlet UIBarButtonItem * stopButton;
-@property(nonatomic,retain) IBOutlet UIBarButtonItem * reloadButton;
+@property(nonatomic,retain) IBOutlet UIBarButtonItem * selectImageButton;
 
-/*- (NSString *)flattenHTML:(NSString *)html;
+//@property(nonatomic,retain) IBOutlet UIBarButtonItem * stopButton;
+//@property(nonatomic,retain) IBOutlet UIBarButtonItem * reloadButton;
+
+- (IBAction) selectImages:(id)sender;
+- (void)appendSynopsis:(id)sender;
+
+/*- (NSString *)flattenHTML:(NSString *)html;*/
 
 -(NSString*) getString:(NSString*)javascript;
--(NSInteger) getInt:(NSString*)javascript;*/
+-(NSInteger) getInt:(NSString*)javascript;
 /*-(IBAction) getImages;
 -(IBAction) getText;
 -(IBAction) edit;

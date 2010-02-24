@@ -13,6 +13,7 @@
 #import "SearchClient.h"
 #import "SavedSearch.h"
 #import "UserSettings.h"
+#import "UIImage-NSCoding.h"
 
 @implementation AppDelegate
 

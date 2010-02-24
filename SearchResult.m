@@ -10,7 +10,7 @@
 
 
 @implementation SearchResult
-@synthesize headline,url,synopsis,date;
+@synthesize headline,url,synopsis,date,notes,image;
 
 - (id) init
 {
@@ -29,6 +29,7 @@
 	self.url=theUrl;
 	self.date=theDate;
 	
+	
 	return self;
 }
 
@@ -39,6 +40,8 @@
 	[encoder encodeObject:synopsis forKey:@"synopsis"];
 	[encoder encodeObject:url forKey:@"url"];
 	[encoder encodeObject:date forKey:@"date"];	
+	[encoder encodeObject:image forKey:@"image"];
+	[encoder encodeObject:notes	forKey:@"notes"];
 }
 
 - (id)initWithCoder:(NSCoder*)decoder
@@ -49,6 +52,8 @@
 		self.synopsis=[decoder decodeObjectForKey:@"synopsis"];
 		self.url=[decoder decodeObjectForKey:@"url"];
 		self.date=[decoder decodeObjectForKey:@"date"];
+		self.image=[decoder decodeObjectForKey:@"image"];
+		self.notes=[decoder decodeObjectForKey:@"notes"];
 	}
 	return self;
 }
@@ -60,6 +65,8 @@
 	copy.synopsis=[self.synopsis copy];
 	copy.url=[self.url copy];
 	copy.date=[self.date copy];
+	copy.notes=[self.notes copy];
+	copy.image=[self.image copy];
 	
 	return copy;
 }
@@ -75,6 +82,8 @@
 	[synopsis release];
 	[url release];
 	[date release];
+	[notes release];
+	[image release];
 	
 	[super dealloc];
 }

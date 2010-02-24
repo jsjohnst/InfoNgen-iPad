@@ -9,13 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ImagePickerViewController : UIViewController {
-	NSMutableArray * images;
-	IBOutlet UIPickerView * pickerView;
+@interface ImagePickerViewController : UIViewController 
+{
 }
-@property(nonatomic,retain) NSMutableArray * images;
-@property(nonatomic,retain) IBOutlet UIPickerView * pickerView;
-
-- (IBAction) pick;
-- (IBAction) cancel;
+ 
+ 
 @end

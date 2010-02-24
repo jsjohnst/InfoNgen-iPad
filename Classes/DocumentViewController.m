@@ -14,9 +14,8 @@
 #import "DocumentEditViewController.h"
 
 @implementation DocumentViewController
-@synthesize webView,searchResult,backButton,forwardButton,stopButton,reloadButton;
+@synthesize webView,searchResult,backButton,forwardButton,selectImageButton;//,stopButton,reloadButton;
 
-/*
 -(NSString*) getString:(NSString*)javascript
 {
 	if(javascript && [javascript length]>0)
@@ -42,7 +41,7 @@
 
 }
 
-
+/*
 - (NSString *)flattenHTML:(NSString *)html {
 	
     NSScanner *theScanner;
@@ -201,7 +200,61 @@
 	
 }
 */
+
+- (IBAction) selectImages:(id)sender
+{
+	UIBarButtonItem * barButton=(UIBarButtonItem*)sender;
+	
+	barButton.enabled=NO;
+	
+	// use javascript to highlight selectable images
+	// allow user to tap image to select to add to the newsletter
+	// when image is tapped, it sends a special callback to our code here...
+	
+	// get # of images on page
+	
+	NSInteger num_images=[self getInt:@"document.images.length"];
+	
+	for(int i=0;i<num_images;i++)
+	{
+		NSString * src=[self getString:[NSString stringWithFormat:@"document.images[%d].src",i]];
+		
+		// TODO:handle relative URLs here...
+		
+		if([src hasPrefix:@"http:"])
+		{
+			//if ([src hasSuffix:@".png"] || [src hasSuffix:@".jpg"] || [src hasSuffix:@".gif"]) 
+			//{
+					 
+				 
+				NSInteger width=[self getInt:[NSString stringWithFormat:@"document.images[%d].width",i]];
+				NSInteger height=[self getInt:[NSString stringWithFormat:@"document.images[%d].height",i]];
+			
+				// ignore small images (such as navigation icons, buttons, etc.)
+				if(width>32 && height>32)
+				{
+					// ignore huge images (such as background images, etc.)
+					if (width<800 && height<800) {
+						
+						// add highlighted border to the images which are selectable by the user...
+						[self getString:[NSString stringWithFormat:@"document.images[%d].style.border='4px dashed yellow'",i]];
+						
+						// add click handler if user taps on the highlighted image
+						[self getString:[NSString stringWithFormat:@"document.images[%d].onclick=function(){this.style.border='4px solid blue'; document.location='infongen:'+this.src;  return false;}",i]];
+						
+						
+					}
+				}
+			//}
+		}
+	}
+}
+
 - (void)viewDidLoad {
+	
+	UIMenuItem *appendSynopsisItem = [[[UIMenuItem alloc] initWithTitle:@"Add to Synopsis" action:@selector(appendSynopsis:)] autorelease];
+	 
+	[[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObjects:appendSynopsisItem, nil]];
 	
 	if(self.searchResult)
 	{
@@ -227,8 +280,9 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
 	NSLog(@"didFailLoadWithError");
-	self.stopButton.enabled=NO;
-	self.reloadButton.enabled=YES;
+	//self.stopButton.enabled=NO;
+	//self.reloadButton.enabled=YES;
+	self.selectImageButton.enabled=NO;
 	UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	if(navController)
 	{
@@ -241,15 +295,96 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
 	NSLog(@"shouldStartLoadWithRequest");
+	
+	// see if request is our own custom callback protocol...
+	NSString * url=[[request URL] absoluteString];
+	
+	if([url hasPrefix:@"infongen:"])
+	{
+		// do custom callback function...
+		NSString * command=[url substringFromIndex:9];
+		
+		 
+			// get image...
+			 
+			NSURL *url = [NSURL URLWithString:command];
+			NSData *data = [NSData dataWithContentsOfURL:url];
+			UIImage *img = [[UIImage alloc] initWithData:data];
+			
+			if(img)
+			{
+				self.searchResult.image=img;
+				
+				UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Selected Image" message:@"Headline image has been changed." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+				
+				[alertView show];
+				
+				[alertView release];
+			}
+			else
+			{
+				UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Image Load Failed" message:@"Could not download selected image." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+				
+				[alertView show];
+				
+				[alertView release];
+			}
+			
+			[img release];
+		 		
+		return NO;
+	}
+	
 	return YES;
+}
+
+- (void)appendSynopsis:(id)sender
+{
+	NSLog(@"appendSynopsis");
+	
+	NSString * selectedText=[self getString:@"''+window.getSelection()"];
+	
+	if(selectedText && [selectedText length]>0)
+	{
+		NSLog(selectedText);
+		if(self.searchResult.synopsis && [self.searchResult.synopsis length]>0)
+		{
+			self.searchResult.synopsis=[NSString stringWithFormat:@"%@\n%@",self.searchResult.synopsis,selectedText];
+		}
+		else
+		{
+			self.searchResult.synopsis=selectedText;
+		}
+	}
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+	
+	if(action==@selector(appendSynopsis:))
+	{
+		return YES;
+	}
+	
+	if(action==@selector(copy:))
+	{
+		return YES;
+	}
+	
+	return NO;
+}
+
+- (void)copy:(id)sender {
+	NSLog(@"copy");
+	
 }
 
 //Sent after a web view finishes loading content.
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
 	NSLog(@"webViewDidFinishLoad");
-	self.stopButton.enabled=NO;
-	self.reloadButton.enabled=YES;
+	//self.stopButton.enabled=NO;
+	//self.reloadButton.enabled=YES;
+	self.selectImageButton.enabled=YES;
 	self.backButton.enabled=self.webView.canGoBack;
 	self.forwardButton.enabled=self.webView.canGoForward;
 	UINavigationController * navController=(UINavigationController*)[self parentViewController];
@@ -264,9 +399,9 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
 	NSLog(@"webViewDidStartLoad");
-	self.stopButton.enabled=YES;
-	self.reloadButton.enabled=YES;
-	
+	//self.stopButton.enabled=YES;
+	//self.reloadButton.enabled=YES;
+	self.selectImageButton.enabled=NO;
 	UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	if(navController)
 	{
@@ -310,8 +445,9 @@
 	[searchResult release];
 	[backButton release];
 	[forwardButton release];
-	[stopButton release];
-	[reloadButton release];
+	[selectImageButton release];
+	//[stopButton release];
+	//[reloadButton release];
     [super dealloc];
 }
 

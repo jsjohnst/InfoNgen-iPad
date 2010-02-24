@@ -10,6 +10,7 @@
 #import "EditableTableCell.h"
 #import "Page.h"
 #import "SegmentedTableCell.h"
+#import "ImagePickerViewController.h"
 
 @implementation NewsletterDetailViewController
 @synthesize settingsTable,page;
@@ -20,10 +21,7 @@
 	return YES;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-	return 3;
-}
+
 
 - (void) switched
 {
@@ -58,6 +56,10 @@
 	self.page.rssEnabled=s.isOn;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return 3;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell *cell;
@@ -210,6 +212,43 @@
 	}
 	return nil;
 }
+
+
+
+- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+	if(indexPath.section==kLogoImageSection && indexPath.row==kLogoImageRow)
+	{
+		
+		/*UIImagePickerController * picker=[[UIImagePickerController alloc] init];
+		
+		picker.delegate=self;
+		
+		picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+		
+		[self presentModalViewController:picker animated:YES];
+		*//*
+		UINavigationController * navController=(UINavigationController*)[self parentViewController];
+		
+		[navController pushViewController:picker animated:YES];
+		
+		navController.navigationBar.topItem.title=@"Choose Logo Image";
+		
+		[picker release];
+	*/
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

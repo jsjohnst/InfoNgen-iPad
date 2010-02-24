@@ -16,6 +16,10 @@
 		2804203C108E9BAB000629CD /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2804203B108E9BAB000629CD /* MainView.xib */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+		B0338D5E11356A8B00764C4A /* icon_post.png in Resources */ = {isa = PBXBuildFile; fileRef = B0338D5D11356A8B00764C4A /* icon_post.png */; };
+		B0338D8911356EF200764C4A /* comment_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = B0338D8811356EF200764C4A /* comment_edit.png */; };
+		B0338F131135A98B00764C4A /* TextViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0338F121135A98B00764C4A /* TextViewTableCell.m */; };
+		B0338F6C1135B36D00764C4A /* UIImage-NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B0338F6B1135B36D00764C4A /* UIImage-NSCoding.m */; };
 		B04298A6112EE05F00627F07 /* DocumentImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B04298A5112EE05F00627F07 /* DocumentImage.m */; };
 		B08BC367112C4CDC00851E7A /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B08BC366112C4CDC00851E7A /* UserSettings.m */; };
 		C4158C22112097500070FE54 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4158C21112097500070FE54 /* SearchResultCell.m */; };
@@ -88,6 +92,12 @@
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Untitled-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Untitled-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		B0338D5D11356A8B00764C4A /* icon_post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_post.png; sourceTree = "<group>"; };
+		B0338D8811356EF200764C4A /* comment_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment_edit.png; sourceTree = "<group>"; };
+		B0338F111135A98B00764C4A /* TextViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTableCell.h; sourceTree = "<group>"; };
+		B0338F121135A98B00764C4A /* TextViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTableCell.m; sourceTree = "<group>"; };
+		B0338F6A1135B36D00764C4A /* UIImage-NSCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage-NSCoding.h"; sourceTree = "<group>"; };
+		B0338F6B1135B36D00764C4A /* UIImage-NSCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage-NSCoding.m"; sourceTree = "<group>"; };
 		B04298A4112EE05F00627F07 /* DocumentImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentImage.h; sourceTree = "<group>"; };
 		B04298A5112EE05F00627F07 /* DocumentImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentImage.m; sourceTree = "<group>"; };
 		B08BC365112C4CDC00851E7A /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
@@ -239,6 +249,10 @@
 				C4E13D38113339B800FC8A44 /* EditableTableCell.m */,
 				C4B92FE41134347100AF9B7C /* SegmentedTableCell.h */,
 				C4B92FE51134347100AF9B7C /* SegmentedTableCell.m */,
+				B0338F111135A98B00764C4A /* TextViewTableCell.h */,
+				B0338F121135A98B00764C4A /* TextViewTableCell.m */,
+				B0338F6A1135B36D00764C4A /* UIImage-NSCoding.h */,
+				B0338F6B1135B36D00764C4A /* UIImage-NSCoding.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -276,6 +290,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources-iPad */ = {
 			isa = PBXGroup;
 			children = (
+				B0338D8811356EF200764C4A /* comment_edit.png */,
+				B0338D5D11356A8B00764C4A /* icon_post.png */,
 				C4B9303011344D9B00AF9B7C /* Default-Landscape.png */,
 				C4B9303111344D9B00AF9B7C /* Default-LandscapeLeft.png */,
 				C4B9303211344D9B00AF9B7C /* Default-LandscapeRight.png */,
@@ -453,6 +469,8 @@
 				C4B9303811344D9B00AF9B7C /* Default-Portrait.png in Resources */,
 				C4B9303911344D9B00AF9B7C /* Default-PortraitUpsideDown.png in Resources */,
 				C4868B4211347F2700B6F842 /* PagesView.xib in Resources */,
+				B0338D5E11356A8B00764C4A /* icon_post.png in Resources */,
+				B0338D8911356EF200764C4A /* comment_edit.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +522,8 @@
 				C4E13CD71133254900FC8A44 /* NewsletterDetailViewController.m in Sources */,
 				C4E13D39113339B800FC8A44 /* EditableTableCell.m in Sources */,
 				C4B92FE61134347100AF9B7C /* SegmentedTableCell.m in Sources */,
+				B0338F131135A98B00764C4A /* TextViewTableCell.m in Sources */,
+				B0338F6C1135B36D00764C4A /* UIImage-NSCoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

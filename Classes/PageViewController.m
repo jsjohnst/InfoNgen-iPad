@@ -70,7 +70,8 @@
 
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
+    
+	return YES;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
@@ -99,10 +100,10 @@
 	[obj setFrame:rect];
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+/*- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
 	[self.pageTableView reloadData];
-}
+}*/
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -113,13 +114,26 @@
     	NSArray * nib=[[NSBundle mainBundle] loadNibNamed:@"SearchResultCell" owner:self options:nil];
 		
 		cell=[nib objectAtIndex:0];
+		
+		// setup autoresizing mask so we can set width...
+		//cell.autoresizingMask=( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+		//cell.headlineLabel.autoresizingMask=( UIViewAutoresizingFlexibleRightMargin);
+		//cell.synopsisLabel.autoresizingMask=( UIViewAutoresizingFlexibleRightMargin);
+		//cell.dateLabel.autoresizingMask=( UIViewAutoresizingFlexibleRightMargin);
 	}
+	
+	
 	int cellWidth=768;
 	int textWidth=700;
 	
 	// 1024x768
 	// in portrait view we have full width for table (768 wide)
 	// in landscape we have 1024 - 320 = 704 wide
+	int parentWidth=self.parentViewController.view.frame.size.width;
+	
+	cellWidth=parentWidth;
+	textWidth=parentWidth-60;
+	/*
 	switch([self interfaceOrientation])
 	{
 		case UIInterfaceOrientationPortrait:
@@ -129,12 +143,14 @@
 			break;
 		case UIInterfaceOrientationLandscapeLeft:
 		case UIInterfaceOrientationLandscapeRight:
-			cellWidth=704;
-			textWidth=640;
+			cellWidth=604;
+			textWidth=440;
 			break;
 		default:
 			break;
 	}
+	*/
+	
 	
 	[self setWidth:cell width:cellWidth];
 	[self setWidth:cell.headlineLabel width:textWidth];
@@ -142,11 +158,32 @@
 	[self setWidth:cell.dateLabel width:textWidth];
 	
 	
+	
 	SearchResult * result=(SearchResult *)[self.page.items objectAtIndex:indexPath.row];
+	//cell.imageView.image=result.image;
 	
 	cell.headlineLabel.text=[result headline];
 	cell.dateLabel.text=[[result date] description];
 	cell.synopsisLabel.text=[result synopsis];
+
+	if(result.notes && [result.notes length]>0)
+	{
+		UIImageView* commentsImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"comment_edit.png"]];
+		commentsImageView.frame = CGRectMake(0, 0, 16, 16);
+		//cell.accessoryType=UITableViewCellAccessory
+		//[cell.contentView addSubview:commentsImageView];
+		cell.accessoryView = commentsImageView;
+		[commentsImageView release];
+	}
+	else
+	{
+		cell.accessoryView=nil;
+	}
+	//[cell addSubview:mySwitch];
+	//cell.accessoryView = mySwitch;
+
+	
+	
 	
 	/*NSString * text=result.synopsis;
 	 

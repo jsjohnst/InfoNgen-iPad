@@ -56,6 +56,7 @@
 								<bool key="IBUIEnabled">NO</bool>
 								<string key="IBUITitle">&lt;</string>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<float key="IBUIWidth">45</float>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="312207837"/>
 							</object>
@@ -63,19 +64,19 @@
 								<bool key="IBUIEnabled">NO</bool>
 								<string key="IBUITitle">&gt;</string>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<float key="IBUIWidth">45</float>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="312207837"/>
 							</object>
-							<object class="IBUIBarButtonItem" id="431870821">
-								<bool key="IBUIEnabled">NO</bool>
-								<string key="IBUITitle">Reload</string>
+							<object class="IBUIBarButtonItem" id="996926512">
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<int key="IBUIStyle">1</int>
+								<float key="IBUIWidth">39</float>
 								<reference key="IBUIToolbar" ref="312207837"/>
+								<int key="IBUISystemItemIdentifier">6</int>
 							</object>
-							<object class="IBUIBarButtonItem" id="1026733950">
+							<object class="IBUIBarButtonItem" id="528944671">
 								<bool key="IBUIEnabled">NO</bool>
-								<string key="IBUITitle">Cancel</string>
+								<string key="IBUITitle">Select Headline Image</string>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="312207837"/>
@@ -156,22 +157,6 @@
 					<int key="connectionID">13</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">reload</string>
-						<reference key="source" ref="431870821"/>
-						<reference key="destination" ref="900209978"/>
-					</object>
-					<int key="connectionID">14</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">stopLoading</string>
-						<reference key="source" ref="1026733950"/>
-						<reference key="destination" ref="900209978"/>
-					</object>
-					<int key="connectionID">15</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">backButton</string>
 						<reference key="source" ref="372490531"/>
@@ -188,20 +173,20 @@
 					<int key="connectionID">17</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">reloadButton</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="431870821"/>
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">selectImages:</string>
+						<reference key="source" ref="528944671"/>
+						<reference key="destination" ref="372490531"/>
 					</object>
-					<int key="connectionID">18</int>
+					<int key="connectionID">28</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">stopButton</string>
+						<string key="label">selectImageButton</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="1026733950"/>
+						<reference key="destination" ref="528944671"/>
 					</object>
-					<int key="connectionID">19</int>
+					<int key="connectionID">30</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -241,8 +226,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="772881754"/>
 							<reference ref="957252386"/>
-							<reference ref="431870821"/>
-							<reference ref="1026733950"/>
+							<reference ref="528944671"/>
+							<reference ref="996926512"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -262,13 +247,13 @@
 						<reference key="parent" ref="312207837"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">10</int>
-						<reference key="object" ref="431870821"/>
+						<int key="objectID">26</int>
+						<reference key="object" ref="528944671"/>
 						<reference key="parent" ref="312207837"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">11</int>
-						<reference key="object" ref="1026733950"/>
+						<int key="objectID">29</int>
+						<reference key="object" ref="996926512"/>
 						<reference key="parent" ref="312207837"/>
 					</object>
 				</object>
@@ -281,8 +266,8 @@
 					<string>-2.CustomClassName</string>
 					<string>1.IBEditorWindowLastContentRect</string>
 					<string>1.IBPluginDependency</string>
-					<string>10.IBPluginDependency</string>
-					<string>11.IBPluginDependency</string>
+					<string>26.IBPluginDependency</string>
+					<string>29.IBPluginDependency</string>
 					<string>3.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
@@ -292,7 +277,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>DocumentViewController</string>
 					<string>UIResponder</string>
-					<string>{{679, 51}, {783, 963}}</string>
+					<string>{{679, 73}, {783, 963}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -318,7 +303,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">25</int>
+			<int key="maxID">30</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -330,13 +315,11 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>edit</string>
-							<string>getImages</string>
-							<string>getText</string>
+							<string>appendSynopsis:</string>
+							<string>selectImages:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -347,13 +330,11 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>backButton</string>
 							<string>forwardButton</string>
-							<string>reloadButton</string>
-							<string>stopButton</string>
+							<string>selectImageButton</string>
 							<string>webView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UIBarButtonItem</string>
 							<string>UIBarButtonItem</string>
 							<string>UIBarButtonItem</string>
 							<string>UIBarButtonItem</string>

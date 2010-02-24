@@ -7,21 +7,33 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
+#define kHeadlineSection 0
+#define kHeadlineRow 0
+
+#define kUrlSection 1
+#define kUrlRow 0
+
+#define kSynopsisSection 2
+#define kSynopsisRow 0
+
+#define kCommentsSection 3
+#define kCommentsRow 0
+
+#define kImageSection 4
+#define kImageRow 0
+
 @class SearchResult;
 
 @interface DocumentEditViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate>{
 	SearchResult * searchResult;
-	IBOutlet UITextField * headlineTextField;
-	IBOutlet UITextView * synopsisTextView;
+	IBOutlet UITableView * editTable;
 }
+@property(nonatomic,retain) IBOutlet UITableView * editTable;
 
 @property(nonatomic,retain) SearchResult * searchResult;
-@property(nonatomic,retain) IBOutlet UITextField * headlineTextField;
-@property(nonatomic,retain) IBOutlet UITextView * synopsisTextView;
 
-/*- (IBAction) cancel;
-- (IBAction) save;*/
-/*- (IBAction) getText;*/
 - (IBAction) getUrl;
 
 @end

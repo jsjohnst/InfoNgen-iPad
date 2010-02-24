@@ -116,6 +116,14 @@
     return YES;
 }
 
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+	if(self.pageViewController)
+	{
+		[self.pageViewController renderPage];
+	}
+}
+
 - (IBAction)showPagesTable:(id)sender{
 	if (self.pagesPopoverController==nil) {
 		pagesPopoverController=[[UIPopoverController alloc] initWithContentViewController:pagesViewController];
