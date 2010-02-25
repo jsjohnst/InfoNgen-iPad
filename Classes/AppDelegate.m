@@ -46,8 +46,8 @@
 	splitViewController.delegate = mainViewController;
     
     // Add the split view controller's view to the window and display.
-    //[window addSubview:splitViewController.view];
-    [window addSubview:mainViewController.view];
+    [window addSubview:splitViewController.view];
+    //[window addSubview:mainViewController.view];
 	
 	[window makeKeyAndVisible];
     

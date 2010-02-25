@@ -1,0 +1,12 @@
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m:13: error: no declaration of property 'items' found in the interface
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m: In function '-[NewsletterSection encodeWithCoder:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m:21: error: 'items' undeclared (first use in this function)
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m:21: error: (Each undeclared identifier is reported only once
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m:21: error: for each function it appears in.)
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m: In function '-[NewsletterSection initWithCoder:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m:32: error: request for member 'items' in something not a structure or union
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m: In function '-[NewsletterSection copyWithZone:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m:44: error: request for member 'items' in something not a structure or union
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m:44: error: request for member 'items' in something not a structure or union
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m: In function '-[NewsletterSection dealloc]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m:54: error: 'items' undeclared (first use in this function)

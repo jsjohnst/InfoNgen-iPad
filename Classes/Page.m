@@ -9,7 +9,7 @@
 #import "Page.h"
 
 @implementation Page
-@synthesize name,items,subscribers,rssEnabled,emailFormat,publishType,logoImage;
+@synthesize name,items,subscribers,rssEnabled,emailFormat,publishType,logoImage,sections,lastUpdated,summary;
 
 - (id) init
 {
@@ -28,6 +28,8 @@
 	self.subscribers=[[NSMutableArray alloc] init];
 	self.emailFormat=@"HTML";
 	self.publishType=@"Preview";
+	self.lastUpdated=[NSDate date];
+	self.sections=[[NSMutableArray alloc] init];
 	
 	return self;
 }
@@ -41,6 +43,9 @@
 	[encoder encodeBool:rssEnabled forKey:@"rssEnabled"];
 	[encoder encodeObject:emailFormat forKey:@"emailFormat"];
 	[encoder encodeObject:publishType forKey:@"publishType"];
+	[encoder encodeObject:sections forKey:@"sections"];
+	[encoder encodeObject:lastUpdated forKey:@"lastUpdated"];
+	[encoder encodeObject:summary	forKey:@"summary"];
 }
 
 - (id)initWithCoder:(NSCoder*)decoder
@@ -54,6 +59,9 @@
 		self.rssEnabled=[decoder decodeBoolForKey:@"rssEnabled"];
 		self.emailFormat=[decoder decodeObjectForKey:@"emailFormat"];
 		self.publishType=[decoder decodeObjectForKey:@"publishType"];
+		self.lastUpdated=[decoder decodeObjectForKey:@"lastUpdated"];
+		self.sections=[decoder	decodeObjectForKey:@"sections"];
+		self.summary=[decoder decodeObjectForKey:@"summary"];
 	}
 	return self;
 }
@@ -68,6 +76,9 @@
 	copy.emailFormat=[self.emailFormat copy];
 	copy.publishType=[self.publishType copy];
 	copy.logoImage=[self.logoImage copy];
+	copy.sections=[self.sections copy];
+	copy.lastUpdated=[self.lastUpdated copy];
+	copy.summary=[self.summary copy];
 	return copy;
 }
 
@@ -93,6 +104,9 @@
 	[logoImage release];
 	[emailFormat release];
 	[publishType release];
+	[sections release];
+	[lastUpdated release];
+	[summary release];
     [super dealloc];
 }
 @end

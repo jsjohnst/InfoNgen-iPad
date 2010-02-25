@@ -11,20 +11,27 @@
 #define kTitleSection 0
 #define kTitleRow 0
 
-#define kLogoImageSection 1
+#define kSummarySection 1
+#define kSummaryRow 0
+
+#define kLogoImageSection 2
 #define kLogoImageRow 0
 
-#define kPublishingSection 2
+#define kPublishingSection 3
 #define kScheduleTypeRow 0
 #define kScheduleRow 1
-
 #define kRssEnabledRow 2
 #define kEmailFormatRow 3
 #define kSubscribersRow 4
 
+#define kSavedSearchesSection 4
+#define kSavedSearchesRow 0
+
+
+
 @class Page;
 
-@interface NewsletterDetailViewController : UIViewController <UITextFieldDelegate> {
+@interface NewsletterDetailViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate> {
 	IBOutlet UITableView * settingsTable;
 	Page * page;
 }

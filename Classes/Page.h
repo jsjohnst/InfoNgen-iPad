@@ -18,14 +18,22 @@
 	NSString * publishType;
 	UIImage * logoImage;
 	
+	NSMutableArray * sections;
+	
+	NSString * summary;
+	
+	NSDate * lastUpdated;
 }
 @property(nonatomic,retain) NSString * name;
 @property(retain) NSMutableArray * items;
 @property(nonatomic,retain) NSMutableArray * subscribers;
+@property(nonatomic,retain) NSMutableArray * sections;
 @property(nonatomic) BOOL rssEnabled;
 @property(nonatomic,retain) NSString * emailFormat;
 @property(nonatomic,retain) NSString * publishType;
 @property(nonatomic,retain) UIImage * logoImage;
+@property(nonatomic,retain) NSDate * lastUpdated;
+@property(nonatomic,retain) NSString * summary;
 
 - (id) initWithName:(NSString *)theName;
 

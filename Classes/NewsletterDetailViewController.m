@@ -11,6 +11,8 @@
 #import "Page.h"
 #import "SegmentedTableCell.h"
 #import "ImagePickerViewController.h"
+#import "TextViewTableCell.h"
+#import "NewsletterSectionsViewController.h"
 
 @implementation NewsletterDetailViewController
 @synthesize settingsTable,page;
@@ -20,8 +22,6 @@
     // Return YES for supported orientations
 	return YES;
 }
-
-
 
 - (void) switched
 {
@@ -35,6 +35,11 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
 	self.page.name=textField.text;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+	self.page.summary=textView.text;
 }
 
 - (void) publishTypeChanged:(id)sender{
@@ -58,8 +63,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return 3;
+	return 5;
 }
+
+- (CGFloat)tableView:(UITableView*)tableView
+heightForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+	switch(indexPath.section)
+	{
+		case kSummarySection:
+			return 220.0;
+			break;
+	}
+	return 40.0;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell *cell;
@@ -81,7 +100,24 @@
 				}
 			}
 			break;
-		
+		case kSummarySection:
+		{
+			switch(indexPath.row)
+			{
+				case kSummaryRow:
+				{
+					
+					TextViewTableCell * textViewCell=[[[TextViewTableCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
+					
+					textViewCell.textView.text=self.page.summary;
+					textViewCell.textView.delegate=self;
+					cell=textViewCell;
+				}
+					break;
+			}
+		}
+			break;
+			
 		case kLogoImageSection:
 			{
 				switch (indexPath.row) {
@@ -90,13 +126,32 @@
 					{
 						cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
 						cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+						cell.selectionStyle=UITableViewCellSelectionStyleNone;
 						cell.textLabel.text = @"Logo Image";
 					}
 					
 				}
 			}
 			break;
-			
+		case kSavedSearchesSection:
+		{
+			switch(indexPath.row)
+			{
+				case kSavedSearchesRow:
+				{
+					cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1  reuseIdentifier:nil] autorelease];
+					cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;	
+					cell.selectionStyle=UITableViewCellSelectionStyleNone;
+					cell.textLabel.text = @"Saved Searches";
+					if([self.page.sections count]>0)
+					{
+						cell.detailTextLabel.text=[NSString stringWithFormat:@"%d",[self.page.sections count]];
+					}
+				}
+					break;
+			}
+		}
+			break;
 		case kPublishingSection:
 			{
 				switch (indexPath.row) {
@@ -174,7 +229,7 @@
 						{
 							cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
 							cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;	
-							cell.textLabel.text = @"Subscribers";
+							cell.textLabel.text = @"Distribution List";
 						}
 						break;
 				
@@ -195,6 +250,11 @@
 			return 1;
 		case kPublishingSection:
 			return 5;
+		case kSavedSearchesSection:
+			return 1;
+		case kSummarySection:
+			return 1;
+			
 	}
 	return 0;
 }
@@ -209,6 +269,10 @@
 			return @"Logo Image";
 		case kPublishingSection:
 			return @"Publishing Settings";
+		case kSavedSearchesSection:
+			return @"Saved Searches";
+		case kSummarySection:
+			return @"Summary";
 	}
 	return nil;
 }
@@ -219,24 +283,73 @@
 {
 	if(indexPath.section==kLogoImageSection && indexPath.row==kLogoImageRow)
 	{
+		UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Select Logo Image" message:@"No photo album available on this device." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+					
+		[alertView show];
+					
+		[alertView release];
 		
 		/*UIImagePickerController * picker=[[UIImagePickerController alloc] init];
 		
-		picker.delegate=self;
+		//picker.delegate=self;
 		
-		picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+		if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+		{
+			picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+			
+		}
+		else
+		{
+			if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+			{
+				picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+
+			}
+			else
+			{
+				if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+				{
+					picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+
+				}
+				else {
+					
+					return;
+				}
+
+			}
+		}
 		
-		[self presentModalViewController:picker animated:YES];
-		*//*
-		UINavigationController * navController=(UINavigationController*)[self parentViewController];
+		[self presentModalViewController:picker animated:YES];*/
+		
+		/*UINavigationController * navController=(UINavigationController*)[self parentViewController];
 		
 		[navController pushViewController:picker animated:YES];
 		
 		navController.navigationBar.topItem.title=@"Choose Logo Image";
 		
-		[picker release];
-	*/
+		[picker release];*/
+	}
+	
+	if(indexPath.section==kSavedSearchesSection && indexPath.row==kSavedSearchesRow)
+	{
+		NewsletterSectionsViewController * sectionsController=[[NewsletterSectionsViewController alloc] initWithNibName:@"NewsletterSectionsView" bundle:nil];
 		
+		sectionsController.page=self.page;
+		
+		UINavigationController * navController=(UINavigationController*)[self parentViewController];
+		
+		[navController pushViewController:sectionsController animated:YES];
+		
+		navController.navigationBar.topItem.title=@"Newsletter Saved Searches";
+		
+		UIBarButtonItem * rightButton=[[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:sectionsController action:@selector(edit:)];
+		
+		navController.navigationBar.topItem.rightBarButtonItem=rightButton;
+		
+		[rightButton release];
+		
+		[sectionsController release];
 	}
 }
 

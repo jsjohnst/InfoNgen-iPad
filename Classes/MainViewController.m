@@ -60,6 +60,8 @@
 	{
 		pageViewController.editSettingsButton.enabled=YES;
 		pageViewController.editMoveButton.enabled=YES;
+		pageViewController.updateButton.enabled=YES;
+		pageViewController.previewButton.enabled=YES;
 	}
 	
 	navController.navigationBar.topItem.title=thePage.name;

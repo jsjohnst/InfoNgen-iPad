@@ -49,6 +49,13 @@
 		C4868B4211347F2700B6F842 /* PagesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4868B4111347F2700B6F842 /* PagesView.xib */; };
 		C49090FB1119F54D007F30BA /* SavedSearchesController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49090FA1119F54D007F30BA /* SavedSearchesController.m */; };
 		C49091071119F99D007F30BA /* SavedSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49091061119F99D007F30BA /* SavedSearchController.m */; };
+		C49BA17B1136DF3E0015227C /* NewsletterSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C49BA17A1136DF3E0015227C /* NewsletterSection.m */; };
+		C49BA1A51136E59F0015227C /* NewsletterSectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49BA1A41136E59F0015227C /* NewsletterSectionsViewController.m */; };
+		C49BA1A71136E5BB0015227C /* NewsletterSectionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49BA1A61136E5BB0015227C /* NewsletterSectionsView.xib */; };
+		C49BA1B61136E8C50015227C /* NewsletterAddSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49BA1B51136E8C50015227C /* NewsletterAddSectionViewController.m */; };
+		C49BA1B81136E9560015227C /* NewsletterAddSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49BA1B71136E9560015227C /* NewsletterAddSectionView.xib */; };
+		C49BA25011371D540015227C /* PageHTMLPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49BA24F11371D540015227C /* PageHTMLPreviewViewController.m */; };
+		C49BA25211371D690015227C /* PageHTMLPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49BA25111371D690015227C /* PageHTMLPreviewView.xib */; };
 		C4B92FE61134347100AF9B7C /* SegmentedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B92FE51134347100AF9B7C /* SegmentedTableCell.m */; };
 		C4B9303511344D9B00AF9B7C /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C4B9303011344D9B00AF9B7C /* Default-Landscape.png */; };
 		C4B9303611344D9B00AF9B7C /* Default-LandscapeLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = C4B9303111344D9B00AF9B7C /* Default-LandscapeLeft.png */; };
@@ -153,6 +160,17 @@
 		C49090FA1119F54D007F30BA /* SavedSearchesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearchesController.m; sourceTree = "<group>"; };
 		C49091051119F99D007F30BA /* SavedSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedSearchController.h; sourceTree = "<group>"; };
 		C49091061119F99D007F30BA /* SavedSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearchController.m; sourceTree = "<group>"; };
+		C49BA1791136DF3E0015227C /* NewsletterSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsletterSection.h; sourceTree = "<group>"; };
+		C49BA17A1136DF3E0015227C /* NewsletterSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsletterSection.m; sourceTree = "<group>"; };
+		C49BA1A31136E59F0015227C /* NewsletterSectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsletterSectionsViewController.h; sourceTree = "<group>"; };
+		C49BA1A41136E59F0015227C /* NewsletterSectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsletterSectionsViewController.m; sourceTree = "<group>"; };
+		C49BA1A61136E5BB0015227C /* NewsletterSectionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsletterSectionsView.xib; sourceTree = "<group>"; };
+		C49BA1B41136E8C50015227C /* NewsletterAddSectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsletterAddSectionViewController.h; sourceTree = "<group>"; };
+		C49BA1B51136E8C50015227C /* NewsletterAddSectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsletterAddSectionViewController.m; sourceTree = "<group>"; };
+		C49BA1B71136E9560015227C /* NewsletterAddSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsletterAddSectionView.xib; sourceTree = "<group>"; };
+		C49BA24E11371D540015227C /* PageHTMLPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageHTMLPreviewViewController.h; sourceTree = "<group>"; };
+		C49BA24F11371D540015227C /* PageHTMLPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageHTMLPreviewViewController.m; sourceTree = "<group>"; };
+		C49BA25111371D690015227C /* PageHTMLPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageHTMLPreviewView.xib; sourceTree = "<group>"; };
 		C4B92FE41134347100AF9B7C /* SegmentedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedTableCell.h; sourceTree = "<group>"; };
 		C4B92FE51134347100AF9B7C /* SegmentedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedTableCell.m; sourceTree = "<group>"; };
 		C4B9303011344D9B00AF9B7C /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
@@ -253,6 +271,14 @@
 				B0338F121135A98B00764C4A /* TextViewTableCell.m */,
 				B0338F6A1135B36D00764C4A /* UIImage-NSCoding.h */,
 				B0338F6B1135B36D00764C4A /* UIImage-NSCoding.m */,
+				C49BA1791136DF3E0015227C /* NewsletterSection.h */,
+				C49BA17A1136DF3E0015227C /* NewsletterSection.m */,
+				C49BA1A31136E59F0015227C /* NewsletterSectionsViewController.h */,
+				C49BA1A41136E59F0015227C /* NewsletterSectionsViewController.m */,
+				C49BA1B41136E8C50015227C /* NewsletterAddSectionViewController.h */,
+				C49BA1B51136E8C50015227C /* NewsletterAddSectionViewController.m */,
+				C49BA24E11371D540015227C /* PageHTMLPreviewViewController.h */,
+				C49BA24F11371D540015227C /* PageHTMLPreviewViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -311,6 +337,9 @@
 				C4E13C8011330B7400FC8A44 /* DocumentEditView.xib */,
 				C4E13CCD11331FAA00FC8A44 /* NewsletterDetailView.xib */,
 				C4868B4111347F2700B6F842 /* PagesView.xib */,
+				C49BA1A61136E5BB0015227C /* NewsletterSectionsView.xib */,
+				C49BA1B71136E9560015227C /* NewsletterAddSectionView.xib */,
+				C49BA25111371D690015227C /* PageHTMLPreviewView.xib */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -471,6 +500,9 @@
 				C4868B4211347F2700B6F842 /* PagesView.xib in Resources */,
 				B0338D5E11356A8B00764C4A /* icon_post.png in Resources */,
 				B0338D8911356EF200764C4A /* comment_edit.png in Resources */,
+				C49BA1A71136E5BB0015227C /* NewsletterSectionsView.xib in Resources */,
+				C49BA1B81136E9560015227C /* NewsletterAddSectionView.xib in Resources */,
+				C49BA25211371D690015227C /* PageHTMLPreviewView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +556,10 @@
 				C4B92FE61134347100AF9B7C /* SegmentedTableCell.m in Sources */,
 				B0338F131135A98B00764C4A /* TextViewTableCell.m in Sources */,
 				B0338F6C1135B36D00764C4A /* UIImage-NSCoding.m in Sources */,
+				C49BA17B1136DF3E0015227C /* NewsletterSection.m in Sources */,
+				C49BA1A51136E59F0015227C /* NewsletterSectionsViewController.m in Sources */,
+				C49BA1B61136E8C50015227C /* NewsletterAddSectionViewController.m in Sources */,
+				C49BA25011371D540015227C /* PageHTMLPreviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

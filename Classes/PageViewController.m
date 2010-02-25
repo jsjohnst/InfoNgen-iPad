@@ -13,9 +13,13 @@
 #import "DocumentViewController.h"
 #import "NewsletterDetailViewController.h"
 #import "DocumentEditViewController.h"
+#import "PageHTMLPreviewViewController.h"
+#import "AppDelegate.h"
+#import "NewsletterSection.h"
+#import "SavedSearch.h"
 
 @implementation PageViewController
-@synthesize pageTableView,page,editMoveButton,editSettingsButton;
+@synthesize pageTableView,page,editMoveButton,editSettingsButton,updateButton,previewButton;
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -46,6 +50,74 @@
 	[pageTableView reloadData];
 }
 
+- (IBAction) update
+{
+	// update all the saved searches associated with this page...
+	[self performSelectorInBackground:@selector(updateStart) withObject:nil];
+	self.updateButton.enabled=NO;
+	self.editMoveButton.enabled=NO;
+	self.previewButton.enabled=NO;
+	self.editSettingsButton.enabled=NO;
+}
+
+- (void)updateStart
+{
+	UIApplication* app = [UIApplication sharedApplication];
+	app.networkActivityIndicatorVisible = YES;
+	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+    
+	NSArray * savedSearches=((AppDelegate*)[app delegate]).savedSearches;
+	
+	for(int i=0;i<[self.page.sections count];i++)
+	{
+		NewsletterSection * section=[self.page.sections objectAtIndex:i];
+		for(int j=0;j<[savedSearches count];j++)
+		{
+			SavedSearch * savedSearch=[savedSearches objectAtIndex:j];
+			
+			if([section.savedSearchName isEqualToString:savedSearch.name])
+			{
+				[savedSearch update];
+				
+				NSLog(@"Got %d items from saved search %@",[savedSearch.items count],savedSearch.name);
+				
+				if(section.items==nil)
+				{
+					NSMutableArray * tmp=[[NSMutableArray alloc] initWithArray:savedSearch.items];
+					
+					section.items=tmp;
+					
+					[tmp release];
+				}
+				else
+				{
+					// TODO: only add new items...
+					[section.items addObjectsFromArray:savedSearch.items];
+				}
+				
+				NSLog(@"Added %d items to section %@",[section.items count],section.name);
+				
+				break;
+			}
+		}
+	}
+	
+	[pool drain];
+	app.networkActivityIndicatorVisible = NO;
+	[self performSelectorOnMainThread:@selector(updateEnd) withObject:nil waitUntilDone:NO];
+}
+
+- (void)updateEnd
+{
+	self.updateButton.enabled=YES;
+	self.editMoveButton.enabled=YES;
+	self.previewButton.enabled=YES;
+	self.editSettingsButton.enabled=YES;
+	UIApplication* app = [UIApplication sharedApplication];
+	app.networkActivityIndicatorVisible = NO;
+	// reload table...
+	[self.pageTableView reloadData];
+}
  
 
 - (IBAction) settings
@@ -65,7 +137,18 @@
 
 - (IBAction) toggleEditPage
 {
-	[self.pageTableView setEditing:!self.pageTableView.editing animated:YES];
+	if(self.pageTableView.editing)
+	{
+		[self.pageTableView setEditing:NO animated:YES];
+		self.editMoveButton.style=UIBarButtonItemStyleBordered;
+		self.editMoveButton.title=@"Edit";
+	}
+	else
+	{
+		[self.pageTableView setEditing:YES animated:YES];
+		self.editMoveButton.style=UIBarButtonItemStyleDone;
+		self.editMoveButton.title=@"Done";
+	}
 }
 
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
@@ -74,20 +157,65 @@
 	return YES;
 }
 
+-(BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath {
+	
+	NSLog(@"canEditRowAtIndexPath");
+	
+	if(tableView.editing) 
+	{
+		return YES;
+	}
+	else
+	{
+		return NO;
+	}
+} 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
     // Return the number of sections.
-    return 1;
+    NSLog(@"numberOfSectionsInTableView");
+	if(self.page && self.page.sections)
+	{
+		return [self.page.sections count];
+	}
+	else
+	{
+		return 1;
+	}
+}	
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	NewsletterSection * newsletterSection=[self.page.sections objectAtIndex:section];
+	return newsletterSection.name;
+}
+
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+	NSMutableArray * tmp=[[NSMutableArray alloc] init];
+	
+	for (int i=0; i<[self.page.sections count]; i++) {
+		
+		[tmp addObject:[[self.page.sections objectAtIndex:i] name]];
+		
+	}
+	// TODO: do we need to retain/release/autorelease here???
+	return tmp;
 }
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    if(self.page==nil)
+    NSLog(@"numberOfRowsInSection");
+	if(self.page==nil)
 	{
 		return 0;
 	}
 	else
 	{
-		return [self.page.items count];
+		NewsletterSection * newsletterSection=[self.page.sections objectAtIndex:section];
+		
+		return [newsletterSection.items count];
 	}
 }
 
@@ -102,6 +230,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+	NSLog(@"cellForRowAtIndexPath");
+	
 	static NSString *CellIdentifier = @"SearchResultCellIdentifier";
 	
 	SearchResultCell *cell = (SearchResultCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -152,9 +282,10 @@
 	[self setWidth:cell.synopsisLabel width:textWidth];
 	[self setWidth:cell.dateLabel width:textWidth];
 	
+	NewsletterSection * newsletterSection=[self.page.sections objectAtIndex:indexPath.section];
 	
 	
-	SearchResult * result=(SearchResult *)[self.page.items objectAtIndex:indexPath.row];
+	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
 	//cell.imageView.image=result.image;
 	
 	cell.headlineLabel.text=[result headline];
@@ -237,9 +368,12 @@ moveRowAtIndexPath:(NSIndexPath*)fromIndexPath
 	NSUInteger fromRow=[fromIndexPath row];
 	NSUInteger toRow=[toIndexPath row];
 	
-	id object=[[self.page.items objectAtIndex:fromRow] retain];
-	[self.page.items removeObjectAtIndex:fromRow];
-	[self.page.items insertObject:object atIndex:toRow];
+	NewsletterSection * newsletterSection1=[self.page.sections objectAtIndex:fromIndexPath.section];
+	NewsletterSection * newsletterSection2=[self.page.sections objectAtIndex:toIndexPath.section];
+	
+	id object=[[newsletterSection1.items objectAtIndex:fromRow] retain];
+	[newsletterSection1.items removeObjectAtIndex:fromRow];
+	[newsletterSection2.items insertObject:object atIndex:toRow];
 	[object release];
 }
 
@@ -248,13 +382,40 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
  forRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	NSUInteger row=[indexPath	row];
-	[self.page.items removeObjectAtIndex:row];
+	
+	NewsletterSection * newsletterSection=[self.page.sections objectAtIndex:indexPath.section];
+	
+
+	[newsletterSection.items removeObjectAtIndex:row];
 	[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+
+- (IBAction) preview
+{
+	
+	PageHTMLPreviewViewController * previewController=[[PageHTMLPreviewViewController alloc] initWithNibName:@"PageHTMLPreviewView" bundle:nil];
+	
+	previewController.savedSearches=((AppDelegate*)[[UIApplication sharedApplication] delegate]).savedSearches;
+	
+	previewController.page=self.page;
+									 
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	
+	[navController pushViewController:previewController animated:YES];
+	
+	navController.navigationBar.topItem.title=@"Newsletter Preview";
+	
+	[previewController release];
+	
 }
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	SearchResult * result=(SearchResult *)[self.page.items objectAtIndex:indexPath.row];
+	
+	NewsletterSection * newsletterSection=[self.page.sections objectAtIndex:indexPath.section];
+	
+	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
 	
 	DocumentEditViewController * editController=[[DocumentEditViewController alloc] initWithNibName:@"DocumentEditView" bundle:nil];
 	
@@ -274,6 +435,8 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     [pageTableView release];
 	[editMoveButton release];
 	[editSettingsButton release];
+	[updateButton release];
+	[previewButton release];
 	[page release];
     [super dealloc];
 }

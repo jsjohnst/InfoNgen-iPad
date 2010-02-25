@@ -1,0 +1,12 @@
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:12: error: no declaration of property 'summary' found in the interface
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m: In function '-[Page encodeWithCoder:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:48: error: 'summary' undeclared (first use in this function)
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:48: error: (Each undeclared identifier is reported only once
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:48: error: for each function it appears in.)
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m: In function '-[Page initWithCoder:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:64: error: request for member 'summary' in something not a structure or union
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m: In function '-[Page copyWithZone:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:81: error: request for member 'summary' in something not a structure or union
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:81: error: request for member 'summary' in something not a structure or union
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m: In function '-[Page dealloc]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/Page.m:109: error: 'summary' undeclared (first use in this function)
