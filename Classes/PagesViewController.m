@@ -14,13 +14,6 @@
 @implementation PagesViewController
 @synthesize pages,pagesTable;
 
-/*- (id)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        // Initialization code
-    }
-    return self;
-}*/
-
 - (void)viewDidLoad {
 	[super viewDidLoad];
 }
@@ -97,6 +90,5 @@
 	[pagesTable release];
     [super dealloc];
 }
-
 
 @end

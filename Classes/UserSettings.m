@@ -8,10 +8,7 @@
 
 #import "UserSettings.h"
 
-
 @implementation UserSettings
-
-
 
 + (void) saveSetting:(NSString*)key value:(NSString*)valueString
 {

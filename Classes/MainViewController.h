@@ -14,7 +14,6 @@
 @class PageViewController;
 
 @interface MainViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> {
-    
 	UIPopoverController *searchesPopoverController;
 	UIPopoverController *pagesPopoverController;
 	PagesViewController *pagesViewController;

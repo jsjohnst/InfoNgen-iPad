@@ -12,7 +12,6 @@
 #import "SavedSearchesViewController.h"
 #import "SavedSearch.h"
 
-
 @implementation SavedSearchesController
 @synthesize controllers;
 

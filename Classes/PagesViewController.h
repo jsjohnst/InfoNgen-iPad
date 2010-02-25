@@ -16,7 +16,6 @@
 @property(nonatomic,retain) NSMutableArray * pages;
 @property(nonatomic,retain) IBOutlet UITableView * pagesTable;
 
-
 - (IBAction) newPage;
 
 @end

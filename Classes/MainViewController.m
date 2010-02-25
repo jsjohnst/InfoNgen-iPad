@@ -27,13 +27,12 @@
 	pagesViewController.pages=delegate.pages;
 	
 	[self.view addSubview:navController.view];
-
 }
+
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
 	NSLog(@"didShowViewController");
 }
-
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
@@ -41,37 +40,7 @@
 	
 	[viewController viewWillAppear:animated];
 }
-/*
-- (IBAction)newPage:(id)sender
-{
-	[self.view addSubview:newPageView];
-}*/
 
-/*- (IBAction) createNewPage:(id)sender
-{
-	NSString * name=pageName.text;
-	
-	if ([name length] > 0) {
-		
-		Page * newPage=[[Page alloc] initWithName:name];
-		if (pagesViewController.pages==nil) {
-			NSMutableArray * a=[[NSMutableArray alloc]init];
-			pagesViewController.pages=a;
-			[a release];
-		}
-		[pagesViewController.pages addObject:newPage];
-		[self setCurrentPage:newPage];
-		[newPage release];
-	}
-	
-	[newPageView removeFromSuperview];
-}*/
-/*
-- (IBAction) cancelNewPage:(id)sender
-{
-	[newPageView removeFromSuperview];
-}
-*/
 - (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc {
     
     barButtonItem.title = @"Saved Searches";
@@ -102,8 +71,7 @@
 
 // Called when the view is shown again in the split view, invalidating the button and popover controller.
 - (void)splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
-    
-	
+
 	UINavigationItem * firstItem=[[navController.navigationBar items] objectAtIndex:0];
 	
 	[firstItem setLeftBarButtonItem:nil animated:YES];

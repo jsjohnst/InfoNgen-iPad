@@ -100,11 +100,6 @@
 	[obj setFrame:rect];
 }
 
-/*- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-	[self.pageTableView reloadData];
-}*/
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	static NSString *CellIdentifier = @"SearchResultCellIdentifier";

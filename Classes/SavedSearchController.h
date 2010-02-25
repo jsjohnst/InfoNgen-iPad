@@ -14,5 +14,4 @@
 }
 @property(nonatomic,retain) SavedSearch * savedSearch;
 
-
 @end
