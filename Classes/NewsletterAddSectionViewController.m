@@ -9,10 +9,10 @@
 #import "NewsletterAddSectionViewController.h"
 #import "SavedSearch.h"
 #import "NewsletterSection.h"
-#import "Page.h"
+#import "Newsletter.h"
 
 @implementation NewsletterAddSectionViewController
-@synthesize sectionsTable,page,savedSearches;
+@synthesize sectionsTable,newsletter ,savedSearches;
 
 
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
@@ -47,8 +47,8 @@
 	
 	cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
 			
-	for (int i=0; i<[self.page.sections count]; i++) {
-		NewsletterSection * section=[self.page.sections objectAtIndex:i];
+	for (int i=0; i<[self.newsletter.sections count]; i++) {
+		NewsletterSection * section=[self.newsletter.sections objectAtIndex:i];
 		if([section.savedSearchName isEqualToString:savedSearch.name])
 		{
 			cell.accessoryType=UITableViewCellAccessoryCheckmark;
@@ -85,7 +85,7 @@
 	section.savedSearchName=savedSearch.name;
 	section.name=savedSearch.name;
 	
-	[self.page.sections addObject:section];
+	[self.newsletter.sections addObject:section];
 	
 	[section release];
 	
@@ -113,7 +113,7 @@
 
 - (void)dealloc {
 	[sectionsTable release];
-	[page release];
+	[newsletter release];
 	[savedSearches release];
     [super dealloc];
 }

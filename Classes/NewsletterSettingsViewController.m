@@ -6,16 +6,16 @@
 //  Copyright 2010 InfoNgen. All rights reserved.
 //
 
-#import "NewsletterDetailViewController.h"
-#import "EditableTableCell.h"
-#import "Page.h"
+#import "NewsletterSettingsViewController.h"
+#import "TextFieldTableCell.h"
+#import "Newsletter.h"
 #import "SegmentedTableCell.h"
-#import "ImagePickerViewController.h"
+//#import "ImagePickerViewController.h"
 #import "TextViewTableCell.h"
 #import "NewsletterSectionsViewController.h"
 
-@implementation NewsletterDetailViewController
-@synthesize settingsTable,page;
+@implementation NewsletterSettingsViewController
+@synthesize settingsTable,newsletter ;
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -34,31 +34,31 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-	self.page.name=textField.text;
+	self.newsletter.name=textField.text;
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-	self.page.summary=textView.text;
+	self.newsletter.summary=textView.text;
 }
 
 - (void) publishTypeChanged:(id)sender{
 	UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
 	
-	self.page.publishType=[segmentedControl titleForSegmentAtIndex:[segmentedControl selectedSegmentIndex]];
+	self.newsletter.publishType=[segmentedControl titleForSegmentAtIndex:[segmentedControl selectedSegmentIndex]];
 }
 
 - (void) emailFormatChanged:(id)sender{
 	UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
 	
-	self.page.emailFormat=[segmentedControl titleForSegmentAtIndex:[segmentedControl selectedSegmentIndex]];
+	self.newsletter.emailFormat=[segmentedControl titleForSegmentAtIndex:[segmentedControl selectedSegmentIndex]];
 }
 
 - (void) rssEnabledChanged:(id)sender
 {
 	UISwitch * s=(UISwitch*)sender;
 	
-	self.page.rssEnabled=s.isOn;
+	self.newsletter.rssEnabled=s.isOn;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -90,9 +90,9 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 				switch (indexPath.row) {
 					case kTitleRow:
 					{
-						EditableTableCell * textFormCell=[[[EditableTableCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
+						TextFieldTableCell * textFormCell=[[[TextFieldTableCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
 						
-						textFormCell.textField.text=self.page.name;
+						textFormCell.textField.text=self.newsletter.name;
 						textFormCell.textField.delegate=self;
 						cell=textFormCell;
 					}
@@ -109,7 +109,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 					
 					TextViewTableCell * textViewCell=[[[TextViewTableCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
 					
-					textViewCell.textView.text=self.page.summary;
+					textViewCell.textView.text=self.newsletter.summary;
 					textViewCell.textView.delegate=self;
 					cell=textViewCell;
 				}
@@ -143,9 +143,9 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 					cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;	
 					cell.selectionStyle=UITableViewCellSelectionStyleNone;
 					cell.textLabel.text = @"Saved Searches";
-					if([self.page.sections count]>0)
+					if([self.newsletter.sections count]>0)
 					{
-						cell.detailTextLabel.text=[NSString stringWithFormat:@"%d",[self.page.sections count]];
+						cell.detailTextLabel.text=[NSString stringWithFormat:@"%d",[self.newsletter.sections count]];
 					}
 				}
 					break;
@@ -161,7 +161,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 							cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
 							UISwitch *mySwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
 							
-							[mySwitch setOn:self.page.rssEnabled animated:NO];
+							[mySwitch setOn:self.newsletter.rssEnabled animated:NO];
 							
 							[cell addSubview:mySwitch];
 							cell.accessoryView = mySwitch;
@@ -180,7 +180,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 							SegmentedTableCell * segmentedCell=[[SegmentedTableCell alloc] initWithStyle:UITableViewCellStyleDefault
 																						 reuseIdentifier:nil buttonNames:[NSArray arrayWithObjects:@"HTML", @"PDF", nil]];
 							
-							if([self.page.emailFormat isEqualToString:@"PDF"])
+							if([self.newsletter.emailFormat isEqualToString:@"PDF"])
 							{
 								segmentedCell.segmentedControl.selectedSegmentIndex=1;
 							}
@@ -201,7 +201,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 							SegmentedTableCell * segmentedCell=[[SegmentedTableCell alloc] initWithStyle:UITableViewCellStyleDefault
 																						 reuseIdentifier:nil buttonNames:[NSArray arrayWithObjects:@"Preview", @"Publish", nil]];
 							
-							if([self.page.publishType isEqualToString:@"Publish"])
+							if([self.newsletter.publishType isEqualToString:@"Publish"])
 							{
 								segmentedCell.segmentedControl.selectedSegmentIndex=1;
 							}
@@ -254,7 +254,6 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 			return 1;
 		case kSummarySection:
 			return 1;
-			
 	}
 	return 0;
 }
@@ -276,8 +275,6 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 	}
 	return nil;
 }
-
-
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
@@ -335,7 +332,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 	{
 		NewsletterSectionsViewController * sectionsController=[[NewsletterSectionsViewController alloc] initWithNibName:@"NewsletterSectionsView" bundle:nil];
 		
-		sectionsController.page=self.page;
+		sectionsController.newsletter=self.newsletter;
 		
 		UINavigationController * navController=(UINavigationController*)[self parentViewController];
 		
@@ -379,7 +376,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 
 - (void)dealloc {
 	[settingsTable release];
-	[page release];
+	[newsletter release];
     [super dealloc];
 }
 

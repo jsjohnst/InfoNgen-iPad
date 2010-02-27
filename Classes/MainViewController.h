@@ -20,7 +20,7 @@
 	IBOutlet PageViewController *pageViewController;
 	SavedSearchesViewController * savedSearchesViewController;
     IBOutlet UITextField * pageName;
-	IBOutlet UINavigationController *navController;
+	//IBOutlet UINavigationController *navController;
 }
 
 @property(nonatomic,retain) IBOutlet UITextField * pageName;
@@ -29,7 +29,7 @@
 @property (nonatomic, retain) UIPopoverController *searchesPopoverController;
 @property (nonatomic, retain) UIPopoverController *pagesPopoverController;
 @property(nonatomic,retain) SavedSearchesViewController * savedSearchesViewController;
-@property (nonatomic,retain) IBOutlet UINavigationController *navController;
+//@property (nonatomic,retain) IBOutlet UINavigationController *navController;
 
 - (void)setCurrentPage:(Page*)thePage;
 - (IBAction)showPagesTable:(id)sender;

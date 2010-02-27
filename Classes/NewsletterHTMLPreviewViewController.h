@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class Page;
+@class Newsletter ;
 
-@interface PageHTMLPreviewViewController : UIViewController <UIWebViewDelegate>{
-	Page * page;
+@interface NewsletterHTMLPreviewViewController : UIViewController <UIWebViewDelegate>{
+	Newsletter * newsletter;
 	NSArray * savedSearches;
 	IBOutlet UIWebView * webView;
 }
 
-@property(nonatomic,retain) Page * page;
+@property(nonatomic,retain) Newsletter * newsletter;
+
 @property(nonatomic,retain) NSArray * savedSearches;
 @property(nonatomic,retain) IBOutlet UIWebView * webView;
 

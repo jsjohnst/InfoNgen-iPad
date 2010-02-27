@@ -11,15 +11,15 @@
 #define kSectionsSection 0
 
 #define kAddSectionSection 1
-@class Page;
+@class Newsletter ;
 
 
 @interface NewsletterSectionsViewController : UIViewController {
 	IBOutlet UITableView * sectionsTable;
-	Page * page;
+	Newsletter * newsletter;
 }
 @property(nonatomic,retain) IBOutlet UITableView * sectionsTable;
-@property(nonatomic,retain) Page * page;
+@property(nonatomic,retain) Newsletter * newsletter;
 
 - (void) edit:(id)sender;
 - (void)editDone:(id)sender;

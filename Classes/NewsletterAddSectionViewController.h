@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Page;
+@class Newsletter ;
 
 @interface NewsletterAddSectionViewController : UIViewController {
 	IBOutlet UITableView * sectionsTable;
-	Page * page;
+	Newsletter * newsletter;
 	NSArray * savedSearches;
 }
 @property(nonatomic,retain) IBOutlet UITableView * sectionsTable;
-@property(nonatomic,retain) Page * page;
+@property(nonatomic,retain) Newsletter * newsletter;
+
 @property(nonatomic,retain) NSArray * savedSearches;
 
 @end

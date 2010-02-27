@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface EditableTableCell : UITableViewCell
+@interface TextFieldTableCell : UITableViewCell
 {
     UITextField * textField;
 }

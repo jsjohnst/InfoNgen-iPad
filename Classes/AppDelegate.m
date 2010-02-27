@@ -8,16 +8,20 @@
 
 #import "AppDelegate.h"
 #import "SavedSearchesViewController.h"
-#import "MainViewController.h"
+#import "NewslettersViewController.h"
+#import "NewsletterViewController.h"
+#import "Newsletter.h"
 #import "LoginTicket.h"
 #import "SearchClient.h"
 #import "SavedSearch.h"
+#import "SearchResult.h"
 #import "UserSettings.h"
+#import "Newsletter.h"
 #import "UIImage-NSCoding.h"
 
 @implementation AppDelegate
 
-@synthesize pages,savedSearches,window,splitViewController, savedSearchesViewController, mainViewController;
+@synthesize newsletters,savedSearches,window,splitViewController,savedSearchesViewController,newsletterViewController,newslettersViewController,navigationController,newslettersPopoverController,searchesPopoverController; 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
@@ -30,28 +34,95 @@
 	
 	SearchClient * client=[[SearchClient alloc] initWithServer:server withUsername:username withPassword:password];
 	
-	self.savedSearches=[client getSavedSearchesForUser];
+	savedSearches=[client getSavedSearchesForUser];
 	
 	savedSearchesViewController = [[SavedSearchesViewController alloc] initWithNibName:@"SavedSearchesView" bundle:nil];
     
-    mainViewController = [[MainViewController alloc] initWithNibName:@"MainView" bundle:nil];
+	newsletterViewController =[[NewsletterViewController alloc] initWithNibName:@"NewsletterView" bundle:nil];
 	
-	mainViewController.savedSearchesViewController=savedSearchesViewController;
+	newslettersViewController=[[NewslettersViewController alloc] initWithNibName:@"NewslettersView" bundle:nil];
 	
-    savedSearchesViewController.mainViewController = mainViewController;
+	newslettersViewController.newsletters=self.newsletters;
+	 
+	newslettersPopoverController=[[UIPopoverController alloc] initWithContentViewController:newslettersViewController];
+	newslettersPopoverController.delegate=self;
+	
+	searchesPopoverController=[[UIPopoverController alloc] initWithContentViewController:savedSearchesViewController];
+	searchesPopoverController.delegate=self;
+	
+	navigationController = [[UINavigationController alloc] initWithRootViewController:newsletterViewController];
     
+	navigationController.navigationBar.topItem.title=@"InfoNgen Newsletter Editor";
+	
+	UIBarButtonItem * button=[[UIBarButtonItem alloc] init];
+	
+	button.title=@"Newsletters";
+	button.target=self;
+	button.action=@selector(showNewslettersPopOver:);
+
+	navigationController.navigationBar.topItem.rightBarButtonItem=button;
+	
+	[button release];
+	
+	navigationController.delegate=self;
+	
 	// setup a split view with saved searches on the left side and the main view on the right side
     splitViewController = [[UISplitViewController alloc] init];
-    splitViewController.viewControllers = [NSArray arrayWithObjects:savedSearchesViewController, mainViewController, nil];
-	splitViewController.delegate = mainViewController;
+    splitViewController.viewControllers = [NSArray arrayWithObjects:savedSearchesViewController, navigationController, nil];
+	splitViewController.delegate = self;
     
     // Add the split view controller's view to the window and display.
     [window addSubview:splitViewController.view];
-    //[window addSubview:mainViewController.view];
-	
+    
 	[window makeKeyAndVisible];
     
 	return YES;
+}
+
+- (void)showNewslettersPopOver:(id)sender{
+	[newslettersPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+- (void)showSavedSearchesPopOver:(id)sender
+{
+	[searchesPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+- (void) setCurrentNewsletter:(Newsletter*)newsletter
+{
+	[newsletterViewController setCurrentNewsletter:newsletter];
+	
+	navigationController.navigationBar.topItem.title=newsletter.name;
+	
+	[newslettersPopoverController dismissPopoverAnimated:YES];
+}
+
+- (void) addSearchResultToCurrentNewsletter:(SearchResult*)searchResult fromSavedSearch:(SavedSearch*)savedSearch
+{
+	[newsletterViewController addSearchResultToCurrentNewsletter:searchResult fromSavedSearch:savedSearch];
+}
+
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+	NSLog(@"didShowViewController");
+}
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+	NSLog(@"willShowViewController");
+	
+	[viewController viewWillAppear:animated];
+}
+
+- (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc {
+    
+    barButtonItem.title = @"Saved Searches";
+	
+	UINavigationItem * firstItem=[[navigationController.navigationBar items] objectAtIndex:0];
+	
+	[firstItem setLeftBarButtonItem:barButtonItem animated:YES];
+	
+	self.searchesPopoverController = pc;
 }
 
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
@@ -76,7 +147,7 @@
 		NSKeyedUnarchiver * unarchiver = [[NSKeyedUnarchiver alloc]
 									  initForReadingWithData:data];
 	
-		self.pages=[unarchiver decodeObjectForKey:@"pages"];
+		self.newsletters=[unarchiver decodeObjectForKey:@"newsletters"];
 	
 		[unarchiver finishDecoding];
 		
@@ -84,15 +155,15 @@
 	
 		[data release];
 	}
-	if(pages==nil)
+	if(newsletters==nil)
 	{
-		pages=[[NSMutableArray alloc] init];
+		newsletters=[[NSMutableArray alloc] init];
 	}
 }
 
 - (void) saveData
 {
-	if(pages!=nil)
+	if(newsletters!=nil)
 	{
 		NSMutableData * data=[[NSMutableData alloc] init];
 		
@@ -100,7 +171,7 @@
 		{
 			NSKeyedArchiver * archiver=[[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
 		
-			[archiver encodeObject:pages forKey:@"pages"];
+			[archiver encodeObject:newsletters forKey:@"newsletters"];
 		
 			[archiver finishEncoding];
 		
@@ -120,8 +191,14 @@
 
 - (void)dealloc {
     [splitViewController release];
+	[navigationController release];
+	[savedSearchesViewController release];
+	[newslettersViewController release];
+	[newsletterViewController release];
+	[newslettersPopoverController release];
+	[searchesPopoverController release];
     [window release];
-	[pages release];
+	[newsletters release];
 	[savedSearches release];
     [super dealloc];
 }

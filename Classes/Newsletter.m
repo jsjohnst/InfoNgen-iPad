@@ -6,10 +6,10 @@
 //  Copyright 2010 InfoNgen. All rights reserved.
 //
 
-#import "Page.h"
+#import "Newsletter.h"
 
-@implementation Page
-@synthesize name,items,subscribers,rssEnabled,emailFormat,publishType,logoImage,sections,lastUpdated,summary;
+@implementation Newsletter 
+@synthesize name,items,distributionList,rssEnabled,emailFormat,publishType,logoImage,sections,lastUpdated,summary;
 
 - (id) init
 {
@@ -25,7 +25,7 @@
 	
 	self.name=theName;
 	self.items=[[NSMutableArray alloc] init];
-	self.subscribers=[[NSMutableArray alloc] init];
+	self.distributionList=[[NSMutableArray alloc] init];
 	self.emailFormat=@"HTML";
 	self.publishType=@"Preview";
 	self.lastUpdated=[NSDate date];
@@ -38,7 +38,7 @@
 {
 	[encoder encodeObject:name forKey:@"name"];
 	[encoder encodeObject:items forKey:@"items"];
-	[encoder encodeObject:subscribers forKey:@"subscribers"];
+	[encoder encodeObject:distributionList forKey:@"distributionList"];
 	[encoder encodeObject:logoImage forKey:@"logoImage"];
 	[encoder encodeBool:rssEnabled forKey:@"rssEnabled"];
 	[encoder encodeObject:emailFormat forKey:@"emailFormat"];
@@ -55,7 +55,7 @@
 		self.name=[decoder decodeObjectForKey:@"name"];
 		self.items=[decoder decodeObjectForKey:@"items"];
 		self.logoImage=[decoder decodeObjectForKey:@"logoImage"];
-		self.subscribers=[decoder decodeObjectForKey:@"subscribers"];
+		self.distributionList=[decoder decodeObjectForKey:@"distributionList"];
 		self.rssEnabled=[decoder decodeBoolForKey:@"rssEnabled"];
 		self.emailFormat=[decoder decodeObjectForKey:@"emailFormat"];
 		self.publishType=[decoder decodeObjectForKey:@"publishType"];
@@ -68,10 +68,10 @@
 
 -(id)copyWithZone:(NSZone*)zone
 {
-	Page * copy=[[[self class] allocWithZone:zone] init];
+	Newsletter * copy=[[[self class] allocWithZone:zone] init];
 	copy.name=[self.name copy];
 	copy.items=[self.items copy];
-	copy.subscribers=[self.subscribers copy];
+	copy.distributionList=[self.distributionList copy];
 	copy.rssEnabled=self.rssEnabled;
 	copy.emailFormat=[self.emailFormat copy];
 	copy.publishType=[self.publishType copy];
@@ -100,7 +100,7 @@
 - (void)dealloc {
 	[name release];
 	[items release];
-	[subscribers release];
+	[distributionList release];
 	[logoImage release];
 	[emailFormat release];
 	[publishType release];

@@ -9,8 +9,8 @@
 #import "DocumentEditViewController.h"
 #import "SearchResult.h"
 #import "DocumentTextViewController.h"
-#import "DocumentViewController.h"
-#import "EditableTableCell.h"
+#import "DocumentWebViewController.h"
+#import "TextFieldTableCell.h"
 #import "TextViewTableCell.h"
 
 @implementation DocumentEditViewController
@@ -117,7 +117,7 @@
 	{
 		case kHeadlineSection:
 		{
-			EditableTableCell * textFormCell=[[[EditableTableCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
+			TextFieldTableCell * textFormCell=[[[TextFieldTableCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
 			textFormCell.textField.text=self.searchResult.headline;
 			textFormCell.textField.delegate=self;
 			cell=textFormCell;

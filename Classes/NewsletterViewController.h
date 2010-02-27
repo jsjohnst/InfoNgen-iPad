@@ -7,26 +7,32 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Page;
+@class Newsletter;
+@class SearchResult;
+@class SavedSearch;
 
-@interface PageViewController : UIViewController< UITableViewDelegate,UITableViewDataSource> {
-	IBOutlet UITableView * pageTableView;
-	Page * page;
+@interface NewsletterViewController : UIViewController< UITableViewDelegate,UITableViewDataSource> {
+	IBOutlet UITableView * newsletterTableView;
 	IBOutlet UIBarButtonItem * editMoveButton;
 	IBOutlet UIBarButtonItem * editSettingsButton;
 	IBOutlet UIBarButtonItem * updateButton;
 	IBOutlet UIBarButtonItem * previewButton;
 	
+	Newsletter * newsletter;
+	
 }
-@property(nonatomic,retain) IBOutlet UITableView * pageTableView;
-@property (nonatomic,retain) Page * page;
+@property(nonatomic,retain) IBOutlet UITableView * newsletterTableView;
 @property (nonatomic,retain) IBOutlet UIBarButtonItem * editMoveButton;
 @property (nonatomic,retain) IBOutlet UIBarButtonItem * editSettingsButton;
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * updateButton;
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * previewButton;
 
+@property (nonatomic,retain) Newsletter * newsletter;
 
-- (void)renderPage;
+- (void) addSearchResultToCurrentNewsletter:(SearchResult*)searchResult fromSavedSearch:(SavedSearch*)savedSearch;
+- (void) setCurrentNewsletter:(Newsletter*)newsletter;
+- (void) renderNewsletter;
+
 - (IBAction) toggleEditPage;
 - (IBAction) settings;
 - (IBAction) preview;

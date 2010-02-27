@@ -17,7 +17,7 @@
 
 @implementation MainViewController
 
-@synthesize pageName,pagesViewController,pageViewController,navController,pagesPopoverController,searchesPopoverController,savedSearchesViewController;
+@synthesize pageName,pagesViewController,pageViewController,pagesPopoverController,searchesPopoverController,savedSearchesViewController;
 
 - (void)viewDidLoad {
 	pagesViewController=[[PagesViewController alloc] initWithNibName:@"PagesView" bundle:nil];
@@ -26,7 +26,11 @@
 
 	pagesViewController.pages=delegate.pages;
 	
-	[self.view addSubview:navController.view];
+	pageViewController=[[PageViewController alloc] initWithNibName:@"PageView" bundle:nil];
+	
+	[self.view addSubview:pageViewController.view];
+	
+	//[self.view addSubview:navController.view];
 }
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
@@ -44,6 +48,8 @@
 - (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc {
     
     barButtonItem.title = @"Saved Searches";
+	
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	
 	UINavigationItem * firstItem=[[navController.navigationBar items] objectAtIndex:0];
 	
@@ -64,6 +70,8 @@
 		pageViewController.previewButton.enabled=YES;
 	}
 	
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	
 	navController.navigationBar.topItem.title=thePage.name;
 	
 	[pagesPopoverController dismissPopoverAnimated:YES];
@@ -74,10 +82,13 @@
 // Called when the view is shown again in the split view, invalidating the button and popover controller.
 - (void)splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
 
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	
+	
 	UINavigationItem * firstItem=[[navController.navigationBar items] objectAtIndex:0];
 	
 	[firstItem setLeftBarButtonItem:nil animated:YES];
-
+	
     self.searchesPopoverController = nil;
 }
 
@@ -88,7 +99,7 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-	if(self.pageViewController)
+	if(self.newsletterViewController)
 	{
 		[self.pageViewController renderPage];
 	}
@@ -115,7 +126,7 @@
     [searchesPopoverController release];
 	[pagesPopoverController release];
 	[pageViewController release];
-    [navController release];
+    //[navController release];
 	[PagesViewController release];
     [super dealloc];
 }

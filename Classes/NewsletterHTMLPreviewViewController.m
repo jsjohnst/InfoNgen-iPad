@@ -6,12 +6,12 @@
 //  Copyright 2010 InfoNgen. All rights reserved.
 //
 
-#import "PageHTMLPreviewViewController.h"
+#import "NewsletterHTMLPreviewViewController.h"
 #import "SavedSearch.h"
-#import "Page.h"
+#import "Newsletter.h"
 
-@implementation PageHTMLPreviewViewController
-@synthesize page,savedSearches,webView;
+@implementation NewsletterHTMLPreviewViewController
+@synthesize newsletter,savedSearches,webView;
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -89,7 +89,7 @@
 
 
 - (void)dealloc {
-	[page release];
+	[newsletter release];
 	[savedSearches release];
 	[webView release];
     [super dealloc];

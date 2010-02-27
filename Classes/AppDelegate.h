@@ -7,32 +7,54 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@class SavedSearchesViewController;
-@class MainViewController;
+@class NewsletterViewController;
+@class NewslettersViewController; 
 @class LoginTicket;
+@class SearchResult;
+@class Newsletter;
+@class SavedSearch;
+@class SavedSearchesViewController;
 
-@interface AppDelegate : NSObject <UIApplicationDelegate> {
+@interface AppDelegate : NSObject <UIApplicationDelegate, UIPopoverControllerDelegate, UISplitViewControllerDelegate, UINavigationControllerDelegate> {
     
     UIWindow *window;
     
     UISplitViewController *splitViewController;
-    SavedSearchesViewController *savedSearchesViewController;
-    MainViewController *mainViewController;
-	NSMutableArray * pages;
-	NSMutableArray * savedSearches;
+    UINavigationController *navigationController;
+	UIPopoverController *newslettersPopoverController;
+	UIPopoverController *searchesPopoverController;
 	
+	NewslettersViewController * newslettersViewController;
+	SavedSearchesViewController *savedSearchesViewController;
+    NewsletterViewController * newsletterViewController;
+	
+	NSMutableArray * newsletters;
+	NSMutableArray * savedSearches;
 }
 
-@property (retain) NSMutableArray * pages;
+@property (retain) NSMutableArray * newsletters;
 @property (retain) NSMutableArray * savedSearches;
+
+@property (nonatomic, retain) UIPopoverController *newslettersPopoverController;
+@property (nonatomic, retain) UIPopoverController *searchesPopoverController;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic,retain) IBOutlet UISplitViewController *splitViewController;
+@property (nonatomic,retain) IBOutlet UINavigationController *navigationController;
 @property (nonatomic,retain) IBOutlet SavedSearchesViewController *savedSearchesViewController;
-@property (nonatomic,retain) IBOutlet MainViewController *mainViewController;
+@property (nonatomic,retain) IBOutlet NewslettersViewController * newslettersViewController;
+@property (nonatomic,retain) IBOutlet NewsletterViewController * newsletterViewController;
+
+- (void) setCurrentNewsletter:(Newsletter*)newsletter;
+- (void)showNewslettersPopOver:(id)sender;
+- (void)showSavedSearchesPopOver:(id)sender;
+- (void) addSearchResultToCurrentNewsletter:(SearchResult*)searchResult fromSavedSearch:(SavedSearch*)savedSearch;
 
 - (NSString *)dataFilePath;
+
 - (void) loadArchivedData;
+
 - (void) saveData;
 
 @end

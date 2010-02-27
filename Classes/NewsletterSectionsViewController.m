@@ -10,9 +10,10 @@
 #import "NewsletterAddSectionViewController.h"
 #import "NewsletterSection.h"
 #import "AppDelegate.h"
-#import "Page.h";
+#import "Newsletter.h";
+
 @implementation NewsletterSectionsViewController
-@synthesize sectionsTable,page;
+@synthesize sectionsTable,newsletter;
 
 
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
@@ -84,9 +85,9 @@ moveRowAtIndexPath:(NSIndexPath*)fromIndexPath
 	NSUInteger fromRow=[fromIndexPath row];
 	NSUInteger toRow=[toIndexPath row];
 	
-	id object=[[self.page.sections objectAtIndex:fromRow] retain];
-	[self.page.sections removeObjectAtIndex:fromRow];
-	[self.page.sections insertObject:object atIndex:toRow];
+	id object=[[self.newsletter.sections objectAtIndex:fromRow] retain];
+	[self.newsletter.sections removeObjectAtIndex:fromRow];
+	[self.newsletter.sections insertObject:object atIndex:toRow];
 	[object release];
 }
 
@@ -99,7 +100,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	if(tableView.editing)
 	{
 		NSUInteger row=[indexPath	row];
-		[self.page.sections removeObjectAtIndex:row];
+		[self.newsletter.sections removeObjectAtIndex:row];
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}
 }
@@ -134,7 +135,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 			
 		case kSectionsSection:
 		{
-			NewsletterSection * section=[self.page.sections objectAtIndex:indexPath.row];
+			NewsletterSection * section=[self.newsletter.sections objectAtIndex:indexPath.row];
 			
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
 			//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -158,7 +159,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 {
 	switch (section) {
 		case kSectionsSection:
-			return [self.page.sections count];
+			return [self.newsletter.sections count];
 		case kAddSectionSection:
 			return 1;
 		 
@@ -184,7 +185,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	{
 		NewsletterAddSectionViewController * sectionsController=[[NewsletterAddSectionViewController alloc] initWithNibName:@"NewsletterAddSectionView" bundle:nil];
 		
-		sectionsController.page=self.page;
+		sectionsController.newsletter=self.newsletter;
 		
 		AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
 		
@@ -217,7 +218,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 
 - (void)dealloc {
 	[sectionsTable release];
-	[page release];
+	[newsletter release];
     [super dealloc];
 }
 

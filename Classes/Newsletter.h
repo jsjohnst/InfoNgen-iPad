@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Page : NSObject <NSCoding, NSCopying>{
+@interface Newsletter  : NSObject <NSCoding, NSCopying>{
 	NSString * name;
 	NSMutableArray * items;
-	NSMutableArray * subscribers;
+	NSMutableArray * distributionList;
 	BOOL rssEnabled;
 	
 	NSString * emailFormat;
@@ -26,7 +26,7 @@
 }
 @property(nonatomic,retain) NSString * name;
 @property(retain) NSMutableArray * items;
-@property(nonatomic,retain) NSMutableArray * subscribers;
+@property(nonatomic,retain) NSMutableArray * distributionList;
 @property(nonatomic,retain) NSMutableArray * sections;
 @property(nonatomic) BOOL rssEnabled;
 @property(nonatomic,retain) NSString * emailFormat;

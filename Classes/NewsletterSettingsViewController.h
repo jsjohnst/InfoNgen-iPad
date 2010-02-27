@@ -27,17 +27,15 @@
 #define kSavedSearchesSection 4
 #define kSavedSearchesRow 0
 
+@class Newsletter;
 
-
-@class Page;
-
-@interface NewsletterDetailViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate> {
+@interface NewsletterSettingsViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate> {
 	IBOutlet UITableView * settingsTable;
-	Page * page;
+	Newsletter  * newsletter ;
 }
 
 @property(nonatomic,retain) IBOutlet UITableView * settingsTable;
-@property(nonatomic,retain) Page * page;
+@property(nonatomic,retain) Newsletter  * newsletter;
 
 - (void) emailFormatChanged:(id)sender;
 - (void) publishTypeChanged:(id)sender;

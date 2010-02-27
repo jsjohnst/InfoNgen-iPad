@@ -10,10 +10,9 @@
 #import "AppDelegate.h"
 #import "SavedSearch.h"
 #import	"SearchResult.h"
-#import "MainViewController.h"
-#import "Page.h"
+#import "Newsletter.h"
 #import "SearchResultCell.h"
-#import "PageViewController.h"
+#import "NewsletterViewController.h"
 
 @implementation SavedSearchController
 @synthesize savedSearch;
@@ -61,22 +60,25 @@ didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 	// add to current page...
 	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
 	
-	MainViewController * mainViewController=delegate.mainViewController;
+	[delegate addSearchResultToCurrentNewsletter:result fromSavedSearch:self.savedSearch];
 	
-	Page * page=mainViewController.pageViewController.page;
+	/*MainViewController * mainViewController=delegate.mainViewController;
 	
-	if(page!=nil)
+	Newsletter  * newsletter=mainViewController.newsletterViewController.page;
+	
+	if(newsletter!=nil)
 	{
-		[page.items addObject:result];
-		[mainViewController.pageViewController renderPage];
+		[newsletter.items addObject:result];
+		[mainViewController.newsletterViewController renderPage];
 	}
 	else 
 	{
-		UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"No current page" message:@"Please select a page to add headlines to" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"No current newsletter" message:@"Please select a newsletter to add headlines to" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 		
 		[alert show];
 		[alert release];
-	}
+	}*/
+	
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -93,23 +95,28 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 	
 	// add to current page...
 	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+	
+	[delegate addSearchResultToCurrentNewsletter:result fromSavedSearch:self.savedSearch];
+	/*
+	
+	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
 	MainViewController * mainViewController=delegate.mainViewController;
-	Page * page=mainViewController.pageViewController.page;
-	if(page!=nil)
+	Newsletter * newsletter=mainViewController.newsletterViewController.newsletter;
+	if(newsletter!=nil)
 	{
 		SearchResult * copy=[result copyWithZone:NULL];
 		
-		[page.items addObject:copy];
+		[newsletter.items addObject:copy];
 		
-		[mainViewController.pageViewController renderPage];
+		[mainViewController.newsletterViewController renderPage];
 	}
 	else 
 	{
-		UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"No current page" message:@"Please select a page to add headlines to" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"No current newsletter" message:@"Please select a newsletter to add headlines to" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 
 		[alert show];
 		[alert release];
-	}
+	}*/
 }
 
 - (void)updateStart

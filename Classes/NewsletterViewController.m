@@ -6,48 +6,70 @@
 //  Copyright 2010 InfoNgen. All rights reserved.
 //
 
-#import "PageViewController.h"
+#import "NewsletterViewController.h"
 #import "SearchResult.h"
 #import "SearchResultCell.h"
-#import "Page.h"
-#import "DocumentViewController.h"
-#import "NewsletterDetailViewController.h"
+#import "Newsletter.h"
+#import "DocumentWebViewController.h"
+#import "NewsletterSettingsViewController.h"
 #import "DocumentEditViewController.h"
-#import "PageHTMLPreviewViewController.h"
+#import "NewsletterHTMLPreviewViewController.h"
 #import "AppDelegate.h"
 #import "NewsletterSection.h"
 #import "SavedSearch.h"
 
-@implementation PageViewController
-@synthesize pageTableView,page,editMoveButton,editSettingsButton,updateButton,previewButton;
+@implementation NewsletterViewController
+@synthesize newsletterTableView,newsletter,editMoveButton,editSettingsButton,updateButton,previewButton;
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	NSLog(@"viewWillAppear");
 
-	if(self.page)
+	if(self.newsletter)
 	{
 		UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	
-		navController.navigationBar.backItem.title=self.page.name;
-		//navController.navigationBar.topItem.title=self.page.name;
+		navController.navigationBar.backItem.title=self.newsletter.name;
 	}
 	
-	[pageTableView reloadData];
+	[newsletterTableView reloadData];
 
 	[super viewWillAppear:animated];
 }
+
 - (void)viewDidAppear:(BOOL)animated
 {
 	NSLog(@"viewDidAppear");
-	[pageTableView reloadData];
+	
+	[self renderNewsletter];
 	
 	[super viewDidAppear:animated];
 }
-- (void)renderPage
+
+- (void)renderNewsletter
 {
-	[pageTableView reloadData];
+	[newsletterTableView reloadData];
+}
+
+- (void) addSearchResultToCurrentNewsletter:(SearchResult*)searchResult fromSavedSearch:(SavedSearch*)savedSearch;
+{
+	// TODO: what section to add to?
+}
+
+- (void) setCurrentNewsletter:(Newsletter*)newsletter
+{
+	self.newsletter=newsletter;
+	
+	if(self.newsletter)
+	{
+		self.editSettingsButton.enabled=YES;
+		self.editMoveButton.enabled=YES;
+		self.updateButton.enabled=YES;
+		self.previewButton.enabled=YES;
+	}
+	
+	[self renderNewsletter];
 }
 
 - (IBAction) update
@@ -68,9 +90,9 @@
     
 	NSArray * savedSearches=((AppDelegate*)[app delegate]).savedSearches;
 	
-	for(int i=0;i<[self.page.sections count];i++)
+	for(int i=0;i<[self.newsletter.sections count];i++)
 	{
-		NewsletterSection * section=[self.page.sections objectAtIndex:i];
+		NewsletterSection * section=[self.newsletter.sections objectAtIndex:i];
 		for(int j=0;j<[savedSearches count];j++)
 		{
 			SavedSearch * savedSearch=[savedSearches objectAtIndex:j];
@@ -116,15 +138,14 @@
 	UIApplication* app = [UIApplication sharedApplication];
 	app.networkActivityIndicatorVisible = NO;
 	// reload table...
-	[self.pageTableView reloadData];
+	[self.newsletterTableView reloadData];
 }
  
-
 - (IBAction) settings
 {
-	NewsletterDetailViewController * settingsController=[[NewsletterDetailViewController alloc] initWithNibName:@"NewsletterDetailView" bundle:nil];
+	NewsletterSettingsViewController * settingsController=[[NewsletterSettingsViewController alloc] initWithNibName:@"NewsletterSettingsView" bundle:nil];
 	
-	settingsController.page=self.page;
+	settingsController.newsletter=self.newsletter;
 	
 	UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	
@@ -137,15 +158,15 @@
 
 - (IBAction) toggleEditPage
 {
-	if(self.pageTableView.editing)
+	if(self.newsletterTableView.editing)
 	{
-		[self.pageTableView setEditing:NO animated:YES];
+		[self.newsletterTableView setEditing:NO animated:YES];
 		self.editMoveButton.style=UIBarButtonItemStyleBordered;
 		self.editMoveButton.title=@"Edit";
 	}
 	else
 	{
-		[self.pageTableView setEditing:YES animated:YES];
+		[self.newsletterTableView setEditing:YES animated:YES];
 		self.editMoveButton.style=UIBarButtonItemStyleDone;
 		self.editMoveButton.title=@"Done";
 	}
@@ -174,9 +195,9 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
     // Return the number of sections.
     NSLog(@"numberOfSectionsInTableView");
-	if(self.page && self.page.sections)
+	if(self.newsletter && self.newsletter.sections)
 	{
-		return [self.page.sections count];
+		return [self.newsletter.sections count];
 	}
 	else
 	{
@@ -186,18 +207,17 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	NewsletterSection * newsletterSection=[self.page.sections objectAtIndex:section];
+	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
 	return newsletterSection.name;
 }
-
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
 	NSMutableArray * tmp=[[NSMutableArray alloc] init];
 	
-	for (int i=0; i<[self.page.sections count]; i++) {
+	for (int i=0; i<[self.newsletter.sections count]; i++) {
 		
-		[tmp addObject:[[self.page.sections objectAtIndex:i] name]];
+		[tmp addObject:[[self.newsletter.sections objectAtIndex:i] name]];
 		
 	}
 	// TODO: do we need to retain/release/autorelease here???
@@ -207,13 +227,13 @@
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     NSLog(@"numberOfRowsInSection");
-	if(self.page==nil)
+	if(self.newsletter==nil)
 	{
 		return 0;
 	}
 	else
 	{
-		NewsletterSection * newsletterSection=[self.page.sections objectAtIndex:section];
+		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
 		
 		return [newsletterSection.items count];
 	}
@@ -254,7 +274,14 @@
 	// 1024x768
 	// in portrait view we have full width for table (768 wide)
 	// in landscape we have 1024 - 320 = 704 wide
-	int parentWidth=self.parentViewController.view.frame.size.width;
+	
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	
+	int parentWidth=navController.view.frame.size.width;
+	
+	
+	
+	//int parentWidth=self.parentViewController.view.frame.size.width;
 	
 	cellWidth=parentWidth;
 	textWidth=parentWidth-60;
@@ -282,7 +309,7 @@
 	[self setWidth:cell.synopsisLabel width:textWidth];
 	[self setWidth:cell.dateLabel width:textWidth];
 	
-	NewsletterSection * newsletterSection=[self.page.sections objectAtIndex:indexPath.section];
+	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
 	
 	
 	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
@@ -368,8 +395,8 @@ moveRowAtIndexPath:(NSIndexPath*)fromIndexPath
 	NSUInteger fromRow=[fromIndexPath row];
 	NSUInteger toRow=[toIndexPath row];
 	
-	NewsletterSection * newsletterSection1=[self.page.sections objectAtIndex:fromIndexPath.section];
-	NewsletterSection * newsletterSection2=[self.page.sections objectAtIndex:toIndexPath.section];
+	NewsletterSection * newsletterSection1=[self.newsletter.sections objectAtIndex:fromIndexPath.section];
+	NewsletterSection * newsletterSection2=[self.newsletter.sections objectAtIndex:toIndexPath.section];
 	
 	id object=[[newsletterSection1.items objectAtIndex:fromRow] retain];
 	[newsletterSection1.items removeObjectAtIndex:fromRow];
@@ -383,9 +410,8 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 {
 	NSUInteger row=[indexPath	row];
 	
-	NewsletterSection * newsletterSection=[self.page.sections objectAtIndex:indexPath.section];
+	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
 	
-
 	[newsletterSection.items removeObjectAtIndex:row];
 	[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
@@ -394,11 +420,11 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 - (IBAction) preview
 {
 	
-	PageHTMLPreviewViewController * previewController=[[PageHTMLPreviewViewController alloc] initWithNibName:@"PageHTMLPreviewView" bundle:nil];
+	NewsletterHTMLPreviewViewController * previewController=[[NewsletterHTMLPreviewViewController alloc] initWithNibName:@"NewsletterHTMLPreviewView" bundle:nil];
 	
 	previewController.savedSearches=((AppDelegate*)[[UIApplication sharedApplication] delegate]).savedSearches;
 	
-	previewController.page=self.page;
+	previewController.newsletter=self.newsletter;
 									 
 	UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	
@@ -413,7 +439,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
 	
-	NewsletterSection * newsletterSection=[self.page.sections objectAtIndex:indexPath.section];
+	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
 	
 	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
 	
@@ -432,12 +458,12 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 }
 
 - (void)dealloc {
-    [pageTableView release];
+    [newsletterTableView release];
 	[editMoveButton release];
 	[editSettingsButton release];
 	[updateButton release];
 	[previewButton release];
-	[page release];
+	[newsletter release];
     [super dealloc];
 }
 @end

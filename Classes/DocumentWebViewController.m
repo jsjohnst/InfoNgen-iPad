@@ -6,10 +6,10 @@
 //  Copyright 2010 InfoNgen. All rights reserved.
 //
 
-#import "DocumentViewController.h"
+#import "DocumentWebViewController.h"
 #import "SearchResult.h"
 #import "DocumentImage.h"
-#import "ImagePickerViewController.h"
+//#import "ImagePickerViewController.h"
 #import "DocumentTextViewController.h"
 #import "DocumentEditViewController.h"
 

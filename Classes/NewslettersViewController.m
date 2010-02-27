@@ -6,13 +6,13 @@
 //  Copyright 2010 Apple Inc. All rights reserved.
 //
 
-#import "PagesViewController.h"
-#import "Page.h"
+#import "NewslettersViewController.h"
+#import "Newsletter.h"
 #import "MainViewController.h"
 #import "AppDelegate.h"
 
-@implementation PagesViewController
-@synthesize pages,pagesTable;
+@implementation NewslettersViewController
+@synthesize newsletters,newslettersTable;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -20,25 +20,22 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	[self.pagesTable reloadData];
+	[self.newslettersTable reloadData];
 	
 	[super viewDidAppear:animated];
 }
 
-- (IBAction) newPage
+- (IBAction) newNewsletter
 {
-	Page * newPage=[[Page alloc] initWithName:@"Untitled"];
+	Newsletter  * newNewsletter=[[Newsletter alloc] initWithName:@"Untitled"];
 	
-	[self.pages addObject:newPage];
+	[self.newsletters addObject:newNewsletter];
 	
 	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
-	MainViewController * mainViewController=delegate.mainViewController;
 	
-	[mainViewController setCurrentPage:newPage];	
+	[delegate setCurrentNewsletter:newNewsletter];
 	
-	[newPage release];
-	
-	[mainViewController.pageViewController settings];
+	[newNewsletter release];
 }
 
 // The size the view should be when presented in a popover.
@@ -53,7 +50,7 @@
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [pages count];
+    return [newsletters count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -68,26 +65,25 @@
     }
     
     // Get the object to display and set the value in the cell.
-    Page * page=[pages objectAtIndex:indexPath.row];
+    Newsletter  * newsletter=[newsletters objectAtIndex:indexPath.row];
 	
-	cell.textLabel.text = page.name;
+	cell.textLabel.text = newsletter.name;
 	
     return cell;
 }
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	Page * page=[self.pages objectAtIndex:indexPath.row];
+	Newsletter * newsletter=[self.newsletters objectAtIndex:indexPath.row];
 	
 	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
-	MainViewController * mainViewController=delegate.mainViewController;
 	
-	[mainViewController setCurrentPage:page];
+	[delegate setCurrentNewsletter:newsletter];
 }
 
 - (void)dealloc {
-	[pages release];
-	[pagesTable release];
+	[newsletters release];
+	[newslettersTable release];
     [super dealloc];
 }
 

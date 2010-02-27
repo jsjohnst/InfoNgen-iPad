@@ -6,9 +6,9 @@
 //  Copyright 2010 InfoNgen. All rights reserved.
 //
 
-#import "EditableTableCell.h"
+#import "TextFieldTableCell.h"
 
-@implementation EditableTableCell
+@implementation TextFieldTableCell
 
 @synthesize textField;
 
