@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -272,13 +274,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>16</integer>
-									<integer>1</integer>
+									<integer>59</integer>
+									<integer>50</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 26}, {253, 868}}</string>
+							<string>{{0, 508}, {253, 868}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -297,7 +299,7 @@
 							<real>253</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>78 129 1755 927 0 0 1920 1058 </string>
+						<string>53 131 1755 927 0 0 1920 1058 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -308,8 +310,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -327,7 +327,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>B0431CD81139C69400DD34FD</string>
+										<string>B0431CEC1139C87400DD34FD</string>
 										<key>history</key>
 										<array>
 											<string>B022D0C1112B7E7500F933AD</string>
@@ -412,7 +412,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1480, 617}}</string>
 								<key>RubberWindowFrame</key>
-								<string>78 129 1755 927 0 0 1920 1058 </string>
+								<string>53 131 1755 927 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -432,7 +432,7 @@
 								<key>Frame</key>
 								<string>{{0, 622}, {1480, 264}}</string>
 								<key>RubberWindowFrame</key>
-								<string>78 129 1755 927 0 0 1920 1058 </string>
+								<string>53 131 1755 927 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -597,11 +597,11 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>1C78EAAD065D492600B07095</string>
-		<string>/Users/bstewart/Documents/InfoNgen-iPad/Untitled.xcodeproj</string>
 		<string>B06BEA35112A25B000C8AD9F</string>
+		<string>/Users/bstewart/Documents/InfoNgen-iPad/Untitled.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>78 129 1755 927 0 0 1920 1058 </string>
+	<string>53 131 1755 927 0 0 1920 1058 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
