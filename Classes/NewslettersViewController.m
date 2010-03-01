@@ -31,7 +31,7 @@
 	
 	[self.newsletters addObject:newNewsletter];
 	
-	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
 	
 	[delegate setCurrentNewsletter:newNewsletter];
 	
@@ -76,7 +76,7 @@
 {
 	Newsletter * newsletter=[self.newsletters objectAtIndex:indexPath.row];
 	
-	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
 	
 	[delegate setCurrentNewsletter:newsletter];
 }

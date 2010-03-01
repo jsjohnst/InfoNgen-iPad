@@ -16,7 +16,7 @@
 
 - (id) init
 {
-	return [self initWithName:@"Unknown" withUrl:@"http://noplace.com"];
+	return [self initWithName:@"Unknown" withID:@"id" withUrl:@"http://noplace.com"];
 }
 
 - (id) initWithName:(NSString *)theName withID:(NSString*) theID withUrl:(NSString *) theUrl
@@ -114,7 +114,7 @@
 			
 			NSString * title=[[[itemNode elementsForName:@"title"] objectAtIndex:0] stringValue];
 			NSString * link=[[[itemNode elementsForName:@"link"] objectAtIndex:0] stringValue];
-			NSString * pubDate=[[[itemNode elementsForName:@"pubDate"] objectAtIndex:0] stringValue];
+			//NSString * pubDate=[[[itemNode elementsForName:@"pubDate"] objectAtIndex:0] stringValue];
 			
 			SearchResult * result=[[SearchResult alloc] initWithHeadline:title withUrl:link withSynopsis:synopsis withDate:[NSDate date]];
 			

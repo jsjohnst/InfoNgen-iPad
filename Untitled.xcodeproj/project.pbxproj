@@ -22,6 +22,10 @@
 		B08BC367112C4CDC00851E7A /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B08BC366112C4CDC00851E7A /* UserSettings.m */; };
 		C4158C22112097500070FE54 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4158C21112097500070FE54 /* SearchResultCell.m */; };
 		C4158C24112097710070FE54 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4158C23112097710070FE54 /* SearchResultCell.xib */; };
+		C44456F4113C490900DEA3B6 /* newsletter.html in Resources */ = {isa = PBXBuildFile; fileRef = C44456F3113C490900DEA3B6 /* newsletter.html */; };
+		C44456FE113C4B1600DEA3B6 /* logo2.gif in Resources */ = {isa = PBXBuildFile; fileRef = C44456FB113C4B1600DEA3B6 /* logo2.gif */; };
+		C44456FF113C4B1600DEA3B6 /* ico-2.gif in Resources */ = {isa = PBXBuildFile; fileRef = C44456FC113C4B1600DEA3B6 /* ico-2.gif */; };
+		C4445700113C4B1600DEA3B6 /* ico-1.gif in Resources */ = {isa = PBXBuildFile; fileRef = C44456FD113C4B1600DEA3B6 /* ico-1.gif */; };
 		C46EB7231120A42B00FFB032 /* UILabelEx.m in Sources */ = {isa = PBXBuildFile; fileRef = C46EB7221120A42B00FFB032 /* UILabelEx.m */; };
 		C47EB321112B004100DDD1D5 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C47EB30A112B004100DDD1D5 /* CXMLDocument_CreationExtensions.m */; };
 		C47EB322112B004100DDD1D5 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C47EB30C112B004100DDD1D5 /* CXMLNode_CreationExtensions.m */; };
@@ -104,6 +108,10 @@
 		C4158C20112097500070FE54 /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
 		C4158C21112097500070FE54 /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
 		C4158C23112097710070FE54 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		C44456F3113C490900DEA3B6 /* newsletter.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = newsletter.html; sourceTree = "<group>"; };
+		C44456FB113C4B1600DEA3B6 /* logo2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo2.gif; sourceTree = "<group>"; };
+		C44456FC113C4B1600DEA3B6 /* ico-2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ico-2.gif"; sourceTree = "<group>"; };
+		C44456FD113C4B1600DEA3B6 /* ico-1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ico-1.gif"; sourceTree = "<group>"; };
 		C46EB7211120A42B00FFB032 /* UILabelEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelEx.h; sourceTree = "<group>"; };
 		C46EB7221120A42B00FFB032 /* UILabelEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelEx.m; sourceTree = "<group>"; };
 		C47EB309112B004100DDD1D5 /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
@@ -288,6 +296,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources-iPad */ = {
 			isa = PBXGroup;
 			children = (
+				C44456FB113C4B1600DEA3B6 /* logo2.gif */,
+				C44456FC113C4B1600DEA3B6 /* ico-2.gif */,
+				C44456FD113C4B1600DEA3B6 /* ico-1.gif */,
+				C44456F3113C490900DEA3B6 /* newsletter.html */,
 				B0338D8811356EF200764C4A /* comment_edit.png */,
 				B0338D5D11356A8B00764C4A /* icon_post.png */,
 				C4B9303011344D9B00AF9B7C /* Default-Landscape.png */,
@@ -488,6 +500,10 @@
 				C49BA1A71136E5BB0015227C /* NewsletterSectionsView.xib in Resources */,
 				C49BA1B81136E9560015227C /* NewsletterAddSectionView.xib in Resources */,
 				C49BA25211371D690015227C /* NewsletterHTMLPreviewView.xib in Resources */,
+				C44456F4113C490900DEA3B6 /* newsletter.html in Resources */,
+				C44456FE113C4B1600DEA3B6 /* logo2.gif in Resources */,
+				C44456FF113C4B1600DEA3B6 /* ico-2.gif in Resources */,
+				C4445700113C4B1600DEA3B6 /* ico-1.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

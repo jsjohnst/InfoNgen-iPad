@@ -21,10 +21,9 @@
 @implementation NewsletterViewController
 @synthesize newsletterTableView,newsletter,editMoveButton,editSettingsButton,updateButton,previewButton;
 
-
 - (void)viewWillAppear:(BOOL)animated
 {
-	NSLog(@"viewWillAppear");
+	NSLog(@"NewsletterViewController.viewWillAppear");
 
 	if(self.newsletter)
 	{
@@ -40,9 +39,9 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-	NSLog(@"viewDidAppear");
+	NSLog(@"NewsletterViewController.viewDidAppear");
 	
-	[self renderNewsletter];
+	//[self renderNewsletter];
 	
 	[super viewDidAppear:animated];
 }
@@ -201,33 +200,47 @@
 	}
 	else
 	{
-		return 1;
+		return 0;
 	}
 }	
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
-	return newsletterSection.name;
+	if(self.newsletter && self.newsletter.sections)
+	{
+		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
+		return newsletterSection.name;
+	}
+	else {
+		return nil;
+	}
+
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-	NSMutableArray * tmp=[[NSMutableArray alloc] init];
+	if(self.newsletter && self.newsletter.sections)
+	{
+		NSMutableArray * tmp=[[NSMutableArray alloc] init];
 	
-	for (int i=0; i<[self.newsletter.sections count]; i++) {
+		for (int i=0; i<[self.newsletter.sections count]; i++) {
 		
-		[tmp addObject:[[self.newsletter.sections objectAtIndex:i] name]];
+			[tmp addObject:[[self.newsletter.sections objectAtIndex:i] name]];
 		
+		}
+		// TODO: do we need to retain/release/autorelease here???
+		return tmp;
 	}
-	// TODO: do we need to retain/release/autorelease here???
-	return tmp;
+	else {
+		return nil;
+	}
+
 }
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     NSLog(@"numberOfRowsInSection");
-	if(self.newsletter==nil)
+	if(self.newsletter==nil || self.newsletter.sections==nil)
 	{
 		return 0;
 	}
@@ -235,7 +248,11 @@
 	{
 		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
 		
-		return [newsletterSection.items count];
+		if (newsletterSection==nil) {
+			return 0;
+		}
+		else
+			return [newsletterSection.items count];
 	}
 }
 
@@ -254,77 +271,36 @@
 	
 	static NSString *CellIdentifier = @"SearchResultCellIdentifier";
 	
-	SearchResultCell *cell = (SearchResultCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-    	NSArray * nib=[[NSBundle mainBundle] loadNibNamed:@"SearchResultCell" owner:self options:nil];
-		
-		cell=[nib objectAtIndex:0];
-		
-		// setup autoresizing mask so we can set width...
-		//cell.autoresizingMask=( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-		//cell.headlineLabel.autoresizingMask=( UIViewAutoresizingFlexibleRightMargin);
-		//cell.synopsisLabel.autoresizingMask=( UIViewAutoresizingFlexibleRightMargin);
-		//cell.dateLabel.autoresizingMask=( UIViewAutoresizingFlexibleRightMargin);
+	UITableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	
+	if(cell==nil)
+	{
+		cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+		//cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
-	
-	int cellWidth=768;
-	int textWidth=700;
+	//int cellWidth=768;
+	//int textWidth=700;
 	
 	// 1024x768
 	// in portrait view we have full width for table (768 wide)
 	// in landscape we have 1024 - 320 = 704 wide
 	
-	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	//UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	
-	int parentWidth=navController.view.frame.size.width;
-	
-	
-	
-	//int parentWidth=self.parentViewController.view.frame.size.width;
-	
-	cellWidth=parentWidth;
-	textWidth=parentWidth-60;
-	/*
-	switch([self interfaceOrientation])
-	{
-		case UIInterfaceOrientationPortrait:
-		case UIInterfaceOrientationPortraitUpsideDown:
-			cellWidth=768;
-			textWidth=700;
-			break;
-		case UIInterfaceOrientationLandscapeLeft:
-		case UIInterfaceOrientationLandscapeRight:
-			cellWidth=604;
-			textWidth=440;
-			break;
-		default:
-			break;
-	}
-	*/
-	
-	
-	[self setWidth:cell width:cellWidth];
-	[self setWidth:cell.headlineLabel width:textWidth];
-	[self setWidth:cell.synopsisLabel width:textWidth];
-	[self setWidth:cell.dateLabel width:textWidth];
+	//int parentWidth=navController.view.frame.size.width;
 	
 	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
 	
-	
 	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
-	//cell.imageView.image=result.image;
-	
-	cell.headlineLabel.text=[result headline];
-	cell.dateLabel.text=[[result date] description];
-	cell.synopsisLabel.text=[result synopsis];
 
+	cell.textLabel.text=[result headline];
+	cell.detailTextLabel.text=[result synopsis];
+	
 	if(result.notes && [result.notes length]>0)
 	{
 		UIImageView* commentsImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"comment_edit.png"]];
 		commentsImageView.frame = CGRectMake(0, 0, 16, 16);
-		//cell.accessoryType=UITableViewCellAccessory
-		//[cell.contentView addSubview:commentsImageView];
 		cell.accessoryView = commentsImageView;
 		[commentsImageView release];
 	}
@@ -332,37 +308,27 @@
 	{
 		cell.accessoryView=nil;
 	}
-	//[cell addSubview:mySwitch];
-	//cell.accessoryView = mySwitch;
+	
+	
+	if(result.image)
+	{
+		cell.imageView.image=result.image;
+	}
+	else 
+	{
+		cell.imageView.image=nil;
+	}
 
-	
-	
-	
-	/*NSString * text=result.synopsis;
-	 
-	 if(text!=nil && [text length]>0)
-	 {
-	 CGSize constraint = CGSizeMake(700.0f, 20000.0f);
-	 
-	 CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:12.0f] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-	 
-	 CGFloat height = MIN(MAX(size.height, 60.0f),250.0f);
-	 
-	 [cell.synopsisLabel setFrame:CGRectMake(10.0f, 10.0f, textWidth, MIN(MAX(size.height, 40.0f),200.0f))];
-	 
-	 }	*/
-	
-	
-    return cell;
+	return cell;
 }
 
-- (CGFloat)tableView:(UITableView*)tableView
+/*- (CGFloat)tableView:(UITableView*)tableView
 heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	return 80;
 	
 	// get size of synopsis...
-	/*SearchResult * result=(SearchResult *)[self.page.items objectAtIndex:indexPath.row];
+	SearchResult * result=(SearchResult *)[self.page.items objectAtIndex:indexPath.row];
 	 
 	 NSString * text=result.synopsis;
 	 
@@ -379,8 +345,8 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 	 CGFloat height = MIN(MAX(size.height, 60.0f),250.0f);
 	 
 	 return height + 20.0f;
-	 }*/
-}
+	 }
+}*/
 
 - (BOOL) tableView:(UITableView*)tableView
 canMoveRowAtIndexPath:(NSIndexPath*)indexPath

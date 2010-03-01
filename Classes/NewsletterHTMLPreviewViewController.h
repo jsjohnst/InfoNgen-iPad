@@ -21,4 +21,6 @@
 @property(nonatomic,retain) NSArray * savedSearches;
 @property(nonatomic,retain) IBOutlet UIWebView * webView;
 
+- (void) renderHtml;
+
 @end

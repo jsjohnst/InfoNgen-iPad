@@ -13,7 +13,7 @@
 #import "DocumentTextViewController.h"
 #import "DocumentEditViewController.h"
 
-@implementation DocumentViewController
+@implementation DocumentWebViewController
 @synthesize webView,searchResult,backButton,forwardButton,selectImageButton;//,stopButton,reloadButton;
 
 -(NSString*) getString:(NSString*)javascript
@@ -346,7 +346,7 @@
 	
 	if(selectedText && [selectedText length]>0)
 	{
-		NSLog(selectedText);
+		//NSLog(selectedText);
 		if(self.searchResult.synopsis && [self.searchResult.synopsis length]>0)
 		{
 			self.searchResult.synopsis=[NSString stringWithFormat:@"%@\n%@",self.searchResult.synopsis,selectedText];

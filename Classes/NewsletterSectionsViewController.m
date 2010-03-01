@@ -187,7 +187,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 		
 		sectionsController.newsletter=self.newsletter;
 		
-		AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+		AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
 		
 		sectionsController.savedSearches=delegate.savedSearches;
 		

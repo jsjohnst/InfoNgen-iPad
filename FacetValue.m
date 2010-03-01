@@ -16,7 +16,7 @@
 	[displayName release];
 	[fieldName release];
 	[fieldValue release];
-	[count release];
+	//[count release];
 	[search release];
 	[super dealloc];
 }

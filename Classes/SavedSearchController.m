@@ -34,20 +34,34 @@
 	
 	static NSString * savedSearchControllerCell=@"SearchResultCellIdentifier";
 
-	SearchResultCell *cell=(SearchResultCell*)[tableView dequeueReusableCellWithIdentifier:savedSearchControllerCell];
+	
+	UITableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:savedSearchControllerCell];
+	
+	if(cell==nil)
+	{
+		cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:savedSearchControllerCell] autorelease];
+		cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+	}
+	
+	
+	/*SearchResultCell *cell=(SearchResultCell*)[tableView dequeueReusableCellWithIdentifier:savedSearchControllerCell];
 	
 	if(cell==nil){
 		
 		NSArray * nib=[[NSBundle mainBundle] loadNibNamed:@"SearchResultCell" owner:self options:nil];
 		
 		cell=[nib objectAtIndex:0];
-	}
+	}*/
 	
 	SearchResult * searchResult=[self.savedSearch.items objectAtIndex:indexPath.row];
 	
-	cell.headlineLabel.text=[searchResult headline];
+	cell.textLabel.text=[searchResult headline];
+	cell.detailTextLabel.text=[searchResult synopsis];
+	
+	/*cell.headlineLabel.text=[searchResult headline];
 	cell.dateLabel.text=[[searchResult date] description];
 	cell.synopsisLabel.text=[searchResult synopsis];
+	*/
 	
 	return cell;
 }
@@ -58,7 +72,7 @@ didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 	SearchResult * result=[self.savedSearch.items objectAtIndex:indexPath.row];
 	
 	// add to current page...
-	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
 	
 	[delegate addSearchResultToCurrentNewsletter:result fromSavedSearch:self.savedSearch];
 	
@@ -82,11 +96,11 @@ didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (CGFloat)tableView:(UITableView*)tableView
+/*- (CGFloat)tableView:(UITableView*)tableView
 heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	return 80;
-}
+}*/
 
 -(void)tableView:(UITableView*)tableView
 accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
@@ -94,7 +108,7 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 	SearchResult * result=[self.savedSearch.items objectAtIndex:indexPath.row];
 	
 	// add to current page...
-	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
 	
 	[delegate addSearchResultToCurrentNewsletter:result fromSavedSearch:self.savedSearch];
 	/*

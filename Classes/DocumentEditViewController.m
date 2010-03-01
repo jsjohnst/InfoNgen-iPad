@@ -20,7 +20,7 @@
 {
 	if(self.searchResult.url && [self.searchResult.url length]>0)
 	{
-		DocumentViewController * docViewController=[[DocumentViewController alloc] initWithNibName:@"DocumentView" bundle:nil];
+		DocumentWebViewController * docViewController=[[DocumentWebViewController alloc] initWithNibName:@"DocumentWebView" bundle:nil];
 		
 		docViewController.searchResult=self.searchResult;
 		

@@ -44,11 +44,11 @@
 	
 	newslettersViewController.newsletters=self.newsletters;
 	 
-	newslettersPopoverController=[[UIPopoverController alloc] initWithContentViewController:newslettersViewController];
-	newslettersPopoverController.delegate=self;
+	//newslettersPopoverController=[[UIPopoverController alloc] initWithContentViewController:newslettersViewController];
+	//newslettersPopoverController.delegate=self;
 	
-	searchesPopoverController=[[UIPopoverController alloc] initWithContentViewController:savedSearchesViewController];
-	searchesPopoverController.delegate=self;
+	//searchesPopoverController=[[UIPopoverController alloc] initWithContentViewController:savedSearchesViewController];
+	//searchesPopoverController.delegate=self;
 	
 	navigationController = [[UINavigationController alloc] initWithRootViewController:newsletterViewController];
     
@@ -64,11 +64,23 @@
 	
 	[button release];
 	
+	button=[[UIBarButtonItem alloc] init];
+	
+	button.title=@"Saved Searches";
+	button.target=self;
+	button.action=@selector(showSavedSearchesPopOver:);
+	
+	navigationController.navigationBar.topItem.leftBarButtonItem=button;
+
+	[button release];
+	
 	navigationController.delegate=self;
 	
 	// setup a split view with saved searches on the left side and the main view on the right side
     splitViewController = [[UISplitViewController alloc] init];
-    splitViewController.viewControllers = [NSArray arrayWithObjects:savedSearchesViewController, navigationController, nil];
+    
+	splitViewController.viewControllers = [NSArray arrayWithObjects:savedSearchesViewController, navigationController, nil];
+	
 	splitViewController.delegate = self;
     
     // Add the split view controller's view to the window and display.
@@ -80,11 +92,19 @@
 }
 
 - (void)showNewslettersPopOver:(id)sender{
+	if(newslettersPopoverController==nil)
+	{
+		newslettersPopoverController=[[UIPopoverController alloc] initWithContentViewController:newslettersViewController];
+	}
 	[newslettersPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)showSavedSearchesPopOver:(id)sender
 {
+	if(searchesPopoverController==nil)
+	{
+		searchesPopoverController=[[UIPopoverController alloc] initWithContentViewController:savedSearchesViewController];
+	}
 	[searchesPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
@@ -104,18 +124,19 @@
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-	NSLog(@"didShowViewController");
+	NSLog(@"navigationController:didShowViewController");
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-	NSLog(@"willShowViewController");
+	NSLog(@"navigationController:willShowViewController");
 	
 	[viewController viewWillAppear:animated];
 }
 
 - (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc {
     
+	NSLog(@"splitViewController:willHideViewController");
     barButtonItem.title = @"Saved Searches";
 	
 	UINavigationItem * firstItem=[[navigationController.navigationBar items] objectAtIndex:0];
@@ -123,6 +144,23 @@
 	[firstItem setLeftBarButtonItem:barButtonItem animated:YES];
 	
 	self.searchesPopoverController = pc;
+}
+
+// Called when the view is shown again in the split view, invalidating the button and popover controller.
+- (void)splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
+	
+	NSLog(@"splitViewController:willShowViewController");
+    
+	UINavigationItem * firstItem=[[navigationController.navigationBar items] objectAtIndex:0];
+	
+	[firstItem setLeftBarButtonItem:nil animated:YES];
+	
+    //self.searchesPopoverController = nil;
+}
+- (void)splitViewController:(UISplitViewController*)svc popoverController:(UIPopoverController*)pc willPresentViewController:(UIViewController *)aViewController
+{
+	NSLog(@"splitViewController:popoverController:willPresentViewController");
+    
 }
 
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
@@ -163,6 +201,7 @@
 
 - (void) saveData
 {
+	NSLog(@"saveData");
 	if(newsletters!=nil)
 	{
 		NSMutableData * data=[[NSMutableData alloc] init];
@@ -180,6 +219,9 @@
 			[archiver release];
 		
 			[data release];
+			
+			
+			NSLog(@"Data saved ...");
 		}
 	}
 }

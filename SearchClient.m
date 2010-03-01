@@ -64,7 +64,7 @@
 	
 	NSString *post = @"ctltype=InfoNgen.TouchPoint.Modules.Common.Search.AllSavedSearches&mname=Common.AllSavedSearches&prntid=_cc_ctl18n_c&xml=true";
 	
-	NSLog(post);
+	//NSLog(post);
 	
 	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
 	
@@ -119,7 +119,7 @@
 	
 	NSURL *url = [NSURL URLWithString: urlString];
 	
-	NSLog(urlString);
+	//NSLog(urlString);
 	
 	NSData * data=[self loadDataFromURLForcingBasicAuth:url];
 	
@@ -224,7 +224,7 @@
 				facetArgs.query=[NSString stringWithFormat:@"+(%@) +(%@:%@>75)",args.query,facetValue.fieldName,facetValue.fieldValue];
 			}
 			
-			NSLog(facetArgs.query);
+			//NSLog(facetArgs.query);
 			
 			facetSearch.args=facetArgs;
 			[facetArgs release];

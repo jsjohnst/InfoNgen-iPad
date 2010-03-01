@@ -18,12 +18,13 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	
+	NSLog(@"SavedSearchesController.viewDidLoad");
 	self.title=@"Saved Searches";
 	
 	NSMutableArray *array=[[NSMutableArray alloc] init];
 	
 	// get saved searches from delegate...
-	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
 	
 	for (int i=0; i<[delegate.savedSearches count]; i++) 
 	{
@@ -72,23 +73,24 @@
 	UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:rootViewControllerCell];
 	if(cell==nil){
 		cell=[[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:rootViewControllerCell] autorelease];
+		cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
 	}
 	SavedSearchController * controller = [controllers objectAtIndex:indexPath.row];
 	cell.textLabel.text=controller.savedSearch.name;
 	return cell;
 }
 
-- (UITableViewCellAccessoryType)tableView:(UITableView*)tableView
+/*- (UITableViewCellAccessoryType)tableView:(UITableView*)tableView
 accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
 {
 	return UITableViewCellAccessoryDisclosureIndicator;
-}
+}*/
 
 -(void)tableView:(UITableView*)tableView
 didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	SavedSearchController *nextController=[self.controllers objectAtIndex:indexPath.row];
-	AppDelegate * delegate=[[UIApplication sharedApplication] delegate];
+	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
 	SavedSearchesViewController * savedSearchesViewController=delegate.savedSearchesViewController;
 	UINavigationController * nav = savedSearchesViewController.savedSearchNavController;
 	[nav pushViewController:nextController animated:YES];

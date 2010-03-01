@@ -16,8 +16,8 @@
 @class Newsletter;
 @class SavedSearch;
 @class SavedSearchesViewController;
-
-@interface AppDelegate : NSObject <UIApplicationDelegate, UIPopoverControllerDelegate, UISplitViewControllerDelegate, UINavigationControllerDelegate> {
+//UIPopoverControllerDelegate
+@interface AppDelegate : NSObject <UIApplicationDelegate,UISplitViewControllerDelegate, UINavigationControllerDelegate> {
     
     UIWindow *window;
     

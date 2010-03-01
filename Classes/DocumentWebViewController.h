@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class SearchResult;
 
-@interface DocumentViewController : UIViewController <UIWebViewDelegate> {
+@interface DocumentWebViewController : UIViewController <UIWebViewDelegate> {
 	IBOutlet UIWebView * webView;
 	IBOutlet UIBarButtonItem * backButton;
 	IBOutlet UIBarButtonItem * forwardButton;

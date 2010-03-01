@@ -24,6 +24,7 @@
 }
 
 - (void)viewDidLoad {
+	NSLog(@"SavedSearchesViewController.viewDidLoad");
 	[self.view addSubview:savedSearchNavController.view];
 	[super viewDidLoad];
 }
