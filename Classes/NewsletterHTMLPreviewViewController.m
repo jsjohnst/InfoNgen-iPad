@@ -45,6 +45,21 @@
 													error: nil];
 	
 	html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.name}}" withString:self.newsletter.name];
+	
+	
+	if (self.newsletter.logoImage) 
+	{
+		NSData *imageData = UIImagePNGRepresentation(self.newsletter.logoImage);
+		
+		NSString * encoded=[Base64 encode:imageData];
+		
+		html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.logoImage}}" withString:[NSString stringWithFormat:@"<img src=\"data:image/png;base64,%@\">",encoded]];
+	}
+	else
+	{
+		html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.logoImage}}" withString:@""];
+	}
+
 	html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.lastUpdated}}" withString:[self.newsletter.lastUpdated description]];
 	
 	NSRange start=[html rangeOfString:@"{{newsletter.sections.left}}"];

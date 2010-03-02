@@ -26,6 +26,11 @@
 		C44456FE113C4B1600DEA3B6 /* logo2.gif in Resources */ = {isa = PBXBuildFile; fileRef = C44456FB113C4B1600DEA3B6 /* logo2.gif */; };
 		C44456FF113C4B1600DEA3B6 /* ico-2.gif in Resources */ = {isa = PBXBuildFile; fileRef = C44456FC113C4B1600DEA3B6 /* ico-2.gif */; };
 		C4445700113C4B1600DEA3B6 /* ico-1.gif in Resources */ = {isa = PBXBuildFile; fileRef = C44456FD113C4B1600DEA3B6 /* ico-1.gif */; };
+		C45136DE113D9FE80067B421 /* NewsletterDistributionListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C45136DD113D9FE80067B421 /* NewsletterDistributionListView.xib */; };
+		C45136E1113D9FFF0067B421 /* NewsletterDistributionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C45136E0113D9FFF0067B421 /* NewsletterDistributionListViewController.m */; };
+		C4513706113DA3FF0067B421 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4513705113DA3FF0067B421 /* AddressBook.framework */; };
+		C451370A113DA4030067B421 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4513709113DA4030067B421 /* AddressBookUI.framework */; };
+		C451377E113DBCF40067B421 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C451377D113DBCF40067B421 /* icon.png */; };
 		C46EB7231120A42B00FFB032 /* UILabelEx.m in Sources */ = {isa = PBXBuildFile; fileRef = C46EB7221120A42B00FFB032 /* UILabelEx.m */; };
 		C47EB321112B004100DDD1D5 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C47EB30A112B004100DDD1D5 /* CXMLDocument_CreationExtensions.m */; };
 		C47EB322112B004100DDD1D5 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C47EB30C112B004100DDD1D5 /* CXMLNode_CreationExtensions.m */; };
@@ -112,6 +117,12 @@
 		C44456FB113C4B1600DEA3B6 /* logo2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo2.gif; sourceTree = "<group>"; };
 		C44456FC113C4B1600DEA3B6 /* ico-2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ico-2.gif"; sourceTree = "<group>"; };
 		C44456FD113C4B1600DEA3B6 /* ico-1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ico-1.gif"; sourceTree = "<group>"; };
+		C45136DD113D9FE80067B421 /* NewsletterDistributionListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsletterDistributionListView.xib; sourceTree = "<group>"; };
+		C45136DF113D9FFF0067B421 /* NewsletterDistributionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsletterDistributionListViewController.h; sourceTree = "<group>"; };
+		C45136E0113D9FFF0067B421 /* NewsletterDistributionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsletterDistributionListViewController.m; sourceTree = "<group>"; };
+		C4513705113DA3FF0067B421 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		C4513709113DA4030067B421 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		C451377D113DBCF40067B421 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		C46EB7211120A42B00FFB032 /* UILabelEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelEx.h; sourceTree = "<group>"; };
 		C46EB7221120A42B00FFB032 /* UILabelEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelEx.m; sourceTree = "<group>"; };
 		C47EB309112B004100DDD1D5 /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
@@ -213,6 +224,8 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				C4513706113DA3FF0067B421 /* AddressBook.framework in Frameworks */,
+				C451370A113DA4030067B421 /* AddressBookUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +272,8 @@
 				C4158C21112097500070FE54 /* SearchResultCell.m */,
 				B08BC365112C4CDC00851E7A /* UserSettings.h */,
 				B08BC366112C4CDC00851E7A /* UserSettings.m */,
+				C45136DF113D9FFF0067B421 /* NewsletterDistributionListViewController.h */,
+				C45136E0113D9FFF0067B421 /* NewsletterDistributionListViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -280,6 +295,8 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				C47EB35C112B027E00DDD1D5 /* Settings.bundle */,
+				C4513705113DA3FF0067B421 /* AddressBook.framework */,
+				C4513709113DA4030067B421 /* AddressBookUI.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -296,6 +313,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources-iPad */ = {
 			isa = PBXGroup;
 			children = (
+				C451377D113DBCF40067B421 /* icon.png */,
 				C44456FB113C4B1600DEA3B6 /* logo2.gif */,
 				C44456FC113C4B1600DEA3B6 /* ico-2.gif */,
 				C44456FD113C4B1600DEA3B6 /* ico-1.gif */,
@@ -322,6 +340,7 @@
 				C49BA1A61136E5BB0015227C /* NewsletterSectionsView.xib */,
 				C49BA1B71136E9560015227C /* NewsletterAddSectionView.xib */,
 				C49BA25111371D690015227C /* NewsletterHTMLPreviewView.xib */,
+				C45136DD113D9FE80067B421 /* NewsletterDistributionListView.xib */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -504,6 +523,8 @@
 				C44456FE113C4B1600DEA3B6 /* logo2.gif in Resources */,
 				C44456FF113C4B1600DEA3B6 /* ico-2.gif in Resources */,
 				C4445700113C4B1600DEA3B6 /* ico-1.gif in Resources */,
+				C45136DE113D9FE80067B421 /* NewsletterDistributionListView.xib in Resources */,
+				C451377E113DBCF40067B421 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +579,7 @@
 				C49BA1A51136E59F0015227C /* NewsletterSectionsViewController.m in Sources */,
 				C49BA1B61136E8C50015227C /* NewsletterAddSectionViewController.m in Sources */,
 				C49BA25011371D540015227C /* NewsletterHTMLPreviewViewController.m in Sources */,
+				C45136E1113D9FFF0067B421 /* NewsletterDistributionListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,9 +13,11 @@
 //#import "ImagePickerViewController.h"
 #import "TextViewTableCell.h"
 #import "NewsletterSectionsViewController.h"
+#import "NewsletterDistributionListViewController.h"
+#import "AppDelegate.h"
 
 @implementation NewsletterSettingsViewController
-@synthesize settingsTable,newsletter ;
+@synthesize settingsTable,newsletter,imagePickerPopover ;
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -128,6 +130,10 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 						cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 						cell.selectionStyle=UITableViewCellSelectionStyleNone;
 						cell.textLabel.text = @"Logo Image";
+						if(self.newsletter.logoImage)
+						{
+							cell.imageView.image=self.newsletter.logoImage;
+						}
 					}
 					
 				}
@@ -227,9 +233,16 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 					
 					case kSubscribersRow:
 						{
-							cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
+							
+							cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1  reuseIdentifier:nil] autorelease];
 							cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;	
+							cell.selectionStyle=UITableViewCellSelectionStyleNone;
 							cell.textLabel.text = @"Distribution List";
+							if([self.newsletter.distributionList count]>0)
+							{
+								cell.detailTextLabel.text=[NSString stringWithFormat:@"%d",[self.newsletter.distributionList count]];
+							}
+							
 						}
 						break;
 				
@@ -280,20 +293,22 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	if(indexPath.section==kLogoImageSection && indexPath.row==kLogoImageRow)
 	{
-		UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Select Logo Image" message:@"No photo album available on this device." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		/*UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Select Logo Image" message:@"No photo album available on this device." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 					
 		[alertView show];
 					
 		[alertView release];
+		*/
+		UIImagePickerController * picker=[[UIImagePickerController alloc] init];
 		
-		/*UIImagePickerController * picker=[[UIImagePickerController alloc] init];
+		//picker.allowsImageEditing = YES;
+        picker.allowsEditing = YES;
 		
-		//picker.delegate=self;
+		picker.delegate=self;
 		
 		if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
 		{
 			picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-			
 		}
 		else
 		{
@@ -307,25 +322,37 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 				if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
 				{
 					picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-
 				}
-				else {
-					
+				else 
+				{
 					return;
 				}
-
 			}
 		}
 		
-		[self presentModalViewController:picker animated:YES];*/
+		UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:picker];
 		
-		/*UINavigationController * navController=(UINavigationController*)[self parentViewController];
+		self.imagePickerPopover=popover;
 		
-		[navController pushViewController:picker animated:YES];
+		//popoverController.delegate = self;
 		
-		navController.navigationBar.topItem.title=@"Choose Logo Image";
+		[popover presentPopoverFromRect:CGRectMake(330.0, 470.0, 0.0, 0.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 		
-		[picker release];*/
+		//[popoverController presentPopoverFromBarButtonItem:sender  permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+		
+		[picker release];
+		
+		[popover release];
+		
+		
+		//UIImagePickerController
+		//AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
+		
+		//UISplitViewController * splitViewController=delegate.splitViewController;
+		
+		//[splitViewController presentModalViewController:picker animated:YES];
+	
+		//[picker release];
 	}
 	
 	if(indexPath.section==kSavedSearchesSection && indexPath.row==kSavedSearchesRow)
@@ -348,16 +375,54 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 		
 		[sectionsController release];
 	}
+	
+	
+	if(indexPath.section==kPublishingSection && indexPath.row==kSubscribersRow)
+	{
+		NewsletterDistributionListViewController * distributionListController=[[NewsletterDistributionListViewController alloc] initWithNibName:@"NewsletterDistributionListView" bundle:nil];
+		
+		distributionListController.newsletter=self.newsletter;
+		
+		UINavigationController * navController=(UINavigationController*)[self parentViewController];
+		
+		[navController pushViewController:distributionListController animated:YES];
+		
+		navController.navigationBar.topItem.title=@"Newsletter Distribution List";
+		
+		UIBarButtonItem * rightButton=[[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:distributionListController action:@selector(edit:)];
+		
+		navController.navigationBar.topItem.rightBarButtonItem=rightButton;
+		
+		[rightButton release];
+		
+		[distributionListController release];
+	}
 }
 
 
+- (void)imagePickerController:(UIImagePickerController *)picker 
+		didFinishPickingImage:(UIImage *)image
+				  editingInfo:(NSDictionary *)editingInfo
+{
+	
+    // Dismiss the image selection, hide the picker and
+    //show the image view with the picked image
+    [imagePickerPopover dismissPopoverAnimated:YES];
+	//[imagePickerPopover release];
+	
+	self.newsletter.logoImage=image;
+	
+	[self.settingsTable reloadData];
+}
 
 
-
-
-
-
-
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    // Dismiss the image selection and close the program
+    //[picker dismissModalViewControllerAnimated:YES];
+    [imagePickerPopover dismissPopoverAnimated:YES];
+	//[imagePickerPopover release];
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -375,6 +440,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 
 
 - (void)dealloc {
+	[imagePickerPopover release];
 	[settingsTable release];
 	[newsletter release];
     [super dealloc];

@@ -32,11 +32,12 @@
 @interface NewsletterSettingsViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate> {
 	IBOutlet UITableView * settingsTable;
 	Newsletter  * newsletter ;
+	UIPopoverController * imagePickerPopover;
 }
 
 @property(nonatomic,retain) IBOutlet UITableView * settingsTable;
 @property(nonatomic,retain) Newsletter  * newsletter;
-
+@property(nonatomic,retain) UIPopoverController * imagePickerPopover;
 - (void) emailFormatChanged:(id)sender;
 - (void) publishTypeChanged:(id)sender;
 - (void) rssEnabledChanged:(id)sender;
