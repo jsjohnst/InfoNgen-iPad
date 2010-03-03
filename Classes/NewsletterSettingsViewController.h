@@ -47,5 +47,6 @@
 - (void) publishTypeChanged:(id)sender;
 - (void) rssEnabledChanged:(id)sender;
 - (IBAction) chooseImage;
+- (IBAction) preview;
 
 @end

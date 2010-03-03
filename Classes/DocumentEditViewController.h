@@ -29,11 +29,17 @@
 @interface DocumentEditViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate>{
 	SearchResult * searchResult;
 	IBOutlet UITableView * editTable;
+	IBOutlet UIBarButtonItem * imageButton;
+	UIPopoverController * imagePickerPopover;
+	
 }
 @property(nonatomic,retain) IBOutlet UITableView * editTable;
-
+@property(nonatomic,retain) UIPopoverController * imagePickerPopover;
 @property(nonatomic,retain) SearchResult * searchResult;
+@property(nonatomic,retain) IBOutlet UIBarButtonItem * imageButton;
 
 - (IBAction) getUrl;
+
+- (IBAction) chooseImage;
 
 @end

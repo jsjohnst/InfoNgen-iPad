@@ -15,6 +15,7 @@
 #import "NewsletterSectionsViewController.h"
 #import "NewsletterDistributionListViewController.h"
 #import "AppDelegate.h"
+#import "NewsletterHTMLPreviewViewController.h"
 
 @implementation NewsletterSettingsViewController
 @synthesize settingsTable,newsletter,imagePickerPopover,toolBar,imageButton ;
@@ -34,10 +35,81 @@
 	[a release];
 }
 
+- (IBAction) preview
+{
+	
+	NewsletterHTMLPreviewViewController * previewController=[[NewsletterHTMLPreviewViewController alloc] initWithNibName:@"NewsletterHTMLPreviewView" bundle:nil];
+	
+	previewController.savedSearches=((AppDelegate*)[[UIApplication sharedApplication] delegate]).savedSearches;
+	
+	previewController.newsletter=self.newsletter;
+	
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	
+	[navController pushViewController:previewController animated:YES];
+	
+	navController.navigationBar.topItem.title=@"Newsletter Preview";
+	
+	[previewController release];
+	
+}
 
 - (IBAction) chooseImage
 {
+	UIImagePickerController * picker=[[UIImagePickerController alloc] init];
 	
+	//picker.allowsImageEditing = YES;
+	picker.allowsEditing = YES;
+	
+	picker.delegate=self;
+	
+	//picker.navigationBar.topItem.title=@"Choose Logo Image";
+	
+	//picker.title=@"Choose Logo Image";
+	
+	
+	if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+	{
+		picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	}
+	else
+	{
+		if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+		{
+			picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+			
+		}
+		else
+		{
+			if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+			{
+				picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+			}
+			else 
+			{
+				return;
+			}
+		}
+	}
+	
+	UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:picker];
+	
+	
+	
+	self.imagePickerPopover=popover;
+	
+	//popoverController.delegate = self;
+	
+	//[popover presentPopoverFromRect:CGRectMake(330.0, 470.0, 0.0, 0.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+	
+	
+	[popover presentPopoverFromBarButtonItem:imageButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	
+	//[popoverController presentPopoverFromBarButtonItem:sender  permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+	
+	[picker release];
+	
+	[popover release];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -145,7 +217,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 					case kLogoImageRow:
 					{
 						cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
-						cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+						//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 						cell.selectionStyle=UITableViewCellSelectionStyleNone;
 						cell.textLabel.text = @"Logo Image";
 						if(self.newsletter.logoImage)
@@ -314,66 +386,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	if(indexPath.section==kLogoImageSection && indexPath.row==kLogoImageRow)
 	{
-		/*UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Select Logo Image" message:@"No photo album available on this device." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-					
-		[alertView show];
-					
-		[alertView release];
-		*/
-		UIImagePickerController * picker=[[UIImagePickerController alloc] init];
-		
-		//picker.allowsImageEditing = YES;
-        picker.allowsEditing = YES;
-		
-		picker.delegate=self;
-		
-		if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
-		{
-			picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-		}
-		else
-		{
-			if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
-			{
-				picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-
-			}
-			else
-			{
-				if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-				{
-					picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-				}
-				else 
-				{
-					return;
-				}
-			}
-		}
-		
-		UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:picker];
-		
-		self.imagePickerPopover=popover;
-		
-		//popoverController.delegate = self;
-		
-		[popover presentPopoverFromRect:CGRectMake(330.0, 470.0, 0.0, 0.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-		
-		//[popoverController presentPopoverFromBarButtonItem:sender  permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-		
-		[picker release];
-		
-		[popover release];
-		
-		
-		//UIImagePickerController
-		//AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
-		
-		//UISplitViewController * splitViewController=delegate.splitViewController;
-		
-		//[splitViewController presentModalViewController:picker animated:YES];
-	
-		//[picker release];
+		[self chooseImage];
 	}
 	
 	if(indexPath.section==kSavedSearchesSection && indexPath.row==kSavedSearchesRow)

@@ -14,7 +14,7 @@
 #import "TextViewTableCell.h"
 
 @implementation DocumentEditViewController
-@synthesize searchResult,editTable;
+@synthesize searchResult,editTable,imageButton,imagePickerPopover;
 
 - (IBAction) getUrl
 {
@@ -29,6 +29,89 @@
 		[navController pushViewController:docViewController animated:YES];
 		[docViewController release];
 	}
+}
+
+- (IBAction) chooseImage
+{
+	UIImagePickerController * picker=[[UIImagePickerController alloc] init];
+	
+	//picker.allowsImageEditing = YES;
+	picker.allowsEditing = YES;
+	
+	picker.delegate=self;
+	
+	//picker.navigationBar.topItem.title=@"Choose Logo Image";
+	
+	//picker.title=@"Choose Logo Image";
+	
+	
+	if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+	{
+		picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	}
+	else
+	{
+		if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+		{
+			picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+			
+		}
+		else
+		{
+			if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+			{
+				picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+			}
+			else 
+			{
+				return;
+			}
+		}
+	}
+	
+	UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:picker];
+	
+	
+	
+	self.imagePickerPopover=popover;
+	
+	//popoverController.delegate = self;
+	
+	//[popover presentPopoverFromRect:CGRectMake(330.0, 470.0, 0.0, 0.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+	
+	
+	[popover presentPopoverFromBarButtonItem:imageButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	
+	//[popoverController presentPopoverFromBarButtonItem:sender  permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+	
+	[picker release];
+	
+	[popover release];
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker 
+		didFinishPickingImage:(UIImage *)image
+				  editingInfo:(NSDictionary *)editingInfo
+{
+	
+    // Dismiss the image selection, hide the picker and
+    //show the image view with the picked image
+    [imagePickerPopover dismissPopoverAnimated:YES];
+	//[imagePickerPopover release];
+	
+	self.searchResult.image=image;
+	
+	[self.editTable reloadData];
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    // Dismiss the image selection and close the program
+    //[picker dismissModalViewControllerAnimated:YES];
+    [imagePickerPopover dismissPopoverAnimated:YES];
+	//[imagePickerPopover release];
 }
 
 
@@ -139,6 +222,7 @@
 		{
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
 			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+			cell.selectionStyle=UITableViewCellSelectionStyleNone;
 			cell.textLabel.text = self.searchResult.url;
 		}
 		break;
@@ -167,7 +251,8 @@
 		case kImageSection:
 		{
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
-			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+			//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+			cell.selectionStyle=UITableViewCellSelectionStyleNone;
 			cell.imageView.image=self.searchResult.image;
 		}
 			break;
@@ -226,6 +311,10 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 		// open page
 		[self getUrl];
 	}
+	if(indexPath.section==kImageSection && indexPath.row==kImageRow)
+	{
+		[self chooseImage];
+	}
 }
 
 - (void)didReceiveMemoryWarning {
@@ -245,6 +334,8 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 - (void)dealloc {
 	[searchResult release];
 		[editTable release];
+	[imageButton release];
+	[imagePickerPopover release];
     [super dealloc];
 }
 

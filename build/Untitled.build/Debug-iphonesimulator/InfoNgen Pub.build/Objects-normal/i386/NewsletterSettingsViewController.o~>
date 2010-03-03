@@ -1,2 +1,0 @@
-/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m: In function '-[NewsletterSettingsViewController tableView:didSelectRowAtIndexPath:]':
-/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:328: warning: class 'NewsletterSettingsViewController' does not implement the 'UINavigationControllerDelegate' protocol
