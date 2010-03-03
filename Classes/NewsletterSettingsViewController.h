@@ -33,13 +33,19 @@
 	IBOutlet UITableView * settingsTable;
 	Newsletter  * newsletter ;
 	UIPopoverController * imagePickerPopover;
+	IBOutlet UIToolbar * toolBar;
+	IBOutlet UIBarButtonItem * imageButton;
 }
 
 @property(nonatomic,retain) IBOutlet UITableView * settingsTable;
 @property(nonatomic,retain) Newsletter  * newsletter;
 @property(nonatomic,retain) UIPopoverController * imagePickerPopover;
+@property(nonatomic,retain) IBOutlet UIToolbar * toolBar;
+@property(nonatomic,retain) IBOutlet UIBarButtonItem * imageButton;
+
 - (void) emailFormatChanged:(id)sender;
 - (void) publishTypeChanged:(id)sender;
 - (void) rssEnabledChanged:(id)sender;
+- (IBAction) chooseImage;
 
 @end

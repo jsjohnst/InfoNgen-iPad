@@ -31,6 +31,17 @@
 	}
 }
 
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	[textField resignFirstResponder];
+	return YES;
+}
+
+- (BOOL)textViewShouldReturn:(UITextView *)textView {
+	[textView resignFirstResponder];
+	return YES;
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
 	self.searchResult.headline=textField.text;
@@ -120,6 +131,7 @@
 			TextFieldTableCell * textFormCell=[[[TextFieldTableCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
 			textFormCell.textField.text=self.searchResult.headline;
 			textFormCell.textField.delegate=self;
+			textFormCell.textField.returnKeyType=UIReturnKeyDone;
 			cell=textFormCell;
 		}
 		break;

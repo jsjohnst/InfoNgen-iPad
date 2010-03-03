@@ -30,13 +30,15 @@
 	SavedSearchesViewController *savedSearchesViewController;
     NewsletterViewController * newsletterViewController;
 	
+	Newsletter * newsletter;
+	
 	NSMutableArray * newsletters;
 	NSMutableArray * savedSearches;
 }
 
 @property (retain) NSMutableArray * newsletters;
 @property (retain) NSMutableArray * savedSearches;
-
+@property (nonatomic,retain) Newsletter * newsletter;
 @property (nonatomic, retain) UIPopoverController *newslettersPopoverController;
 @property (nonatomic, retain) UIPopoverController *searchesPopoverController;
 @property (nonatomic, retain) IBOutlet UIWindow *window;

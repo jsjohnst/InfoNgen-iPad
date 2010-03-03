@@ -26,6 +26,7 @@
 @property(nonatomic,retain) UIImage * image;
 
 - (id) initWithHeadline:(NSString *)theHeadline withUrl:(NSString *) theUrl withSynopsis:(NSString*)theSynopsis withDate:(NSDate*)theDate;
+-(NSString *)relativeDateOffset;
 
 
 @end

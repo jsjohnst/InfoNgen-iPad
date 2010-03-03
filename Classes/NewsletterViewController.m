@@ -19,7 +19,7 @@
 #import "SavedSearch.h"
 
 @implementation NewsletterViewController
-@synthesize newsletterTableView,newsletter,editMoveButton,editSettingsButton,updateButton,previewButton;
+@synthesize newsletterTableView,newsletter,editMoveButton,editSettingsButton,updateButton,previewButton,toolBar,deleteButton,clearButton;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -46,27 +46,195 @@
 	[super viewDidAppear:animated];
 }
 
+- (IBAction) clearNewsletterItems
+{
+	UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Remove All Newsletter Items" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Remove All Items" otherButtonTitles:nil];
+	
+	actionSheet.tag=kClearItemsActionSheet;
+	
+	[actionSheet showFromToolbar:self.toolBar];
+	
+	[actionSheet release];
+}
+
+- (IBAction) deleteNewsletter
+{
+	UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Delete Newsletter" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:nil];
+	
+	actionSheet.tag=kDeleteActionSheet;
+	
+	[actionSheet showFromToolbar:self.toolBar];
+	
+	[actionSheet release];
+	
+}
+
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet
+{
+	NSLog(@"actionSheetCancel");
+
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	NSLog(@"actionSheet:willDismissWithButtonIndex %d",buttonIndex);
+
+}
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	NSLog(@"actionSheet:clickedButtonAtIndex %d",buttonIndex);
+	
+	
+	
+	if(buttonIndex==0)
+	{
+		
+		
+		if(actionSheet.tag==kDeleteActionSheet)
+		{
+			//user clicked delete...
+			
+			AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
+			
+			// delete current newsletter from newsletters list...
+			delegate.newsletter=nil;
+			[delegate.newsletters removeObject:self.newsletter];
+			self.newsletter=nil;
+			
+			self.editSettingsButton.enabled=NO;
+			self.editMoveButton.enabled=NO;
+			self.updateButton.enabled=NO;
+			self.previewButton.enabled=NO;
+			self.deleteButton.enabled=NO;
+			
+			[self renderNewsletter];
+			
+			UINavigationController * navController=(UINavigationController*)[self parentViewController];
+			
+			navController.navigationBar.topItem.title=@"InfoNgen Newsletter Editor";
+			
+			UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Delete" message:@"Newsletter has been deleted." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+			
+			[alertView show];
+			
+			[alertView release];
+		}
+		else
+		{
+			if(actionSheet.tag==kClearItemsActionSheet)
+			{
+				for(NewsletterSection * section in self.newsletter.sections)
+				{
+					[section.items removeAllObjects];
+				}
+				
+				[self renderNewsletter];
+			}
+		}
+	}
+	
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	NSLog(@"actionSheet:didDismissWithButtonIndex %d",buttonIndex);
+	
+}
 - (void)renderNewsletter
 {
+	
+	/*if(self.newsletter)
+	{
+		NSLog(@"Enabling buttons...");
+		self.editSettingsButton.enabled=YES;
+		self.editMoveButton.enabled=YES;
+		self.updateButton.enabled=YES;
+		self.previewButton.enabled=YES;
+	}*/
+	
+	
 	[newsletterTableView reloadData];
 }
 
 - (void) addSearchResultToCurrentNewsletter:(SearchResult*)searchResult fromSavedSearch:(SavedSearch*)savedSearch;
 {
 	// TODO: what section to add to?
+	
+	// if newsletter has no sections, add a new section with this saved search and add the item...
+	
+	// if newsletter has a section with same saved search, append to that section
+	// otherwise, create a new section for that saved search...
+	NewsletterSection * section=nil;
+	
+	// when adding item put newest items on top by default (sort by date desc)
+	if(self.newsletter.sections && [self.newsletter.sections count]>0)
+	{
+		for(NewsletterSection * tmp in self.newsletter.sections)
+		{
+			if([tmp.savedSearchName isEqualToString:savedSearch.name])
+			{
+				section=tmp;
+				break;
+			}
+		}
+	}
+	
+	if(section==nil)
+	{
+		// section not found, create new section
+		section=[[NewsletterSection alloc] init];
+		section.name=savedSearch.name;
+		section.savedSearchName=savedSearch.name;
+		[self.newsletter.sections addObject:section];
+	}
+	
+	
+	
+	if(section.items==nil)
+	{
+		section.items=[[NSMutableArray alloc] init];
+	}
+	
+	if ([section.items count]==0) 
+	{
+		[section.items addObject:[searchResult copy]];
+	}
+	else 
+	{
+		
+		//find location to insert object
+		// we will by default sort by date desc (newest at top)
+		// so start from the top and insert item where it fits based on date
+		int  i=0;
+		
+		for(i=0;i<[section.items count];i++)
+		{
+			SearchResult * tmp=[section.items objectAtIndex:i];
+			if(tmp.date < searchResult.date)
+			{
+				break;
+			}
+		}
+		
+		if (i<[section.items count]) {
+			[section.items insertObject:searchResult atIndex:i];
+		}
+		else {
+			[section.items addObject:searchResult];
+		}
+	}
+	
+	[self renderNewsletter];
 }
 
 - (void) setCurrentNewsletter:(Newsletter*)newsletter
 {
 	self.newsletter=newsletter;
+
+	// set current newsletter in app delegate so it can always remember last newsletter to show again on restart...
+	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
 	
-	if(self.newsletter)
-	{
-		self.editSettingsButton.enabled=YES;
-		self.editMoveButton.enabled=YES;
-		self.updateButton.enabled=YES;
-		self.previewButton.enabled=YES;
-	}
+	delegate.newsletter = self.newsletter;
 	
 	[self renderNewsletter];
 }
@@ -79,6 +247,9 @@
 	self.editMoveButton.enabled=NO;
 	self.previewButton.enabled=NO;
 	self.editSettingsButton.enabled=NO;
+	self.deleteButton.enabled=NO;
+	self.clearButton.enabled=NO;
+	
 }
 
 - (void)updateStart
@@ -134,6 +305,8 @@
 	self.editMoveButton.enabled=YES;
 	self.previewButton.enabled=YES;
 	self.editSettingsButton.enabled=YES;
+	self.deleteButton.enabled=YES;
+	self.clearButton.enabled=YES;
 	UIApplication* app = [UIApplication sharedApplication];
 	app.networkActivityIndicatorVisible = NO;
 	// reload table...
@@ -194,6 +367,18 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
     // Return the number of sections.
     NSLog(@"numberOfSectionsInTableView");
+	
+	if(self.newsletter)
+	{
+		self.editSettingsButton.enabled=YES;
+		self.editMoveButton.enabled=YES;
+		self.updateButton.enabled=YES;
+		self.previewButton.enabled=YES;
+		self.deleteButton.enabled=YES;
+		self.clearButton.enabled=YES;
+	}
+	
+	
 	if(self.newsletter && self.newsletter.sections)
 	{
 		return [self.newsletter.sections count];
@@ -295,7 +480,19 @@
 	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
 
 	cell.textLabel.text=[result headline];
-	cell.detailTextLabel.text=[result synopsis];
+		
+	NSDateFormatter *format = [[NSDateFormatter alloc] init];
+	[format setDateFormat:@"MMM d, yyyy h:mm"];
+
+	NSString *dateString = [format stringFromDate:result.date];
+	
+	[format release];
+	
+	cell.detailTextLabel.text=[NSString stringWithFormat:@"%@ %@",dateString,[result relativeDateOffset]];
+	
+	
+	
+	//cell.detailTextLabel.text=[result synopsis];
 	
 	if(result.notes && [result.notes length]>0)
 	{
@@ -428,8 +625,11 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	[editMoveButton release];
 	[editSettingsButton release];
 	[updateButton release];
+	[deleteButton release];
 	[previewButton release];
+	[clearButton release];
 	[newsletter release];
+	[toolBar release];
     [super dealloc];
 }
 @end

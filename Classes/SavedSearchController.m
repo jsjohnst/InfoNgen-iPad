@@ -56,7 +56,18 @@
 	SearchResult * searchResult=[self.savedSearch.items objectAtIndex:indexPath.row];
 	
 	cell.textLabel.text=[searchResult headline];
-	cell.detailTextLabel.text=[searchResult synopsis];
+	
+	NSDateFormatter *format = [[NSDateFormatter alloc] init];
+	[format setDateFormat:@"MMM d, yyyy h:mm"];
+	
+	NSString *dateString = [format stringFromDate:searchResult.date];
+	
+	[format release];
+	
+	cell.detailTextLabel.text=[NSString stringWithFormat:@"%@ %@",dateString,[searchResult relativeDateOffset]];
+	
+	
+	//cell.detailTextLabel.text=[searchResult synopsis];
 	
 	/*cell.headlineLabel.text=[searchResult headline];
 	cell.dateLabel.text=[[searchResult date] description];

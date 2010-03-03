@@ -25,6 +25,7 @@
 	[super viewDidAppear:animated];
 }
 
+
 - (IBAction) newNewsletter
 {
 	Newsletter  * newNewsletter=[[Newsletter alloc] initWithName:@"Untitled"];

@@ -17,7 +17,7 @@
 #import "AppDelegate.h"
 
 @implementation NewsletterSettingsViewController
-@synthesize settingsTable,newsletter,imagePickerPopover ;
+@synthesize settingsTable,newsletter,imagePickerPopover,toolBar,imageButton ;
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -34,16 +34,30 @@
 	[a release];
 }
 
+
+- (IBAction) chooseImage
+{
+	
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+	[textField resignFirstResponder];
 	self.newsletter.name=textField.text;
 }
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	[textField resignFirstResponder];
+	return YES;
+}
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
+	[textView resignFirstResponder];
 	self.newsletter.summary=textView.text;
 }
-
+- (BOOL)textViewShouldReturn:(UITextView *)textView {
+	[textView resignFirstResponder];
+	return YES;
+}
 - (void) publishTypeChanged:(id)sender{
 	UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
 	
@@ -96,6 +110,8 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 						
 						textFormCell.textField.text=self.newsletter.name;
 						textFormCell.textField.delegate=self;
+						textFormCell.textField.keyboardType=UIKeyboardTypeDefault;
+						textFormCell.textField.returnKeyType=UIReturnKeyDone;
 						cell=textFormCell;
 					}
 					break;
@@ -113,6 +129,8 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 					
 					textViewCell.textView.text=self.newsletter.summary;
 					textViewCell.textView.delegate=self;
+					textViewCell.textView.keyboardType=UIKeyboardTypeDefault;
+					textViewCell.textView.returnKeyType=UIReturnKeyDefault;
 					cell=textViewCell;
 				}
 					break;
@@ -165,6 +183,9 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 					case kRssEnabledRow:
 						{
 							cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
+							
+							cell.selectionStyle=UITableViewCellSelectionStyleNone;
+							
 							UISwitch *mySwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
 							
 							[mySwitch setOn:self.newsletter.rssEnabled animated:NO];
@@ -443,6 +464,8 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 	[imagePickerPopover release];
 	[settingsTable release];
 	[newsletter release];
+	[toolBar release];
+	[imageButton release];
     [super dealloc];
 }
 

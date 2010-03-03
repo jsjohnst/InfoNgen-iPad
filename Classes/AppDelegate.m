@@ -21,7 +21,7 @@
 
 @implementation AppDelegate
 
-@synthesize newsletters,savedSearches,window,splitViewController,savedSearchesViewController,newsletterViewController,newslettersViewController,navigationController,newslettersPopoverController,searchesPopoverController; 
+@synthesize newsletters,savedSearches,window,newsletter,splitViewController,savedSearchesViewController,newsletterViewController,newslettersViewController,navigationController,newslettersPopoverController,searchesPopoverController; 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
@@ -40,18 +40,19 @@
     
 	newsletterViewController =[[NewsletterViewController alloc] initWithNibName:@"NewsletterView" bundle:nil];
 	
+	if(self.newsletter !=nil)
+	{
+		newsletterViewController.newsletter=self.newsletter ;
+	}
+	
 	newslettersViewController=[[NewslettersViewController alloc] initWithNibName:@"NewslettersView" bundle:nil];
 	
 	newslettersViewController.newsletters=self.newsletters;
-	 
-	//newslettersPopoverController=[[UIPopoverController alloc] initWithContentViewController:newslettersViewController];
-	//newslettersPopoverController.delegate=self;
-	
-	//searchesPopoverController=[[UIPopoverController alloc] initWithContentViewController:savedSearchesViewController];
-	//searchesPopoverController.delegate=self;
 	
 	navigationController = [[UINavigationController alloc] initWithRootViewController:newsletterViewController];
     
+	navigationController.navigationBar.barStyle=UIBarStyleBlack;
+	
 	navigationController.navigationBar.topItem.title=@"InfoNgen Newsletter Editor";
 	
 	UIBarButtonItem * button=[[UIBarButtonItem alloc] init];
@@ -87,6 +88,8 @@
     [window addSubview:splitViewController.view];
     
 	[window makeKeyAndVisible];
+	
+	
     
 	return YES;
 }
@@ -186,6 +189,8 @@
 									  initForReadingWithData:data];
 	
 		self.newsletters=[unarchiver decodeObjectForKey:@"newsletters"];
+		
+		self.newsletter =[unarchiver decodeObjectForKey:@"newsletter"];
 	
 		[unarchiver finishDecoding];
 		
@@ -211,6 +216,8 @@
 			NSKeyedArchiver * archiver=[[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
 		
 			[archiver encodeObject:newsletters forKey:@"newsletters"];
+			
+			[archiver encodeObject:newsletter  forKey:@"newsletter"];
 		
 			[archiver finishEncoding];
 		
@@ -242,6 +249,7 @@
     [window release];
 	[newsletters release];
 	[savedSearches release];
+	[newsletter release];
     [super dealloc];
 }
 
