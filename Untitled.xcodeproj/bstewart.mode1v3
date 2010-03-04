@@ -298,7 +298,7 @@
 							<real>253</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>179 165 1500 881 0 0 1920 1058 </string>
+						<string>160 163 1500 881 0 0 1920 1058 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -326,7 +326,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>B00C0BD7113F2F3F00825EA4</string>
+										<string>B044A1E1113F57720025A452</string>
 										<key>history</key>
 										<array>
 											<string>B022D0C1112B7E7500F933AD</string>
@@ -414,7 +414,7 @@
 											<string>B0C2FFF6113F2C9800F313C1</string>
 											<string>B0C2FFF7113F2C9800F313C1</string>
 											<string>B0C2FFFF113F2E2900F313C1</string>
-											<string>B0C20007113F2F1400F313C1</string>
+											<string>B00C0BD7113F2F3F00825EA4</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -428,7 +428,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1225, 835}}</string>
 								<key>RubberWindowFrame</key>
-								<string>179 165 1500 881 0 0 1920 1058 </string>
+								<string>160 163 1500 881 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -448,7 +448,7 @@
 								<key>Frame</key>
 								<string>{{0, 840}, {1225, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>179 165 1500 881 0 0 1920 1058 </string>
+								<string>160 163 1500 881 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -472,9 +472,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>B00C0BC6113F2F2A00825EA4</string>
+				<string>B044A1D5113F4F8E0025A452</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>B00C0BC7113F2F2A00825EA4</string>
+				<string>B044A1D6113F4F8E0025A452</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -617,7 +617,7 @@
 		<string>/Users/bstewart/Documents/InfoNgen-iPad/Untitled.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>179 165 1500 881 0 0 1920 1058 </string>
+	<string>160 163 1500 881 0 0 1920 1058 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -694,7 +694,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>B06BEA35112A25B000C8AD9F</string>
-				<string>B00C0BC8113F2F2A00825EA4</string>
+				<string>B044A1D7113F4F8E0025A452</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -816,13 +816,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>B00C0BC9113F2F2A00825EA4</string>
+				<string>B044A1D8113F4F8E0025A452</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>B00C0BCA113F2F2A00825EA4</string>
-				<string>B00C0BCB113F2F2A00825EA4</string>
-				<string>B00C0BCC113F2F2A00825EA4</string>
-				<string>B00C0BCD113F2F2A00825EA4</string>
-				<string>B00C0BCE113F2F2A00825EA4</string>
+				<string>B044A1D9113F4F8E0025A452</string>
+				<string>B044A1DA113F4F8E0025A452</string>
+				<string>B044A1DB113F4F8E0025A452</string>
+				<string>B044A1DC113F4F8E0025A452</string>
+				<string>B044A1DD113F4F8E0025A452</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -984,7 +984,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>B00C0BCF113F2F2A00825EA4</string>
+				<string>B044A1DE113F4F8E0025A452</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
