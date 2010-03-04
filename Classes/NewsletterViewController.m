@@ -37,24 +37,50 @@
 	[super viewWillAppear:animated];
 }
 
+-(void) setButtonsEnabled:(BOOL)enabled
+{
+	if(!newsletterTableView.editing)
+	{
+		self.editMoveButton.enabled=enabled;
+	}
+	self.clearButton.enabled=enabled;
+	self.deleteButton.enabled=enabled;
+	self.updateButton.enabled=enabled;
+	self.editSettingsButton.enabled=enabled;
+	self.previewButton.enabled=enabled;
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
 	NSLog(@"NewsletterViewController.viewDidAppear");
-	
-	//[self renderNewsletter];
 	
 	[super viewDidAppear:animated];
 }
 
 - (IBAction) clearNewsletterItems
 {
-	UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Remove All Newsletter Items" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Remove All Items" otherButtonTitles:nil];
 	
-	actionSheet.tag=kClearItemsActionSheet;
+	if(newsletterTableView.editing)
+	{
+		UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Remove Selected Items" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Remove Selected Items" otherButtonTitles:nil];
+		
+		actionSheet.tag=kClearSelectedItemsActionSheet;
+		
+		[actionSheet showFromToolbar:self.toolBar];
+		
+		[actionSheet release];
+	}
+	else
+	{
 	
-	[actionSheet showFromToolbar:self.toolBar];
+		UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Remove All Newsletter Items" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Remove All Items" otherButtonTitles:nil];
 	
-	[actionSheet release];
+		actionSheet.tag=kClearItemsActionSheet;
+	
+		[actionSheet showFromToolbar:self.toolBar];
+	
+		[actionSheet release];
+	}
 }
 
 - (IBAction) deleteNewsletter
@@ -84,12 +110,8 @@
 {
 	NSLog(@"actionSheet:clickedButtonAtIndex %d",buttonIndex);
 	
-	
-	
 	if(buttonIndex==0)
 	{
-		
-		
 		if(actionSheet.tag==kDeleteActionSheet)
 		{
 			//user clicked delete...
@@ -101,11 +123,7 @@
 			[delegate.newsletters removeObject:self.newsletter];
 			self.newsletter=nil;
 			
-			self.editSettingsButton.enabled=NO;
-			self.editMoveButton.enabled=NO;
-			self.updateButton.enabled=NO;
-			self.previewButton.enabled=NO;
-			self.deleteButton.enabled=NO;
+			[self setButtonsEnabled:NO];
 			
 			[self renderNewsletter];
 			
@@ -130,9 +148,61 @@
 				
 				[self renderNewsletter];
 			}
+			else 
+			{
+				if(actionSheet.tag==kClearSelectedItemsActionSheet)
+				{
+					NSArray* selectedRows = [newsletterTableView indexPathsForSelectedRows];
+					
+					NSMutableDictionary * dict=[[NSMutableDictionary alloc] init];
+					
+					if (selectedRows && [selectedRows count]>0) 
+					{
+						for (NSIndexPath * indexPath in selectedRows)
+						{
+							
+							NSNumber * sectionNumber=[NSNumber numberWithUnsignedInt:indexPath.section];
+							
+							NSArray * tmp=[dict objectForKey:sectionNumber];
+							
+							if(tmp==nil)
+							{
+								  
+								NewsletterSection * section = [self.newsletter.sections objectAtIndex:indexPath.section];
+								NSMutableIndexSet * rows=[[NSMutableIndexSet alloc] init];
+							
+								tmp=[NSArray arrayWithObjects:section,rows,nil];
+								
+								[dict setObject:tmp forKey:sectionNumber];
+							}
+							
+							[[tmp objectAtIndex:1] addIndex:indexPath.row];
+						}
+					}
+					
+					for(NSArray * array in [dict allValues])
+					{
+						NewsletterSection * section=[array objectAtIndex:0];
+						NSMutableIndexSet * rows=[array objectAtIndex:1];
+						
+						[section.items removeObjectsAtIndexes:rows];
+					}
+					
+					[dict release];
+					
+					[self.newsletterTableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
+					
+					//[self.myTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+					
+					
+					
+					[self toggleEditPage];
+					
+					//[self renderNewsletter];
+				}
+			}
 		}
 	}
-	
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
@@ -142,17 +212,6 @@
 }
 - (void)renderNewsletter
 {
-	
-	/*if(self.newsletter)
-	{
-		NSLog(@"Enabling buttons...");
-		self.editSettingsButton.enabled=YES;
-		self.editMoveButton.enabled=YES;
-		self.updateButton.enabled=YES;
-		self.previewButton.enabled=YES;
-	}*/
-	
-	
 	[newsletterTableView reloadData];
 }
 
@@ -243,13 +302,8 @@
 {
 	// update all the saved searches associated with this page...
 	[self performSelectorInBackground:@selector(updateStart) withObject:nil];
-	self.updateButton.enabled=NO;
-	self.editMoveButton.enabled=NO;
-	self.previewButton.enabled=NO;
-	self.editSettingsButton.enabled=NO;
-	self.deleteButton.enabled=NO;
-	self.clearButton.enabled=NO;
 	
+	[self setButtonsEnabled:NO];
 }
 
 - (void)updateStart
@@ -271,24 +325,58 @@
 			{
 				[savedSearch update];
 				
-				NSLog(@"Got %d items from saved search %@",[savedSearch.items count],savedSearch.name);
-				
-				if(section.items==nil)
+				if (savedSearch.items && [savedSearch.items count]>0) 
 				{
-					NSMutableArray * tmp=[[NSMutableArray alloc] initWithArray:savedSearch.items];
+					NSLog(@"Got %d items from saved search %@",[savedSearch.items count],savedSearch.name);
 					
-					section.items=tmp;
-					
-					[tmp release];
-				}
-				else
-				{
-					// TODO: only add new items...
-					[section.items addObjectsFromArray:savedSearch.items];
-				}
+					if(section.items==nil || [section.items count]==0)
+					{
+						NSMutableArray * tmp=[[NSMutableArray alloc] initWithArray:savedSearch.items];
+						
+						section.items=tmp;
+						
+						[tmp release];
+					}
+					else
+					{
 				
-				NSLog(@"Added %d items to section %@",[section.items count],section.name);
-				
+						// only add new items, and dont add duplicates...
+						NSMutableDictionary * dict=[[NSMutableDictionary alloc] init];
+						
+						// initialize date 7 days ago
+						NSDate * maxDate=[NSDate dateWithTimeIntervalSinceNow:-(60*60*24*7)];
+						
+						for(SearchResult * result in section.items)
+						{
+							[dict setObject:result forKey:result.headline];
+						
+							if(result.date > maxDate)
+							{
+								maxDate=result.date;
+							}
+						}
+						
+						int index=0;
+						
+						// only add in items that are newer than our max date we already have
+						for(SearchResult * result in savedSearch.items)
+						{
+							// dont add duplicate headlines
+							if ([dict objectForKey:result.headline]==nil) 
+							{
+								// only add if its newer than existing items
+								if(result.date >=maxDate)
+								{
+									// insert at front in sorted order (newest first)
+									[section.items insertObject:result atIndex:index];
+									index++;
+								}
+							}
+						}
+						
+						[dict release];
+					}
+				}
 				break;
 			}
 		}
@@ -301,12 +389,8 @@
 
 - (void)updateEnd
 {
-	self.updateButton.enabled=YES;
-	self.editMoveButton.enabled=YES;
-	self.previewButton.enabled=YES;
-	self.editSettingsButton.enabled=YES;
-	self.deleteButton.enabled=YES;
-	self.clearButton.enabled=YES;
+	[self setButtonsEnabled:YES];
+	
 	UIApplication* app = [UIApplication sharedApplication];
 	app.networkActivityIndicatorVisible = NO;
 	// reload table...
@@ -335,12 +419,15 @@
 		[self.newsletterTableView setEditing:NO animated:YES];
 		self.editMoveButton.style=UIBarButtonItemStyleBordered;
 		self.editMoveButton.title=@"Edit";
+		[self setButtonsEnabled:YES];
 	}
 	else
 	{
 		[self.newsletterTableView setEditing:YES animated:YES];
 		self.editMoveButton.style=UIBarButtonItemStyleDone;
 		self.editMoveButton.title=@"Done";
+		[self setButtonsEnabled:NO];
+		self.clearButton.enabled=YES;
 	}
 }
 
@@ -370,14 +457,8 @@
 	
 	if(self.newsletter)
 	{
-		self.editSettingsButton.enabled=YES;
-		self.editMoveButton.enabled=YES;
-		self.updateButton.enabled=YES;
-		self.previewButton.enabled=YES;
-		self.deleteButton.enabled=YES;
-		self.clearButton.enabled=YES;
+		[self setButtonsEnabled:YES];
 	}
-	
 	
 	if(self.newsletter && self.newsletter.sections)
 	{
@@ -579,6 +660,13 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
+-(UITableViewCellEditingStyle)tableView:(UITableView*)tableView editingStyleForRowAtIndexPath:(NSIndexPath*)indexPath {
+
+	return 3;
+
+}
+
+
 
 - (IBAction) preview
 {
@@ -601,22 +689,25 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	
-	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
-	
-	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
-	
-	DocumentEditViewController * editController=[[DocumentEditViewController alloc] initWithNibName:@"DocumentEditView" bundle:nil];
-	
-	editController.searchResult=result;
-	
-	UINavigationController * navController=(UINavigationController*)[self parentViewController];
-	
-	[navController pushViewController:editController animated:YES];
-	
-	navController.navigationBar.topItem.title=@"Edit Headline";
-	
-	[editController release];
+
+	if(!aTableView.editing)
+	{
+		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
+		
+		SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
+		
+		DocumentEditViewController * editController=[[DocumentEditViewController alloc] initWithNibName:@"DocumentEditView" bundle:nil];
+		
+		editController.searchResult=result;
+		
+		UINavigationController * navController=(UINavigationController*)[self parentViewController];
+		
+		[navController pushViewController:editController animated:YES];
+		
+		navController.navigationBar.topItem.title=@"Edit Headline";
+		
+		[editController release];
+	}
 	
 }
 

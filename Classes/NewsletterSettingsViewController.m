@@ -162,6 +162,13 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 		case kSummarySection:
 			return 220.0;
 			break;
+		
+		case kLogoImageSection:
+			if(self.newsletter.logoImage)
+			{
+				return self.newsletter.logoImage.size.height + 20.0;
+			}
+			break;
 	}
 	return 40.0;
 }
@@ -169,6 +176,8 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	NSLog(@"cellForRowAtIndexPath");
+	
 	UITableViewCell *cell;
     
 	switch (indexPath.section) {
@@ -219,7 +228,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 						cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
 						//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 						cell.selectionStyle=UITableViewCellSelectionStyleNone;
-						cell.textLabel.text = @"Logo Image";
+						//cell.textLabel.text = @"Logo Image";
 						if(self.newsletter.logoImage)
 						{
 							cell.imageView.image=self.newsletter.logoImage;
@@ -381,6 +390,66 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 	}
 	return nil;
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSLog(@"editingStyleForRowAtIndexPath");
+	
+	if(indexPath.section==kLogoImageSection && indexPath.row==kLogoImageRow)
+	{
+		if(self.newsletter.logoImage)
+		{
+			return YES;
+		}
+		else {
+			return NO;
+		}
+
+	}
+	else 
+	{
+		return NO;
+	}
+
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSLog(@"editingStyleForRowAtIndexPath");
+	
+	if(indexPath.section==kLogoImageSection && indexPath.row==kLogoImageRow)
+	{
+		if(self.newsletter.logoImage)
+		{
+			return  UITableViewCellEditingStyleDelete;
+		}
+		else {
+			return UITableViewCellEditingStyleNone;
+		}
+
+	}
+	else 
+	{
+		return  UITableViewCellEditingStyleNone;
+	}
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSLog(@"commitEditingStyle");
+	if(indexPath.section==kLogoImageSection && indexPath.row==kLogoImageRow)
+	{
+		// user deleted the image...
+		if(self.newsletter.logoImage)
+		{
+			self.newsletter.logoImage=nil; // should release it here...
+			
+			[self.settingsTable reloadData];
+			//[self.settingsTable  performSelector:@selector(reloadData) withObject:nil afterDelay:1];
+		}
+	}
+}
+
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {

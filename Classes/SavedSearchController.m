@@ -40,7 +40,7 @@
 	if(cell==nil)
 	{
 		cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:savedSearchControllerCell] autorelease];
-		cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+		//cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
 	
