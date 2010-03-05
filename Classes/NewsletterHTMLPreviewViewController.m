@@ -14,7 +14,7 @@
 #import "Base64.h"
 
 @implementation NewsletterHTMLPreviewViewController
-@synthesize newsletter,savedSearches,webView;
+@synthesize newsletter,savedSearches,webView,publishButton,toolBar;
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -31,6 +31,78 @@
 }
 */
 
+- (IBAction) publish
+{
+	UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Publish Newsletter to:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Distribution List",@"Specific Contact",nil];
+	
+	//actionSheet.tag=kDeleteActionSheet;
+	
+	[actionSheet showFromToolbar:self.toolBar];
+	
+	[actionSheet release];
+}
+
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet
+{
+	NSLog(@"actionSheetCancel");
+	
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	NSLog(@"actionSheet:willDismissWithButtonIndex %d",buttonIndex);
+	
+}
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	NSLog(@"actionSheet:clickedButtonAtIndex %d",buttonIndex);
+	
+	// get contact(s) to publish to...
+	
+	if(buttonIndex==0)
+	{
+		if(self.newsletter.distributionList==nil || [self.newsletter.distributionList count]==0)
+		{
+			UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Publish Newsletter" message:@"Please specify a distribution list in newsletter settings." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+			
+			[alertView show];
+			
+			[alertView release];
+		}
+		else
+		{
+			// send to distribution list...
+		}
+	}
+	else 
+	{
+		if(buttonIndex==1)
+		{
+			// get contact(s) to send to...
+			//NSURL *url = [[NSURL alloc] initWithString:@"mailto:bstewart.ny@gmail.com?subject=This is my subject&body=this is the body"];
+			//[[UIApplication sharedApplication] openURL:url];
+			
+			/*NSString *htmlBody = @"you probably want something HTML-y here";
+			
+			// First escape the body using a CF call
+			NSString *escapedBody = [(NSString*)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,  (CFStringRef)htmlBody, NULL,  CFSTR("?=&+"), kCFStringEncodingUTF8) autorelease];
+			
+			// Then escape the prefix using the NSString method
+			NSString *mailtoPrefix = [@"mailto:?subject=Some Subject&body=" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			
+			// Finally, combine to create the fully escaped URL string
+			NSString *mailtoStr = [mailtoPrefix stringByAppendingString:escapedBody];
+			
+			// And let the application open the merged URL
+			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:mailtoStr]];
+			
+			*/
+			
+			
+		}
+	}
+
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -212,6 +284,8 @@
 	[newsletter release];
 	[savedSearches release];
 	[webView release];
+	[publishButton release];
+	[toolBar release];
     [super dealloc];
 }
 

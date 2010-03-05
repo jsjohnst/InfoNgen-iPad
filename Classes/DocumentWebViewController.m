@@ -14,7 +14,7 @@
 #import "DocumentEditViewController.h"
 
 @implementation DocumentWebViewController
-@synthesize webView,searchResult,backButton,forwardButton,selectImageButton;//,stopButton,reloadButton;
+@synthesize webView,searchResult,backButton,forwardButton,selectImageButton,readabilityButton;//,stopButton,reloadButton;
 
 -(NSString*) getString:(NSString*)javascript
 {
@@ -40,6 +40,17 @@
 	}
 
 }
+
+- (IBAction) readability
+{
+	// run readability bookmarklet to extract article text into readable text view of html...
+	NSString * bookmarklet=@"readStyle='style-ebook';readSize='size-large';readMargin='margin-narrow';_readability_script=document.createElement('SCRIPT');_readability_script.type='text/javascript';_readability_script.src='http://lab.arc90.com/experiments/readability/js/readability.js?x='+(Math.random());document.getElementsByTagName('head')[0].appendChild(_readability_script);_readability_css=document.createElement('LINK');_readability_css.rel='stylesheet';_readability_css.href='http://lab.arc90.com/experiments/readability/css/readability.css';_readability_css.type='text/css';_readability_css.media='all';document.getElementsByTagName('head')[0].appendChild(_readability_css);_readability_print_css=document.createElement('LINK');_readability_print_css.rel='stylesheet';_readability_print_css.href='http://lab.arc90.com/experiments/readability/css/readability-print.css';_readability_print_css.media='print';_readability_print_css.type='text/css';document.getElementsByTagName('head')[0].appendChild(_readability_print_css);";
+	
+	
+	[self getString:bookmarklet];
+}
+
+
 
 /*
 - (NSString *)flattenHTML:(NSString *)html {
@@ -283,6 +294,7 @@
 	//self.stopButton.enabled=NO;
 	//self.reloadButton.enabled=YES;
 	self.selectImageButton.enabled=NO;
+	self.readabilityButton.enabled=NO;
 	UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	if(navController)
 	{
@@ -385,6 +397,7 @@
 	//self.stopButton.enabled=NO;
 	//self.reloadButton.enabled=YES;
 	self.selectImageButton.enabled=YES;
+	self.readabilityButton.enabled=YES;
 	self.backButton.enabled=self.webView.canGoBack;
 	self.forwardButton.enabled=self.webView.canGoForward;
 	UINavigationController * navController=(UINavigationController*)[self parentViewController];
@@ -402,6 +415,8 @@
 	//self.stopButton.enabled=YES;
 	//self.reloadButton.enabled=YES;
 	self.selectImageButton.enabled=NO;
+	self.readabilityButton.enabled=NO;
+
 	UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	if(navController)
 	{
@@ -446,6 +461,7 @@
 	[backButton release];
 	[forwardButton release];
 	[selectImageButton release];
+	[readabilityButton release];
 	//[stopButton release];
 	//[reloadButton release];
     [super dealloc];

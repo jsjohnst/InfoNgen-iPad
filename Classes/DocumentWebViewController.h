@@ -16,6 +16,7 @@
 	//IBOutlet UIBarButtonItem * stopButton;
 	//IBOutlet UIBarButtonItem * reloadButton;
 	IBOutlet UIBarButtonItem * selectImageButton;
+	IBOutlet UIBarButtonItem * readabilityButton;
 	SearchResult * searchResult;
 }
 
@@ -24,7 +25,7 @@
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * backButton;
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * forwardButton;
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * selectImageButton;
-
+@property(nonatomic,retain) IBOutlet UIBarButtonItem * readabilityButton;
 //@property(nonatomic,retain) IBOutlet UIBarButtonItem * stopButton;
 //@property(nonatomic,retain) IBOutlet UIBarButtonItem * reloadButton;
 
@@ -39,5 +40,6 @@
 -(IBAction) getText;
 -(IBAction) edit;
 */
+- (IBAction) readability;
 
 @end
