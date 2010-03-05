@@ -31,6 +31,12 @@
 	}
 }
 
+// Override to allow orientations other than the default portrait orientation.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations
+    return YES;
+}
+
 - (IBAction) chooseImage
 {
 	UIImagePickerController * picker=[[UIImagePickerController alloc] init];
@@ -316,6 +322,73 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 		[self chooseImage];
 	}
 }
+
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSLog(@"editingStyleForRowAtIndexPath");
+	
+	if(indexPath.section==kImageSection && indexPath.row==kImageRow)
+	{
+		if(self.searchResult.image)
+		{
+			return YES;
+		}
+		else {
+			return NO;
+		}
+		
+	}
+	else 
+	{
+		return NO;
+	}
+	
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSLog(@"editingStyleForRowAtIndexPath");
+	
+	if(indexPath.section==kImageSection && indexPath.row==kImageRow)
+	{
+		if(self.searchResult.image)
+		{
+			return  UITableViewCellEditingStyleDelete;
+		}
+		else {
+			return UITableViewCellEditingStyleNone;
+		}
+		
+	}
+	else 
+	{
+		return  UITableViewCellEditingStyleNone;
+	}
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSLog(@"commitEditingStyle");
+	if(indexPath.section==kImageSection && indexPath.row==kImageRow)
+	{
+		// user deleted the image...
+		if(self.searchResult.image)
+		{
+			self.searchResult.image=nil; // should release it here...
+			
+			
+			[self.editTable reloadData];
+			//[self.settingsTable  performSelector:@selector(reloadData) withObject:nil afterDelay:1];
+		}
+	}
+}
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

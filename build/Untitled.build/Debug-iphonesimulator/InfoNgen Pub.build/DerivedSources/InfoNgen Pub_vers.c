@@ -1,1 +1,0 @@
- const unsigned char InfoNgen_PubVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:InfoNgen Pub  PROJECT:Untitled-" "\n"; const double InfoNgen_PubVersionNumber __attribute__ ((used)) = (double)0.;

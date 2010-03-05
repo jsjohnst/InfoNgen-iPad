@@ -71,8 +71,28 @@
 */
 - (void) update
 {
-	if(items==nil || [items count]==0)
+	
+	// how much time since last update (we'll cache for some time)
+	NSDate * now=[NSDate date];
+	
+	double ti = [lastUpdated timeIntervalSinceDate:now];
+    
+	ti = ti * -1;
+    
+	// wait at least 5 mins between updates...
+	
+	if(items==nil || [items count]==0 || (ti<0) || (ti>300))
 	{
+		NSMutableDictionary * dict=[[NSMutableDictionary alloc] init];
+		
+		if(items && [items count]>0)
+		{
+			for(SearchResult * result in items)
+			{
+				[dict setObject:result forKey:result.headline];
+			}
+		}
+		
 		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy
 														   timeoutInterval:90.0];
 		// use FF user agent so server is ok with us...
@@ -98,13 +118,24 @@
 		
 		NSMutableArray * array=[[NSMutableArray alloc] init];
 
+		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+		
+		/* This is required, Cocoa will try to use the current locale otherwise */
+		NSLocale *enUS = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+		[formatter setLocale:enUS];
+		[enUS release];
+		[formatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss ZZ"]; /* Unicode Locale Data Markup Language e.g. @"Thu, 11 Sep 2008 12:34:12 GMT" */
+		
 		// Loop through the resultNodes to access each items actual data
-		for (CXMLElement *itemNode in itemNodes) {
+		for (CXMLElement *itemNode in itemNodes) 
+		{
+		
 			NSArray * contentNodes=[itemNode nodesForXPath:@".//rixml:Synopsis" namespaceMappings:nsdict error:nil];
 			
 			NSString * synopsis=nil;
 			
-			if (contentNodes) {
+			if (contentNodes) 
+			{
 				if([contentNodes count]>0)
 				{
 					synopsis=[[contentNodes objectAtIndex:0] stringValue];
@@ -113,19 +144,49 @@
 			}
 			
 			NSString * title=[[[itemNode elementsForName:@"title"] objectAtIndex:0] stringValue];
-			NSString * link=[[[itemNode elementsForName:@"link"] objectAtIndex:0] stringValue];
-			//NSString * pubDate=[[[itemNode elementsForName:@"pubDate"] objectAtIndex:0] stringValue];
 			
-			SearchResult * result=[[SearchResult alloc] initWithHeadline:title withUrl:link withSynopsis:synopsis withDate:[NSDate date]];
+			if([dict objectForKey:title]==nil)
+			{
+				NSString * link=[[[itemNode elementsForName:@"link"] objectAtIndex:0] stringValue];
 			
-			[array addObject:result];
+				NSString * dateString=[[[itemNode elementsForName:@"pubDate"] objectAtIndex:0] stringValue];
 			
-			[result release];
+				NSDate *theDate = [formatter dateFromString:dateString]; /*e.g. @"Thu, 11 Sep 2008 12:34:12 GMT" */
 			
+				SearchResult * result=[[SearchResult alloc] initWithHeadline:title withUrl:link withSynopsis:synopsis withDate:theDate];
+			
+				[array addObject:result];
+			
+				[result release];
+			}
 		}
+		
+		[formatter release];
 		 
-		self.items=array;
-	
+		// only add in items that dont already exist
+		// we will just use headline as the unique key for now...
+		
+		if(items && [items count]>0 && [array count]>0)
+		{
+			// append to items
+			[items addObjectsFromArray:array];
+			
+			// re-sort by date in desc order
+			
+			NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
+			
+			NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+			
+			[array sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+			
+			[sortDescriptor release];
+		}
+		else
+		{
+			self.items=array;
+		}
+		
+		[dict release];
 		[array release];
 	
 		[lastUpdated release];

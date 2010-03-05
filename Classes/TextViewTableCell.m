@@ -53,6 +53,10 @@
     //[_textField setBackgroundColor:[UIColor whiteColor]];
     //[_textField setOpaque:YES];
     
+	[_textView setBackgroundColor:[UIColor clearColor]];
+	 
+	//[_textView setOpaque:NO];
+	
     [[self contentView] addSubview:_textView];
     self.textView=_textView;
     

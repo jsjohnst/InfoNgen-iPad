@@ -25,5 +25,6 @@
 - (SearchResults*) search:(SearchArguments*) args;
 
 - (NSMutableArray*) getSavedSearchesForUser;
+- (NSString *)urlEncodeValue:(NSString *)str;
 
 @end

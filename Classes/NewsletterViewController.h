@@ -10,6 +10,7 @@
 
 #define kClearItemsActionSheet 1
 #define kDeleteActionSheet 2
+#define kClearSelectedItemsActionSheet 3
 
 @class Newsletter;
 @class SearchResult;
@@ -49,5 +50,7 @@
 - (IBAction) settings;
 - (IBAction) preview;
 - (IBAction) update;
+
+-(void) setButtonsEnabled:(BOOL)enabled;
 
 @end

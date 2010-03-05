@@ -45,6 +45,52 @@
 }
 
 
+- (NSString *)urlEncodeValue:(NSString *)str
+{
+	return str;
+	//return str;
+	//NSString *result = (NSString *) CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)str, NULL, CFSTR("?=&+"), kCFStringEncodingUTF8);
+	//NSString *result = (NSString *) CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)str, NULL, CFSTR(":/?#[]@!$&’()*+,;=\""), kCFStringEncodingUTF8);
+	
+	
+	//return [result autorelease];
+	
+	//NSString *result = (NSString *) CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)str, NULL, CFSTR(":/?#[]@!$&’()*+,;=\""), kCFStringEncodingUTF8);
+	//return result;
+	
+	//return [result autorelease];
+}
+
+/*
+- (void) getSavedSearch:(NSString *)savedSearchID
+{
+	
+	http://www.infongen.com/CommandProcessor.aspx
+	
+	request headers:
+	
+	
+	mAction	RunSavedSearch
+	Referer	http://www.infongen.com/default.aspx?page=Home
+	
+	params:
+	 
+	 actiontype	get_searchxml
+	 page	Feeds
+	 srch_id	240958906
+	 
+	
+	response:
+	 <xml><Status><code>OK</code><errMsg /></Status><data><Tags AttributeNames="240958906" SearchName="Enterprise Search" SearchAlert="" PageIdentifier="Feeds"><TagsGroup TagGroupID="Keyword"><Tag><Name>Keyword</Name><Value>enterprise_search</Value><DisplayValue>enterprise_search</DisplayValue><DisplayName>Keyword Tags</DisplayName><TagScope>Any</TagScope><TagType>std</TagType></Tag></TagsGroup><TagsGroup TagGroupID="Period"><Tag><Name>Period</Name><Value>Last7Days</Value><DisplayValue>Last 7 Days</DisplayValue><DisplayName>Period</DisplayName><TagType>std</TagType><TagScope>Any</TagScope></Tag></TagsGroup><TagsGroup TagGroupID="ContainerSearchScope"><Tag><Name>ContainerSearchScope</Name><Value>2</Value><DisplayName>In Feeds</DisplayName><TagScope>Any</TagScope><TagType>std</TagType></Tag></TagsGroup><TagsGroup TagGroupID="Language"><Tag><Name>Language</Name><Value>ENG</Value><DisplayValue>English</DisplayValue><DisplayName>Languages</DisplayName><TagType>std</TagType><TagScope>Any</TagScope></Tag><Tag><Name>Language</Name><Value>NLD</Value><DisplayValue>Dutch</DisplayValue><DisplayName>Languages</DisplayName><TagType>std</TagType><TagScope>Any</TagScope></Tag><Tag><Name>Language</Name><Value>FRA</Value><DisplayValue>French</DisplayValue><DisplayName>Languages</DisplayName><TagType>std</TagType><TagScope>Any</TagScope></Tag><Tag><Name>Language</Name><Value>DEU</Value><DisplayValue>German</DisplayValue><DisplayName>Languages</DisplayName><TagType>std</TagType><TagScope>Any</TagScope></Tag><Tag><Name>Language</Name><Value>ITA</Value><DisplayValue>Italian</DisplayValue><DisplayName>Languages</DisplayName><TagType>std</TagType><TagScope>Any</TagScope></Tag><Tag><Name>Language</Name><Value>POR</Value><DisplayValue>Portugese</DisplayValue><DisplayName>Languages</DisplayName><TagType>std</TagType><TagScope>Any</TagScope></Tag><Tag><Name>Language</Name><Value>RUS</Value><DisplayValue>Russian</DisplayValue><DisplayName>Languages</DisplayName><TagType>std</TagType><TagScope>Any</TagScope></Tag><Tag><Name>Language</Name><Value>SPA</Value><DisplayValue>Spanish</DisplayValue><DisplayName>Languages</DisplayName><TagType>std</TagType><TagScope>Any</TagScope></Tag><Tag><Name>Language</Name><Value>SWE</Value><DisplayValue>Swedish</DisplayValue><DisplayName>Languages</DisplayName><TagType>std</TagType><TagScope>Any</TagScope></Tag></TagsGroup></Tags></data></xml>
+	 
+	 
+	
+	
+}
+*/
+
+
+
 - (NSMutableArray*) getSavedSearchesForUser
 {
 	NSMutableArray * searches=[[NSMutableArray alloc] init];
@@ -86,11 +132,19 @@
 		
 		// Loop through the resultNodes to access each items actual data
 		for (CXMLElement *searchItem in searchItems) {
+			
 			// <SearchItem index="4"><PageId>Feeds</PageId><ID>241052525</ID><Title>Microsoft</Title><AlrId>0</AlrId></SearchItem>
 			NSString * ID=[[[searchItem elementsForName:@"ID"] objectAtIndex:0] stringValue];
-			NSString * Title=[[[searchItem elementsForName:@"Title"] objectAtIndex:0] stringValue];
+			NSString * Title=[self urlEncodeValue:[[[searchItem elementsForName:@"Title"] objectAtIndex:0] stringValue]];
 			
-			SavedSearch * savedSearch=[[SavedSearch alloc] initWithName:Title withID:ID withUrl:[NSString stringWithFormat:@"http://rss.infongen.com/search.rss?name=%@",Title]];
+			
+			NSString* escapedTitle = [Title   
+									stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]; 
+			
+			NSLog(@"%@ = %@",Title,escapedTitle);
+			
+			
+			SavedSearch * savedSearch=[[SavedSearch alloc] initWithName:Title withID:ID withUrl:[NSString stringWithFormat:@"http://rss.infongen.com/search.rss?name=%@",escapedTitle]];
 			
 			savedSearch.username=self.username;
 			savedSearch.password=self.password;
