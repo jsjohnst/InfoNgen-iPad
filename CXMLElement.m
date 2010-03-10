@@ -33,6 +33,18 @@
 
 @implementation CXMLElement
 
+
+- (NSString*) elementValue:(NSString*)name
+{
+	NSArray * elements=[self elementsForName:name];
+	if(elements && [elements count]>0)
+	{
+		return [[elements objectAtIndex:0] stringValue];
+	}
+	else {
+		return nil;
+	}
+}
 - (NSArray *)elementsForName:(NSString *)name
 {
 NSMutableArray *theElements = [NSMutableArray array];

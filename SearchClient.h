@@ -23,7 +23,7 @@
 - (NSData *) loadDataFromURLForcingBasicAuth:(NSURL *)url;
 
 - (SearchResults*) search:(SearchArguments*) args;
-
+- (SearchResults *) search2:(SearchArguments *) args;
 - (NSMutableArray*) getSavedSearchesForUser;
 - (NSString *)urlEncodeValue:(NSString *)str;
 
