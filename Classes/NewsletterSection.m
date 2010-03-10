@@ -10,7 +10,7 @@
 
 
 @implementation NewsletterSection
-@synthesize name,savedSearchName,comment,items;
+@synthesize name,savedSearchName,comment,items,lastUpdated;
 
 
 - (void)encodeWithCoder:(NSCoder*)encoder
@@ -19,6 +19,8 @@
 	[encoder encodeObject:savedSearchName forKey:@"savedSearchName"];
 	[encoder encodeObject:comment forKey:@"comment"];
 	[encoder encodeObject:items forKey:@"items"];
+	[encoder encodeObject:lastUpdated forKey:@"lastUpdated"];
+
 	
 }
 
@@ -30,6 +32,7 @@
 		self.savedSearchName=[decoder decodeObjectForKey:@"savedSearchName"];
 		self.comment=[decoder decodeObjectForKey:@"comment"];
 		self.items=[decoder decodeObjectForKey:@"items"];
+		self.lastUpdated=[decoder decodeObjectForKey:@"lastUpdated"];
 		 
 	}
 	return self;
@@ -42,6 +45,7 @@
 	copy.savedSearchName=[self.savedSearchName copy];
 	copy.comment=[self.comment copy];
 	copy.items=[self.items copy];
+	copy.lastUpdated=[self.lastUpdated copy];
 	 
 	return copy;
 }
@@ -52,6 +56,7 @@
 	[savedSearchName release];
 	[comment release];
 	[items release];
+	[lastUpdated release];
 	 
     [super dealloc];
 }

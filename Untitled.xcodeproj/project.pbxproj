@@ -35,6 +35,7 @@
 		B047D068113F160500E50884 /* icon_paper_trash.png in Resources */ = {isa = PBXBuildFile; fileRef = B047D067113F160500E50884 /* icon_paper_trash.png */; };
 		B047D06A113F161B00E50884 /* icon_trash.png in Resources */ = {isa = PBXBuildFile; fileRef = B047D069113F161B00E50884 /* icon_trash.png */; };
 		B047D08C113F1C4000E50884 /* icon_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = B047D08B113F1C4000E50884 /* icon_cancel.png */; };
+		B04E0CBC11481CC9006E634A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04E0CBB11481CC9006E634A /* QuartzCore.framework */; };
 		B08BC367112C4CDC00851E7A /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B08BC366112C4CDC00851E7A /* UserSettings.m */; };
 		C4158C22112097500070FE54 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4158C21112097500070FE54 /* SearchResultCell.m */; };
 		C4158C24112097710070FE54 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4158C23112097710070FE54 /* SearchResultCell.xib */; };
@@ -144,6 +145,7 @@
 		B047D067113F160500E50884 /* icon_paper_trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_paper_trash.png; sourceTree = "<group>"; };
 		B047D069113F161B00E50884 /* icon_trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_trash.png; sourceTree = "<group>"; };
 		B047D08B113F1C4000E50884 /* icon_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_cancel.png; sourceTree = "<group>"; };
+		B04E0CBB11481CC9006E634A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B08BC365112C4CDC00851E7A /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
 		B08BC366112C4CDC00851E7A /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
 		C4158C20112097500070FE54 /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				C4513706113DA3FF0067B421 /* AddressBook.framework in Frameworks */,
 				C451370A113DA4030067B421 /* AddressBookUI.framework in Frameworks */,
+				B04E0CBC11481CC9006E634A /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +414,7 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+				B04E0CBB11481CC9006E634A /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

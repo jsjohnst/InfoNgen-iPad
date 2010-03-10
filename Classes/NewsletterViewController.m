@@ -17,6 +17,7 @@
 #import "AppDelegate.h"
 #import "NewsletterSection.h"
 #import "SavedSearch.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation NewsletterViewController
 @synthesize newsletterTableView,newsletter,editMoveButton,editSettingsButton,updateButton,previewButton,toolBar,deleteButton,clearButton;
@@ -300,10 +301,21 @@
 
 - (IBAction) update
 {
-	// update all the saved searches associated with this page...
-	[self performSelectorInBackground:@selector(updateStart) withObject:nil];
+	if(!updating)
+	{
+		[self setButtonsEnabled:NO];
 	
-	[self setButtonsEnabled:NO];
+		updating=YES;
+	
+		[newsletterTableView reloadData];
+	
+		// update all the saved searches associated with this page...
+		[self performSelectorInBackground:@selector(updateStart) withObject:nil];
+	
+		UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	
+		navController.navigationBar.topItem.title=@"Updating Newsletter...";//     self.newsletter.name;
+	}
 }
 
 - (void)updateStart
@@ -349,7 +361,10 @@
 						for(SearchResult * result in section.items)
 						{
 							[dict setObject:result forKey:result.headline];
-						
+							if(result.url && [result.url length]>30)
+							{
+								[dict setObject:result forKey:result.url];
+							}
 							if(result.date > maxDate)
 							{
 								maxDate=result.date;
@@ -364,12 +379,15 @@
 							// dont add duplicate headlines
 							if ([dict objectForKey:result.headline]==nil) 
 							{
-								// only add if its newer than existing items
-								if(result.date >=maxDate)
+								if(result.url==nil || [result.url length]<30 || ([dict objectForKey:result.url]==nil))
 								{
-									// insert at front in sorted order (newest first)
-									[section.items insertObject:result atIndex:index];
-									index++;
+									// only add if its newer than existing items
+									if(result.date >=maxDate)
+									{
+										// insert at front in sorted order (newest first)
+										[section.items insertObject:result atIndex:index];
+										index++;
+									}
 								}
 							}
 						}
@@ -389,12 +407,17 @@
 
 - (void)updateEnd
 {
+	updating=NO;
 	[self setButtonsEnabled:YES];
 	
 	UIApplication* app = [UIApplication sharedApplication];
 	app.networkActivityIndicatorVisible = NO;
 	// reload table...
 	[self.newsletterTableView reloadData];
+	
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	
+	navController.navigationBar.topItem.title=self.newsletter.name;
 }
  
 - (IBAction) settings
@@ -443,7 +466,14 @@
 	
 	if(tableView.editing) 
 	{
-		return YES;
+		//if(indexPath.row>0)
+		//{
+			return YES;
+		//}
+		//else {
+		//	return NO;
+		//}
+
 	}
 	else
 	{
@@ -470,7 +500,7 @@
 	}
 }	
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+/*- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
 	if(self.newsletter && self.newsletter.sections)
 	{
@@ -481,9 +511,88 @@
 		return nil;
 	}
 
+}*/
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
+
+	UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, newsletterTableView.frame.size.width, 40)];
+	topView.backgroundColor=[UIColor lightGrayColor];
+	
+	CAGradientLayer *gradient = [CAGradientLayer layer];
+	gradient.frame = topView.bounds;
+	gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor],(id)[[UIColor grayColor] CGColor], (id)[[UIColor lightGrayColor] CGColor], nil];
+	[topView.layer insertSublayer:gradient atIndex:0];
+	
+	/*UIButton *collapseButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+	//[butt setImage:[UIImage imageNamed:@"icon_refresh.png"] forState:UIControlStateNormal];
+	[collapseButton setFrame:CGRectMake(10, 10, 25, 25)];
+	//[butt setFrame:CGRectMake(240, 0, 70, 20)];
+	//[butt setTitle:@"Refresh" forState:UIControlStateNormal];
+	//[butt addTarget:self action:@selector(update) forControlEvents:UIControlEventTouchUpInside];
+	[topView addSubview:collapseButton];
+	*/
+	UILabel *nameLabel = [self newLabelWithPrimaryColor:[UIColor whiteColor] selectedColor:[UIColor whiteColor] fontSize:20 bold:YES];
+	[nameLabel setFrame:CGRectMake(10, 10, 450, 22)];
+	nameLabel.backgroundColor=[UIColor clearColor];
+	nameLabel.text = newsletterSection.name;
+	
+	//tline.shadowColor = [UIColor colorWithWhite:1.0 alpha:1.0];
+	[topView addSubview:nameLabel];
+	
+	if(updating)
+	{
+		UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+		[activityView setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
+		
+		[activityView startAnimating];
+		[topView addSubview:activityView];
+		[activityView release];
+	}
+	else 
+	{
+		UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		[refreshButton setImage:[UIImage imageNamed:@"icon_refresh.png"] forState:UIControlStateNormal];
+		[refreshButton setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
+		//[butt setFrame:CGRectMake(240, 0, 70, 20)];
+		//[butt setTitle:@"Refresh" forState:UIControlStateNormal];
+		[refreshButton addTarget:self action:@selector(update) forControlEvents:UIControlEventTouchUpInside];
+		[topView addSubview:refreshButton];
+	}
+
+	
+	/*if (buttonText != nil){*/
+		
+	/*}*/
+	return topView;
 }
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+	return 40;
+}
+
+- (UILabel *)newLabelWithPrimaryColor:(UIColor *)primaryColor selectedColor:(UIColor *)selectedColor fontSize:(CGFloat)fontSize bold:(BOOL)bold
+{
+    UIFont *font;
+    if (bold) 
+        font = [UIFont boldSystemFontOfSize:fontSize];
+    else 
+        font = [UIFont systemFontOfSize:fontSize];
+    
+	
+	UILabel *newLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+	newLabel.backgroundColor = [UIColor whiteColor];
+	newLabel.opaque = YES;
+	newLabel.textColor = primaryColor;
+	newLabel.highlightedTextColor = selectedColor;
+	newLabel.font = font;
+	
+	return newLabel;
+}
+
+/*- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
 	if(self.newsletter && self.newsletter.sections)
 	{
@@ -501,7 +610,7 @@
 		return nil;
 	}
 
-}
+}*/
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
@@ -536,12 +645,34 @@
 	NSLog(@"cellForRowAtIndexPath");
 	
 	static NSString *CellIdentifier = @"SearchResultCellIdentifier";
+	static NSString *StatusIdentifier = @"SearchResultStatusIdentifier";
+	NSString * identifier;
+	////if (indexPath.row==0) {
+	///	identifier=StatusIdentifier;
+	//}
+	//else {
+		identifier=CellIdentifier;
+	//}
+
 	
-	UITableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	
+	
+	UITableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:identifier];
 	
 	if(cell==nil)
 	{
-		cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+		//if(indexPath.row==0)
+		//{
+		//	cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:identifier] autorelease];
+			
+			
+			//cell.editingStyle=UITableViewCellEditingStyleNone;
+			
+		//}
+		//else {
+			cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
+		//}
+
 		//cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
@@ -558,44 +689,72 @@
 	
 	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
 	
-	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
-
-	cell.textLabel.text=[result headline];
-		
-	NSDateFormatter *format = [[NSDateFormatter alloc] init];
-	[format setDateFormat:@"MMM d, yyyy h:mm"];
-
-	NSString *dateString = [format stringFromDate:result.date];
-	
-	[format release];
-	
-	cell.detailTextLabel.text=[NSString stringWithFormat:@"%@ %@",dateString,[result relativeDateOffset]];
-	
-	
-	
-	//cell.detailTextLabel.text=[result synopsis];
-	
-	if(result.notes && [result.notes length]>0)
+	/*if(indexPath.row==0)
 	{
-		UIImageView* commentsImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"comment_edit.png"]];
-		commentsImageView.frame = CGRectMake(0, 0, 16, 16);
-		cell.accessoryView = commentsImageView;
-		[commentsImageView release];
+		if(updating)
+		{
+			cell.textLabel.text=@"Updating...";
+			cell.detailTextLabel.text=nil;
+			UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+			[activityView startAnimating];
+			cell.accessoryView = activityView;
+			[activityView release];
+			
+			
+			
+			 
+			
+
+		}
+		else
+		{
+			cell.textLabel.text=[NSString stringWithFormat:@"Last updated %@",[newsletterSection.lastUpdated description]];
+			cell.detailTextLabel.text=[NSString stringWithFormat:@"N new items since %@",[newsletterSection.lastUpdated description]];
+			cell.accessoryView=nil;
+		}
 	}
 	else
-	{
-		cell.accessoryView=nil;
-	}
+	{*/
+		SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
+
+		cell.textLabel.text=[result headline];
+			
+		NSDateFormatter *format = [[NSDateFormatter alloc] init];
+		[format setDateFormat:@"MMM d, yyyy h:mm"];
+
+		NSString *dateString = [format stringFromDate:result.date];
+		
+		[format release];
+		
+		cell.detailTextLabel.text=[NSString stringWithFormat:@"%@ %@",dateString,[result relativeDateOffset]];
+		
+		
+		
+		//cell.detailTextLabel.text=[result synopsis];
+		
+		if(result.notes && [result.notes length]>0)
+		{
+			UIImageView* commentsImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"comment_edit.png"]];
+			commentsImageView.frame = CGRectMake(0, 0, 16, 16);
+			cell.accessoryView = commentsImageView;
+			[commentsImageView release];
+		}
+		else
+		{
+			cell.accessoryView=nil;
+		}
+		
+		
+		if(result.image)
+		{
+			cell.imageView.image=result.image;
+		}
+		else 
+		{
+			cell.imageView.image=nil;
+		}
+	//}
 	
-	
-	if(result.image)
-	{
-		cell.imageView.image=result.image;
-	}
-	else 
-	{
-		cell.imageView.image=nil;
-	}
 
 	return cell;
 }
@@ -629,7 +788,14 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 - (BOOL) tableView:(UITableView*)tableView
 canMoveRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	return YES;
+	//if(indexPath.row>0)
+	//{
+		return YES;
+	//}
+	//else {
+	//	return NO;
+	//}
+
 }
 
 - (void)tableView:(UITableView*)tableView 
@@ -639,13 +805,17 @@ moveRowAtIndexPath:(NSIndexPath*)fromIndexPath
 	NSUInteger fromRow=[fromIndexPath row];
 	NSUInteger toRow=[toIndexPath row];
 	
-	NewsletterSection * newsletterSection1=[self.newsletter.sections objectAtIndex:fromIndexPath.section];
-	NewsletterSection * newsletterSection2=[self.newsletter.sections objectAtIndex:toIndexPath.section];
+	//if(fromRow>0 && toRow>0)
+	//{
 	
-	id object=[[newsletterSection1.items objectAtIndex:fromRow] retain];
-	[newsletterSection1.items removeObjectAtIndex:fromRow];
-	[newsletterSection2.items insertObject:object atIndex:toRow];
-	[object release];
+		NewsletterSection * newsletterSection1=[self.newsletter.sections objectAtIndex:fromIndexPath.section];
+		NewsletterSection * newsletterSection2=[self.newsletter.sections objectAtIndex:toIndexPath.section];
+	
+		id object=[[newsletterSection1.items objectAtIndex:fromRow] retain];
+		[newsletterSection1.items removeObjectAtIndex:fromRow];
+		[newsletterSection2.items insertObject:object atIndex:toRow];
+		[object release];
+	//}
 }
 
 - (void) tableView:(UITableView*)tableView
@@ -653,16 +823,27 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
  forRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	NSUInteger row=[indexPath	row];
+	//if(row>0)
+	//{
+		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
 	
-	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
-	
-	[newsletterSection.items removeObjectAtIndex:row];
-	[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+		[newsletterSection.items removeObjectAtIndex:row-1];
+		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+	//}
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView*)tableView editingStyleForRowAtIndexPath:(NSIndexPath*)indexPath {
 
-	return 3;
+	//if(indexPath.row==0)
+	//{
+	//	return UITableViewCellEditingStyleNone;
+	//}
+	//else {
+		return 3;
+	//}
+
+	//return UITableViewCellEditingStyleDelete;
+	//return 3;
 
 }
 
@@ -689,7 +870,9 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-
+	//if (indexPath.row==0) {
+	//	return;
+	//}
 	if(!aTableView.editing)
 	{
 		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];

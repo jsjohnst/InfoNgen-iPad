@@ -26,6 +26,7 @@
 	IBOutlet UIBarButtonItem * clearButton;
 	IBOutlet UIToolbar * toolBar;
 	Newsletter * newsletter;
+	BOOL updating;
 	
 }
 
@@ -50,7 +51,7 @@
 - (IBAction) settings;
 - (IBAction) preview;
 - (IBAction) update;
-
+- (UILabel *)newLabelWithPrimaryColor:(UIColor *)primaryColor selectedColor:(UIColor *)selectedColor fontSize:(CGFloat)fontSize bold:(BOOL)bold;
 -(void) setButtonsEnabled:(BOOL)enabled;
 
 @end

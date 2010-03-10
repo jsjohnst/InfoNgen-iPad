@@ -13,10 +13,12 @@
 	NSString * savedSearchName;
 	NSString * comment;
 	NSMutableArray * items;
+	NSDate	* lastUpdated;
 }
 
 @property(nonatomic,retain) NSString * name;
 @property(nonatomic,retain) NSString * comment;
 @property(nonatomic,retain) NSString * savedSearchName;
 @property(nonatomic,retain) NSMutableArray * items;
+@property(nonatomic,retain) NSDate * lastUpdated;
 @end

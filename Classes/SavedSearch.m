@@ -90,6 +90,10 @@
 			for(SearchResult * result in items)
 			{
 				[dict setObject:result forKey:result.headline];
+				if(result.url && [result.url length]>30)
+				{
+					[dict setObject:result forKey:result.url];
+				}
 			}
 		}
 		
@@ -149,15 +153,24 @@
 			{
 				NSString * link=[[[itemNode elementsForName:@"link"] objectAtIndex:0] stringValue];
 			
-				NSString * dateString=[[[itemNode elementsForName:@"pubDate"] objectAtIndex:0] stringValue];
-			
-				NSDate *theDate = [formatter dateFromString:dateString]; /*e.g. @"Thu, 11 Sep 2008 12:34:12 GMT" */
-			
-				SearchResult * result=[[SearchResult alloc] initWithHeadline:title withUrl:link withSynopsis:synopsis withDate:theDate];
-			
-				[array addObject:result];
-			
-				[result release];
+				if(link==nil || ([link length]<30) || ([dict objectForKey:link]==nil))
+				{
+					NSString * dateString=[[[itemNode elementsForName:@"pubDate"] objectAtIndex:0] stringValue];
+				
+					NSDate *theDate = [formatter dateFromString:dateString]; /*e.g. @"Thu, 11 Sep 2008 12:34:12 GMT" */
+				
+					SearchResult * result=[[SearchResult alloc] initWithHeadline:title withUrl:link withSynopsis:synopsis withDate:theDate];
+				
+					[array addObject:result];
+				
+					[dict setObject:result forKey:result.headline];
+					if(result.url && [result.url length]>30)
+					{
+						[dict setObject:result forKey:result.url];
+					}
+					
+					[result release];
+				}
 			}
 		}
 		
