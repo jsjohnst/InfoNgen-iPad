@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class SearchResult;
 
-@interface DocumentWebViewController : UIViewController <UIWebViewDelegate> {
+@interface DocumentWebViewController : UIViewController <UIWebViewDelegate,UIActionSheetDelegate> {
 	IBOutlet UIWebView * webView;
 	IBOutlet UIBarButtonItem * backButton;
 	IBOutlet UIBarButtonItem * forwardButton;
@@ -18,6 +18,9 @@
 	IBOutlet UIBarButtonItem * selectImageButton;
 	IBOutlet UIBarButtonItem * readabilityButton;
 	SearchResult * searchResult;
+	
+	NSString * selectedImageSource;
+	NSString * selectedImageLink;
 }
 
 @property(nonatomic,retain) IBOutlet UIWebView * webView;
@@ -29,11 +32,14 @@
 //@property(nonatomic,retain) IBOutlet UIBarButtonItem * stopButton;
 //@property(nonatomic,retain) IBOutlet UIBarButtonItem * reloadButton;
 
+@property(nonatomic,retain) NSString * selectedImageSource;
+@property(nonatomic,retain) NSString * selectedImageLink;
+
 - (IBAction) selectImages:(id)sender;
 - (void)appendSynopsis:(id)sender;
 
 /*- (NSString *)flattenHTML:(NSString *)html;*/
-
+- (void)doSomething:(NSTimer *)theTimer;
 -(NSString*) getString:(NSString*)javascript;
 -(NSInteger) getInt:(NSString*)javascript;
 /*-(IBAction) getImages;

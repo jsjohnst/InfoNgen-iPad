@@ -748,6 +748,8 @@
 		if(result.image)
 		{
 			cell.imageView.image=result.image;
+			cell.imageView.layer.masksToBounds=YES;
+			cell.imageView.layer.cornerRadius=4.0;
 		}
 		else 
 		{

@@ -12,9 +12,11 @@
 //#import "ImagePickerViewController.h"
 #import "DocumentTextViewController.h"
 #import "DocumentEditViewController.h"
+#import "AppDelegate.h"
+#import "NewslettersViewController.h"
 
 @implementation DocumentWebViewController
-@synthesize webView,searchResult,backButton,forwardButton,selectImageButton,readabilityButton;//,stopButton,reloadButton;
+@synthesize webView,searchResult,backButton,forwardButton,selectImageButton,readabilityButton,selectedImageSource,selectedImageLink;//,stopButton,reloadButton;
 
 -(NSString*) getString:(NSString*)javascript
 {
@@ -214,9 +216,12 @@
 
 - (IBAction) selectImages:(id)sender
 {
-	UIBarButtonItem * barButton=(UIBarButtonItem*)sender;
+	if(sender)
+	{
+		UIBarButtonItem * barButton=(UIBarButtonItem*)sender;
 	
-	barButton.enabled=NO;
+		barButton.enabled=NO;
+	}
 	
 	// use javascript to highlight selectable images
 	// allow user to tap image to select to add to the newsletter
@@ -237,7 +242,6 @@
 			//if ([src hasSuffix:@".png"] || [src hasSuffix:@".jpg"] || [src hasSuffix:@".gif"]) 
 			//{
 					 
-				 
 				NSInteger width=[self getInt:[NSString stringWithFormat:@"document.images[%d].width",i]];
 				NSInteger height=[self getInt:[NSString stringWithFormat:@"document.images[%d].height",i]];
 			
@@ -248,11 +252,15 @@
 					if (width<800 && height<800) {
 						
 						// add highlighted border to the images which are selectable by the user...
-						[self getString:[NSString stringWithFormat:@"document.images[%d].style.border='4px dashed yellow'",i]];
+						//[self getString:[NSString stringWithFormat:@"document.images[%d].style.border='4px dashed yellow'",i]];
 						
 						// add click handler if user taps on the highlighted image
-						[self getString:[NSString stringWithFormat:@"document.images[%d].onclick=function(){this.style.border='4px solid blue'; document.location='infongen:'+this.src;  return false;}",i]];
 						
+						[self getString:[NSString stringWithFormat:@"document.images[%d].onclick=function(){document.location='infongen:'+(event.x-window.pageXOffset)+'$$'+(event.y-window.pageYOffset)+'$$'+this.src+'$$'+this.parentNode.getAttribute('href');  return false;}",i]];
+						
+						//[self getString:[NSString stringWithFormat:@"document.images[%d].onclick=function(){alert('x='+event.x+', y='+event.y +', pageXOffset='+window.pageXOffset +', pageYOffset='+window.pageYOffset);}",i]];
+						
+						//[self getString:[NSString stringWithFormat:@"document.images[%d].onmousedown=function(){this.style.border='4px solid blue'; document.location='infongen:'+this.src;  return false;}",i]];
 						
 					}
 				}
@@ -260,6 +268,41 @@
 		}
 	}
 }
+
+
+
+/*- (void) touchesBegan:(NSSet*) touches withEvent:(UIEvent*)event
+{	
+	NSLog(@"touchesBegan");
+	_holdTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(doSomething:) userInfo:nil repeats:NO];
+	[_holdTimer retain];
+}
+
+- (void) touchesMoved:(NSSet*) touches withEvent:(UIEvent*)event
+{	
+	NSLog(@"touchesMoved");
+
+	if ([_holdTimer isValid]) {
+		[_holdTimer invalidate];
+	}
+}
+
+- (void) touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event
+{	
+	NSLog(@"touchesEnded");
+
+	if ([_holdTimer isValid]) {
+		[_holdTimer invalidate];
+	}
+}
+
+- (void)doSomething:(NSTimer *)theTimer
+{
+	NSLog(@"Timer Fired");
+	NSLog(@"Image=%@",_selectedImage);
+}*/
+
+
 
 - (void)viewDidLoad {
 	
@@ -303,6 +346,58 @@
 	}
 }
 
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet
+{
+	NSLog(@"actionSheetCancel");
+	
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	NSLog(@"actionSheet:willDismissWithButtonIndex %d",buttonIndex);
+	
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if(buttonIndex==0)
+	{
+		if (actionSheet.tag==1) 
+		{
+			// open link...
+			if(self.selectedImageLink && [self.selectedImageLink length]>0)
+			{
+				// TODO: handle relative URLs here...
+				if([self.selectedImageLink hasPrefix:@"http"])
+				{
+					NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:[NSURL
+																				   URLWithString:self.selectedImageLink] 
+																	  cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:90.0];
+			
+				
+					[self.webView loadRequest: theRequest];
+					[self.webView setNeedsDisplay];
+				}
+			}
+			return;
+		}
+	}
+	
+	if(self.selectedImageSource)
+	{
+		// set image as headline image
+		NSURL *url = [NSURL URLWithString:self.selectedImageSource];
+		NSData *data = [NSData dataWithContentsOfURL:url];
+		UIImage *img = [[UIImage alloc] initWithData:data];
+		
+		if(img)
+		{
+			self.searchResult.image=img;
+		}
+	}
+		
+}
+
 //Sent before a web view begins loading content.
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
@@ -313,13 +408,77 @@
 	
 	if([url hasPrefix:@"infongen:"])
 	{
-		// do custom callback function...
-		NSString * command=[url substringFromIndex:9];
+		NSLog(url);
 		
+		NSArray * parts=[[url substringFromIndex:9] componentsSeparatedByString:@"$$"];
+		
+		NSInteger touchX=[[parts objectAtIndex:0] intValue];
+		NSInteger touchY=[[parts objectAtIndex:1] intValue];
+		
+		self.selectedImageSource=[parts objectAtIndex:2];
+		
+		self.selectedImageLink=nil;
+		
+		if([parts count]>3)
+		{
+			self.selectedImageLink=[parts objectAtIndex:3];
+		}
+		
+		NSLog(@"x=%d",touchX);
+		NSLog(@"y=%d",touchY);
+		NSLog(@"url=%@",self.selectedImageSource);
+		NSLog(@"href=%@",self.selectedImageLink);
+		
+		NSString * actionSheetTitle;
+		
+		if(self.selectedImageLink && [self.selectedImageLink length]>0)
+		{
+			actionSheetTitle=self.selectedImageLink;
+		}
+		else 
+		{
+			actionSheetTitle=self.selectedImageSource;
+		}
+		
+		if([actionSheetTitle length]>150)
+		{
+			actionSheetTitle=[NSString stringWithFormat:@"%@...",[actionSheetTitle substringToIndex:147]];
+		}
+		
+		UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:actionSheetTitle delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+		
+		if(self.selectedImageLink && [self.selectedImageLink length]>0)
+		{
+			actionSheet.tag=1;
+			[actionSheet addButtonWithTitle:@"Open"];
+		}
+									 
+		[actionSheet addButtonWithTitle:@"Set Headline Image"];
+		
+		[actionSheet showInView:self.webView];
+		
+		[actionSheet release];
+		
+		//[actionSheet release];
+		
+		//AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
+		
+		//UIPopoverController * popover=delegate.newslettersPopoverController;
+		
+		//if(popover==nil)
+		//{
+		//	popover=[[UIPopoverController alloc] initWithContentViewController:delegate.newslettersViewController];
+		//}
+		//[popover presentPopoverFromRect:CGRectMake(touchX,touchY,10,10) inView:self.webView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+		
+		// do custom callback function...
+		//NSString * command=[url substringFromIndex:9];
+		
+		//_selectedImage=command;
 		 
 			// get image...
 			 
-			NSURL *url = [NSURL URLWithString:command];
+		/*	NSURL *url = [NSURL URLWithString:command];
 			NSData *data = [NSData dataWithContentsOfURL:url];
 			UIImage *img = [[UIImage alloc] initWithData:data];
 			
@@ -343,7 +502,7 @@
 			}
 			
 			[img release];
-		 		
+		 		*/
 		return NO;
 	}
 	
@@ -396,6 +555,9 @@
 	NSLog(@"webViewDidFinishLoad");
 	//self.stopButton.enabled=NO;
 	//self.reloadButton.enabled=YES;
+	// turn on image selection
+	[self selectImages:nil];
+	
 	self.selectImageButton.enabled=YES;
 	self.readabilityButton.enabled=YES;
 	self.backButton.enabled=self.webView.canGoBack;
@@ -406,6 +568,7 @@
 		navController.navigationBar.topItem.title=nil;
 		navController.navigationBar.topItem.rightBarButtonItem=nil;
 	}
+	
 }
 
 //Sent after a web view starts loading content.
@@ -462,6 +625,9 @@
 	[forwardButton release];
 	[selectImageButton release];
 	[readabilityButton release];
+	//[_holdTimer release];
+	[selectedImageSource release];
+	[selectedImageLink release];
 	//[stopButton release];
 	//[reloadButton release];
     [super dealloc];

@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="38"/>
+			<integer value="3"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -123,27 +123,6 @@
 								<reference key="IBUIToolbar" ref="312207837"/>
 								<int key="IBUISystemItemIdentifier">5</int>
 							</object>
-							<object class="IBUIBarButtonItem" id="528944671">
-								<bool key="IBUIEnabled">NO</bool>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">icon_photo.png</string>
-								</object>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<reference key="IBUIToolbar" ref="312207837"/>
-							</object>
-							<object class="IBUIBarButtonItem" id="318106175">
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<float key="IBUIWidth">42</float>
-								<reference key="IBUIToolbar" ref="312207837"/>
-								<int key="IBUISystemItemIdentifier">6</int>
-							</object>
-							<object class="IBUIBarButtonItem" id="676238282">
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<float key="IBUIWidth">42</float>
-								<reference key="IBUIToolbar" ref="312207837"/>
-								<int key="IBUISystemItemIdentifier">6</int>
-							</object>
 						</object>
 					</object>
 					<object class="IBUIWebView" id="900209978">
@@ -237,22 +216,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">selectImages:</string>
-						<reference key="source" ref="528944671"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">28</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">selectImageButton</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="528944671"/>
-					</object>
-					<int key="connectionID">30</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">readability</string>
 						<reference key="source" ref="823522665"/>
 						<reference key="destination" ref="372490531"/>
@@ -305,14 +268,11 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="772881754"/>
 							<reference ref="957252386"/>
-							<reference ref="528944671"/>
 							<reference ref="996926512"/>
 							<reference ref="493867945"/>
 							<reference ref="996395124"/>
 							<reference ref="212505110"/>
 							<reference ref="629295593"/>
-							<reference ref="318106175"/>
-							<reference ref="676238282"/>
 							<reference ref="823522665"/>
 							<reference ref="201217584"/>
 						</object>
@@ -331,11 +291,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">9</int>
 						<reference key="object" ref="957252386"/>
-						<reference key="parent" ref="312207837"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">26</int>
-						<reference key="object" ref="528944671"/>
 						<reference key="parent" ref="312207837"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -364,16 +319,6 @@
 						<reference key="parent" ref="312207837"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">36</int>
-						<reference key="object" ref="318106175"/>
-						<reference key="parent" ref="312207837"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">37</int>
-						<reference key="object" ref="676238282"/>
-						<reference key="parent" ref="312207837"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">38</int>
 						<reference key="object" ref="823522665"/>
 						<reference key="parent" ref="312207837"/>
@@ -393,15 +338,12 @@
 					<string>-2.CustomClassName</string>
 					<string>1.IBEditorWindowLastContentRect</string>
 					<string>1.IBPluginDependency</string>
-					<string>26.IBPluginDependency</string>
 					<string>29.IBPluginDependency</string>
 					<string>3.IBPluginDependency</string>
 					<string>31.IBPluginDependency</string>
 					<string>32.IBPluginDependency</string>
 					<string>34.IBPluginDependency</string>
 					<string>35.IBPluginDependency</string>
-					<string>36.IBPluginDependency</string>
-					<string>37.IBPluginDependency</string>
 					<string>38.IBPluginDependency</string>
 					<string>39.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
@@ -412,10 +354,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>DocumentWebViewController</string>
 					<string>UIResponder</string>
-					<string>{{745, 69}, {783, 963}}</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>{{745, 91}, {783, 915}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -598,6 +537,20 @@
 					<string key="className">NSObject</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">QuartzCore.framework/Headers/CAAnimation.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">QuartzCore.framework/Headers/CALayer.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">UIKit.framework/Headers/UIAccessibility.h</string>
 					</object>
 				</object>
@@ -741,13 +694,11 @@
 				<string>icon_arrow_left.png</string>
 				<string>icon_arrow_right.png</string>
 				<string>icon_error.png</string>
-				<string>icon_photo.png</string>
 				<string>icon_refresh.png</string>
 				<string>icon_text_align_left.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{30, 30}</string>
 				<string>{30, 30}</string>
 				<string>{30, 30}</string>
 				<string>{30, 30}</string>

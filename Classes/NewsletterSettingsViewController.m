@@ -16,6 +16,7 @@
 #import "NewsletterDistributionListViewController.h"
 #import "AppDelegate.h"
 #import "NewsletterHTMLPreviewViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation NewsletterSettingsViewController
 @synthesize settingsTable,newsletter,imagePickerPopover,toolBar,imageButton ;
@@ -26,14 +27,14 @@
 	return YES;
 }
 
-- (void) switched
+/*- (void) switched
 {
 	UIAlertView * a=[[UIAlertView alloc] initWithTitle:@"Switched" message:@"Yep" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	
 	[a show];
 	
 	[a release];
-}
+}*/
 
 - (IBAction) preview
 {
@@ -232,6 +233,8 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 						if(self.newsletter.logoImage)
 						{
 							cell.imageView.image=self.newsletter.logoImage;
+							cell.imageView.layer.masksToBounds=YES;
+							cell.imageView.layer.cornerRadius=10.0;
 						}
 					}
 					

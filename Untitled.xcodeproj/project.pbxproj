@@ -76,6 +76,7 @@
 		C4868B4211347F2700B6F842 /* NewslettersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4868B4111347F2700B6F842 /* NewslettersView.xib */; };
 		C49090FB1119F54D007F30BA /* SavedSearchesController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49090FA1119F54D007F30BA /* SavedSearchesController.m */; };
 		C49091071119F99D007F30BA /* SavedSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49091061119F99D007F30BA /* SavedSearchController.m */; };
+		C4926BD0114977DD00EC37A3 /* SelectImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4926BCF114977DD00EC37A3 /* SelectImageView.xib */; };
 		C49BA17B1136DF3E0015227C /* NewsletterSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C49BA17A1136DF3E0015227C /* NewsletterSection.m */; };
 		C49BA1A51136E59F0015227C /* NewsletterSectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49BA1A41136E59F0015227C /* NewsletterSectionsViewController.m */; };
 		C49BA1A71136E5BB0015227C /* NewsletterSectionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49BA1A61136E5BB0015227C /* NewsletterSectionsView.xib */; };
@@ -212,6 +213,7 @@
 		C49090FA1119F54D007F30BA /* SavedSearchesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearchesController.m; sourceTree = "<group>"; };
 		C49091051119F99D007F30BA /* SavedSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedSearchController.h; sourceTree = "<group>"; };
 		C49091061119F99D007F30BA /* SavedSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearchController.m; sourceTree = "<group>"; };
+		C4926BCF114977DD00EC37A3 /* SelectImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectImageView.xib; sourceTree = "<group>"; };
 		C49BA1791136DF3E0015227C /* NewsletterSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsletterSection.h; sourceTree = "<group>"; };
 		C49BA17A1136DF3E0015227C /* NewsletterSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsletterSection.m; sourceTree = "<group>"; };
 		C49BA1A31136E59F0015227C /* NewsletterSectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsletterSectionsViewController.h; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				C49BA1B71136E9560015227C /* NewsletterAddSectionView.xib */,
 				C49BA25111371D690015227C /* NewsletterHTMLPreviewView.xib */,
 				C45136DD113D9FE80067B421 /* NewsletterDistributionListView.xib */,
+				C4926BCF114977DD00EC37A3 /* SelectImageView.xib */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				C4837045114047BB005633B3 /* icon_text_align_left.png in Resources */,
 				C4837047114047F5005633B3 /* icon_paragraph.png in Resources */,
 				C48370491140480E005633B3 /* icon_measures.png in Resources */,
+				C4926BD0114977DD00EC37A3 /* SelectImageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

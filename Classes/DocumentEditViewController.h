@@ -26,7 +26,7 @@
 
 @class SearchResult;
 
-@interface DocumentEditViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate>{
+@interface DocumentEditViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate,UIActionSheetDelegate>{
 	SearchResult * searchResult;
 	IBOutlet UITableView * editTable;
 	IBOutlet UIBarButtonItem * imageButton;
@@ -39,6 +39,8 @@
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * imageButton;
 
 - (IBAction) getUrl;
+- (void) imageTouched:(id)sender;
+- (void) addImage:(id)sender;
 
 - (IBAction) chooseImage;
 

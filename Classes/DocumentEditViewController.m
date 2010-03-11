@@ -259,12 +259,156 @@
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
 			//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			cell.selectionStyle=UITableViewCellSelectionStyleNone;
-			cell.imageView.image=self.searchResult.image;
-		}
+			
+			if(self.searchResult.image)
+			{
+				//cell.imageView.image=self.searchResult.image;
+				//cell.imageView.layer.masksToBounds=YES;
+				//cell.imageView.layer.cornerRadius=10.0;
+				
+				UIButton * button=[[UIButton buttonWithType:UIButtonTypeCustom] retain];
+				button.frame=CGRectMake(10,10,self.searchResult.image.size.width,self.searchResult.image.size.height);
+				[button setBackgroundImage:self.searchResult.image forState:UIControlStateNormal];
+				
+				[button addTarget:self action:@selector(imageTouched:) forControlEvents:UIControlEventTouchUpInside];
+				
+				//button.frame=CGRectMake(10, 10, 80, 80);
+				//[button setTitle:@"Add Image" forState:UIControlStateNormal];
+				//[cell addSubview:button];
+				[cell.contentView addSubview:button];
+				
+			}
+			else
+			{
+				UIButton * button=[[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+				button.frame=CGRectMake(10, 10, 80, 80);
+				[button setTitle:@"Add Image" forState:UIControlStateNormal];
+				
+				[button addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
+				
+				//[cell addSubview:button];
+				[cell.contentView addSubview:button];
+				//[cell.contentView addSubView:button];
+				//[cell.imageView addSubview:button];
+				//[button release];
+			}
 			break;
+		}
 	}
 		 
 	return cell;
+}
+
+
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet
+{
+	NSLog(@"actionSheetCancel");
+	
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	NSLog(@"actionSheet:willDismissWithButtonIndex %d",buttonIndex);
+	
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if(buttonIndex==0)
+	{
+		// choose existing image
+		
+		// get image view cell
+		UITableViewCell * cell=[self.editTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:kImageRow inSection:kImageSection]];
+		
+		// get image button
+		
+		[self addImage:cell.contentView];
+	}
+	if(buttonIndex==1)
+	{
+		// delete image
+		self.searchResult.image=nil;
+		[self.editTable reloadData];
+	}
+}
+- (void) imageTouched:(id)sender
+{
+	UIView * button=(UIView*)sender;
+	
+	UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+	
+	[actionSheet addButtonWithTitle:@"Choose Existing Image"];
+	[actionSheet addButtonWithTitle:@"Delete Image"];
+	
+	[actionSheet showInView:self.view];
+	
+	[actionSheet release];
+}
+
+
+
+
+- (void) addImage:(id)sender
+{
+	UIImagePickerController * picker=[[UIImagePickerController alloc] init];
+	
+	//picker.allowsImageEditing = YES;
+	picker.allowsEditing = YES;
+	
+	picker.delegate=self;
+	
+	//picker.navigationBar.topItem.title=@"Choose Logo Image";
+	
+	//picker.title=@"Choose Logo Image";
+	
+	
+	if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+	{
+		picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	}
+	else
+	{
+		if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+		{
+			picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+			
+		}
+		else
+		{
+			if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+			{
+				picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+			}
+			else 
+			{
+				return;
+			}
+		}
+	}
+	
+	UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:picker];
+	
+	
+	
+	self.imagePickerPopover=popover;
+	
+	//popoverController.delegate = self;
+	
+	//[popover presentPopoverFromRect:CGRectMake(330.0, 470.0, 0.0, 0.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+	
+	UIView * button=(UIView*)sender;
+	
+	[popover presentPopoverFromRect:[button convertRect:button.frame toView:self.view] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	
+	
+	//[popover presentPopoverFromBarButtonItem:imageButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	
+	//[popoverController presentPopoverFromBarButtonItem:sender  permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+	
+	[picker release];
+	
+	[popover release];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -306,6 +450,10 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 			{
 				return self.searchResult.image.size.height + 20.0;
 			}
+			else {
+				return 100.0;
+			}
+
 	}
 	return 40.0;
 }
@@ -317,10 +465,10 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 		// open page
 		[self getUrl];
 	}
-	if(indexPath.section==kImageSection && indexPath.row==kImageRow)
-	{
-		[self chooseImage];
-	}
+	//if(indexPath.section==kImageSection && indexPath.row==kImageRow)
+	//{
+	//	[self chooseImage];
+	//}
 }
 
 
@@ -329,7 +477,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	NSLog(@"editingStyleForRowAtIndexPath");
 	
-	if(indexPath.section==kImageSection && indexPath.row==kImageRow)
+	/*if(indexPath.section==kImageSection && indexPath.row==kImageRow)
 	{
 		if(self.searchResult.image)
 		{
@@ -341,9 +489,9 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 		
 	}
 	else 
-	{
+	{*/
 		return NO;
-	}
+	//}
 	
 }
 
@@ -351,7 +499,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	NSLog(@"editingStyleForRowAtIndexPath");
 	
-	if(indexPath.section==kImageSection && indexPath.row==kImageRow)
+	/*if(indexPath.section==kImageSection && indexPath.row==kImageRow)
 	{
 		if(self.searchResult.image)
 		{
@@ -363,15 +511,15 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 		
 	}
 	else 
-	{
+	{*/
 		return  UITableViewCellEditingStyleNone;
-	}
+	//}
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	NSLog(@"commitEditingStyle");
-	if(indexPath.section==kImageSection && indexPath.row==kImageRow)
+	/*if(indexPath.section==kImageSection && indexPath.row==kImageRow)
 	{
 		// user deleted the image...
 		if(self.searchResult.image)
@@ -382,7 +530,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 			[self.editTable reloadData];
 			//[self.settingsTable  performSelector:@selector(reloadData) withObject:nil afterDelay:1];
 		}
-	}
+	}*/
 }
 
 

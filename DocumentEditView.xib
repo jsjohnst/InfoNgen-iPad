@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="52"/>
+			<integer value="51"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -74,26 +74,6 @@
 								<reference key="IBUIToolbar" ref="951103036"/>
 								<int key="IBUISystemItemIdentifier">5</int>
 							</object>
-							<object class="IBUIBarButtonItem" id="650102246">
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">icon_photo.png</string>
-								</object>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<reference key="IBUIToolbar" ref="951103036"/>
-							</object>
-							<object class="IBUIBarButtonItem" id="934206297">
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<float key="IBUIWidth">42</float>
-								<reference key="IBUIToolbar" ref="951103036"/>
-								<int key="IBUISystemItemIdentifier">6</int>
-							</object>
-							<object class="IBUIBarButtonItem" id="162627671">
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<float key="IBUIWidth">42</float>
-								<reference key="IBUIToolbar" ref="951103036"/>
-								<int key="IBUISystemItemIdentifier">6</int>
-							</object>
 						</object>
 					</object>
 				</object>
@@ -150,22 +130,6 @@
 					</object>
 					<int key="connectionID">50</int>
 				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">imageButton</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="650102246"/>
-					</object>
-					<int key="connectionID">56</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">chooseImage</string>
-						<reference key="source" ref="650102246"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">57</int>
-				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -207,31 +171,13 @@
 						<reference key="object" ref="951103036"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="650102246"/>
 							<reference ref="375553292"/>
-							<reference ref="934206297"/>
-							<reference ref="162627671"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">52</int>
-						<reference key="object" ref="650102246"/>
-						<reference key="parent" ref="951103036"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">53</int>
 						<reference key="object" ref="375553292"/>
-						<reference key="parent" ref="951103036"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">54</int>
-						<reference key="object" ref="934206297"/>
-						<reference key="parent" ref="951103036"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">55</int>
-						<reference key="object" ref="162627671"/>
 						<reference key="parent" ref="951103036"/>
 					</object>
 				</object>
@@ -246,19 +192,13 @@
 					<string>1.IBPluginDependency</string>
 					<string>47.IBPluginDependency</string>
 					<string>51.IBPluginDependency</string>
-					<string>52.IBPluginDependency</string>
 					<string>53.IBPluginDependency</string>
-					<string>54.IBPluginDependency</string>
-					<string>55.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>DocumentEditViewController</string>
 					<string>UIResponder</string>
-					<string>{{811, 73}, {783, 963}}</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>{{518, 91}, {783, 915}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -293,11 +233,15 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addImage:</string>
 							<string>chooseImage</string>
 							<string>getUrl</string>
+							<string>imageTouched:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -419,6 +363,20 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">Foundation.framework/Headers/NSXMLParser.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">QuartzCore.framework/Headers/CAAnimation.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">QuartzCore.framework/Headers/CALayer.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -569,10 +527,6 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<string key="IBDocument.LastKnownRelativeProjectPath">Untitled.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">icon_photo.png</string>
-			<string key="NS.object.0">{30, 30}</string>
-		</object>
 		<string key="IBCocoaTouchPluginVersion">84</string>
 	</data>
 </archive>
