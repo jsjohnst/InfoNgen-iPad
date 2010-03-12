@@ -18,6 +18,7 @@
 #import "NewsletterSection.h"
 #import "SavedSearch.h"
 #import <QuartzCore/QuartzCore.h>
+#import "NewsletterItemContentView.h"
 
 @implementation NewsletterViewController
 @synthesize newsletterTableView,newsletter,editMoveButton,editSettingsButton,updateButton,previewButton,toolBar,deleteButton,clearButton;
@@ -543,7 +544,7 @@
 	
 	if(updating)
 	{
-		UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+		UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 		[activityView setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
 		
 		[activityView startAnimating];
@@ -670,7 +671,16 @@
 			
 		//}
 		//else {
-			cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
+			cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+		
+			cell.selectionStyle=UITableViewCellSelectionStyleNone;
+		
+			NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 700, 600)];
+		
+			
+			[cell.contentView addSubview:contentView];
+		
+			contentView.contentMode=UIViewContentModeRedraw;
 		//}
 
 		//cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
@@ -717,7 +727,23 @@
 	{*/
 		SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
 
-		cell.textLabel.text=[result headline];
+	
+		NewsletterItemContentView * contentView=(NewsletterItemContentView *)[cell.contentView.subviews objectAtIndex:[cell.contentView.subviews count]-1];
+	
+	
+		//NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 700, 600)];
+	
+		contentView.searchResult=result;
+	
+		[contentView setNeedsDisplay];
+		
+		//cell.contentView=contentView;
+		//[cell.contentView.subviews length]
+	
+		//[cell.contentView addSubview:contentView];
+	
+		
+		/*cell.textLabel.text=[result headline];
 			
 		NSDateFormatter *format = [[NSDateFormatter alloc] init];
 		[format setDateFormat:@"MMM d, yyyy h:mm"];
@@ -747,16 +773,32 @@
 		
 		if(result.image)
 		{
-			cell.imageView.image=result.image;
-			cell.imageView.layer.masksToBounds=YES;
-			cell.imageView.layer.cornerRadius=4.0;
+			//cell.imageView.image=result.image;
+			//cell.imageView.layer.masksToBounds=YES;
+			//cell.imageView.layer.cornerRadius=4.0;
+			
+			UIButton * button=[[UIButton buttonWithType:UIButtonTypeCustom] retain];
+			
+			button.frame=CGRectMake(10,10,result.image.size.width,result.image.size.height);
+			
+			[button setBackgroundImage:result.image forState:UIControlStateNormal];
+			
+			//[button addTarget:self action:@selector(imageTouched:) forControlEvents:UIControlEventTouchUpInside];
+			
+			//button.frame=CGRectMake(10, 10, 80, 80);
+			//[button setTitle:@"Add Image" forState:UIControlStateNormal];
+			//[cell addSubview:button];
+			[cell.contentView addSubview:button];
+			
+			
+			
 		}
 		else 
 		{
-			cell.imageView.image=nil;
+			//cell.imageView.image=nil;
 		}
 	//}
-	
+	*/
 
 	return cell;
 }
@@ -798,6 +840,17 @@ canMoveRowAtIndexPath:(NSIndexPath*)indexPath
 	//	return NO;
 	//}
 
+}
+
+- (CGFloat)tableView:(UITableView*)tableView
+heightForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
+
+	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
+	
+	return [NewsletterItemContentView heightForCell:result];
+	
 }
 
 - (void)tableView:(UITableView*)tableView 

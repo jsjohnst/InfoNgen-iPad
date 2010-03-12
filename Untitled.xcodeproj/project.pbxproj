@@ -37,6 +37,7 @@
 		B047D08C113F1C4000E50884 /* icon_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = B047D08B113F1C4000E50884 /* icon_cancel.png */; };
 		B04E0CBC11481CC9006E634A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04E0CBB11481CC9006E634A /* QuartzCore.framework */; };
 		B08BC367112C4CDC00851E7A /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B08BC366112C4CDC00851E7A /* UserSettings.m */; };
+		B0D6F254114A9B05008CC24D /* NewsletterItemContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D6F253114A9B05008CC24D /* NewsletterItemContentView.m */; };
 		C4158C22112097500070FE54 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4158C21112097500070FE54 /* SearchResultCell.m */; };
 		C4158C24112097710070FE54 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4158C23112097710070FE54 /* SearchResultCell.xib */; };
 		C44456F4113C490900DEA3B6 /* newsletter.html in Resources */ = {isa = PBXBuildFile; fileRef = C44456F3113C490900DEA3B6 /* newsletter.html */; };
@@ -149,6 +150,8 @@
 		B04E0CBB11481CC9006E634A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B08BC365112C4CDC00851E7A /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
 		B08BC366112C4CDC00851E7A /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
+		B0D6F252114A9B05008CC24D /* NewsletterItemContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsletterItemContentView.h; sourceTree = "<group>"; };
+		B0D6F253114A9B05008CC24D /* NewsletterItemContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsletterItemContentView.m; sourceTree = "<group>"; };
 		C4158C20112097500070FE54 /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
 		C4158C21112097500070FE54 /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
 		C4158C23112097710070FE54 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
@@ -319,6 +322,8 @@
 				B08BC366112C4CDC00851E7A /* UserSettings.m */,
 				C45136DF113D9FFF0067B421 /* NewsletterDistributionListViewController.h */,
 				C45136E0113D9FFF0067B421 /* NewsletterDistributionListViewController.m */,
+				B0D6F252114A9B05008CC24D /* NewsletterItemContentView.h */,
+				B0D6F253114A9B05008CC24D /* NewsletterItemContentView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -668,6 +673,7 @@
 				C49BA1B61136E8C50015227C /* NewsletterAddSectionViewController.m in Sources */,
 				C49BA25011371D540015227C /* NewsletterHTMLPreviewViewController.m in Sources */,
 				C45136E1113D9FFF0067B421 /* NewsletterDistributionListViewController.m in Sources */,
+				B0D6F254114A9B05008CC24D /* NewsletterItemContentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
