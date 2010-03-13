@@ -671,13 +671,19 @@
 			
 		//}
 		//else {
-			cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+		
+			cell=[[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:identifier] autorelease];
+		
+			cell.contentView.autoresizesSubviews=YES;
+		
+			//cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
 		
 			cell.selectionStyle=UITableViewCellSelectionStyleNone;
 		
-			NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 700, 600)];
+			NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, cell.contentView.bounds.size.width, cell.contentView.bounds.size.height)];
 		
-			
+			contentView.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+			 
 			[cell.contentView addSubview:contentView];
 		
 			contentView.contentMode=UIViewContentModeRedraw;
@@ -698,6 +704,10 @@
 	//int parentWidth=navController.view.frame.size.width;
 	
 	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
+	
+	
+	
+	
 	
 	/*if(indexPath.row==0)
 	{
@@ -730,11 +740,25 @@
 	
 		NewsletterItemContentView * contentView=(NewsletterItemContentView *)[cell.contentView.subviews objectAtIndex:[cell.contentView.subviews count]-1];
 	
+		/*if([cell.contentView.subviews count]>0)
+		{
+			UIView * v=[cell.contentView.subviews objectAtIndex:0];
+			[v removeFromSuperview];
+		}
+	
+		
+		NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 700,600)]; //cell.contentView.bounds.size.width, cell.contentView.bounds.size.height)];
+	
+	
+		[cell.contentView addSubview:contentView];
+	*/
+	
 	
 		//NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 700, 600)];
 	
 		contentView.searchResult=result;
 	
+		//[cell.contentView setNeedsDisplay];
 		[contentView setNeedsDisplay];
 		
 		//cell.contentView=contentView;

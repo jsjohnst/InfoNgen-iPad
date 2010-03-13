@@ -57,6 +57,8 @@
 	UIFont * font=[UIFont systemFontOfSize:kFontSize];
 	CGSize size;
 	
+	CGFloat buffer=kCellPadding +kHeadlineFontSize+kDateFontSize+kLineSpacing*3+kCellPadding*2; // bottom buffer so we dont overflow during edit mode, etc.
+	
 	if(image)
 	{
 		CGFloat minHeight=image.size.height + (kCellPadding*2);
@@ -77,36 +79,96 @@
 				
 				minHeight+=kCellPadding + size.height;
 				
-				return minHeight;
+				return minHeight + buffer;
 			}
 		}
 		else 
 		{
-			return minHeight;
+			return minHeight + buffer;
 		}
 	}
 	else {
 		if (synopsis) {
 			size=[synopsis sizeWithFont:font constrainedToSize:CGSizeMake(kCellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
-			return (kCellPadding*2) + size.height;
+			return (kCellPadding*2) + size.height + buffer;
 		}
 	} 
 		
-	return 44;
+	return buffer; // default empty cell height
 }
+
+
++ (UIColor *) colorWithHexString: (NSString *) stringToConvert  
+{  
+    NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];  
+	
+    // String should be 6 or 8 characters  
+    if ([cString length] < 6) return [UIColor grayColor];  
+	
+    // strip 0X if it appears  
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];  
+	
+    if ([cString length] != 6) return  [UIColor grayColor];  
+	
+    // Separate into r, g, b substrings  
+    NSRange range;  
+    range.location = 0;  
+    range.length = 2;  
+    NSString *rString = [cString substringWithRange:range];  
+	
+    range.location = 2;  
+    NSString *gString = [cString substringWithRange:range];  
+	
+    range.location = 4;  
+    NSString *bString = [cString substringWithRange:range];  
+	
+    // Scan values  
+    unsigned int r, g, b;  
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];  
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];  
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];  
+	
+    return [UIColor colorWithRed:((float) r / 255.0f)  
+                           green:((float) g / 255.0f)  
+                            blue:((float) b / 255.0f)  
+                           alpha:1.0f];  
+} 
+
 
 - (void)drawRect:(CGRect)rect
 {
+	//[super drawRect:rect];
+	
+	NSLog(@"drawRect:%@, %@",NSStringFromCGRect(rect),searchResult.headline );
+	
 	UIImage * image=searchResult.image;
 	NSString * synopsis=searchResult.synopsis;
 		
 	UIFont * font=[UIFont systemFontOfSize:kFontSize];
+	
+	
+	
 	CGSize size;
+	
+	
+	CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), [NewsletterItemContentView colorWithHexString:@"336699"].CGColor);//    [UIColor blueColor].CGColor);//336699
+	
+	// draw headline
+	[searchResult.headline drawInRect:CGRectMake(kCellPadding, kCellPadding, kCellWidth - (kCellPadding*2), kHeadlineFontSize+kLineSpacing) withFont:[UIFont boldSystemFontOfSize:kHeadlineFontSize] lineBreakMode:UILineBreakModeTailTruncation];
+	
+	CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), [UIColor grayColor].CGColor);//666666
+	
+	// draw date
+	[[searchResult.date description] drawInRect:CGRectMake(kCellPadding, kCellPadding+(kHeadlineFontSize+kLineSpacing)+kLineSpacing, kCellWidth-(kCellPadding*2), kDateFontSize+kLineSpacing) withFont:[UIFont systemFontOfSize:kDateFontSize] lineBreakMode:UILineBreakModeTailTruncation];
+	
+	int top=kCellPadding +kHeadlineFontSize+kDateFontSize+kLineSpacing*3;
+	
+	CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), [UIColor grayColor].CGColor);//666666
 	
 	if (image) 
 	{
 	
-		[image drawInRect:CGRectMake(kCellPadding	, kCellPadding, image.size.width, image.size.height)];
+		[image drawInRect:CGRectMake(kCellPadding	, kCellPadding+top, image.size.width, image.size.height)];
 		
 		// draw synopsis
 		if(synopsis)
@@ -125,20 +187,20 @@
 					{
 						NSString * first_part=[synopsis substringToIndex:i];
 						
-						[first_part drawInRect:CGRectMake((kCellPadding*2)+image.size.width, kCellPadding, size.width, image.size.height) withFont:font lineBreakMode:UILineBreakModeWordWrap];
+						[first_part drawInRect:CGRectMake((kCellPadding*2)+image.size.width, kCellPadding+top, size.width, image.size.height) withFont:font lineBreakMode:UILineBreakModeWordWrap];
 						
 						NSString * second_part=[synopsis substringFromIndex:i+1];
 						
 						size=[second_part sizeWithFont:font constrainedToSize:CGSizeMake(kCellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
 						
-						[second_part drawInRect:CGRectMake(kCellPadding, (kCellPadding*2)+image.size.height, size.width, size.height) withFont:font lineBreakMode:UILineBreakModeWordWrap];
+						[second_part drawInRect:CGRectMake(kCellPadding, (kCellPadding*2)+image.size.height+top, size.width, size.height) withFont:font lineBreakMode:UILineBreakModeWordWrap];
 					}
 				}
 				else 
 				{
 					// it fits next to image
 					
-					[synopsis drawInRect:CGRectMake((kCellPadding*2)+image.size.width, kCellPadding, size.width, size.height) withFont:font  lineBreakMode:UILineBreakModeWordWrap];
+					[synopsis drawInRect:CGRectMake((kCellPadding*2)+image.size.width, kCellPadding+top, size.width, size.height) withFont:font  lineBreakMode:UILineBreakModeWordWrap];
 				}
 			}
 		}
@@ -150,10 +212,13 @@
 		{
 			size=[synopsis sizeWithFont:font constrainedToSize:CGSizeMake(kCellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
 			
-			[synopsis drawInRect:CGRectMake(kCellPadding, kCellPadding, size.width, size.height) withFont:font  lineBreakMode:UILineBreakModeWordWrap];
+			[synopsis drawInRect:CGRectMake(kCellPadding, kCellPadding+top, size.width, size.height) withFont:font  lineBreakMode:UILineBreakModeWordWrap];
 			
 		}
 	}
+	
+	
+	// color for comments: b00027
 	
 	// draw row seperators
 	
