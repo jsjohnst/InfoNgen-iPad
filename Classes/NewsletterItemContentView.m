@@ -36,7 +36,7 @@
 		
 		if(c==' ' || c=='\n')
 		{
-			CGSize size = [[text substringToIndex:i] sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+			CGSize size = [[text substringToIndex:i+1] sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
 		
 			if(size.height <= constraint.height)
 			{
@@ -67,17 +67,17 @@
 		
 		size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
 		
-		if(size.height > image.size.height)
+		if(size.height > image.size.height+kFontSize)
 		{
-			int i=[NewsletterItemContentView findBestFit:synopsis constraint:CGSizeMake(kCellWidth-image.size.width - (kCellPadding*3), image.size.height)];
+			int i=[NewsletterItemContentView findBestFit:synopsis constraint:CGSizeMake(kCellWidth-image.size.width - (kCellPadding*3), image.size.height+kFontSize)];
 			
 			if(i>0)
 			{
-				NSString * second_part=[synopsis substringFromIndex:i+1];
+				NSString * second_part=[synopsis substringFromIndex:i+2];
 				
 				size=[second_part sizeWithFont:font constrainedToSize:CGSizeMake(kCellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
 				
-				minHeight+=kCellPadding + size.height;
+				minHeight+=kFontSize + size.height;
 				
 				return minHeight + buffer;
 			}
@@ -146,10 +146,7 @@
 		
 	UIFont * font=[UIFont systemFontOfSize:kFontSize];
 	
-	
-	
 	CGSize size;
-	
 	
 	CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), [NewsletterItemContentView colorWithHexString:@"336699"].CGColor);//    [UIColor blueColor].CGColor);//336699
 	
@@ -179,21 +176,24 @@
 				
 				size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
 				
-				if(size.height > image.size.height)
+				if(size.height > image.size.height+kFontSize)
 				{
-					int i=[NewsletterItemContentView findBestFit:synopsis constraint:CGSizeMake(kCellWidth-image.size.width - (kCellPadding*3), image.size.height)];
+					int i=[NewsletterItemContentView findBestFit:synopsis constraint:CGSizeMake(kCellWidth-image.size.width - (kCellPadding*3), image.size.height+kFontSize)];
 					
 					if(i>0)
 					{
-						NSString * first_part=[synopsis substringToIndex:i];
+						NSString * first_part=[synopsis substringToIndex:i+1];
 						
-						[first_part drawInRect:CGRectMake((kCellPadding*2)+image.size.width, kCellPadding+top, size.width, image.size.height) withFont:font lineBreakMode:UILineBreakModeWordWrap];
+						[first_part drawInRect:CGRectMake((kCellPadding*2)+image.size.width, kCellPadding+top, size.width, image.size.height+kFontSize) withFont:font lineBreakMode:UILineBreakModeWordWrap];
 						
-						NSString * second_part=[synopsis substringFromIndex:i+1];
+						NSLog(@"first_part=%@",first_part);
 						
+						NSString * second_part=[synopsis substringFromIndex:i+2];
+						
+						NSLog(@"second_part=%@",second_part);
 						size=[second_part sizeWithFont:font constrainedToSize:CGSizeMake(kCellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
 						
-						[second_part drawInRect:CGRectMake(kCellPadding, (kCellPadding*2)+image.size.height+top, size.width, size.height) withFont:font lineBreakMode:UILineBreakModeWordWrap];
+						[second_part drawInRect:CGRectMake(kCellPadding, top+kCellPadding+image.size.height+ kFontSize, size.width, size.height) withFont:font lineBreakMode:UILineBreakModeWordWrap];
 					}
 				}
 				else 

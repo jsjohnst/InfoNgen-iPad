@@ -299,7 +299,7 @@
 							<real>232</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>156 134 1740 916 0 0 1920 1058 </string>
+						<string>29 139 1740 916 0 0 1920 1058 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -329,7 +329,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>B08CBADF114B1BA000549A6C</string>
+										<string>B08CBAFD114DABB000549A6C</string>
 										<key>history</key>
 										<array>
 											<string>B022D0C1112B7E7500F933AD</string>
@@ -421,8 +421,8 @@
 											<string>B08CBAC1114B0DC000549A6C</string>
 											<string>B08CBACB114B119900549A6C</string>
 											<string>B08CBAD9114B1B6700549A6C</string>
-											<string>B08CBADA114B1B6700549A6C</string>
-											<string>B08CBADB114B1B6700549A6C</string>
+											<string>B08CBAF0114C2F5A00549A6C</string>
+											<string>B08CBAF1114C2F5A00549A6C</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -436,7 +436,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1486, 870}}</string>
 								<key>RubberWindowFrame</key>
-								<string>156 134 1740 916 0 0 1920 1058 </string>
+								<string>29 139 1740 916 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -456,7 +456,7 @@
 								<key>Frame</key>
 								<string>{{0, 875}, {1486, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>156 134 1740 916 0 0 1920 1058 </string>
+								<string>29 139 1740 916 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -626,7 +626,7 @@
 		<string>/Users/bstewart/Documents/InfoNgen-iPad/Untitled.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>156 134 1740 916 0 0 1920 1058 </string>
+	<string>29 139 1740 916 0 0 1920 1058 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
