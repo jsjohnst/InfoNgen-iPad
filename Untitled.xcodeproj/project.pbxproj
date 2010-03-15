@@ -91,6 +91,8 @@
 		C4B9303711344D9B00AF9B7C /* Default-LandscapeRight.png in Resources */ = {isa = PBXBuildFile; fileRef = C4B9303211344D9B00AF9B7C /* Default-LandscapeRight.png */; };
 		C4B9303811344D9B00AF9B7C /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = C4B9303311344D9B00AF9B7C /* Default-Portrait.png */; };
 		C4B9303911344D9B00AF9B7C /* Default-PortraitUpsideDown.png in Resources */ = {isa = PBXBuildFile; fileRef = C4B9303411344D9B00AF9B7C /* Default-PortraitUpsideDown.png */; };
+		C4BA4E8E114E8AFE003A0396 /* DocumentEditFormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4BA4E8D114E8AFE003A0396 /* DocumentEditFormView.xib */; };
+		C4BA4E93114E8DD3003A0396 /* DocumentEditFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BA4E92114E8DD3003A0396 /* DocumentEditFormViewController.m */; };
 		C4BF00E0112DBD860005AA73 /* NewsletterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BF00DF112DBD860005AA73 /* NewsletterViewController.m */; };
 		C4BF00E3112DBDBB0005AA73 /* DocumentWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BF00E2112DBDBB0005AA73 /* DocumentWebViewController.m */; };
 		C4BF00F7112DC41C0005AA73 /* NewsletterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4BF00F6112DC41C0005AA73 /* NewsletterView.xib */; };
@@ -235,6 +237,9 @@
 		C4B9303211344D9B00AF9B7C /* Default-LandscapeRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-LandscapeRight.png"; sourceTree = "<group>"; };
 		C4B9303311344D9B00AF9B7C /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
 		C4B9303411344D9B00AF9B7C /* Default-PortraitUpsideDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-PortraitUpsideDown.png"; sourceTree = "<group>"; };
+		C4BA4E8D114E8AFE003A0396 /* DocumentEditFormView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentEditFormView.xib; sourceTree = "<group>"; };
+		C4BA4E91114E8DD3003A0396 /* DocumentEditFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentEditFormViewController.h; sourceTree = "<group>"; };
+		C4BA4E92114E8DD3003A0396 /* DocumentEditFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentEditFormViewController.m; sourceTree = "<group>"; };
 		C4BF00DE112DBD860005AA73 /* NewsletterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsletterViewController.h; sourceTree = "<group>"; };
 		C4BF00DF112DBD860005AA73 /* NewsletterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsletterViewController.m; sourceTree = "<group>"; };
 		C4BF00E1112DBDBB0005AA73 /* DocumentWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentWebViewController.h; sourceTree = "<group>"; };
@@ -324,6 +329,8 @@
 				C45136E0113D9FFF0067B421 /* NewsletterDistributionListViewController.m */,
 				B0D6F252114A9B05008CC24D /* NewsletterItemContentView.h */,
 				B0D6F253114A9B05008CC24D /* NewsletterItemContentView.m */,
+				C4BA4E91114E8DD3003A0396 /* DocumentEditFormViewController.h */,
+				C4BA4E92114E8DD3003A0396 /* DocumentEditFormViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -412,6 +419,7 @@
 				C49BA25111371D690015227C /* NewsletterHTMLPreviewView.xib */,
 				C45136DD113D9FE80067B421 /* NewsletterDistributionListView.xib */,
 				C4926BCF114977DD00EC37A3 /* SelectImageView.xib */,
+				C4BA4E8D114E8AFE003A0396 /* DocumentEditFormView.xib */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -618,6 +626,7 @@
 				C4837047114047F5005633B3 /* icon_paragraph.png in Resources */,
 				C48370491140480E005633B3 /* icon_measures.png in Resources */,
 				C4926BD0114977DD00EC37A3 /* SelectImageView.xib in Resources */,
+				C4BA4E8E114E8AFE003A0396 /* DocumentEditFormView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,6 +683,7 @@
 				C49BA25011371D540015227C /* NewsletterHTMLPreviewViewController.m in Sources */,
 				C45136E1113D9FFF0067B421 /* NewsletterDistributionListViewController.m in Sources */,
 				B0D6F254114A9B05008CC24D /* NewsletterItemContentView.m in Sources */,
+				C4BA4E93114E8DD3003A0396 /* DocumentEditFormViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

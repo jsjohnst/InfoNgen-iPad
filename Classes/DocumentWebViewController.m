@@ -431,7 +431,7 @@
 		
 		NSString * actionSheetTitle;
 		
-		if(self.selectedImageLink && [self.selectedImageLink length]>0)
+		if(self.selectedImageLink && [self.selectedImageLink length]>0 && (![self.selectedImageLink isEqualToString:@"null"]))
 		{
 			actionSheetTitle=self.selectedImageLink;
 		}
@@ -447,7 +447,7 @@
 		
 		UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:actionSheetTitle delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
 		
-		if(self.selectedImageLink && [self.selectedImageLink length]>0)
+		if(self.selectedImageLink && [self.selectedImageLink length]>0 &&(!([self.selectedImageLink isEqualToString:@"null"])))
 		{
 			actionSheet.tag=1;
 			[actionSheet addButtonWithTitle:@"Open"];

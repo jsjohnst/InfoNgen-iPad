@@ -21,7 +21,7 @@
 #import "NewsletterItemContentView.h"
 
 @implementation NewsletterViewController
-@synthesize newsletterTableView,newsletter,editMoveButton,editSettingsButton,updateButton,previewButton,toolBar,deleteButton,clearButton;
+@synthesize newsletterTableView,newsletter,editMoveButton,editSettingsButton,updateButton,previewButton,toolBar,deleteButton,clearButton,viewModeSegmentedControl;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -50,6 +50,7 @@
 	self.updateButton.enabled=enabled;
 	self.editSettingsButton.enabled=enabled;
 	self.previewButton.enabled=enabled;
+	self.viewModeSegmentedControl.enabled=enabled;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -94,6 +95,16 @@
 	[actionSheet showFromToolbar:self.toolBar];
 	
 	[actionSheet release];
+	
+}
+
+-(void) toggleViewMode:(id)sender
+{
+	//self.viewModeSegmentedControl;
+	
+	//viewModeExpanded=([self.viewModeSegmentedControl selectedSegmentIndex]==1);
+	
+	[self.newsletterTableView reloadData];
 	
 }
 
@@ -682,8 +693,15 @@
 		
 			NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, cell.contentView.bounds.size.width, cell.contentView.bounds.size.height)];
 		
+			// set view mode...
+			//[contentView setViewMode:viewModeSegmentedControl];
+			
+		
 			contentView.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-			 
+			
+			contentView.parentController=self;
+			contentView.parentTableView=tableView;
+		
 			[cell.contentView addSubview:contentView];
 		
 			contentView.contentMode=UIViewContentModeRedraw;
@@ -739,6 +757,9 @@
 
 	
 		NewsletterItemContentView * contentView=(NewsletterItemContentView *)[cell.contentView.subviews objectAtIndex:[cell.contentView.subviews count]-1];
+	
+	
+		[contentView setViewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1)];
 	
 		/*if([cell.contentView.subviews count]>0)
 		{
@@ -873,7 +894,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 
 	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
 	
-	return [NewsletterItemContentView heightForCell:result];
+	return [NewsletterItemContentView heightForCell:result viewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1) ];
 	
 }
 
@@ -983,6 +1004,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	[clearButton release];
 	[newsletter release];
 	[toolBar release];
+	[viewModeSegmentedControl release];
     [super dealloc];
 }
 @end

@@ -25,9 +25,10 @@
 	IBOutlet UIBarButtonItem * deleteButton;
 	IBOutlet UIBarButtonItem * clearButton;
 	IBOutlet UIToolbar * toolBar;
+	IBOutlet UISegmentedControl * viewModeSegmentedControl;
 	Newsletter * newsletter;
 	BOOL updating;
-	
+	BOOL viewModeExpanded;
 }
 
 @property(nonatomic,retain) IBOutlet UITableView * newsletterTableView;
@@ -37,9 +38,11 @@
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * previewButton;
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * deleteButton;
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * clearButton;
-
+@property(nonatomic,retain) IBOutlet UISegmentedControl * viewModeSegmentedControl;
 @property(nonatomic,retain) IBOutlet UIToolbar * toolBar;
 @property (nonatomic,retain) Newsletter * newsletter;
+
+-(void) toggleViewMode:(id)sender;
 
 - (void) addSearchResultToCurrentNewsletter:(SearchResult*)searchResult fromSavedSearch:(SavedSearch*)savedSearch;
 - (void) setCurrentNewsletter:(Newsletter*)newsletter;
