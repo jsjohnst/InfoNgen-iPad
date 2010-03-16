@@ -41,11 +41,31 @@
 	synopsisTextView.layer.borderWidth=1;
 	synopsisTextView.layer.borderColor = [[UIColor grayColor] CGColor];
 	synopsisTextView.layer.cornerRadius = 8;
+	//commentsTextView.layer.opacity=0;
+	//commentsTextView.layer.alpha=0;
+	commentsTextView.backgroundColor=[UIColor clearColor];
+	UIImage* balloon = [[UIImage imageNamed:@"balloon.png"] stretchableImageWithLeftCapWidth:15  topCapHeight:15]; // you need to have the .png image, it's not a system one.
 	
-	commentsTextView.layer.borderWidth=1;
+	UIImageView * imageView=[[UIImageView alloc] initWithImage:balloon];
+	
+	imageView.autoresizingMask=commentsTextView.autoresizingMask;
+	
+	imageView.frame=CGRectMake(commentsTextView.frame.origin.x-4, commentsTextView.frame.origin.y-8, commentsTextView.frame.size.width+16, commentsTextView.frame.size.height+16);//   commentsTextView.frame;
+	
+	[self.view addSubview:imageView];
+	[self.view sendSubviewToBack:imageView];
+	
+	
+	
+	/*commentsTextView.layer.borderWidth=1;
 	commentsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
 	commentsTextView.layer.cornerRadius = 8;
-
+	 */
+	
+	
+	
+	
+	
 }
 
 // Override to allow orientations other than the default portrait orientation.

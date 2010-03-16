@@ -26,22 +26,26 @@
 	return self;
 }
 
+- (BOOL) didTouchRect:(UITouch*)touch rect:(CGRect)rect
+{
+	CGPoint loc=[touch locationInView:self];
+	
+	if(loc.y>=rect.origin.y && loc.y<=rect.origin.y+rect.size.height)
+	{
+		if(loc.x>=rect.origin.x && loc.x<=rect.origin.x+rect.size.width)
+		{
+			return YES;
+		}
+	}
+	return NO;
+}
+
 
 - (BOOL) didTouchImage:(UITouch*)touch
 {
 	if(searchResult.image)
 	{
-		CGPoint loc=[touch locationInView:self];
-		
-		int top=kCellPadding +kHeadlineFontSize+kDateFontSize+kLineSpacing*3;
-		
-		if(loc.y>=kCellPadding+top && loc.y <=kCellPadding+top+searchResult.image.size.height)
-		{
-			if(loc.x>=kCellPadding && loc.x <=kCellPadding+searchResult.image.size.width)
-			{
-				return YES;
-			}
-		}
+		return [self didTouchRect:touch rect:_itemSize.image_rect];
 	}
 	return NO;
 }
@@ -54,17 +58,8 @@
 	}
 	else 
 	{
-		CGPoint loc=[touch locationInView:self];
-		if(loc.y > kCellPadding +kHeadlineFontSize+kLineSpacing+kCellPadding)
-		{
-			return YES;
-		}
-		else 
-		{
-			return NO;
-		}
+		return ([self didTouchRect:touch rect:_itemSize.synopsis_rect1] || [self didTouchRect:touch rect:_itemSize.synopsis_rect2] );
 	}
-
 }
 
 - (BOOL) didTouchComments:(UITouch*)touch
@@ -75,29 +70,13 @@
 	}
 	else 
 	{
-		CGPoint loc=[touch locationInView:self];
-		if(loc.y > kCellPadding +kHeadlineFontSize+kLineSpacing+kCellPadding)
-		{
-			return YES;
-		}
-		else 
-		{
-			return NO;
-		}
+		return ([self didTouchRect:touch rect:_itemSize.comments_rect]);
 	}
 }
 
 - (BOOL) didTouchHeadline:(UITouch*)touch
 {
-	CGPoint loc=[touch locationInView:self];
-	if(loc.y <= kCellPadding +kHeadlineFontSize+kLineSpacing)
-	{
-		return YES;
-	}
-	else 
-	{
-		return NO;
-	}
+	return [self didTouchRect:touch rect:_itemSize.headline_rect];
 }
 
 - (void) touchesBegan:(NSSet*) touches withEvent:(UIEvent*)event
@@ -119,7 +98,7 @@
 	
 	if(viewModeExpanded)
 	{
-		holdTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(doSomething:) userInfo:event repeats:NO];
+		holdTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(doSomething:) userInfo:event repeats:NO];
 		[holdTimer retain];
 	}
 }
@@ -320,6 +299,7 @@
 		if(c==' ' || c=='\n')
 		{
 			NSString * tmp=[text substringToIndex:i+1];
+			
 			CGSize size = [tmp sizeWithFont:font constrainedToSize:tmp_size lineBreakMode:UILineBreakModeWordWrap];
 		
 			if(size.height <= constraint.height)
@@ -330,74 +310,121 @@
 	}
 	
 	return i;
-	
 }
 
-+(CGFloat) heightForCell:(SearchResult *)searchResult viewMode:(BOOL)expanded;
++(ItemSize) sizeForCell:(SearchResult *)searchResult viewMode:(BOOL)expanded rect:(CGRect)rect
 {
+	ItemSize itemSize;
+	
+	itemSize.size=CGSizeZero;
+	itemSize.headline_rect=CGRectZero;
+	itemSize.date_rect=CGRectZero;
+	itemSize.synopsis_break=0;
+	itemSize.synopsis_rect1=CGRectZero;
+	itemSize.synopsis_rect2=CGRectZero;
+	itemSize.comments_rect=CGRectZero;
+	
+	int cellWidth;
+	
+	if(rect.size.width>0)
+	{
+		cellWidth=rect.size.width;
+	}
+	else 
+	{
+		cellWidth=kCellWidth;
+	}
+
+	UIFont * font=[UIFont systemFontOfSize:kFontSize];
+	
 	UIImage * image=searchResult.image;
 	NSString * synopsis=searchResult.synopsis;
+	NSString * comments=searchResult.notes;
+
+	itemSize.size.width=cellWidth;
 	
-	UIFont * font=[UIFont systemFontOfSize:kFontSize];
-	CGSize size;
+	itemSize.headline_rect=CGRectMake(kCellPadding, kLineSpacing, cellWidth-(kCellPadding*2), kHeadlineFontSize+kLineSpacing);
 	
-	CGFloat buffer=kCellPadding +kHeadlineFontSize+kDateFontSize+kLineSpacing*3+kCellPadding*2; // bottom buffer so we dont overflow during edit mode, etc.
+	itemSize.date_rect=CGRectMake(kCellPadding, itemSize.headline_rect.origin.y+itemSize.headline_rect.size.height+kLineSpacing,cellWidth-(kCellPadding*2),kDateFontSize+kLineSpacing);
+	
+	itemSize.size.height=itemSize.date_rect.origin.y+itemSize.date_rect.size.height+kLineSpacing;
+	
+	itemSize.synopsis_break=0;
 	
 	if(expanded)
 	{
 		if(image)
 		{
-			CGFloat minHeight=image.size.height + (kCellPadding*2);
+			itemSize.image_rect=CGRectMake(kCellPadding, itemSize.date_rect.origin.y+itemSize.date_rect.size.height+kCellPadding, image.size.width, image.size.height);
 			
+			itemSize.size.height=itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kCellPadding;
 			
-			if(image.size.width < kCellWidth * 0.67)
+			if(synopsis && [synopsis length]>0)
 			{
-			
-				CGSize constraint = CGSizeMake(kCellWidth - image.size.width  -  (kCellPadding * 3), 20000.0f);
-				
-				size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-				
-				if(size.height > image.size.height+kFontSize)
+				if(image.size.width < cellWidth * .67)
 				{
-					int i=[NewsletterItemContentView findBestFit:synopsis constraint:CGSizeMake(kCellWidth-image.size.width - (kCellPadding*3), image.size.height+kFontSize)];
+					CGSize constraint = CGSizeMake(cellWidth - image.size.width  -  (kCellPadding * 3), 20000.0f);
 					
-					if(i>0)
+					itemSize.synopsis_rect1=CGRectMake(itemSize.image_rect.origin.x+itemSize.image_rect.size.width+kCellPadding, itemSize.image_rect.origin.y, constraint.width, image.size.height+kFontSize);
+					
+					CGSize size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+					
+					if(size.height > image.size.height+kFontSize)
 					{
-						NSString * second_part=[synopsis substringFromIndex:i+2];
+						itemSize.synopsis_break=[NewsletterItemContentView findBestFit:synopsis constraint:CGSizeMake(cellWidth-image.size.width - (kCellPadding*3), image.size.height+kFontSize)];
 						
-						size=[second_part sizeWithFont:font constrainedToSize:CGSizeMake(kCellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
-						
-						minHeight+=kFontSize + size.height;
-						
-						return minHeight + buffer;
+						if(itemSize.synopsis_break>0)
+						{
+							NSString * second_part=[synopsis substringFromIndex:itemSize.synopsis_break+2];
+							
+							size=[second_part sizeWithFont:font constrainedToSize:CGSizeMake(cellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
+							
+							itemSize.synopsis_rect2=CGRectMake(kCellPadding, itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kFontSize, cellWidth-(kCellPadding*2), size.height);
+
+							itemSize.size.height=itemSize.synopsis_rect2.origin.y+itemSize.synopsis_rect2.size.height+kCellPadding;
+						}
 					}
 				}
 				else 
 				{
-					return minHeight + buffer;
+					CGSize constraint = CGSizeMake(cellWidth-(kCellPadding*2), 20000.0f);
+					
+					CGSize size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+					
+					itemSize.synopsis_rect1=CGRectMake(kCellPadding,itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kFontSize,cellWidth-(kCellPadding*2),size.height);
+				
+					itemSize.size.height=itemSize.synopsis_rect1.origin.y+itemSize.synopsis_rect1.size.height+kCellPadding;
 				}
 			}
-			else {
-				
-				size=[synopsis sizeWithFont:font constrainedToSize:CGSizeMake(kCellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
-				
-				minHeight+=kFontSize + size.height;
-				
-				return minHeight + buffer;
-			}
-
 		}
-		else {
-			if (synopsis) {
-				size=[synopsis sizeWithFont:font constrainedToSize:CGSizeMake(kCellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
-				return (kCellPadding*2) + size.height + buffer;
+		else 
+		{
+			if(synopsis && [synopsis length]>0)
+			{
+				CGSize constraint = CGSizeMake(cellWidth-(kCellPadding*2), 20000.0f);
+				
+				CGSize size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+				
+				itemSize.synopsis_rect1=CGRectMake(kCellPadding,itemSize.date_rect.origin.y+itemSize.date_rect.size.height+kCellPadding,cellWidth-(kCellPadding*2),size.height);
+			
+				itemSize.size.height=itemSize.synopsis_rect1.origin.y+itemSize.synopsis_rect1.size.height+kCellPadding;
 			}
-		} 
-	}
+		}
 		
-	return buffer; // default empty cell height
+		if(comments && [comments length]>0)
+		{
+			CGSize constraint = CGSizeMake(cellWidth-(kCellPadding*4), 20000.0f);
+			
+			CGSize size = [comments sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+			
+			itemSize.comments_rect=CGRectMake(kCellPadding *2  , itemSize.size.height+kCellPadding, cellWidth-(kCellPadding*4),size.height);
+		
+			itemSize.size.height=itemSize.comments_rect.origin.y+itemSize.comments_rect.size.height+(kCellPadding*2);
+		}
+	}
+	
+	return itemSize;
 }
-
 
 + (UIColor *) colorWithHexString: (NSString *) stringToConvert  
 {  
@@ -435,118 +462,133 @@
                            alpha:1.0f];  
 } 
 
-
 - (void)drawRect:(CGRect)rect
 {
-	//[super drawRect:rect];
+	ItemSize itemSize=[NewsletterItemContentView sizeForCell:searchResult viewMode:viewModeExpanded rect:rect];
 	
-	NSLog(@"drawRect:%@, %@",NSStringFromCGRect(rect),searchResult.headline );
+	_itemSize=itemSize;
 	
 	UIImage * image=searchResult.image;
 	NSString * synopsis=searchResult.synopsis;
-		
+	NSString * comments=searchResult.notes;
+	
 	UIFont * font=[UIFont systemFontOfSize:kFontSize];
 	
-	CGSize size;
-	
-	CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), [NewsletterItemContentView colorWithHexString:@"336699"].CGColor);//    [UIColor blueColor].CGColor);//336699
+	CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), [NewsletterItemContentView colorWithHexString:@"336699"].CGColor);//336699
 	
 	// draw headline
-	[searchResult.headline drawInRect:CGRectMake(kCellPadding, kCellPadding, kCellWidth - (kCellPadding*2), kHeadlineFontSize+kLineSpacing) withFont:[UIFont boldSystemFontOfSize:kHeadlineFontSize] lineBreakMode:UILineBreakModeTailTruncation];
+	[searchResult.headline drawInRect:itemSize.headline_rect withFont:[UIFont boldSystemFontOfSize:kHeadlineFontSize] lineBreakMode:UILineBreakModeTailTruncation];
 	
 	CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), [UIColor grayColor].CGColor);//666666
 	
 	// draw date
-	[[searchResult.date description] drawInRect:CGRectMake(kCellPadding, kCellPadding+(kHeadlineFontSize+kLineSpacing)+kLineSpacing, kCellWidth-(kCellPadding*2), kDateFontSize+kLineSpacing) withFont:[UIFont systemFontOfSize:kDateFontSize] lineBreakMode:UILineBreakModeTailTruncation];
+	
+	NSDateFormatter *format = [[NSDateFormatter alloc] init];
+	[format setDateFormat:@"MMM d, yyyy h:mm"];
+	
+	NSString *dateString = [NSString stringWithFormat:@"%@ %@",[format stringFromDate:searchResult.date],[searchResult relativeDateOffset]];
+	
+	[format release];
+
+	[dateString drawInRect:itemSize.date_rect withFont:[UIFont systemFontOfSize:kDateFontSize] lineBreakMode:UILineBreakModeTailTruncation];
 	
 	if(viewModeExpanded)
 	{
-	
-		int top=kCellPadding +kHeadlineFontSize+kDateFontSize+kLineSpacing*3;
-		
-		CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), [UIColor grayColor].CGColor);//666666
+		CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), [UIColor blackColor].CGColor);//666666
 		
 		if (image) 
 		{
+			[image drawInRect:itemSize.image_rect];
+		}
 		
-			[image drawInRect:CGRectMake(kCellPadding	, kCellPadding+top, image.size.width, image.size.height)];
-			
-			// draw synopsis
-			if(synopsis)
+		// draw synopsis
+		if(synopsis && [synopsis length]>0)
+		{
+			if(itemSize.synopsis_break>0)
 			{
-				if(image.size.width < kCellWidth * 0.67)
-				{
-					CGSize constraint = CGSizeMake(kCellWidth - image.size.width  -  (kCellPadding * 3), 20000.0f);
-					
-					size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-					
-					if(size.height > image.size.height+kFontSize)
-					{
-						int i=[NewsletterItemContentView findBestFit:synopsis constraint:CGSizeMake(kCellWidth-image.size.width - (kCellPadding*3), image.size.height+kFontSize)];
-						
-						if(i>0)
-						{
-							NSString * first_part=[synopsis substringToIndex:i+1];
-							
-							[first_part drawInRect:CGRectMake((kCellPadding*2)+image.size.width, kCellPadding+top, size.width, image.size.height+kFontSize) withFont:font lineBreakMode:UILineBreakModeWordWrap];
-							
-							NSString * second_part=[synopsis substringFromIndex:i+2];
-							
-							size=[second_part sizeWithFont:font constrainedToSize:CGSizeMake(kCellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
-							
-							[second_part drawInRect:CGRectMake(kCellPadding, top+kCellPadding+image.size.height+ kFontSize, size.width, size.height) withFont:font lineBreakMode:UILineBreakModeWordWrap];
-						}
-					}
-					else 
-					{
-						// it fits next to image
-						
-						[synopsis drawInRect:CGRectMake((kCellPadding*2)+image.size.width, kCellPadding+top, size.width, size.height) withFont:font  lineBreakMode:UILineBreakModeWordWrap];
-					}
-				}
-				else
-				{
-					// put synopsis below the image since image is wide
-					size=[synopsis sizeWithFont:font constrainedToSize:CGSizeMake(kCellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
-					
-					[synopsis drawInRect:CGRectMake(kCellPadding, top+kCellPadding+image.size.height+ kFontSize, size.width, size.height) withFont:font lineBreakMode:UILineBreakModeWordWrap];
-					
-				}	
+				NSString * first_part=[synopsis substringToIndex:itemSize.synopsis_break+1];
+				
+				[first_part drawInRect:itemSize.synopsis_rect1 withFont:font lineBreakMode:UILineBreakModeWordWrap];
+				
+				NSString * second_part=[synopsis substringFromIndex:itemSize.synopsis_break+2];
+				
+				[second_part drawInRect:itemSize.synopsis_rect2 withFont:font lineBreakMode:UILineBreakModeWordWrap];
+			}
+			else
+			{
+				[synopsis drawInRect:itemSize.synopsis_rect1 withFont:font];
 			}
 		}
-		else 
-		{
-			// draw synopsis
-			if(synopsis)
-			{
-				size=[synopsis sizeWithFont:font constrainedToSize:CGSizeMake(kCellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
-				
-				[synopsis drawInRect:CGRectMake(kCellPadding, kCellPadding+top, size.width, size.height) withFont:font  lineBreakMode:UILineBreakModeWordWrap];
-				
-			}
+		
+		if(comments && [comments length]>0)
+		{ 
+			UIImage* balloon = [[UIImage imageNamed:@"balloon.png"] stretchableImageWithLeftCapWidth:15  topCapHeight:15]; // you need to have the .png image, it's not a system one.
+			
+			
+			CGRect rect=CGRectMake(itemSize.comments_rect.origin.x-kCellPadding, itemSize.comments_rect.origin.y-kCellPadding, itemSize.comments_rect.size.width+(kCellPadding*2), itemSize.comments_rect.size.height+(kCellPadding*2));
+			
+			[balloon drawInRect:rect];
+			
+			/*CGContextRef context = UIGraphicsGetCurrentContext();
+			
+			CGContextSetFillColorWithColor(context, [UIColor yellowColor].CGColor);
+			
+			//CGContextSetRGBFillColor(context, 0,0,0,0.75);
+			
+			CGFloat radius=kCellPadding;
+			
+			CGContextMoveToPoint(context, rect.origin.x, rect.origin.y + radius);
+			
+			CGContextAddLineToPoint(context, rect.origin.x, rect.origin.y + rect.size.height - radius);
+			
+			CGContextAddArc(context, rect.origin.x + radius, rect.origin.y + rect.size.height - radius, 
+							radius, M_PI / 4, M_PI / 2, 1);
+			
+			CGContextAddLineToPoint(context, rect.origin.x + rect.size.width - radius, 
+									rect.origin.y + rect.size.height);
+			
+			CGContextAddArc(context, rect.origin.x + rect.size.width - radius, 
+							rect.origin.y + rect.size.height - radius, radius, M_PI / 2, 0.0f, 1);
+			
+			CGContextAddLineToPoint(context, rect.origin.x + rect.size.width, rect.origin.y + radius);
+			
+			CGContextAddArc(context, rect.origin.x + rect.size.width - radius, rect.origin.y + radius, 
+							radius, 0.0f, -M_PI / 2, 1);
+			
+			CGContextAddLineToPoint(context, rect.origin.x + radius, rect.origin.y);
+			
+			CGContextAddArc(context, rect.origin.x + radius, rect.origin.y + radius, radius, 
+							-M_PI / 2, M_PI, 1);
+			
+			CGContextFillPath(context);
+			 */
+			CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(),[UIColor blackColor].CGColor); //   [NewsletterItemContentView colorWithHexString:@"b00027"].CGColor);//b00027
+			
+			[comments drawInRect:itemSize.comments_rect withFont:font];
+		
 		}
 	}
-	
-	
-	// color for comments: b00027
-	
 	// draw row seperators
+	
+	
+	
 	
 	// set width of line to single pixel
 	/*CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 1.0);
-		
-	// draw seperator line on top of cell rect
-	CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 1.0, 1.0, 1.0, 0.8);
-	CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 0, 0);
-	CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), rect.size.width, 0);
-	CGContextStrokePath(UIGraphicsGetCurrentContext());	
-		
-	// draw seperator line on bottom of cell rect in a different color
-	CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 0.25, 0.25, 0.25, 0.8);
-	CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 0, rect.size.height);
-	CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), rect.size.width, rect.size.height);
-	CGContextStrokePath(UIGraphicsGetCurrentContext());*/
+	 
+	 // draw seperator line on top of cell rect
+	 CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 1.0, 1.0, 1.0, 0.8);
+	 CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 0, 0);
+	 CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), rect.size.width, 0);
+	 CGContextStrokePath(UIGraphicsGetCurrentContext());	
+	 
+	 // draw seperator line on bottom of cell rect in a different color
+	 CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 0.25, 0.25, 0.25, 0.8);
+	 CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 0, rect.size.height);
+	 CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), rect.size.width, rect.size.height);
+	 CGContextStrokePath(UIGraphicsGetCurrentContext());*/
 }
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker 
 		didFinishPickingImage:(UIImage *)image

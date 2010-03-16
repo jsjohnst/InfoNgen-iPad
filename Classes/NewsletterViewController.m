@@ -21,7 +21,7 @@
 #import "NewsletterItemContentView.h"
 
 @implementation NewsletterViewController
-@synthesize newsletterTableView,newsletter,editMoveButton,editSettingsButton,updateButton,previewButton,toolBar,deleteButton,clearButton,viewModeSegmentedControl;
+@synthesize newsletterTableView,newsletter,editMoveButton,editSettingsButton,updateButton,toolBar,deleteButton,viewModeSegmentedControl,previewController;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -45,11 +45,11 @@
 	{
 		self.editMoveButton.enabled=enabled;
 	}
-	self.clearButton.enabled=enabled;
+	//self.clearButton.enabled=enabled;
 	self.deleteButton.enabled=enabled;
 	self.updateButton.enabled=enabled;
 	self.editSettingsButton.enabled=enabled;
-	self.previewButton.enabled=enabled;
+	//self.previewButton.enabled=enabled;
 	self.viewModeSegmentedControl.enabled=enabled;
 }
 
@@ -98,14 +98,38 @@
 	
 }
 
+-(void) closePreview
+{
+	if(self.previewController!=nil)
+	{
+		[self.previewController.view removeFromSuperview];
+		[previewController release];
+		previewController=nil;
+	}
+	
+}
+
 -(void) toggleViewMode:(id)sender
 {
-	//self.viewModeSegmentedControl;
-	
-	//viewModeExpanded=([self.viewModeSegmentedControl selectedSegmentIndex]==1);
-	
-	[self.newsletterTableView reloadData];
-	
+	if([self.viewModeSegmentedControl selectedSegmentIndex]!=2)
+	{
+		if(self.previewController!=nil)
+		{
+			//[UIView beginAnimations:nil context:NULL];  
+			//[UIView setAnimationDuration:0.5];  
+			//[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.newsletterTableView cache:YES];  
+		
+			[self closePreview];
+			
+			//[UIView commitAnimations]; 
+		}
+		
+		[self.newsletterTableView reloadData];
+	}
+	else 
+	{
+		[self preview];
+	}
 }
 
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet
@@ -301,6 +325,10 @@
 
 - (void) setCurrentNewsletter:(Newsletter*)newsletter
 {
+	[self closePreview];
+	
+	self.viewModeSegmentedControl.selectedSegmentIndex=1;
+	
 	self.newsletter=newsletter;
 
 	// set current newsletter in app delegate so it can always remember last newsletter to show again on restart...
@@ -455,6 +483,8 @@
 		self.editMoveButton.style=UIBarButtonItemStyleBordered;
 		self.editMoveButton.title=@"Edit";
 		[self setButtonsEnabled:YES];
+		//self.clearButton.visible=NO;
+		//self.clearButton.enabled=NO;
 	}
 	else
 	{
@@ -462,7 +492,9 @@
 		self.editMoveButton.style=UIBarButtonItemStyleDone;
 		self.editMoveButton.title=@"Done";
 		[self setButtonsEnabled:NO];
-		self.clearButton.enabled=YES;
+		//self.clearButton.visible=YES;
+		//self.clearButton.enabled=YES;
+		self.deleteButton.enabled=YES;
 	}
 }
 
@@ -564,7 +596,7 @@
 	}
 	else 
 	{
-		UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		UIButton *refreshButton = [UIButton buttonWithType:UIButtonType
 		[refreshButton setImage:[UIImage imageNamed:@"icon_refresh.png"] forState:UIControlStateNormal];
 		[refreshButton setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
 		//[butt setFrame:CGRectMake(240, 0, 70, 20)];
@@ -689,7 +721,8 @@
 		
 			//cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
 		
-			cell.selectionStyle=UITableViewCellSelectionStyleNone;
+				
+			//cell.selectionStyle=UITableViewCellSelectionStyleNone;
 		
 			NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, cell.contentView.bounds.size.width, cell.contentView.bounds.size.height)];
 		
@@ -894,8 +927,9 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 
 	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
 	
-	return [NewsletterItemContentView heightForCell:result viewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1) ];
+	ItemSize itemSize=[NewsletterItemContentView sizeForCell:result viewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1) rect:CGRectZero];
 	
+	return itemSize.size.height;
 }
 
 - (void)tableView:(UITableView*)tableView 
@@ -927,7 +961,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	//{
 		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
 	
-		[newsletterSection.items removeObjectAtIndex:row-1];
+		[newsletterSection.items removeObjectAtIndex:row];
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	//}
 }
@@ -952,20 +986,40 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 - (IBAction) preview
 {
 	
-	NewsletterHTMLPreviewViewController * previewController=[[NewsletterHTMLPreviewViewController alloc] initWithNibName:@"NewsletterHTMLPreviewView" bundle:nil];
+	//if([[self.newsletterTableView subviews] count]==0)
+	//{
+		//if(previewController==nil)
+		//{
+			self.previewController=[[NewsletterHTMLPreviewViewController alloc] initWithNibName:@"NewsletterHTMLPreviewView" bundle:nil];
+		//}
+		
+		previewController.savedSearches=((AppDelegate*)[[UIApplication sharedApplication] delegate]).savedSearches;
 	
-	previewController.savedSearches=((AppDelegate*)[[UIApplication sharedApplication] delegate]).savedSearches;
+		previewController.newsletter=self.newsletter;
 	
-	previewController.newsletter=self.newsletter;
-									 
+		//[UIView beginAnimations:nil context:NULL];  
+		//[UIView setAnimationDuration:0.5];  
+		//[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.newsletterTableView cache:YES];  
+	
+		[self.view addSubview:previewController.view];
+		[self.view bringSubviewToFront:previewController.view];
+	
+		//[self.newsletterTableView addSubview:previewController.view];  
+		//[self.newsletterTableView bringSubviewToFront:previewController.view];
+		
+		//[UIView commitAnimations];  
+	
+	//}
+	/*
 	UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	
 	[navController pushViewController:previewController animated:YES];
 	
 	navController.navigationBar.topItem.title=@"Newsletter Preview";
-	
-	[previewController release];
-	
+	 [previewController release];
+
+	*/
+		
 }
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
@@ -1000,10 +1054,11 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	[editSettingsButton release];
 	[updateButton release];
 	[deleteButton release];
-	[previewButton release];
-	[clearButton release];
+	//[previewButton release];
+	//[clearButton release];
 	[newsletter release];
 	[toolBar release];
+	[previewController release];
 	[viewModeSegmentedControl release];
     [super dealloc];
 }

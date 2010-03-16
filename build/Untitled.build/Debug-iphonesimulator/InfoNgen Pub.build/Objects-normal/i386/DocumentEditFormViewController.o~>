@@ -1,7 +1,0 @@
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditFormViewController.m:14: error: no declaration of property 'delegate' found in the interface
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditFormViewController.m: In function '-[DocumentEditFormViewController dismiss]':
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditFormViewController.m:24: error: 'delegate' undeclared (first use in this function)
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditFormViewController.m:24: error: (Each undeclared identifier is reported only once
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditFormViewController.m:24: error: for each function it appears in.)
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditFormViewController.m: In function '-[DocumentEditFormViewController dealloc]':
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditFormViewController.m:77: error: 'delegate' undeclared (first use in this function)

@@ -1,0 +1,6 @@
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentWebViewController.m: In function '-[DocumentWebViewController webView:shouldStartLoadWithRequest:navigationType:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentWebViewController.m:411: warning: format not a string literal and no format arguments
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentWebViewController.m:432: warning: unused variable 'actionSheetTitle'
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentWebViewController.m: At top level:
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentWebViewController.m:639: warning: incomplete implementation of class 'DocumentWebViewController'
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentWebViewController.m:639: warning: method definition for '-doSomething:' not found

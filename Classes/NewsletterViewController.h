@@ -15,17 +15,19 @@
 @class Newsletter;
 @class SearchResult;
 @class SavedSearch;
+@class NewsletterHTMLPreviewViewController;
 
 @interface NewsletterViewController : UIViewController< UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate> {
 	IBOutlet UITableView * newsletterTableView;
 	IBOutlet UIBarButtonItem * editMoveButton;
 	IBOutlet UIBarButtonItem * editSettingsButton;
 	IBOutlet UIBarButtonItem * updateButton;
-	IBOutlet UIBarButtonItem * previewButton;
+	//IBOutlet UIBarButtonItem * previewButton;
 	IBOutlet UIBarButtonItem * deleteButton;
-	IBOutlet UIBarButtonItem * clearButton;
+	//IBOutlet UIBarButtonItem * clearButton;
 	IBOutlet UIToolbar * toolBar;
 	IBOutlet UISegmentedControl * viewModeSegmentedControl;
+	NewsletterHTMLPreviewViewController * previewController;
 	Newsletter * newsletter;
 	BOOL updating;
 	BOOL viewModeExpanded;
@@ -35,12 +37,15 @@
 @property (nonatomic,retain) IBOutlet UIBarButtonItem * editMoveButton;
 @property (nonatomic,retain) IBOutlet UIBarButtonItem * editSettingsButton;
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * updateButton;
-@property(nonatomic,retain) IBOutlet UIBarButtonItem * previewButton;
+//@property(nonatomic,retain) IBOutlet UIBarButtonItem * previewButton;
 @property(nonatomic,retain) IBOutlet UIBarButtonItem * deleteButton;
-@property(nonatomic,retain) IBOutlet UIBarButtonItem * clearButton;
+//@property(nonatomic,retain) IBOutlet UIBarButtonItem * clearButton;
 @property(nonatomic,retain) IBOutlet UISegmentedControl * viewModeSegmentedControl;
+@property(nonatomic,retain) NewsletterHTMLPreviewViewController * previewController;
+
 @property(nonatomic,retain) IBOutlet UIToolbar * toolBar;
 @property (nonatomic,retain) Newsletter * newsletter;
+-(void) closePreview;
 
 -(void) toggleViewMode:(id)sender;
 

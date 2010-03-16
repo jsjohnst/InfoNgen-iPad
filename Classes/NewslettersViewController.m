@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 
 @implementation NewslettersViewController
-@synthesize newsletters,newslettersTable;
+@synthesize newsletters,newslettersTable,editButton,addButton;
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -25,6 +25,46 @@
 	[super viewDidAppear:animated];
 }
 
+-(IBAction) toggleEditMode
+{
+	if(self.newslettersTable.editing)
+	{
+		[self.newslettersTable setEditing:NO animated:YES];
+		self.editButton.style=UIBarButtonItemStyleBordered;
+		self.editButton.title=@"Edit";
+		self.addButton.enabled=YES;
+	}
+	else
+	{
+		[self.newslettersTable setEditing:YES animated:YES];
+		self.editButton.style=UIBarButtonItemStyleDone;
+		self.editButton.title=@"Done";
+		self.addButton.enabled=NO;
+	}
+}
+
+-(UITableViewCellEditingStyle)tableView:(UITableView*)tableView editingStyleForRowAtIndexPath:(NSIndexPath*)indexPath {
+	
+	return UITableViewCellEditingStyleDelete;
+}
+
+- (void) tableView:(UITableView*)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+ forRowAtIndexPath:(NSIndexPath*)indexPath
+{
+	NSUInteger row=[indexPath	row];
+	
+	[self.newsletters removeObjectAtIndex:row];
+	
+	[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+	
+}
+
+- (BOOL) tableView:(UITableView*)tableView
+canMoveRowAtIndexPath:(NSIndexPath*)indexPath
+{
+	return NO;
+}
 
 - (IBAction) newNewsletter
 {
@@ -85,6 +125,8 @@
 - (void)dealloc {
 	[newsletters release];
 	[newslettersTable release];
+	[editButton release];
+	[addButton release];
     [super dealloc];
 }
 

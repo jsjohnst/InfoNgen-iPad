@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="37"/>
+			<integer value="27"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -69,20 +69,22 @@
 							<object class="IBUISegmentedControl" id="938221596">
 								<reference key="NSNextResponder" ref="433873972"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{285, 8}, {207, 30}}</string>
+								<string key="NSFrame">{{288, 8}, {207, 30}}</string>
 								<reference key="NSSuperview" ref="433873972"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBSegmentControlStyle">2</int>
-								<int key="IBNumberOfSegments">2</int>
+								<int key="IBNumberOfSegments">3</int>
 								<int key="IBSelectedSegmentIndex">1</int>
 								<object class="NSArray" key="IBSegmentTitles">
 									<bool key="EncodedWithXMLCoder">YES</bool>
 									<string>Headlines</string>
 									<string>Synopsis</string>
+									<string>Preview</string>
 								</object>
 								<object class="NSMutableArray" key="IBSegmentWidths">
 									<bool key="EncodedWithXMLCoder">YES</bool>
+									<real value="0.0"/>
 									<real value="0.0"/>
 									<real value="0.0"/>
 								</object>
@@ -90,15 +92,18 @@
 									<bool key="EncodedWithXMLCoder">YES</bool>
 									<boolean value="YES"/>
 									<boolean value="YES"/>
+									<boolean value="YES"/>
 								</object>
 								<object class="NSMutableArray" key="IBSegmentContentOffsets">
 									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>{0, 0}</string>
 									<string>{0, 0}</string>
 									<string>{0, 0}</string>
 								</object>
 								<object class="NSMutableArray" key="IBSegmentImages">
 									<bool key="EncodedWithXMLCoder">YES</bool>
 									<object class="NSNull" id="4"/>
+									<reference ref="4"/>
 									<reference ref="4"/>
 								</object>
 							</object>
@@ -124,29 +129,11 @@
 								<reference key="IBUIToolbar" ref="433873972"/>
 								<int key="IBUISystemItemIdentifier">6</int>
 							</object>
-							<object class="IBUIBarButtonItem" id="210334553">
-								<bool key="IBUIEnabled">NO</bool>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">icon_cancel.png</string>
-								</object>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<reference key="IBUIToolbar" ref="433873972"/>
-							</object>
-							<object class="IBUIBarButtonItem" id="489935934">
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<float key="IBUIWidth">42</float>
-								<reference key="IBUIToolbar" ref="433873972"/>
-								<int key="IBUISystemItemIdentifier">6</int>
-							</object>
 							<object class="IBUIBarButtonItem" id="435834745">
 								<bool key="IBUIEnabled">NO</bool>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">icon_trash.png</string>
-								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<reference key="IBUIToolbar" ref="433873972"/>
+								<int key="IBUISystemItemIdentifier">16</int>
 							</object>
 							<object class="IBUIBarButtonItem" id="318062927">
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -165,12 +152,9 @@
 							</object>
 							<object class="IBUIBarButtonItem" id="237854390">
 								<bool key="IBUIEnabled">NO</bool>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">icon_refresh.png</string>
-								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<reference key="IBUIToolbar" ref="433873972"/>
+								<int key="IBUISystemItemIdentifier">13</int>
 							</object>
 							<object class="IBUIBarButtonItem" id="825307766">
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -180,27 +164,9 @@
 							</object>
 							<object class="IBUIBarButtonItem" id="244427697">
 								<bool key="IBUIEnabled">NO</bool>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">icon_settings.png</string>
-								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<reference key="IBUIToolbar" ref="433873972"/>
-							</object>
-							<object class="IBUIBarButtonItem" id="442669784">
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<float key="IBUIWidth">42</float>
-								<reference key="IBUIToolbar" ref="433873972"/>
-								<int key="IBUISystemItemIdentifier">6</int>
-							</object>
-							<object class="IBUIBarButtonItem" id="11051550">
-								<bool key="IBUIEnabled">NO</bool>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">icon_filming.png</string>
-								</object>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<reference key="IBUIToolbar" ref="433873972"/>
+								<int key="IBUISystemItemIdentifier">7</int>
 							</object>
 						</object>
 					</object>
@@ -300,22 +266,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">previewButton</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="11051550"/>
-					</object>
-					<int key="connectionID">23</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">preview</string>
-						<reference key="source" ref="11051550"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">24</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">newsletterTableView</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="309643492"/>
@@ -331,36 +281,12 @@
 					<int key="connectionID">29</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">deleteNewsletter</string>
-						<reference key="source" ref="435834745"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">30</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">toolBar</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="433873972"/>
 					</object>
 					<int key="connectionID">31</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">clearButton</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="210334553"/>
-					</object>
-					<int key="connectionID">34</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">clearNewsletterItems</string>
-						<reference key="source" ref="210334553"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">35</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -378,6 +304,14 @@
 						<int key="IBEventType">13</int>
 					</object>
 					<int key="connectionID">41</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">clearNewsletterItems</string>
+						<reference key="source" ref="435834745"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">44</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -418,14 +352,10 @@
 							<reference ref="965589316"/>
 							<reference ref="318062927"/>
 							<reference ref="244427697"/>
-							<reference ref="11051550"/>
 							<reference ref="237854390"/>
 							<reference ref="825307766"/>
-							<reference ref="442669784"/>
 							<reference ref="435834745"/>
 							<reference ref="777638342"/>
-							<reference ref="210334553"/>
-							<reference ref="489935934"/>
 							<reference ref="936465901"/>
 							<reference ref="818196311"/>
 						</object>
@@ -452,11 +382,6 @@
 						<reference key="parent" ref="433873972"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">17</int>
-						<reference key="object" ref="11051550"/>
-						<reference key="parent" ref="433873972"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">19</int>
 						<reference key="object" ref="237854390"/>
 						<reference key="parent" ref="433873972"/>
@@ -467,11 +392,6 @@
 						<reference key="parent" ref="433873972"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">26</int>
-						<reference key="object" ref="442669784"/>
-						<reference key="parent" ref="433873972"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">27</int>
 						<reference key="object" ref="435834745"/>
 						<reference key="parent" ref="433873972"/>
@@ -479,16 +399,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">28</int>
 						<reference key="object" ref="777638342"/>
-						<reference key="parent" ref="433873972"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">32</int>
-						<reference key="object" ref="210334553"/>
-						<reference key="parent" ref="433873972"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">33</int>
-						<reference key="object" ref="489935934"/>
 						<reference key="parent" ref="433873972"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -522,15 +432,11 @@
 					<string>1.IBPluginDependency</string>
 					<string>11.IBPluginDependency</string>
 					<string>15.IBPluginDependency</string>
-					<string>17.IBPluginDependency</string>
 					<string>19.IBPluginDependency</string>
 					<string>20.IBPluginDependency</string>
-					<string>26.IBPluginDependency</string>
 					<string>27.IBPluginDependency</string>
 					<string>28.IBPluginDependency</string>
 					<string>3.IBPluginDependency</string>
-					<string>32.IBPluginDependency</string>
-					<string>33.IBPluginDependency</string>
 					<string>37.IBPluginDependency</string>
 					<string>39.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
@@ -540,11 +446,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>NewsletterViewController</string>
 					<string>UIResponder</string>
-					<string>{{645, 91}, {783, 915}}</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>{{475, 91}, {783, 915}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -575,7 +477,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">41</int>
+			<int key="maxID">44</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -610,12 +512,10 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>clearButton</string>
 							<string>deleteButton</string>
 							<string>editMoveButton</string>
 							<string>editSettingsButton</string>
 							<string>newsletterTableView</string>
-							<string>previewButton</string>
 							<string>toolBar</string>
 							<string>updateButton</string>
 							<string>viewModeSegmentedControl</string>
@@ -625,9 +525,7 @@
 							<string>UIBarButtonItem</string>
 							<string>UIBarButtonItem</string>
 							<string>UIBarButtonItem</string>
-							<string>UIBarButtonItem</string>
 							<string>UITableView</string>
-							<string>UIBarButtonItem</string>
 							<string>UIToolbar</string>
 							<string>UIBarButtonItem</string>
 							<string>UISegmentedControl</string>
@@ -917,25 +815,6 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<string key="IBDocument.LastKnownRelativeProjectPath">Untitled.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<bool key="EncodedWithXMLCoder">YES</bool>
-			<object class="NSArray" key="dict.sortedKeys">
-				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>icon_cancel.png</string>
-				<string>icon_filming.png</string>
-				<string>icon_refresh.png</string>
-				<string>icon_settings.png</string>
-				<string>icon_trash.png</string>
-			</object>
-			<object class="NSMutableArray" key="dict.values">
-				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{30, 30}</string>
-				<string>{30, 30}</string>
-				<string>{30, 30}</string>
-				<string>{30, 30}</string>
-				<string>{30, 30}</string>
-			</object>
-		</object>
 		<string key="IBCocoaTouchPluginVersion">84</string>
 	</data>
 </archive>

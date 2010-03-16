@@ -108,6 +108,9 @@
 		C4E13CD71133254900FC8A44 /* NewsletterSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E13CD61133254900FC8A44 /* NewsletterSettingsViewController.m */; };
 		C4E13D39113339B800FC8A44 /* TextFieldTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E13D38113339B800FC8A44 /* TextFieldTableCell.m */; };
 		C4E34D25112B1E6E00F193D9 /* LoginTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E34D24112B1E6E00F193D9 /* LoginTicket.m */; };
+		C4EBFF6E114FFAF700CD6FC9 /* balloon.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EBFF6D114FFAF700CD6FC9 /* balloon.png */; };
+		C4EBFF91114FFF7200CD6FC9 /* Balloon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EBFF90114FFF7200CD6FC9 /* Balloon_2.png */; };
+		C4EBFF98115001BF00CD6FC9 /* balloon_left.png in Resources */ = {isa = PBXBuildFile; fileRef = C4EBFF97115001BF00CD6FC9 /* balloon_left.png */; };
 		C4F0B14C1118DF6B0036B900 /* NewslettersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F0B14B1118DF6B0036B900 /* NewslettersViewController.m */; };
 		C4F0B18B1118E6570036B900 /* SavedSearchesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F0B18A1118E6570036B900 /* SavedSearchesView.xib */; };
 /* End PBXBuildFile section */
@@ -263,6 +266,9 @@
 		C4E13D38113339B800FC8A44 /* TextFieldTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldTableCell.m; sourceTree = "<group>"; };
 		C4E34D23112B1E6E00F193D9 /* LoginTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTicket.h; sourceTree = "<group>"; };
 		C4E34D24112B1E6E00F193D9 /* LoginTicket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTicket.m; sourceTree = "<group>"; };
+		C4EBFF6D114FFAF700CD6FC9 /* balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balloon.png; sourceTree = "<group>"; };
+		C4EBFF90114FFF7200CD6FC9 /* Balloon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Balloon_2.png; sourceTree = "<group>"; };
+		C4EBFF97115001BF00CD6FC9 /* balloon_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balloon_left.png; sourceTree = "<group>"; };
 		C4F0B14A1118DF6B0036B900 /* NewslettersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewslettersViewController.h; sourceTree = "<group>"; };
 		C4F0B14B1118DF6B0036B900 /* NewslettersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewslettersViewController.m; sourceTree = "<group>"; };
 		C4F0B18A1118E6570036B900 /* SavedSearchesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedSearchesView.xib; sourceTree = "<group>"; };
@@ -370,6 +376,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources-iPad */ = {
 			isa = PBXGroup;
 			children = (
+				C4EBFF97115001BF00CD6FC9 /* balloon_left.png */,
+				C4EBFF90114FFF7200CD6FC9 /* Balloon_2.png */,
+				C4EBFF6D114FFAF700CD6FC9 /* balloon.png */,
 				C48370481140480E005633B3 /* icon_measures.png */,
 				C4837046114047F5005633B3 /* icon_paragraph.png */,
 				C4837044114047BB005633B3 /* icon_text_align_left.png */,
@@ -627,6 +636,9 @@
 				C48370491140480E005633B3 /* icon_measures.png in Resources */,
 				C4926BD0114977DD00EC37A3 /* SelectImageView.xib in Resources */,
 				C4BA4E8E114E8AFE003A0396 /* DocumentEditFormView.xib in Resources */,
+				C4EBFF6E114FFAF700CD6FC9 /* balloon.png in Resources */,
+				C4EBFF91114FFF7200CD6FC9 /* Balloon_2.png in Resources */,
+				C4EBFF98115001BF00CD6FC9 /* balloon_left.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

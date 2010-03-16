@@ -429,9 +429,9 @@
 		NSLog(@"url=%@",self.selectedImageSource);
 		NSLog(@"href=%@",self.selectedImageLink);
 		
-		NSString * actionSheetTitle;
+		NSString * actionSheetTitle=@"";
 		
-		if(self.selectedImageLink && [self.selectedImageLink length]>0 && (![self.selectedImageLink isEqualToString:@"null"]))
+		/*if(self.selectedImageLink && [self.selectedImageLink length]>0 && (![self.selectedImageLink isEqualToString:@"null"]))
 		{
 			actionSheetTitle=self.selectedImageLink;
 		}
@@ -443,15 +443,17 @@
 		if([actionSheetTitle length]>150)
 		{
 			actionSheetTitle=[NSString stringWithFormat:@"%@...",[actionSheetTitle substringToIndex:147]];
-		}
+		}*/
 		
-		UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:actionSheetTitle delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
 		
-		if(self.selectedImageLink && [self.selectedImageLink length]>0 &&(!([self.selectedImageLink isEqualToString:@"null"])))
+		
+		UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+		
+		/*if(self.selectedImageLink && [self.selectedImageLink length]>0 &&(!([self.selectedImageLink isEqualToString:@"null"])))
 		{
 			actionSheet.tag=1;
 			[actionSheet addButtonWithTitle:@"Open"];
-		}
+		}*/
 									 
 		[actionSheet addButtonWithTitle:@"Set Headline Image"];
 		
