@@ -596,7 +596,7 @@
 	}
 	else 
 	{
-		UIButton *refreshButton = [UIButton buttonWithType:UIButtonType
+		UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		[refreshButton setImage:[UIImage imageNamed:@"icon_refresh.png"] forState:UIControlStateNormal];
 		[refreshButton setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
 		//[butt setFrame:CGRectMake(240, 0, 70, 20)];

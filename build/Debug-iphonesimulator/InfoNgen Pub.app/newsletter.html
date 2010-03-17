@@ -43,8 +43,8 @@
 							<td colspan="4" width="100%" align="left">
 								<div align="left" style="text-align:left;font-family:Arial, Helvetica, sans-serif;font-size: 10pt;line-height: 11pt;color:#b00027;">
 									<font face="Arial, Helvetica, sans-serif" />
-									<br /> 
-										</div>
+									<br />.
+								</div>
 							</td>
 						</tr>
 					</table>
@@ -82,7 +82,7 @@
 								<span style="font-family:Arial, Helvetica, sans-serif;font-size: 11pt;line-height: 11pt;color:#339933;">
 									
 									{{newsletter.sections.left}}
-									<a style="text-decoration: none;color:#339933;" href="#Topic1" LocalGoTo="Topic1">
+									<a style="text-decoration: none;color:#339933;" href="#Topic_{{section.ordinal}}" LocalGoTo="Topic_{{section.ordinal}}">
 										<strong>
 											<span style="font-family:font-family:Arial, Helvetica, sans-serif;color:#339933;font-size: 11pt;">
 												<font face="Arial, Helvetica, sans-serif">{{section.name}}</font>
@@ -105,7 +105,7 @@
 									
 									{{newsletter.sections.right}}
 									<div style="position:relative;top:-2pt;">
-										<a name="Topic1" LocalDestination="Topic1" Chapter="Enterprise Search" style="color:#339933;">
+										<a name="Topic_{{section.ordinal}}" LocalDestination="Topic_{{section.ordinal}}" Chapter="{{section.name}}" style="color:#339933;">
 											<span style="font-family:font-family:Arial, Helvetica, sans-serif;font-size: 11pt;color:#339933;">
 												<strong>
 													<font face="Arial, Helvetica, sans-serif">{{section.name}}</font>

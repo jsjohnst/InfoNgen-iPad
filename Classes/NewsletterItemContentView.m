@@ -263,9 +263,9 @@
 		
 		self.imagePickerPopover=popover;
 		
-		CGRect rect=CGRectMake(self.bounds.origin.x+(self.bounds.size.width/2)-10, self.bounds.origin.y+(self.bounds.size.height/2)-10, 20, 20);
-		 
-		[popover presentPopoverFromRect:rect inView:self permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+		//CGRect rect=CGRectMake(self.bounds.origin.x+(self.bounds.size.width/2)-10, self.bounds.origin.y+(self.bounds.size.height/2)-10, 20, 20);
+		
+		[popover presentPopoverFromRect:_itemSize.image_rect inView:self permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 	
 		[picker release];
 		
@@ -356,7 +356,7 @@
 		if(image)
 		{
 			itemSize.image_rect=CGRectMake(kCellPadding, itemSize.date_rect.origin.y+itemSize.date_rect.size.height+kCellPadding, image.size.width, image.size.height);
-			
+		
 			itemSize.size.height=itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kCellPadding;
 			
 			if(synopsis && [synopsis length]>0)
@@ -500,7 +500,16 @@
 		{
 			[image drawInRect:itemSize.image_rect];
 		}
-		
+		/*else 
+		{
+			UIButton * button=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+			button.frame=itemSize.image_rect;
+			[button setTitle:@"Add Image" forState:UIControlStateNormal];
+			[button addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
+			
+			[self addSubview:button];
+		}*/
+
 		// draw synopsis
 		if(synopsis && [synopsis length]>0)
 		{

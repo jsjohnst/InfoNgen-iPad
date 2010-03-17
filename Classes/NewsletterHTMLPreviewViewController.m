@@ -116,6 +116,7 @@
 												 encoding: NSUTF8StringEncoding 
 													error: nil];
 	
+	
 	html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.name}}" withString:self.newsletter.name];
 	
 	
@@ -132,7 +133,16 @@
 		html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.logoImage}}" withString:@""];
 	}
 
-	html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.lastUpdated}}" withString:[self.newsletter.lastUpdated description]];
+	NSDateFormatter *format = [[NSDateFormatter alloc] init];
+	
+	[format setDateFormat:@"MMM d, yyyy"];
+	
+	html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.lastUpdated}}" withString:[format stringFromDate:self.newsletter.lastUpdated]];
+	
+	[format release];
+	
+	format = [[NSDateFormatter alloc] init];
+	[format setDateFormat:@"MMM d, yyyy h:mm"];
 	
 	NSRange start=[html rangeOfString:@"{{newsletter.sections.left}}"];
 	NSRange end=[html rangeOfString:@"{{/newsletter.sections.left}}"];
@@ -141,10 +151,18 @@
 	
 	NSMutableString * sections=[[NSMutableString alloc] init];
 	
-	for (NewsletterSection * section in self.newsletter.sections)
-	{	
-		NSString * tmp=[sectionTemplate stringByReplacingOccurrencesOfString:@"{{section.name}}" withString:section.name];
-		[sections appendString:tmp];
+	
+	if(self.newsletter.sections)
+	{
+		int i=0;
+		for (NewsletterSection * section in self.newsletter.sections)
+		{	
+			NSString * tmp=[sectionTemplate stringByReplacingOccurrencesOfString:@"{{section.name}}" withString:section.name];
+			tmp=[tmp stringByReplacingOccurrencesOfString:@"{{section.ordinal}}" withString:[NSString stringWithFormat:@"%d",i]];
+			
+			i++;
+			[sections appendString:tmp];
+		}
 	}
 	
 	html=[html stringByReplacingCharactersInRange:NSMakeRange(start.location   , (end.location+end.length -(start.location))) withString:sections];
@@ -160,10 +178,14 @@
 	
 	if(self.newsletter.sections)
 	{
+		int i=0;
 		for (NewsletterSection * section in self.newsletter.sections)
 		{	
 			NSString * tmp=[sectionTemplate stringByReplacingOccurrencesOfString:@"{{section.name}}" withString:section.name];
 			
+			tmp=[tmp stringByReplacingOccurrencesOfString:@"{{section.ordinal}}" withString:[NSString stringWithFormat:@"%d",i]];
+			
+			i++;
 			NSRange tmpstart=[tmp rangeOfString:@"{{section.items}}"];
 			NSRange tmpend=[tmp rangeOfString:@"{{/section.items}}"];
 			NSRange tmprange=NSMakeRange(tmpstart.location+tmpstart.length   , (tmpend.location-(tmpstart.location+tmpstart.length)));
@@ -188,7 +210,7 @@
 							itemTmp=[itemTmp stringByReplacingOccurrencesOfString:@"{{item.url}}" withString:@""];
 						}
 						
-						itemTmp=[itemTmp stringByReplacingOccurrencesOfString:@"{{item.date}}" withString:[item.date description]];
+						itemTmp=[itemTmp stringByReplacingOccurrencesOfString:@"{{item.date}}" withString:[format stringFromDate:item.date]];
 						
 						if(item.synopsis)
 						{
@@ -240,6 +262,8 @@
 	[self.webView loadHTMLString:html baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
 	
 	[self.webView setNeedsDisplay];
+	
+	[format release];
 	
 	[super viewDidLoad];
 }
