@@ -11,24 +11,31 @@
 
 @class NewsletterViewController;
 @class NewslettersViewController; 
+@class NewsletterSettingsViewController;
+@class NewsletterHTMLPreviewViewController;
 @class LoginTicket;
 @class SearchResult;
 @class Newsletter;
 @class SavedSearch;
-@class SavedSearchesViewController;
-//UIPopoverControllerDelegate
+
 @interface AppDelegate : NSObject <UIApplicationDelegate,UISplitViewControllerDelegate, UINavigationControllerDelegate> {
     
     UIWindow *window;
     
     UISplitViewController *splitViewController;
-    UINavigationController *navigationController;
+    
+	UINavigationController *navigationController;
+	
 	UIPopoverController *newslettersPopoverController;
-	UIPopoverController *searchesPopoverController;
+	
+	UITabBarController * tabBarController;
 	
 	NewslettersViewController * newslettersViewController;
-	SavedSearchesViewController *savedSearchesViewController;
-    NewsletterViewController * newsletterViewController;
+	
+	NewsletterViewController * headlineViewController;
+	NewsletterViewController * synopsisViewController;
+	NewsletterSettingsViewController * newsletterSettingsViewController;
+	NewsletterHTMLPreviewViewController * newsletterHTMLPreviewViewController;
 	
 	Newsletter * newsletter;
 	
@@ -40,23 +47,25 @@
 @property (retain) NSMutableArray * savedSearches;
 @property (nonatomic,retain) Newsletter * newsletter;
 @property (nonatomic, retain) UIPopoverController *newslettersPopoverController;
-@property (nonatomic, retain) UIPopoverController *searchesPopoverController;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic,retain) IBOutlet UISplitViewController *splitViewController;
 @property (nonatomic,retain) IBOutlet UINavigationController *navigationController;
-@property (nonatomic,retain) IBOutlet SavedSearchesViewController *savedSearchesViewController;
 @property (nonatomic,retain) IBOutlet NewslettersViewController * newslettersViewController;
-@property (nonatomic,retain) IBOutlet NewsletterViewController * newsletterViewController;
+@property (nonatomic,retain) IBOutlet NewsletterViewController * headlineViewController;
+@property (nonatomic,retain) IBOutlet NewsletterViewController * synopsisViewController;
+@property(nonatomic,retain) UITabBarController * tabBarController;
+@property(nonatomic,retain) NewsletterSettingsViewController * newsletterSettingsViewController;
+@property(nonatomic,retain) NewsletterHTMLPreviewViewController * newsletterHTMLPreviewViewController;
 
+
+- (void) deleteNewsletter:(Newsletter*)newsletter;
 - (void) setCurrentNewsletter:(Newsletter*)newsletter;
-- (void)showNewslettersPopOver:(id)sender;
-- (void)showSavedSearchesPopOver:(id)sender;
+- (void) showNewslettersPopOver:(id)sender;
 - (void) addSearchResultToCurrentNewsletter:(SearchResult*)searchResult fromSavedSearch:(SavedSearch*)savedSearch;
+- (void) renderNewsletter;
 
 - (NSString *)dataFilePath;
-
 - (void) loadArchivedData;
-
 - (void) saveData;
 
 @end

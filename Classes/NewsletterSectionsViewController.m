@@ -13,8 +13,7 @@
 #import "Newsletter.h";
 
 @implementation NewsletterSectionsViewController
-@synthesize sectionsTable,newsletter;
-
+@synthesize sectionsTable,newsletter,addButton,editButton;
 
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -22,66 +21,31 @@
 	return YES;
 }
 
+// The size the view should be when presented in a popover.
+- (CGSize)contentSizeForViewInPopoverView {
+    return CGSizeMake(320.0, 600.0);
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	if(tableView.editing)
-	{
-		return 1;
-	}
-	else
-	{
-		return 2;
-	}
+	return 1;
 }
 
-/*- (CGFloat)tableView:(UITableView*)tableView
-heightForRowAtIndexPath:(NSIndexPath*)indexPath
-{
-	switch(indexPath.section)
-	{
-		case kSummarySection:
-			return 220.0;
-			break;
-	}
-	return 40.0;
-}*/
-
-- (void) edit:(id)sender
-{
-	UINavigationController * navController=(UINavigationController*)[self parentViewController];
-	navController.navigationBar.topItem.rightBarButtonItem.title=@"Done";
-	navController.navigationBar.topItem.rightBarButtonItem.style=UIBarButtonItemStyleDone;
-	navController.navigationBar.topItem.rightBarButtonItem.action=@selector(editDone:);
-	[self.sectionsTable setEditing:YES animated:YES];
-	[self.sectionsTable reloadData];
-	
-}
-
-- (void)editDone:(id)sender
-{
-	UINavigationController * navController=(UINavigationController*)[self parentViewController];
-	navController.navigationBar.topItem.rightBarButtonItem.title=@"Edit";
-	navController.navigationBar.topItem.rightBarButtonItem.style=UIBarButtonItemStylePlain;
-	navController.navigationBar.topItem.rightBarButtonItem.action=@selector(edit:);
-	[self.sectionsTable setEditing:NO animated:YES];
-	[self.sectionsTable reloadData];
-
-
+- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return [newsletter.sections count];
 }
 
 - (BOOL) tableView:(UITableView*)tableView
 canMoveRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	NSLog(@"canMoveRowAtIndexPath");
 	return tableView.editing;
-	//return YES;
 }
 
 - (void)tableView:(UITableView*)tableView 
 moveRowAtIndexPath:(NSIndexPath*)fromIndexPath
 	  toIndexPath:(NSIndexPath*)toIndexPath
 {
-	NSLog(@"moveRowAtIndexPath");
 	NSUInteger fromRow=[fromIndexPath row];
 	NSUInteger toRow=[toIndexPath row];
 	
@@ -95,8 +59,6 @@ moveRowAtIndexPath:(NSIndexPath*)fromIndexPath
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
  forRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	NSLog(@"commitEditingStyle");
-	
 	if(tableView.editing)
 	{
 		NSUInteger row=[indexPath	row];
@@ -106,8 +68,6 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 }
 
 -(BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath {
-	
-	NSLog(@"canEditRowAtIndexPath");
 	
 	if(tableView.editing) 
 	{
@@ -126,81 +86,85 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	[super viewWillAppear:animated];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	UITableViewCell *cell;
+	static NSString *CellIdentifier = @"CellIdentifier";
+	
+	// Dequeue or create a cell of the appropriate type.
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-	switch (indexPath.section) {
-			
-		case kSectionsSection:
-		{
-			NewsletterSection * section=[self.newsletter.sections objectAtIndex:indexPath.row];
-			
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
-			//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-			cell.textLabel.text = section.name;
-		}
-			break;
-		case kAddSectionSection:
-		{
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
-			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-			cell.textLabel.text = @"Add Saved Search...";
-		}
-			break;
-	}
-	
-	return cell;
-	
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-	switch (section) {
-		case kSectionsSection:
-			return [self.newsletter.sections count];
-		case kAddSectionSection:
-			return 1;
-		 
-			
-	}
-	return 0;
-}
-/*
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-	switch (section) 
+	if (cell == nil) 
 	{
-		case kSectionsSection:
-			return @"Saved Searches";
-		
-	}
-	return nil;
-}*/
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        //cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+		cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    }
+    
+    // Get the object to display and set the value in the cell.
+    NewsletterSection * section	= [newsletter.sections objectAtIndex:indexPath.row];
+	
+	cell.textLabel.text = section.savedSearchName;
+	
+    return cell;		
+}
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	if(indexPath.section==kAddSectionSection)
+	// scroll to selected saved search in newsletter view
+	NewsletterSection * section	= [newsletter.sections objectAtIndex:indexPath.row];
+	
+	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
+
+	if(delegate.tabBarController.selectedIndex==0 ||
+	   delegate.tabBarController.selectedIndex==1)
 	{
-		NewsletterAddSectionViewController * sectionsController=[[NewsletterAddSectionViewController alloc] initWithNibName:@"NewsletterAddSectionView" bundle:nil];
-		
-		sectionsController.newsletter=self.newsletter;
+		[delegate.tabBarController.selectedViewController scrollToSection:section.name];
+	}
+	
+	//[delegate.newsletterViewController scrollToSection:section.name];	
+}
+
+- (IBAction) addSavedSearch
+{
+	NewsletterAddSectionViewController * sectionsController=[[NewsletterAddSectionViewController alloc] initWithNibName:@"NewsletterAddSectionView" bundle:nil];
+	
+	sectionsController.newsletter=self.newsletter;
+	
+	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
+	
+	sectionsController.savedSearches=delegate.savedSearches;
+	
+	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	
+	[navController pushViewController:sectionsController animated:YES];
+	
+	navController.navigationBar.topItem.title=@"Add Saved Search";
+	
+	[sectionsController release];
+}
+
+
+-(IBAction) toggleEditMode
+{
+	if(self.sectionsTable.editing)
+	{
+		[self.sectionsTable setEditing:NO animated:YES];
+		self.editButton.style=UIBarButtonItemStyleBordered;
+		self.editButton.title=@"Edit";
+		self.addButton.enabled=YES;
 		
 		AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
 		
-		sectionsController.savedSearches=delegate.savedSearches;
-		
-		UINavigationController * navController=(UINavigationController*)[self parentViewController];
-		
-		[navController pushViewController:sectionsController animated:YES];
-		
-		navController.navigationBar.topItem.title=@"Add Saved Search...";
-		
-		[sectionsController release];
+		[delegate renderNewsletter];	
+	}
+	else
+	{
+		[self.sectionsTable setEditing:YES animated:YES];
+		self.editButton.style=UIBarButtonItemStyleDone;
+		self.editButton.title=@"Done";
+		self.addButton.enabled=NO;
 	}
 }
-
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -215,10 +179,11 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     // e.g. self.myOutlet = nil;
 }
 
-
 - (void)dealloc {
 	[sectionsTable release];
 	[newsletter release];
+	[addButton release];
+	[editButton release];
     [super dealloc];
 }
 

@@ -8,22 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "NewsletterBaseViewController.h"
+
 @class Newsletter ;
 
-@interface NewsletterHTMLPreviewViewController : UIViewController <UIWebViewDelegate,UIActionSheetDelegate>{
-	Newsletter * newsletter;
-	NSArray * savedSearches;
+@interface NewsletterHTMLPreviewViewController : NewsletterBaseViewController <UIWebViewDelegate,UIActionSheetDelegate>{
 	IBOutlet UIWebView * webView;
-	IBOutlet UIBarButtonItem * publishButton;
-	IBOutlet UIToolbar * toolBar;
 }
 
-@property(nonatomic,retain) Newsletter * newsletter;
-
-@property(nonatomic,retain) NSArray * savedSearches;
 @property(nonatomic,retain) IBOutlet UIWebView * webView;
-@property(nonatomic,retain) IBOutlet UIBarButtonItem * publishButton;
-@property(nonatomic,retain) IBOutlet UIToolbar * toolBar;
 
 - (void) renderHtml;
 

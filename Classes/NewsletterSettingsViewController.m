@@ -19,29 +19,40 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation NewsletterSettingsViewController
-@synthesize settingsTable,newsletter,imagePickerPopover,toolBar,imageButton ;
+@synthesize settingsTable,imagePickerPopover;//,toolBar,imageButton ;
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	NSLog(@"NewsletterSettingsViewController.viewWillAppear");
+	//if(self.newsletter)
+	//{
+	//UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	
+	//navController.navigationBar.backItem.title=self.newsletter.name;
+	//}
+	UINavigationController * navController=[(AppDelegate*)[[UIApplication sharedApplication] delegate] navigationController];
+	navController.navigationBar.topItem.rightBarButtonItem=nil;
+	
+	[settingsTable reloadData];
+	
+	[super viewWillAppear:animated];
+}
+
+- (void) renderNewsletter
+{
+	[settingsTable reloadData];
+}
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
 	return YES;
 }
-
-/*- (void) switched
-{
-	UIAlertView * a=[[UIAlertView alloc] initWithTitle:@"Switched" message:@"Yep" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-	
-	[a show];
-	
-	[a release];
-}*/
-
+/*
 - (IBAction) preview
 {
 	
 	NewsletterHTMLPreviewViewController * previewController=[[NewsletterHTMLPreviewViewController alloc] initWithNibName:@"NewsletterHTMLPreviewView" bundle:nil];
-	
-	previewController.savedSearches=((AppDelegate*)[[UIApplication sharedApplication] delegate]).savedSearches;
 	
 	previewController.newsletter=self.newsletter;
 	
@@ -53,9 +64,9 @@
 	
 	[previewController release];
 	
-}
+}*/
 
-- (IBAction) chooseImage
+/*- (IBAction) chooseImage
 {
 	UIImagePickerController * picker=[[UIImagePickerController alloc] init];
 	
@@ -63,11 +74,6 @@
 	picker.allowsEditing = YES;
 	
 	picker.delegate=self;
-	
-	//picker.navigationBar.topItem.title=@"Choose Logo Image";
-	
-	//picker.title=@"Choose Logo Image";
-	
 	
 	if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
 	{
@@ -111,7 +117,7 @@
 	[picker release];
 	
 	[popover release];
-}
+}*/
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -152,7 +158,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return 5;
+	return 4;
 }
 
 - (CGFloat)tableView:(UITableView*)tableView
@@ -161,7 +167,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 	switch(indexPath.section)
 	{
 		case kSummarySection:
-			return 220.0;
+			return 140.0;
 			break;
 		
 		case kLogoImageSection:
@@ -241,7 +247,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 				}
 			}
 			break;
-		case kSavedSearchesSection:
+		/*case kSavedSearchesSection:
 		{
 			switch(indexPath.row)
 			{
@@ -259,7 +265,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 					break;
 			}
 		}
-			break;
+			break;*/
 		case kPublishingSection:
 			{
 				switch (indexPath.row) {
@@ -368,8 +374,8 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 			return 1;
 		case kPublishingSection:
 			return 5;
-		case kSavedSearchesSection:
-			return 1;
+		//case kSavedSearchesSection:
+		//	return 1;
 		case kSummarySection:
 			return 1;
 	}
@@ -386,8 +392,8 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 			return @"Logo Image";
 		case kPublishingSection:
 			return @"Publishing Settings";
-		case kSavedSearchesSection:
-			return @"Saved Searches";
+		//case kSavedSearchesSection:
+		//	return @"Saved Searches";
 		case kSummarySection:
 			return @"Summary";
 	}
@@ -461,7 +467,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 		[self chooseImage];
 	}
 	
-	if(indexPath.section==kSavedSearchesSection && indexPath.row==kSavedSearchesRow)
+	/*if(indexPath.section==kSavedSearchesSection && indexPath.row==kSavedSearchesRow)
 	{
 		NewsletterSectionsViewController * sectionsController=[[NewsletterSectionsViewController alloc] initWithNibName:@"NewsletterSectionsView" bundle:nil];
 		
@@ -480,7 +486,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 		[rightButton release];
 		
 		[sectionsController release];
-	}
+	}*/
 	
 	
 	if(indexPath.section==kPublishingSection && indexPath.row==kSubscribersRow)
@@ -548,10 +554,7 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 - (void)dealloc {
 	[imagePickerPopover release];
 	[settingsTable release];
-	[newsletter release];
-	[toolBar release];
-	[imageButton release];
-    [super dealloc];
+	[super dealloc];
 }
 
 

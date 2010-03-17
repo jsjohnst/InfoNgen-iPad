@@ -7,9 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "SavedSearchesViewController.h"
+//#import "SavedSearchesViewController.h"
 #import "NewslettersViewController.h"
 #import "NewsletterViewController.h"
+#import "NewsletterSettingsViewController.h"
+#import "NewsletterHTMLPreviewViewController.h"
 #import "Newsletter.h"
 #import "LoginTicket.h"
 #import "SearchClient.h"
@@ -21,7 +23,7 @@
 
 @implementation AppDelegate
 
-@synthesize newsletters,savedSearches,window,newsletter,splitViewController,savedSearchesViewController,newsletterViewController,newslettersViewController,navigationController,newslettersPopoverController,searchesPopoverController; 
+@synthesize newsletters,savedSearches,window,newsletter,tabBarController,newsletterSettingsViewController,newsletterHTMLPreviewViewController,splitViewController,synopsisViewController,headlineViewController,newslettersViewController,navigationController,newslettersPopoverController; 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
@@ -36,40 +38,63 @@
 	
 	savedSearches=[client getSavedSearchesForUser];
 	
-	savedSearchesViewController = [[SavedSearchesViewController alloc] initWithNibName:@"SavedSearchesView" bundle:nil];
-    
-	newsletterViewController =[[NewsletterViewController alloc] initWithNibName:@"NewsletterView" bundle:nil];
+	headlineViewController =[[NewsletterViewController alloc] initWithNibName:@"NewsletterView" bundle:nil];
+	[headlineViewController setViewMode:NO];
+	headlineViewController.tabBarItem.title=@"Headlines";
+	headlineViewController.tabBarItem.image=[UIImage imageNamed:@"icon_document.png"];
+
+	synopsisViewController =[[NewsletterViewController alloc] initWithNibName:@"NewsletterView" bundle:nil];
+	[synopsisViewController setViewMode:YES];
+	synopsisViewController.tabBarItem.title=@"Synopsis";
+	synopsisViewController.tabBarItem.image=[UIImage imageNamed:@"icon_document.png"];
 	
-	if(self.newsletter !=nil)
-	{
-		newsletterViewController.newsletter=self.newsletter ;
-	}
+	newsletterHTMLPreviewViewController = [[NewsletterHTMLPreviewViewController alloc] initWithNibName:@"NewsletterHTMLPreviewView" bundle:nil];
+	newsletterHTMLPreviewViewController.tabBarItem.title=@"Preview";
+	newsletterHTMLPreviewViewController.tabBarItem.image=[UIImage imageNamed:@"icon_filming.png"];
+	
+	newsletterSettingsViewController = [[NewsletterSettingsViewController alloc] initWithNibName:@"NewsletterSettingsView" bundle:nil];
+	newsletterSettingsViewController.tabBarItem.title=@"Settings";
+	newsletterSettingsViewController.tabBarItem.image=[UIImage imageNamed:@"icon_settings.png"];
+
+	tabBarController=[[UITabBarController alloc] init];
+	
+	NSMutableArray * viewControllers=[[NSMutableArray alloc] init];
+	
+	[viewControllers addObject:headlineViewController];
+	[viewControllers addObject:synopsisViewController];
+	[viewControllers addObject:newsletterHTMLPreviewViewController];
+	[viewControllers addObject:newsletterSettingsViewController];
+	
+	tabBarController.viewControllers=viewControllers;
+	
+	[viewControllers release];
 	
 	newslettersViewController=[[NewslettersViewController alloc] initWithNibName:@"NewslettersView" bundle:nil];
 	
 	newslettersViewController.newsletters=self.newsletters;
 	
-	navigationController = [[UINavigationController alloc] initWithRootViewController:newsletterViewController];
+	navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
     
 	navigationController.navigationBar.barStyle=UIBarStyleBlack;
 	
-	navigationController.navigationBar.topItem.title=@"InfoNgen Newsletter Editor";
+	if(self.newsletter!=nil)
+	{
+		newsletterSettingsViewController.newsletter=newsletter;
+		newsletterHTMLPreviewViewController.newsletter=newsletter;
+		headlineViewController.newsletter=newsletter;
+		synopsisViewController.newsletter=newsletter;
+		navigationController.navigationBar.topItem.title=newsletter.name;
+	}
+	else 
+	{
+		navigationController.navigationBar.topItem.title=@"InfoNgen Newsletter Editor";
+	}
 	
-	UIBarButtonItem * button=[[UIBarButtonItem alloc] init];
+	UIBarButtonItem *button=[[UIBarButtonItem alloc] init];
 	
 	button.title=@"Newsletters";
 	button.target=self;
 	button.action=@selector(showNewslettersPopOver:);
-
-	navigationController.navigationBar.topItem.rightBarButtonItem=button;
-	
-	[button release];
-	
-	button=[[UIBarButtonItem alloc] init];
-	
-	button.title=@"Saved Searches";
-	button.target=self;
-	button.action=@selector(showSavedSearchesPopOver:);
 	
 	navigationController.navigationBar.topItem.leftBarButtonItem=button;
 
@@ -77,10 +102,14 @@
 	
 	navigationController.delegate=self;
 	
+	UINavigationController * masterNavController = [[UINavigationController alloc] initWithRootViewController:newslettersViewController];
+    
+	masterNavController.navigationBar.barStyle=UIBarStyleBlack;
+	
 	// setup a split view with saved searches on the left side and the main view on the right side
     splitViewController = [[UISplitViewController alloc] init];
     
-	splitViewController.viewControllers = [NSArray arrayWithObjects:savedSearchesViewController, navigationController, nil];
+	splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavController, navigationController, nil];
 	
 	splitViewController.delegate = self;
     
@@ -89,8 +118,6 @@
     
 	[window makeKeyAndVisible];
 	
-	
-    
 	return YES;
 }
 
@@ -102,68 +129,83 @@
 	[newslettersPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
-- (void)showSavedSearchesPopOver:(id)sender
+- (void) deleteNewsletter:(Newsletter*)newsletter
 {
-	if(searchesPopoverController==nil)
+	[self.newsletters removeObject:newsletter];
+	
+	if([newsletter isEqual:self.newsletter])
 	{
-		searchesPopoverController=[[UIPopoverController alloc] initWithContentViewController:savedSearchesViewController];
-	}
-	[searchesPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+		[self setCurrentNewsletter:nil];
+	}	
 }
 
 - (void) setCurrentNewsletter:(Newsletter*)newsletter
 {
-	[newsletterViewController setCurrentNewsletter:newsletter];
+	self.newsletter=newsletter;
 	
-	navigationController.navigationBar.topItem.title=newsletter.name;
+	newsletterSettingsViewController.newsletter=newsletter;
+	newsletterHTMLPreviewViewController.newsletter=newsletter;
+	headlineViewController.newsletter=newsletter;
+	synopsisViewController.newsletter=newsletter;
 	
-	[newslettersPopoverController dismissPopoverAnimated:YES];
+	if(newsletter)
+	{
+		navigationController.navigationBar.topItem.title=newsletter.name;
+	}
+	else 
+	{
+		navigationController.navigationBar.topItem.title=@"InfoNgen Newsletter Editor";
+	}
+	
+	[self renderNewsletter];
+}
+
+- (void) renderNewsletter
+{
+	// make sure view controllers redraw their newsletter info
+	if(tabBarController.selectedViewController!=nil)
+	{
+		[tabBarController.selectedViewController renderNewsletter];
+	}
 }
 
 - (void) addSearchResultToCurrentNewsletter:(SearchResult*)searchResult fromSavedSearch:(SavedSearch*)savedSearch
 {
-	[newsletterViewController addSearchResultToCurrentNewsletter:searchResult fromSavedSearch:savedSearch];
+	//[newsletterViewController addSearchResultToCurrentNewsletter:searchResult fromSavedSearch:savedSearch];
 }
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-	NSLog(@"navigationController:didShowViewController");
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-	NSLog(@"navigationController:willShowViewController");
-	
 	[viewController viewWillAppear:animated];
 }
 
 - (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc {
     
-	NSLog(@"splitViewController:willHideViewController");
-    barButtonItem.title = @"Saved Searches";
+    barButtonItem.title = @"Newsletters";
 	
 	UINavigationItem * firstItem=[[navigationController.navigationBar items] objectAtIndex:0];
 	
 	[firstItem setLeftBarButtonItem:barButtonItem animated:YES];
 	
-	self.searchesPopoverController = pc;
+	self.newslettersPopoverController = pc;
 }
 
 // Called when the view is shown again in the split view, invalidating the button and popover controller.
 - (void)splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
 	
-	NSLog(@"splitViewController:willShowViewController");
-    
 	UINavigationItem * firstItem=[[navigationController.navigationBar items] objectAtIndex:0];
 	
 	[firstItem setLeftBarButtonItem:nil animated:YES];
 	
     //self.searchesPopoverController = nil;
 }
+
 - (void)splitViewController:(UISplitViewController*)svc popoverController:(UIPopoverController*)pc willPresentViewController:(UIViewController *)aViewController
 {
-	NSLog(@"splitViewController:popoverController:willPresentViewController");
-    
 }
 
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
@@ -190,8 +232,23 @@
 	
 		self.newsletters=[unarchiver decodeObjectForKey:@"newsletters"];
 		
-		self.newsletter =[unarchiver decodeObjectForKey:@"newsletter"];
-	
+		// get name of previously edited newsletter and open up that newsletter again if found
+		NSString * newsletter_name=[unarchiver decodeObjectForKey:@"newsletter.name"];
+		if(newsletter_name!=nil)
+		{
+			if(self.newsletters)
+			{
+				for(Newsletter * n in self.newsletters)
+				{
+					if([n.name isEqualToString:newsletter_name])
+					{
+						self.newsletter=n;
+						break;
+					}
+				}
+			}
+		}
+		
 		[unarchiver finishDecoding];
 		
 		[unarchiver	release];
@@ -206,7 +263,6 @@
 
 - (void) saveData
 {
-	NSLog(@"saveData");
 	if(newsletters!=nil)
 	{
 		NSMutableData * data=[[NSMutableData alloc] init];
@@ -217,8 +273,14 @@
 		
 			[archiver encodeObject:newsletters forKey:@"newsletters"];
 			
-			[archiver encodeObject:newsletter  forKey:@"newsletter"];
-		
+			// save current newsletter name so we open up same newsletter on next start
+			if (newsletter!=nil) {
+				[archiver encodeObject:newsletter.name  forKey:@"newsletter.name"];
+			}
+			else {
+				[archiver encodeObject:nil forKey:@"newsletter.name"];
+			}
+
 			[archiver finishEncoding];
 		
 			[data writeToFile:[self dataFilePath] atomically:YES];
@@ -241,15 +303,17 @@
 - (void)dealloc {
     [splitViewController release];
 	[navigationController release];
-	[savedSearchesViewController release];
 	[newslettersViewController release];
-	[newsletterViewController release];
+	[headlineViewController release];
+	[synopsisViewController release];
 	[newslettersPopoverController release];
-	[searchesPopoverController release];
+	[newsletterSettingsViewController release];
+	[newsletterHTMLPreviewViewController release];
     [window release];
 	[newsletters release];
 	[savedSearches release];
 	[newsletter release];
+	[tabBarController release];
     [super dealloc];
 }
 

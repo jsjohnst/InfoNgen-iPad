@@ -12,34 +12,32 @@
 #import "NewsletterSection.h"
 #import "SearchResult.h"
 #import "Base64.h"
+#import "AppDelegate.h"
 
 @implementation NewsletterHTMLPreviewViewController
-@synthesize newsletter,savedSearches,webView,publishButton,toolBar;
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
+@synthesize webView;
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
+
+- (void) renderNewsletter
+{
+	[self renderHtml];
 }
-*/
 
 - (IBAction) publish
 {
-	UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Publish Newsletter to:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Distribution List",@"Specific Contact",nil];
+	UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Publish Newsletter" message:@"Not implemented yet." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	
+	[alertView show];
+	
+	[alertView release];
+	
+	/*UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Publish Newsletter to:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Distribution List",@"Specific Contact",nil];
 	
 	//actionSheet.tag=kDeleteActionSheet;
 	
 	[actionSheet showFromToolbar:self.toolBar];
 	
-	[actionSheet release];
+	[actionSheet release];*/
 }
 
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet
@@ -104,11 +102,38 @@
 
 }
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
+- (void)viewWillAppear:(BOOL)animated
+{
+	NSLog(@"NewsletterHTMLPreviewViewController.viewWillAppear");
+
+	UINavigationController * navController=[(AppDelegate*)[[UIApplication sharedApplication] delegate] navigationController];
+	
+	UIBarButtonItem *button=[[UIBarButtonItem alloc] init];
+	
+	button.style=UIBarButtonItemStyleDone;
+	button.title=@"Publish";
+	
+	button.target=self;
+	
+	button.action=@selector(publish);
+	
+	navController.navigationBar.topItem.rightBarButtonItem=button;
+	
+	[button release];
+	
 	
 	[self renderHtml];
+	
+	[super viewWillAppear:animated];
 }
+
+
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+/*- (void)viewDidLoad {
+	
+	[self renderHtml];
+}*/
 
 - (void) renderHtml
 {
@@ -305,12 +330,9 @@
 
 
 - (void)dealloc {
-	[newsletter release];
-	[savedSearches release];
+	[newsletter release]; 
 	[webView release];
-	[publishButton release];
-	[toolBar release];
-    [super dealloc];
+	 [super dealloc];
 }
 
 

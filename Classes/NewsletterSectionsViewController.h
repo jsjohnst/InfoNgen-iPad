@@ -8,20 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-#define kSectionsSection 0
-
-#define kAddSectionSection 1
 @class Newsletter ;
-
 
 @interface NewsletterSectionsViewController : UIViewController {
 	IBOutlet UITableView * sectionsTable;
 	Newsletter * newsletter;
+	IBOutlet UIBarButtonItem * editButton;
+	IBOutlet UIBarButtonItem * addButton;
 }
 @property(nonatomic,retain) IBOutlet UITableView * sectionsTable;
 @property(nonatomic,retain) Newsletter * newsletter;
+@property(nonatomic,retain) IBOutlet UIBarButtonItem * editButton;
+@property(nonatomic,retain) IBOutlet UIBarButtonItem * addButton;
 
-- (void) edit:(id)sender;
-- (void)editDone:(id)sender;
-
+- (IBAction) addSavedSearch;
+-(IBAction) toggleEditMode;
 @end

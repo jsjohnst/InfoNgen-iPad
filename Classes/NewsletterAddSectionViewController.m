@@ -10,14 +10,13 @@
 #import "SavedSearch.h"
 #import "NewsletterSection.h"
 #import "Newsletter.h"
+#import "AppDelegate.h"
 
 @implementation NewsletterAddSectionViewController
 @synthesize sectionsTable,newsletter ,savedSearches;
 
-
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    
 	return YES;
 }
 
@@ -26,18 +25,10 @@
 	return 1;
 }
 
-/*- (CGFloat)tableView:(UITableView*)tableView
- heightForRowAtIndexPath:(NSIndexPath*)indexPath
- {
- switch(indexPath.section)
- {
- case kSummarySection:
- return 220.0;
- break;
- }
- return 40.0;
- }*/
-
+// The size the view should be when presented in a popover.
+- (CGSize)contentSizeForViewInPopoverView {
+    return CGSizeMake(320.0, 600.0);
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -46,7 +37,9 @@
 	SavedSearch * savedSearch=[savedSearches objectAtIndex:indexPath.row];
 	
 	cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:nil] autorelease];
-			
+	
+	cell.selectionStyle=UITableViewCellSelectionStyleNone;
+	
 	for (int i=0; i<[self.newsletter.sections count]; i++) {
 		NewsletterSection * section=[self.newsletter.sections objectAtIndex:i];
 		if([section.savedSearchName isEqualToString:savedSearch.name])
@@ -67,18 +60,17 @@
 	return [savedSearches count];
 }
 
-/*
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-	 return @"Saved Searches";
-			
-	 
-}*/
-
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	
 	SavedSearch * savedSearch=[savedSearches objectAtIndex:indexPath.row];
+	
+	for (int i=0; i<[self.newsletter.sections count]; i++) {
+		NewsletterSection * section=[self.newsletter.sections objectAtIndex:i];
+		if([section.savedSearchName isEqualToString:savedSearch.name])
+		{
+			return; // already added... so remove it...?
+		}
+	}
 	
 	NewsletterSection * section=[[NewsletterSection alloc] init];
 	
@@ -89,11 +81,11 @@
 	
 	[section release];
 	
-	// TODO: programatically go "back" via navigation controller...
-	UINavigationController * navController=(UINavigationController*)[self parentViewController];
-
-	[navController popViewControllerAnimated:YES];
+	[aTableView reloadData];
 	
+	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
+	
+	[delegate renderNewsletter];	
 }
 
 

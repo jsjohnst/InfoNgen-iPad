@@ -21,17 +21,30 @@
 #import "NewsletterItemContentView.h"
 
 @implementation NewsletterViewController
-@synthesize newsletterTableView,newsletter,editMoveButton,editSettingsButton,updateButton,toolBar,deleteButton,viewModeSegmentedControl,previewController;
+@synthesize newsletterTableView,editMoveButton;
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	NSLog(@"NewsletterViewController.viewWillAppear");
-
 	if(self.newsletter)
 	{
-		UINavigationController * navController=(UINavigationController*)[self parentViewController];
+		//UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	
-		navController.navigationBar.backItem.title=self.newsletter.name;
+		//navController.navigationBar.backItem.title=self.newsletter.name;
+		
+		UINavigationController * navController=[(AppDelegate*)[[UIApplication sharedApplication] delegate] navigationController];
+		
+		UIBarButtonItem *button=[[UIBarButtonItem alloc] init];
+		
+		button.title=@"Edit";
+		
+		button.target=self;
+		
+		button.action=@selector(toggleEditPage:);
+		
+		navController.navigationBar.topItem.rightBarButtonItem=button;
+		
+		[button release];
 	}
 	
 	[newsletterTableView reloadData];
@@ -41,28 +54,29 @@
 
 -(void) setButtonsEnabled:(BOOL)enabled
 {
-	if(!newsletterTableView.editing)
-	{
-		self.editMoveButton.enabled=enabled;
-	}
-	//self.clearButton.enabled=enabled;
-	self.deleteButton.enabled=enabled;
-	self.updateButton.enabled=enabled;
-	self.editSettingsButton.enabled=enabled;
-	//self.previewButton.enabled=enabled;
-	self.viewModeSegmentedControl.enabled=enabled;
+	//if(!newsletterTableView.editing)
+	//{
+	//	self.editMoveButton.enabled=enabled;
+	//}
+
+	//self.deleteButton.enabled=enabled;
+	//self.updateButton.enabled=enabled;
+	//self.editSettingsButton.enabled=enabled;
+	
+	//[self.viewModeSegmentedControl setEnabled:enabled forSegmentAtIndex:0];
+	//[self.viewModeSegmentedControl setEnabled:enabled forSegmentAtIndex:1];
+	//[self.viewModeSegmentedControl setEnabled:enabled forSegmentAtIndex:2];	
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-	NSLog(@"NewsletterViewController.viewDidAppear");
 	
 	[super viewDidAppear:animated];
+	
 }
 
-- (IBAction) clearNewsletterItems
+/*- (IBAction) clearNewsletterItems
 {
-	
 	if(newsletterTableView.editing)
 	{
 		UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Remove Selected Items" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Remove Selected Items" otherButtonTitles:nil];
@@ -75,7 +89,6 @@
 	}
 	else
 	{
-	
 		UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Remove All Newsletter Items" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Remove All Items" otherButtonTitles:nil];
 	
 		actionSheet.tag=kClearItemsActionSheet;
@@ -95,7 +108,6 @@
 	[actionSheet showFromToolbar:self.toolBar];
 	
 	[actionSheet release];
-	
 }
 
 -(void) closePreview
@@ -105,8 +117,7 @@
 		[self.previewController.view removeFromSuperview];
 		[previewController release];
 		previewController=nil;
-	}
-	
+	}	
 }
 
 -(void) toggleViewMode:(id)sender
@@ -130,23 +141,18 @@
 	{
 		[self preview];
 	}
-}
+}*/
 
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet
 {
-	NSLog(@"actionSheetCancel");
-
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-	NSLog(@"actionSheet:willDismissWithButtonIndex %d",buttonIndex);
-
 }
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	NSLog(@"actionSheet:clickedButtonAtIndex %d",buttonIndex);
-	
 	if(buttonIndex==0)
 	{
 		if(actionSheet.tag==kDeleteActionSheet)
@@ -189,67 +195,76 @@
 			{
 				if(actionSheet.tag==kClearSelectedItemsActionSheet)
 				{
-					NSArray* selectedRows = [newsletterTableView indexPathsForSelectedRows];
-					
-					NSMutableDictionary * dict=[[NSMutableDictionary alloc] init];
-					
-					if (selectedRows && [selectedRows count]>0) 
-					{
-						for (NSIndexPath * indexPath in selectedRows)
-						{
-							
-							NSNumber * sectionNumber=[NSNumber numberWithUnsignedInt:indexPath.section];
-							
-							NSArray * tmp=[dict objectForKey:sectionNumber];
-							
-							if(tmp==nil)
-							{
-								  
-								NewsletterSection * section = [self.newsletter.sections objectAtIndex:indexPath.section];
-								NSMutableIndexSet * rows=[[NSMutableIndexSet alloc] init];
-							
-								tmp=[NSArray arrayWithObjects:section,rows,nil];
-								
-								[dict setObject:tmp forKey:sectionNumber];
-							}
-							
-							[[tmp objectAtIndex:1] addIndex:indexPath.row];
-						}
-					}
-					
-					for(NSArray * array in [dict allValues])
-					{
-						NewsletterSection * section=[array objectAtIndex:0];
-						NSMutableIndexSet * rows=[array objectAtIndex:1];
-						
-						[section.items removeObjectsAtIndexes:rows];
-					}
-					
-					[dict release];
-					
-					[self.newsletterTableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
-					
-					//[self.myTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-					
+					[self deleteSelectedRows];
 					
 					
 					[self toggleEditPage];
-					
-					//[self renderNewsletter];
 				}
 			}
 		}
 	}
 }
+- (void) deleteSelectedRows
+{
+	NSArray* selectedRows = [newsletterTableView indexPathsForSelectedRows];
+	
+	NSMutableDictionary * dict=[[NSMutableDictionary alloc] init];
+	
+	if (selectedRows && [selectedRows count]>0) 
+	{
+		for (NSIndexPath * indexPath in selectedRows)
+		{
+			
+			NSNumber * sectionNumber=[NSNumber numberWithUnsignedInt:indexPath.section];
+			
+			NSArray * tmp=[dict objectForKey:sectionNumber];
+			
+			if(tmp==nil)
+			{
+				
+				NewsletterSection * section = [self.newsletter.sections objectAtIndex:indexPath.section];
+				NSMutableIndexSet * rows=[[NSMutableIndexSet alloc] init];
+				
+				tmp=[NSArray arrayWithObjects:section,rows,nil];
+				
+				[dict setObject:tmp forKey:sectionNumber];
+			}
+			
+			[[tmp objectAtIndex:1] addIndex:indexPath.row];
+		}
+	}
+	
+	for(NSArray * array in [dict allValues])
+	{
+		NewsletterSection * section=[array objectAtIndex:0];
+		NSMutableIndexSet * rows=[array objectAtIndex:1];
+		
+		[section.items removeObjectsAtIndexes:rows];
+	}
+	
+	[dict release];
+	
+	[self.newsletterTableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
+}
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-	NSLog(@"actionSheet:didDismissWithButtonIndex %d",buttonIndex);
-	
 }
+
+
+
 - (void)renderNewsletter
 {
 	[newsletterTableView reloadData];
+	
+	/*if(self.newsletter==nil)
+	{
+		[self setButtonsEnabled:NO];
+	}
+	else 
+	{
+		[self setButtonsEnabled:YES];
+	}*/
 }
 
 - (void) addSearchResultToCurrentNewsletter:(SearchResult*)searchResult fromSavedSearch:(SavedSearch*)savedSearch;
@@ -283,8 +298,6 @@
 		section.savedSearchName=savedSearch.name;
 		[self.newsletter.sections addObject:section];
 	}
-	
-	
 	
 	if(section.items==nil)
 	{
@@ -323,7 +336,7 @@
 	[self renderNewsletter];
 }
 
-- (void) setCurrentNewsletter:(Newsletter*)newsletter
+/*- (void) setCurrentNewsletter:(Newsletter*)newsletter
 {
 	[self closePreview];
 	
@@ -337,7 +350,7 @@
 	delegate.newsletter = self.newsletter;
 	
 	[self renderNewsletter];
-}
+}*/
 
 - (IBAction) update
 {
@@ -352,9 +365,9 @@
 		// update all the saved searches associated with this page...
 		[self performSelectorInBackground:@selector(updateStart) withObject:nil];
 	
-		UINavigationController * navController=(UINavigationController*)[self parentViewController];
+		//UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	
-		navController.navigationBar.topItem.title=@"Updating Newsletter...";//     self.newsletter.name;
+		//navController.navigationBar.topItem.title=@"Updating Newsletter...";//     self.newsletter.name;
 	}
 }
 
@@ -455,12 +468,12 @@
 	// reload table...
 	[self.newsletterTableView reloadData];
 	
-	UINavigationController * navController=(UINavigationController*)[self parentViewController];
+	//UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	
-	navController.navigationBar.topItem.title=self.newsletter.name;
+	//navController.navigationBar.topItem.title=self.newsletter.name;
 }
  
-- (IBAction) settings
+/*- (IBAction) settings
 {
 	NewsletterSettingsViewController * settingsController=[[NewsletterSettingsViewController alloc] initWithNibName:@"NewsletterSettingsView" bundle:nil];
 	
@@ -474,50 +487,47 @@
 	
 	[settingsController release];
 }
+*/
 
-- (IBAction) toggleEditPage
+-(void) setViewMode:(BOOL)expanded
 {
+	viewModeExpanded=expanded;
+}
+
+- (IBAction) toggleEditPage:(id)sender
+{
+	UIBarButtonItem * buttonItem=(UIBarButtonItem*)sender;
+	
 	if(self.newsletterTableView.editing)
 	{
+		[self deleteSelectedRows];
+		
 		[self.newsletterTableView setEditing:NO animated:YES];
-		self.editMoveButton.style=UIBarButtonItemStyleBordered;
-		self.editMoveButton.title=@"Edit";
-		[self setButtonsEnabled:YES];
-		//self.clearButton.visible=NO;
-		//self.clearButton.enabled=NO;
+		
+		buttonItem.style=UIBarButtonItemStyleBordered;
+		buttonItem.title=@"Edit";
 	}
 	else
 	{
 		[self.newsletterTableView setEditing:YES animated:YES];
-		self.editMoveButton.style=UIBarButtonItemStyleDone;
-		self.editMoveButton.title=@"Done";
-		[self setButtonsEnabled:NO];
-		//self.clearButton.visible=YES;
-		//self.clearButton.enabled=YES;
-		self.deleteButton.enabled=YES;
+		buttonItem.style=UIBarButtonItemStyleDone;
+		buttonItem.title=@"Done";
+		//[self setButtonsEnabled:NO];
+		//self.deleteButton.enabled=YES;
 	}
 }
 
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
+{    
 	return YES;
 }
 
--(BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath {
-	
-	NSLog(@"canEditRowAtIndexPath");
-	
+-(BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath 
+{
 	if(tableView.editing) 
 	{
-		//if(indexPath.row>0)
-		//{
-			return YES;
-		//}
-		//else {
-		//	return NO;
-		//}
-
+		return YES;
 	}
 	else
 	{
@@ -544,19 +554,6 @@
 	}
 }	
 
-/*- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-	if(self.newsletter && self.newsletter.sections)
-	{
-		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
-		return newsletterSection.name;
-	}
-	else {
-		return nil;
-	}
-
-}*/
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
 	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
@@ -569,27 +566,17 @@
 	gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor],(id)[[UIColor grayColor] CGColor], (id)[[UIColor lightGrayColor] CGColor], nil];
 	[topView.layer insertSublayer:gradient atIndex:0];
 	
-	/*UIButton *collapseButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-	//[butt setImage:[UIImage imageNamed:@"icon_refresh.png"] forState:UIControlStateNormal];
-	[collapseButton setFrame:CGRectMake(10, 10, 25, 25)];
-	//[butt setFrame:CGRectMake(240, 0, 70, 20)];
-	//[butt setTitle:@"Refresh" forState:UIControlStateNormal];
-	//[butt addTarget:self action:@selector(update) forControlEvents:UIControlEventTouchUpInside];
-	[topView addSubview:collapseButton];
-	*/
 	UILabel *nameLabel = [self newLabelWithPrimaryColor:[UIColor whiteColor] selectedColor:[UIColor whiteColor] fontSize:20 bold:YES];
 	[nameLabel setFrame:CGRectMake(10, 10, 450, 22)];
 	nameLabel.backgroundColor=[UIColor clearColor];
 	nameLabel.text = newsletterSection.name;
 	
-	//tline.shadowColor = [UIColor colorWithWhite:1.0 alpha:1.0];
 	[topView addSubview:nameLabel];
 	
 	if(updating)
 	{
 		UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 		[activityView setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
-		
 		[activityView startAnimating];
 		[topView addSubview:activityView];
 		[activityView release];
@@ -599,16 +586,10 @@
 		UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		[refreshButton setImage:[UIImage imageNamed:@"icon_refresh.png"] forState:UIControlStateNormal];
 		[refreshButton setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
-		//[butt setFrame:CGRectMake(240, 0, 70, 20)];
-		//[butt setTitle:@"Refresh" forState:UIControlStateNormal];
 		[refreshButton addTarget:self action:@selector(update) forControlEvents:UIControlEventTouchUpInside];
 		[topView addSubview:refreshButton];
 	}
 
-	
-	/*if (buttonText != nil){*/
-		
-	/*}*/
 	return topView;
 }
 
@@ -636,26 +617,6 @@
 	return newLabel;
 }
 
-/*- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-	if(self.newsletter && self.newsletter.sections)
-	{
-		NSMutableArray * tmp=[[NSMutableArray alloc] init];
-	
-		for (int i=0; i<[self.newsletter.sections count]; i++) {
-		
-			[tmp addObject:[[self.newsletter.sections objectAtIndex:i] name]];
-		
-		}
-		// TODO: do we need to retain/release/autorelease here???
-		return tmp;
-	}
-	else {
-		return nil;
-	}
-
-}*/
-
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     NSLog(@"numberOfRowsInSection");
@@ -667,11 +628,14 @@
 	{
 		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
 		
-		if (newsletterSection==nil) {
+		if (newsletterSection==nil) 
+		{
 			return 0;
 		}
 		else
+		{
 			return [newsletterSection.items count];
+		}
 	}
 }
 
@@ -689,235 +653,44 @@
 	NSLog(@"cellForRowAtIndexPath");
 	
 	static NSString *CellIdentifier = @"SearchResultCellIdentifier";
-	static NSString *StatusIdentifier = @"SearchResultStatusIdentifier";
-	NSString * identifier;
-	////if (indexPath.row==0) {
-	///	identifier=StatusIdentifier;
-	//}
-	//else {
-		identifier=CellIdentifier;
-	//}
-
-	
-	
-	
-	UITableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:identifier];
+	 
+	UITableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	
 	if(cell==nil)
 	{
-		//if(indexPath.row==0)
-		//{
-		//	cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:identifier] autorelease];
-			
-			
-			//cell.editingStyle=UITableViewCellEditingStyleNone;
-			
-		//}
-		//else {
-		
-			cell=[[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:identifier] autorelease];
-		
-			cell.contentView.autoresizesSubviews=YES;
-		
-			//cell=[[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
-		
-				
-			//cell.selectionStyle=UITableViewCellSelectionStyleNone;
-		
-			NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, cell.contentView.bounds.size.width, cell.contentView.bounds.size.height)];
-		
-			// set view mode...
-			//[contentView setViewMode:viewModeSegmentedControl];
-			
-		
-			contentView.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-			
-			contentView.parentController=self;
-			contentView.parentTableView=tableView;
-		
-			[cell.contentView addSubview:contentView];
-		
-			contentView.contentMode=UIViewContentModeRedraw;
-		//}
-
-		//cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-	}
+		cell=[[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
 	
-	//int cellWidth=768;
-	//int textWidth=700;
+		cell.contentView.autoresizesSubviews=YES;
+		//cell.selectionStyle=UITableViewCellSelectionStyleNone;
 	
-	// 1024x768
-	// in portrait view we have full width for table (768 wide)
-	// in landscape we have 1024 - 320 = 704 wide
+		NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, cell.contentView.bounds.size.width, cell.contentView.bounds.size.height)];
 	
-	//UINavigationController * navController=(UINavigationController*)[self parentViewController];
-	
-	//int parentWidth=navController.view.frame.size.width;
-	
-	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
-	
-	
-	
-	
-	
-	/*if(indexPath.row==0)
-	{
-		if(updating)
-		{
-			cell.textLabel.text=@"Updating...";
-			cell.detailTextLabel.text=nil;
-			UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-			[activityView startAnimating];
-			cell.accessoryView = activityView;
-			[activityView release];
-			
-			
-			
-			 
-			
-
-		}
-		else
-		{
-			cell.textLabel.text=[NSString stringWithFormat:@"Last updated %@",[newsletterSection.lastUpdated description]];
-			cell.detailTextLabel.text=[NSString stringWithFormat:@"N new items since %@",[newsletterSection.lastUpdated description]];
-			cell.accessoryView=nil;
-		}
-	}
-	else
-	{*/
-		SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
-
-	
-		NewsletterItemContentView * contentView=(NewsletterItemContentView *)[cell.contentView.subviews objectAtIndex:[cell.contentView.subviews count]-1];
-	
-	
-		[contentView setViewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1)];
-	
-		/*if([cell.contentView.subviews count]>0)
-		{
-			UIView * v=[cell.contentView.subviews objectAtIndex:0];
-			[v removeFromSuperview];
-		}
-	
-		
-		NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 700,600)]; //cell.contentView.bounds.size.width, cell.contentView.bounds.size.height)];
-	
+		// set view mode...
+		//[contentView setViewMode:viewModeSegmentedControl];
+		contentView.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+		contentView.parentController=self;
+		contentView.parentTableView=tableView;
 	
 		[cell.contentView addSubview:contentView];
-	*/
 	
+		contentView.contentMode=UIViewContentModeRedraw;
+	}
 	
-		//NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, 700, 600)];
-	
-		contentView.searchResult=result;
-	
-		//[cell.contentView setNeedsDisplay];
-		[contentView setNeedsDisplay];
+	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
+	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
+	NewsletterItemContentView * contentView=(NewsletterItemContentView *)[cell.contentView.subviews objectAtIndex:[cell.contentView.subviews count]-1];
+	[contentView setViewMode:viewModeExpanded];
+	//[contentView setViewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1)];
+	contentView.searchResult=result;
+	[contentView setNeedsDisplay];
 		
-		//cell.contentView=contentView;
-		//[cell.contentView.subviews length]
-	
-		//[cell.contentView addSubview:contentView];
-	
-		
-		/*cell.textLabel.text=[result headline];
-			
-		NSDateFormatter *format = [[NSDateFormatter alloc] init];
-		[format setDateFormat:@"MMM d, yyyy h:mm"];
-
-		NSString *dateString = [format stringFromDate:result.date];
-		
-		[format release];
-		
-		cell.detailTextLabel.text=[NSString stringWithFormat:@"%@ %@",dateString,[result relativeDateOffset]];
-		
-		
-		
-		//cell.detailTextLabel.text=[result synopsis];
-		
-		if(result.notes && [result.notes length]>0)
-		{
-			UIImageView* commentsImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"comment_edit.png"]];
-			commentsImageView.frame = CGRectMake(0, 0, 16, 16);
-			cell.accessoryView = commentsImageView;
-			[commentsImageView release];
-		}
-		else
-		{
-			cell.accessoryView=nil;
-		}
-		
-		
-		if(result.image)
-		{
-			//cell.imageView.image=result.image;
-			//cell.imageView.layer.masksToBounds=YES;
-			//cell.imageView.layer.cornerRadius=4.0;
-			
-			UIButton * button=[[UIButton buttonWithType:UIButtonTypeCustom] retain];
-			
-			button.frame=CGRectMake(10,10,result.image.size.width,result.image.size.height);
-			
-			[button setBackgroundImage:result.image forState:UIControlStateNormal];
-			
-			//[button addTarget:self action:@selector(imageTouched:) forControlEvents:UIControlEventTouchUpInside];
-			
-			//button.frame=CGRectMake(10, 10, 80, 80);
-			//[button setTitle:@"Add Image" forState:UIControlStateNormal];
-			//[cell addSubview:button];
-			[cell.contentView addSubview:button];
-			
-			
-			
-		}
-		else 
-		{
-			//cell.imageView.image=nil;
-		}
-	//}
-	*/
-
 	return cell;
 }
-
-/*- (CGFloat)tableView:(UITableView*)tableView
-heightForRowAtIndexPath:(NSIndexPath*)indexPath
-{
-	return 80;
-	
-	// get size of synopsis...
-	SearchResult * result=(SearchResult *)[self.page.items objectAtIndex:indexPath.row];
-	 
-	 NSString * text=result.synopsis;
-	 
-	 if(text==nil || [text length]==0)
-	 {
-	 return 80;
-	 }
-	 else {
-	 
-	 CGSize constraint = CGSizeMake(700.0f, 20000.0f);
-	 
-	 CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:12.0f] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-	 
-	 CGFloat height = MIN(MAX(size.height, 60.0f),250.0f);
-	 
-	 return height + 20.0f;
-	 }
-}*/
 
 - (BOOL) tableView:(UITableView*)tableView
 canMoveRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	//if(indexPath.row>0)
-	//{
-		return YES;
-	//}
-	//else {
-	//	return NO;
-	//}
-
+	return YES;
 }
 
 - (CGFloat)tableView:(UITableView*)tableView
@@ -927,7 +700,8 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 
 	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
 	
-	ItemSize itemSize=[NewsletterItemContentView sizeForCell:result viewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1) rect:CGRectZero];
+	//ItemSize itemSize=[NewsletterItemContentView sizeForCell:result viewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1) rect:CGRectZero];
+	ItemSize itemSize=[NewsletterItemContentView sizeForCell:result viewMode:viewModeExpanded rect:CGRectZero];
 	
 	return itemSize.size.height;
 }
@@ -939,17 +713,13 @@ moveRowAtIndexPath:(NSIndexPath*)fromIndexPath
 	NSUInteger fromRow=[fromIndexPath row];
 	NSUInteger toRow=[toIndexPath row];
 	
-	//if(fromRow>0 && toRow>0)
-	//{
-	
-		NewsletterSection * newsletterSection1=[self.newsletter.sections objectAtIndex:fromIndexPath.section];
-		NewsletterSection * newsletterSection2=[self.newsletter.sections objectAtIndex:toIndexPath.section];
-	
-		id object=[[newsletterSection1.items objectAtIndex:fromRow] retain];
-		[newsletterSection1.items removeObjectAtIndex:fromRow];
-		[newsletterSection2.items insertObject:object atIndex:toRow];
-		[object release];
-	//}
+	NewsletterSection * newsletterSection1=[self.newsletter.sections objectAtIndex:fromIndexPath.section];
+	NewsletterSection * newsletterSection2=[self.newsletter.sections objectAtIndex:toIndexPath.section];
+
+	id object=[[newsletterSection1.items objectAtIndex:fromRow] retain];
+	[newsletterSection1.items removeObjectAtIndex:fromRow];
+	[newsletterSection2.items insertObject:object atIndex:toRow];
+	[object release];
 }
 
 - (void) tableView:(UITableView*)tableView
@@ -957,76 +727,68 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
  forRowAtIndexPath:(NSIndexPath*)indexPath
 {
 	NSUInteger row=[indexPath	row];
-	//if(row>0)
-	//{
-		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
-	
-		[newsletterSection.items removeObjectAtIndex:row];
-		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-	//}
+	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
+
+	[newsletterSection.items removeObjectAtIndex:row];
+	[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView*)tableView editingStyleForRowAtIndexPath:(NSIndexPath*)indexPath {
 
-	//if(indexPath.row==0)
-	//{
-	//	return UITableViewCellEditingStyleNone;
-	//}
-	//else {
-		return 3;
-	//}
-
+	return 3;
 	//return UITableViewCellEditingStyleDelete;
-	//return 3;
-
 }
 
-
-
+- (void) scrollToSection:(NSString*)sectionName
+{
+	// get section by name
+	int section_number=0;
+	
+	for(NewsletterSection * section in self.newsletter.sections)
+	{
+		if([section.savedSearchName isEqualToString:sectionName])
+		{
+			break;
+		}
+		section_number++;
+	}
+	
+	//if(section_number<[self.newsletterTableView.sections count])
+	//{
+		NSIndexPath * indexPath=[NSIndexPath indexPathForRow:NSNotFound inSection:section_number];
+	
+		[self.newsletterTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+	//}
+}
+/*
 - (IBAction) preview
 {
+	if(self.newsletter==nil)
+	{
+		return;
+	}
 	
-	//if([[self.newsletterTableView subviews] count]==0)
-	//{
-		//if(previewController==nil)
-		//{
-			self.previewController=[[NewsletterHTMLPreviewViewController alloc] initWithNibName:@"NewsletterHTMLPreviewView" bundle:nil];
-		//}
-		
-		previewController.savedSearches=((AppDelegate*)[[UIApplication sharedApplication] delegate]).savedSearches;
+	self.previewController=[[NewsletterHTMLPreviewViewController alloc] initWithNibName:@"NewsletterHTMLPreviewView" bundle:nil];
 	
-		previewController.newsletter=self.newsletter;
-	
-		//[UIView beginAnimations:nil context:NULL];  
-		//[UIView setAnimationDuration:0.5];  
-		//[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.newsletterTableView cache:YES];  
-	
-		[self.view addSubview:previewController.view];
-		[self.view bringSubviewToFront:previewController.view];
-	
-		//[self.newsletterTableView addSubview:previewController.view];  
-		//[self.newsletterTableView bringSubviewToFront:previewController.view];
-		
-		//[UIView commitAnimations];  
-	
-	//}
-	/*
-	UINavigationController * navController=(UINavigationController*)[self parentViewController];
-	
-	[navController pushViewController:previewController animated:YES];
-	
-	navController.navigationBar.topItem.title=@"Newsletter Preview";
-	 [previewController release];
+	//previewController.savedSearches=((AppDelegate*)[[UIApplication sharedApplication] delegate]).savedSearches;
 
-	*/
-		
-}
+	previewController.newsletter=self.newsletter;
 
+	//[UIView beginAnimations:nil context:NULL];  
+	//[UIView setAnimationDuration:0.5];  
+	//[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.newsletterTableView cache:YES];  
+
+	[self.view addSubview:previewController.view];
+	[self.view bringSubviewToFront:previewController.view];
+
+	//[self.newsletterTableView addSubview:previewController.view];  
+	//[self.newsletterTableView bringSubviewToFront:previewController.view];
+	
+	//[UIView commitAnimations];  
+}*/
+/*
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-	//if (indexPath.row==0) {
-	//	return;
-	//}
 	if(!aTableView.editing)
 	{
 		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
@@ -1045,21 +807,11 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 		
 		[editController release];
 	}
-	
 }
-
+*/
 - (void)dealloc {
     [newsletterTableView release];
 	[editMoveButton release];
-	[editSettingsButton release];
-	[updateButton release];
-	[deleteButton release];
-	//[previewButton release];
-	//[clearButton release];
-	[newsletter release];
-	[toolBar release];
-	[previewController release];
-	[viewModeSegmentedControl release];
-    [super dealloc];
+	    [super dealloc];
 }
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsletterBaseViewController.h"
 
 #define kTitleSection 0
 #define kTitleRow 0
@@ -24,29 +25,27 @@
 #define kEmailFormatRow 3
 #define kSubscribersRow 4
 
-#define kSavedSearchesSection 4
-#define kSavedSearchesRow 0
+//#define kSavedSearchesSection 4
+//#define kSavedSearchesRow 0
 
 @class Newsletter;
 
-@interface NewsletterSettingsViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate> {
+@interface NewsletterSettingsViewController : NewsletterBaseViewController <UITextFieldDelegate,UITextViewDelegate> {
 	IBOutlet UITableView * settingsTable;
-	Newsletter  * newsletter ;
 	UIPopoverController * imagePickerPopover;
-	IBOutlet UIToolbar * toolBar;
-	IBOutlet UIBarButtonItem * imageButton;
+	//IBOutlet UIToolbar * toolBar;
+	//IBOutlet UIBarButtonItem * imageButton;
 }
 
 @property(nonatomic,retain) IBOutlet UITableView * settingsTable;
-@property(nonatomic,retain) Newsletter  * newsletter;
 @property(nonatomic,retain) UIPopoverController * imagePickerPopover;
-@property(nonatomic,retain) IBOutlet UIToolbar * toolBar;
-@property(nonatomic,retain) IBOutlet UIBarButtonItem * imageButton;
+//@property(nonatomic,retain) IBOutlet UIToolbar * toolBar;
+//@property(nonatomic,retain) IBOutlet UIBarButtonItem * imageButton;
 
 - (void) emailFormatChanged:(id)sender;
 - (void) publishTypeChanged:(id)sender;
 - (void) rssEnabledChanged:(id)sender;
-- (IBAction) chooseImage;
+//- (IBAction) chooseImage;
 - (IBAction) preview;
 
 @end

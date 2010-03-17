@@ -10,19 +10,17 @@
 #import "Newsletter.h"
 #import "MainViewController.h"
 #import "AppDelegate.h"
+#import "NewsletterSectionsViewController.h"
+#import "SavedSearchesViewController.h"
 
 @implementation NewslettersViewController
 @synthesize newsletters,newslettersTable,editButton,addButton;
 
-- (void)viewDidLoad {
-	[super viewDidLoad];
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
-	[self.newslettersTable reloadData];
+	[newslettersTable reloadData];
 	
-	[super viewDidAppear:animated];
+	[super viewWillAppear:animated];
 }
 
 -(IBAction) toggleEditMode
@@ -43,6 +41,12 @@
 	}
 }
 
+// Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
+{    
+	return YES;
+}
+
 -(UITableViewCellEditingStyle)tableView:(UITableView*)tableView editingStyleForRowAtIndexPath:(NSIndexPath*)indexPath {
 	
 	return UITableViewCellEditingStyleDelete;
@@ -54,10 +58,17 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 {
 	NSUInteger row=[indexPath	row];
 	
+	Newsletter * newsletter=[[self.newsletters objectAtIndex:row] retain];
+	
 	[self.newsletters removeObjectAtIndex:row];
 	
 	[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	
+	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
+	
+	[delegate deleteNewsletter:newsletter];
+	
+	[newsletter release];
 }
 
 - (BOOL) tableView:(UITableView*)tableView
@@ -71,12 +82,10 @@ canMoveRowAtIndexPath:(NSIndexPath*)indexPath
 	Newsletter  * newNewsletter=[[Newsletter alloc] initWithName:@"Untitled"];
 	
 	[self.newsletters addObject:newNewsletter];
-	
-	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
-	
-	[delegate setCurrentNewsletter:newNewsletter];
-	
+
 	[newNewsletter release];
+	
+	[newslettersTable reloadData];
 }
 
 // The size the view should be when presented in a popover.
@@ -100,13 +109,15 @@ canMoveRowAtIndexPath:(NSIndexPath*)indexPath
 	
 	// Dequeue or create a cell of the appropriate type.
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+    
+	if (cell == nil) 
+	{
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	}
     
     // Get the object to display and set the value in the cell.
-    Newsletter  * newsletter=[newsletters objectAtIndex:indexPath.row];
+    Newsletter * newsletter=[newsletters objectAtIndex:indexPath.row];
 	
 	cell.textLabel.text = newsletter.name;
 	
@@ -120,6 +131,16 @@ canMoveRowAtIndexPath:(NSIndexPath*)indexPath
 	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
 	
 	[delegate setCurrentNewsletter:newsletter];
+
+	NewsletterSectionsViewController * sectionsController=[[NewsletterSectionsViewController alloc] initWithNibName:@"NewsletterSectionsView" bundle:nil];
+	
+	sectionsController.newsletter=newsletter;
+	
+	UINavigationController * nav = (UINavigationController*)[self parentViewController];
+	
+	[nav pushViewController:sectionsController animated:YES];
+	
+	[sectionsController release];
 }
 
 - (void)dealloc {
