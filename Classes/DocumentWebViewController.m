@@ -307,8 +307,9 @@
 - (void)viewDidLoad {
 	
 	UIMenuItem *appendSynopsisItem = [[[UIMenuItem alloc] initWithTitle:@"Add to Synopsis" action:@selector(appendSynopsis:)] autorelease];
-	 
-	[[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObjects:appendSynopsisItem, nil]];
+	UIMenuItem *replaceSynopsisItem = [[[UIMenuItem alloc] initWithTitle:@"Replace Synopsis" action:@selector(replaceSynopsis:)] autorelease];
+	
+	[[UIMenuController sharedMenuController] setMenuItems:[NSArray arrayWithObjects:appendSynopsisItem,replaceSynopsisItem,nil]];
 	
 	if(self.searchResult)
 	{
@@ -531,9 +532,23 @@
 	}
 }
 
+- (void)replaceSynopsis:(id)sender
+{
+	NSLog(@"replaceSynopsis");
+	
+	NSString * selectedText=[self getString:@"''+window.getSelection()"];
+	
+	self.searchResult.synopsis=selectedText;
+}
+
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
 	
 	if(action==@selector(appendSynopsis:))
+	{
+		return YES;
+	}
+	
+	if(action==@selector(replaceSynopsis:))
 	{
 		return YES;
 	}

@@ -73,6 +73,8 @@
 		C4837045114047BB005633B3 /* icon_text_align_left.png in Resources */ = {isa = PBXBuildFile; fileRef = C4837044114047BB005633B3 /* icon_text_align_left.png */; };
 		C4837047114047F5005633B3 /* icon_paragraph.png in Resources */ = {isa = PBXBuildFile; fileRef = C4837046114047F5005633B3 /* icon_paragraph.png */; };
 		C48370491140480E005633B3 /* icon_measures.png in Resources */ = {isa = PBXBuildFile; fileRef = C48370481140480E005633B3 /* icon_measures.png */; };
+		C485C93A11613FF4005CFD2E /* NewslettersScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C485C93911613FF4005CFD2E /* NewslettersScrollView.xib */; };
+		C485C93E11614120005CFD2E /* NewslettersScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C485C93D11614120005CFD2E /* NewslettersScrollViewController.m */; };
 		C4868B4211347F2700B6F842 /* NewslettersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4868B4111347F2700B6F842 /* NewslettersView.xib */; };
 		C49091071119F99D007F30BA /* SavedSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = C49091061119F99D007F30BA /* SavedSearchController.m */; };
 		C4926BD0114977DD00EC37A3 /* SelectImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4926BCF114977DD00EC37A3 /* SelectImageView.xib */; };
@@ -213,6 +215,9 @@
 		C4837044114047BB005633B3 /* icon_text_align_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_text_align_left.png; sourceTree = "<group>"; };
 		C4837046114047F5005633B3 /* icon_paragraph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_paragraph.png; sourceTree = "<group>"; };
 		C48370481140480E005633B3 /* icon_measures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_measures.png; sourceTree = "<group>"; };
+		C485C93911613FF4005CFD2E /* NewslettersScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewslettersScrollView.xib; sourceTree = "<group>"; };
+		C485C93C11614120005CFD2E /* NewslettersScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewslettersScrollViewController.h; sourceTree = "<group>"; };
+		C485C93D11614120005CFD2E /* NewslettersScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewslettersScrollViewController.m; sourceTree = "<group>"; };
 		C4868B4111347F2700B6F842 /* NewslettersView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewslettersView.xib; sourceTree = "<group>"; };
 		C49091051119F99D007F30BA /* SavedSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedSearchController.h; sourceTree = "<group>"; };
 		C49091061119F99D007F30BA /* SavedSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearchController.m; sourceTree = "<group>"; };
@@ -332,6 +337,8 @@
 				C4BA4E92114E8DD3003A0396 /* DocumentEditFormViewController.m */,
 				C4D46A3511516E8B00597793 /* NewsletterBaseViewController.h */,
 				C4D46A3611516E8B00597793 /* NewsletterBaseViewController.m */,
+				C485C93C11614120005CFD2E /* NewslettersScrollViewController.h */,
+				C485C93D11614120005CFD2E /* NewslettersScrollViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -424,6 +431,7 @@
 				C45136DD113D9FE80067B421 /* NewsletterDistributionListView.xib */,
 				C4926BCF114977DD00EC37A3 /* SelectImageView.xib */,
 				C4BA4E8D114E8AFE003A0396 /* DocumentEditFormView.xib */,
+				C485C93911613FF4005CFD2E /* NewslettersScrollView.xib */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -634,6 +642,7 @@
 				C4EBFF6E114FFAF700CD6FC9 /* balloon.png in Resources */,
 				C4EBFF91114FFF7200CD6FC9 /* Balloon_2.png in Resources */,
 				C4EBFF98115001BF00CD6FC9 /* balloon_left.png in Resources */,
+				C485C93A11613FF4005CFD2E /* NewslettersScrollView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +699,7 @@
 				B0D6F254114A9B05008CC24D /* NewsletterItemContentView.m in Sources */,
 				C4BA4E93114E8DD3003A0396 /* DocumentEditFormViewController.m in Sources */,
 				C4D46A3711516E8B00597793 /* NewsletterBaseViewController.m in Sources */,
+				C485C93E11614120005CFD2E /* NewslettersScrollViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

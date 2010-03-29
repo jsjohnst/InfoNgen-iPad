@@ -239,7 +239,7 @@
 						
 						if(item.synopsis)
 						{
-							itemTmp=[itemTmp stringByReplacingOccurrencesOfString:@"{{item.synopsis}}" withString:item.synopsis];
+							itemTmp=[itemTmp stringByReplacingOccurrencesOfString:@"{{item.synopsis}}" withString:[item.synopsis stringByReplacingOccurrencesOfString:@"\n" withString:@"<BR />"]];
 						}
 						else
 						{
@@ -248,7 +248,7 @@
 						
 						if(item.notes && [item.notes length]>0)
 						{
-							itemTmp=[itemTmp stringByReplacingOccurrencesOfString:@"{{item.comments}}" withString:[NSString stringWithFormat:@"<BR />&gt; %@",item.notes]];
+							itemTmp=[itemTmp stringByReplacingOccurrencesOfString:@"{{item.comments}}" withString:[NSString stringWithFormat:@"<BR />&gt; %@",[item.notes stringByReplacingOccurrencesOfString:@"\n" withString:@"<BR />"]]];
 						}
 						else
 						{
@@ -260,7 +260,7 @@
 							
 							NSString * encoded=[Base64 encode:imageData];
 							
-							itemTmp=[itemTmp stringByReplacingOccurrencesOfString:@"{{item.image}}" withString:[NSString stringWithFormat:@"<img src=\"data:image/png;base64,%@\">",encoded]];
+							itemTmp=[itemTmp stringByReplacingOccurrencesOfString:@"{{item.image}}" withString:[NSString stringWithFormat:@"<img style=\"float:left;margin-right:4px\" src=\"data:image/png;base64,%@\">",encoded]];
 						}
 						else
 						{

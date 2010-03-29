@@ -37,6 +37,7 @@
 
 - (IBAction) selectImages:(id)sender;
 - (void)appendSynopsis:(id)sender;
+- (void)replaceSynopsis:(id)sender;
 
 /*- (NSString *)flattenHTML:(NSString *)html;*/
 - (void)doSomething:(NSTimer *)theTimer;

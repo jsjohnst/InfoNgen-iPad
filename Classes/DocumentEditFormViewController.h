@@ -22,5 +22,5 @@
 @property(nonatomic,retain) IBOutlet UITextView * commentsTextView;
 @property(nonatomic,retain) id delegate;
 - (IBAction) dismiss;
-
+- (IBAction) cancel;
 @end

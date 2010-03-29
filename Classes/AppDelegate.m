@@ -20,6 +20,7 @@
 #import "UserSettings.h"
 #import "Newsletter.h"
 #import "UIImage-NSCoding.h"
+#import "NewslettersScrollViewController.h"
 
 @implementation AppDelegate
 
@@ -113,8 +114,14 @@
 	
 	splitViewController.delegate = self;
     
+	NewslettersScrollViewController * scroller=[[NewslettersScrollViewController alloc] initWithNibName:@"NewslettersScrollView" bundle:nil];
+	
+	scroller.newsletters=self.newsletters;
+	
     // Add the split view controller's view to the window and display.
-    [window addSubview:splitViewController.view];
+    [window addSubview:scroller.view];
+	
+	//[window addSubview:splitViewController.view];
     
 	[window makeKeyAndVisible];
 	

@@ -13,6 +13,10 @@
 @implementation DocumentEditFormViewController
 @synthesize searchResult, headlineTextField,synopsisTextView,commentsTextView,delegate;
 
+- (IBAction) cancel
+{
+	[[self parentViewController] dismissModalViewControllerAnimated:YES];
+}
 
 - (IBAction) dismiss
 {
