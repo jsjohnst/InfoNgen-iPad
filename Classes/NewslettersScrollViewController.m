@@ -36,6 +36,12 @@
     // e.g. self.myOutlet = nil;
 }
 
+// Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
+{    
+	return YES;
+}
+
 
 - (void)dealloc {
 	//[pageControl release];
@@ -63,12 +69,17 @@
 	scrollView.delegate = self;
 	
 	[self.scrollView setBackgroundColor:[UIColor blackColor]];
+	
 	[scrollView setCanCancelContentTouches:NO];
 	
+	scrollView.showsVerticalScrollIndicator=NO;
+	scrollView.showsHorizontalScrollIndicator=NO;
 	scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 	scrollView.clipsToBounds = YES;
 	scrollView.scrollEnabled = YES;
+	
 	scrollView.pagingEnabled = YES;
+	scrollView.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 	
 	CGFloat cx = 0;
 	int num_pages=0;
@@ -81,35 +92,63 @@
 		//	break;
 		//}
 		
-		NewsletterHTMLPreviewViewController * preview=[[NewsletterHTMLPreviewViewController alloc] initWithNibName:@"NewsletterHTMLPreviewView" bundle:nil];
+		NSString   *html = [NewsletterHTMLPreviewViewController getHtml:newsletter]; 
 		
-		preview.newsletter=newsletter;
+		UIWebView * webView=[[UIWebView alloc] init];
 		
-		//int width=600;
-		//int height=800;
+		webView.frame=CGRectMake(0, 0, 480, 600);
 		
-		//CGRect rect = CGRectMake(((scrollView.frame.size.width - width) / 2) + cx, ((scrollView.frame.size.height - height) / 2), width, height	);
+		webView.scalesPageToFit=YES;
 		
-		preview.view.frame=CGRectMake(0, 0, 600, 800);
+		[webView loadHTMLString:html baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
 		
-		[preview renderHtml];
+		[webView setNeedsDisplay];
 		
-		UIImage * image=[self captureView:preview.webView];
+		//UIImage * image=[self captureView:webView];
 		
-		UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+		//UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
 		
-		CGRect rect=imageView.frame;
+		/*CGRect rect=imageView.frame;
 		rect.size.height = image.size.height;
 		rect.size.width = image.size.width;
 		rect.origin.x = ((scrollView.frame.size.width - image.size.width) / 2) + cx;
 		rect.origin.y = ((scrollView.frame.size.height - image.size.height) / 2);
+		*/
+		 		
+		CGRect rect=webView.frame;
+		rect.size.height = webView.frame.size.height;
+		rect.size.width = webView.frame.size.width;
+		rect.origin.x = ((scrollView.frame.size.width - webView.frame.size.width) / 2) + cx;
+		rect.origin.y = 100;//((scrollView.frame.size.height - webView.frame.size.height) / 2);
 		
-		imageView.frame = rect;
+		/*
+		 
+		 Create sub-view:
+			have webview
+			have invisible button on top of web view (open newsletter on touch)
+			have drop shadow behind the web view
+			have text view below web view with newsletter title
+			have text view below title with last modified/updated date
+		 */
 		
-		[scrollView addSubview:imageView];
-		[imageView release];
+		// need to disable vertical scrolling
+		// need to adjust width on rotation
+		// need to add paging control
+		// need to add toolbar with "new newsletter" button
 		
-		[preview release];
+		// on open/create - newsletter view: with popover for settings/saved searches, and a close/home button to go back to this view...
+		
+		// todo: open first page in scrollview to last modified newsletter 
+		
+		// todo: controls under title/date for publish and delete
+		
+		webView.frame = rect;
+		
+		[scrollView addSubview:webView];
+		//[imageView release];
+		
+		[webView release];
+		
 		
 		cx += scrollView.frame.size.width;
 		

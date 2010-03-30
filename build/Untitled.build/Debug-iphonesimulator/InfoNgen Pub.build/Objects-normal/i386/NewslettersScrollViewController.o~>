@@ -1,0 +1,5 @@
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m: In function '-[NewslettersScrollViewController scrollViewDidScroll:]':
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m:174: warning: unused variable 'page'
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m: At top level:
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m:202: warning: incomplete implementation of class 'NewslettersScrollViewController'
+/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m:202: warning: method definition for '-changePage:' not found

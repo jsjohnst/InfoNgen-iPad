@@ -1,36 +1,36 @@
 TInfoNgen Pub
 v7
 r0
-t291588565.178605
+t291606442.753409
 cCheck dependencies
-cProcessInfoPlistFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/Info.plist" Untitled-Info.plist
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/MainWindow.xib
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/SavedSearchesView.xib
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/SearchResultCell.xib
+cProcessInfoPlistFile "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/Info.plist" Untitled-Info.plist
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/MainWindow.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/SavedSearchesView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/SearchResultCell.xib
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/Settings.bundle" Settings.bundle
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterView.xib
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/DocumentWebView.xib
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/ImagePickerView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/NewsletterView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/DocumentWebView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/ImagePickerView.xib
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/readability.js" readability.js
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/DocumentTextView.xib
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/DocumentEditView.xib
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterSettingsView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/DocumentTextView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/DocumentEditView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/NewsletterSettingsView.xib
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/Default-Landscape.png" Default-Landscape.png
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/Default-LandscapeLeft.png" Default-LandscapeLeft.png
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/Default-LandscapeRight.png" Default-LandscapeRight.png
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/Default-Portrait.png" Default-Portrait.png
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/Default-PortraitUpsideDown.png" Default-PortraitUpsideDown.png
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewslettersView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/NewslettersView.xib
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/icon_post.png" icon_post.png
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/comment_edit.png" comment_edit.png
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterSectionsView.xib
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterAddSectionView.xib
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterHTMLPreviewView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/NewsletterSectionsView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/NewsletterAddSectionView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/NewsletterHTMLPreviewView.xib
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/newsletter.html" newsletter.html
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/logo2.gif" logo2.gif
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/ico-2.gif" ico-2.gif
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/ico-1.gif" ico-1.gif
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterDistributionListView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/NewsletterDistributionListView.xib
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/icon.png" icon.png
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/icon_add.png" icon_add.png
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/icon_arrow_right.png" icon_arrow_right.png
@@ -52,68 +52,68 @@ cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/icon_arrow_left.png" i
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/icon_text_align_left.png" icon_text_align_left.png
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/icon_paragraph.png" icon_paragraph.png
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/icon_measures.png" icon_measures.png
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/SelectImageView.xib
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/DocumentEditFormView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/SelectImageView.xib
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/DocumentEditFormView.xib
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/balloon.png" balloon.png
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/Balloon_2.png" Balloon_2.png
 cCpResource "build/Debug-iphonesimulator/InfoNgen Pub.app/balloon_left.png" balloon_left.png
-cCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewslettersScrollView.xib
-cProcessPCH /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-dsgkxewskeohilftzkbyrwmluvll/Untitled_Prefix.pch.gch Untitled_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/main.o" /Users/Bob/Documents/InfoNgen-Publisher/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewslettersViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Newsletter.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/Newsletter.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearch.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearch.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResultCell.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SearchResultCell.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UILabelEx.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/UILabelEx.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLDocument_CreationExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/Creation/CXMLDocument_CreationExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLNode_CreationExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/Creation/CXMLNode_CreationExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLDocument_PrivateExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLDocument_PrivateExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLDocument.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLDocument.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLElement_CreationExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLElement_CreationExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLElement_ElementTreeExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLElement_ElementTreeExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLElement.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLElement.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLNode_PrivateExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLNode_PrivateExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLNode_XPathExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLNode_XPathExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLNode.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLNode.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CTidy.o" /Users/Bob/Documents/InfoNgen-Publisher/Tidy/CTidy.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Base64.o" /Users/Bob/Documents/InfoNgen-Publisher/Base64.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/FacetField.o" /Users/Bob/Documents/InfoNgen-Publisher/FacetField.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/FacetValue.o" /Users/Bob/Documents/InfoNgen-Publisher/FacetValue.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Search.o" /Users/Bob/Documents/InfoNgen-Publisher/Search.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchArguments.o" /Users/Bob/Documents/InfoNgen-Publisher/SearchArguments.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchClient.o" /Users/Bob/Documents/InfoNgen-Publisher/SearchClient.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResult.o" /Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResults.o" /Users/Bob/Documents/InfoNgen-Publisher/SearchResults.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/LoginTicket.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/LoginTicket.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UserSettings.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/UserSettings.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/DocumentWebViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentWebViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/DocumentImage.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentImage.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/DocumentEditViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSettingsViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/TextFieldTableCell.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/TextFieldTableCell.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SegmentedTableCell.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SegmentedTableCell.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/TextViewTableCell.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/TextViewTableCell.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UIImage-NSCoding.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/UIImage-NSCoding.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSection.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSectionsViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSectionsViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterAddSectionViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterAddSectionViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterHTMLPreviewViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterHTMLPreviewViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterDistributionListViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterDistributionListViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterItemContentView.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterItemContentView.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/DocumentEditFormViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditFormViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterBaseViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterBaseViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewslettersScrollViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub_vers.o" "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c" normal i386 c com.apple.compilers.gcc.4_2
-cLd "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" normal i386
-cGenerateDSYMFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"
-cTouch "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app"
+cCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/NewslettersScrollView.xib
+cProcessPCH /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-fklcumrcapzleccijujnnlfdaqrd/Untitled_Prefix.pch.gch Untitled_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/main.o" /Users/bstewart/Documents/InfoNgen-iPad/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewslettersViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearchController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Newsletter.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/Newsletter.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearch.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/SavedSearch.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResultCell.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/SearchResultCell.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UILabelEx.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/UILabelEx.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLDocument_CreationExtensions.o" /Users/bstewart/Documents/InfoNgen-iPad/Creation/CXMLDocument_CreationExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLNode_CreationExtensions.o" /Users/bstewart/Documents/InfoNgen-iPad/Creation/CXMLNode_CreationExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLDocument_PrivateExtensions.o" /Users/bstewart/Documents/InfoNgen-iPad/CXMLDocument_PrivateExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLDocument.o" /Users/bstewart/Documents/InfoNgen-iPad/CXMLDocument.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLElement_CreationExtensions.o" /Users/bstewart/Documents/InfoNgen-iPad/CXMLElement_CreationExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLElement_ElementTreeExtensions.o" /Users/bstewart/Documents/InfoNgen-iPad/CXMLElement_ElementTreeExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLElement.o" /Users/bstewart/Documents/InfoNgen-iPad/CXMLElement.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLNode_PrivateExtensions.o" /Users/bstewart/Documents/InfoNgen-iPad/CXMLNode_PrivateExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLNode_XPathExtensions.o" /Users/bstewart/Documents/InfoNgen-iPad/CXMLNode_XPathExtensions.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLNode.o" /Users/bstewart/Documents/InfoNgen-iPad/CXMLNode.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CTidy.o" /Users/bstewart/Documents/InfoNgen-iPad/Tidy/CTidy.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Base64.o" /Users/bstewart/Documents/InfoNgen-iPad/Base64.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/FacetField.o" /Users/bstewart/Documents/InfoNgen-iPad/FacetField.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/FacetValue.o" /Users/bstewart/Documents/InfoNgen-iPad/FacetValue.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Search.o" /Users/bstewart/Documents/InfoNgen-iPad/Search.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchArguments.o" /Users/bstewart/Documents/InfoNgen-iPad/SearchArguments.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchClient.o" /Users/bstewart/Documents/InfoNgen-iPad/SearchClient.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResult.o" /Users/bstewart/Documents/InfoNgen-iPad/SearchResult.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResults.o" /Users/bstewart/Documents/InfoNgen-iPad/SearchResults.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/LoginTicket.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/LoginTicket.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UserSettings.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/UserSettings.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/DocumentWebViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentWebViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/DocumentImage.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentImage.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/DocumentEditViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentEditViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSettingsViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/TextFieldTableCell.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/TextFieldTableCell.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SegmentedTableCell.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/SegmentedTableCell.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/TextViewTableCell.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/TextViewTableCell.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UIImage-NSCoding.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/UIImage-NSCoding.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSection.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSection.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSectionsViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSectionsViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterAddSectionViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterAddSectionViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterHTMLPreviewViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterDistributionListViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterDistributionListViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterItemContentView.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterItemContentView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/DocumentEditFormViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentEditFormViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterBaseViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterBaseViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewslettersScrollViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub_vers.o" "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c" normal i386 c com.apple.compilers.gcc.4_2
+cLd "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" normal i386
+cGenerateDSYMFile "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"
+cTouch "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app"
 
 N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk
-c000000004BB0C7FA0000000000000110
-t1269876730
+c000000004BACB2220000000000000110
+t1269608994
 s272
 
 N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/AddressBook.framework/AddressBook
@@ -1814,9 +1814,9 @@ i<UIKit/UIKit.h>
 i<Foundation/Foundation.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m
-c000000004BA1710800000000000028B4
-t1268871432
-s10420
+c000000004BB1458600000000000029BF
+t1269908870
+s10687
 i"AppDelegate.h"
 i"NewslettersViewController.h"
 i"NewsletterViewController.h"
@@ -1830,17 +1830,18 @@ i"SearchResult.h"
 i"UserSettings.h"
 i"Newsletter.h"
 i"UIImage-NSCoding.h"
+i"NewslettersScrollViewController.h"
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentEditFormViewController.h
-c000000004BA01B6C00000000000002FC
-t1268783980
-s764
+c000000004BB145860000000000000310
+t1269908870
+s784
 i<UIKit/UIKit.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentEditFormViewController.m
-c000000004BA01B6C0000000000000AEC
-t1268783980
-s2796
+c000000004BB145860000000000000B4B
+t1269908870
+s2891
 i"DocumentEditFormViewController.h"
 i"SearchResult.h"
 i<QuartzCore/QuartzCore.h>
@@ -1882,15 +1883,15 @@ s548
 i<UIKit/UIKit.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentWebViewController.h
-c000000004B9988FD000000000000069E
-t1268353277
-s1694
+c000000004BB1458600000000000006C2
+t1269908870
+s1730
 i<UIKit/UIKit.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/DocumentWebViewController.m
-c000000004BA01B6C000000000000470A
-t1268783980
-s18186
+c000000004BB1458600000000000048A0
+t1269908870
+s18592
 i"DocumentWebViewController.h"
 i"SearchResult.h"
 i"DocumentImage.h"
@@ -1974,16 +1975,16 @@ i"NewsletterDistributionListViewController.h"
 i"newsletter.h"
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.h
-c000000004BA1710800000000000001F7
-t1268871432
-s503
+c000000004BB14CB10000000000000225
+t1269910705
+s549
 i<UIKit/UIKit.h>
 i"NewsletterBaseViewController.h"
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m
-c000000004BA1710800000000000027C1
-t1268871432
-s10177
+c000000004BB14CB200000000000028DA
+t1269910706
+s10458
 i"NewsletterHTMLPreviewViewController.h"
 i"SavedSearch.h"
 i"Newsletter.h"
@@ -2012,9 +2013,9 @@ s1805
 i<UIKit/UIKit.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterItemContentView.m
-c000000004BA02C570000000000004987
-t1268788311
-s18823
+c000000004BB14586000000000000498D
+t1269908870
+s18829
 i"NewsletterItemContentView.h"
 i"SearchResult.h"
 i"DocumentEditFormViewController.h"
@@ -2095,6 +2096,21 @@ i"NewsletterSection.h"
 i"SavedSearch.h"
 i<QuartzCore/QuartzCore.h>
 i"NewsletterItemContentView.h"
+
+N/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.h
+c000000004BB1458600000000000002D9
+t1269908870
+s729
+i<UIKit/UIKit.h>
+
+N/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m
+c000000004BB159980000000000001525
+t1269914008
+s5413
+i"NewslettersScrollViewController.h"
+i"Newsletter.h"
+i"NewsletterHTMLPreviewViewController.h"
+i<QuartzCore/QuartzCore.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersViewController.h
 c000000004BA01B6C00000000000002C0
@@ -2318,9 +2334,9 @@ t1266973676
 s456450
 
 N/Users/bstewart/Documents/InfoNgen-iPad/DocumentEditFormView.xib
-c000000004BA01B6C0000000000006900
-t1268783980
-s26880
+c000000004BB1458600000000000071D2
+t1269908870
+s29138
 
 N/Users/bstewart/Documents/InfoNgen-iPad/DocumentEditView.xib
 c000000004B9988FE0000000000005D3B
@@ -2401,6 +2417,11 @@ N/Users/bstewart/Documents/InfoNgen-iPad/NewsletterView.xib
 c000000004BA171080000000000005709
 t1268871432
 s22281
+
+N/Users/bstewart/Documents/InfoNgen-iPad/NewslettersScrollView.xib
+c000000004BB158250000000000004B5B
+t1269913637
+s19291
 
 N/Users/bstewart/Documents/InfoNgen-iPad/NewslettersView.xib
 c000000004BA01B6C000000000000675F
@@ -2551,11 +2572,11 @@ t1268783980
 s1953
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app
-t1269609858
-s1972
+t1269913642
+s2006
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM
-t1269609858
+t1269913642
 s102
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/Balloon_2.png
@@ -2583,8 +2604,8 @@ t1268784399
 s456450
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/DocumentEditFormView.nib
-t1268871432
-s2252
+t1269908870
+s2015
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/DocumentEditView.nib
 t1268871432
@@ -2607,8 +2628,8 @@ t1268784394
 s818
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub
-t1269609858
-s306528
+t1269913642
+s314176
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/MainWindow.nib
 t1268871433
@@ -2637,6 +2658,10 @@ s1208
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/NewsletterView.nib
 t1268871433
 s1124
+
+N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/NewslettersScrollView.nib
+t1269913642
+s1055
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/NewslettersView.nib
 t1268871433
@@ -2775,8 +2800,8 @@ t1268784399
 s3629
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/newsletter.html
-t1268788010
-s8821
+t1269908870
+s8846
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/readability.js
 t1268784398
@@ -2788,148 +2813,152 @@ t1268784394
 s202
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o
-t1269609854
-s81020
+t1269910706
+s81664
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Base64.o
-t1269609856
+t1269908870
 s11488
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CTidy.o
-t1269609856
+t1269908870
 s4464
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLDocument.o
-t1269609855
+t1269908870
 s22184
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLDocument_CreationExtensions.o
-t1269609855
+t1269908870
 s9752
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLDocument_PrivateExtensions.o
-t1269609855
+t1269908870
 s8856
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLElement.o
-t1269609855
+t1269908870
 s17372
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLElement_CreationExtensions.o
-t1269609855
+t1269908870
 s12108
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLElement_ElementTreeExtensions.o
-t1269609855
+t1269908870
 s8884
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLNode.o
-t1269609856
+t1269908870
 s32944
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLNode_CreationExtensions.o
-t1269609855
+t1269908870
 s17392
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLNode_PrivateExtensions.o
-t1269609855
+t1269908870
 s13820
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/CXMLNode_XPathExtensions.o
-t1269609856
+t1269908870
 s15320
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/DocumentEditFormViewController.o
-t1269609857
-s49328
+t1269908870
+s49748
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/DocumentEditViewController.o
-t1269609857
+t1269908870
 s78984
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/DocumentImage.o
-t1269609857
+t1269908870
 s12588
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/DocumentWebViewController.o
-t1269609856
-s74504
+t1269908870
+s75504
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/FacetField.o
-t1269609856
+t1269908870
 s9648
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/FacetValue.o
-t1269609856
+t1269908870
 s11496
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub.LinkFileList
-c000000004BACB57B0000000000001A75
-t1269609851
-s6773
+c000000004BB145AD0000000000001B11
+t1269908909
+s6929
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub_vers.o
 t1268871433
 s2144
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/LoginTicket.o
-t1269609856
+t1269908870
 s16148
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Newsletter.o
-t1269609854
+t1269908870
 s25200
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterAddSectionViewController.o
-t1269609857
+t1269908870
 s53072
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterBaseViewController.o
-t1269609858
+t1269908870
 s36072
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterDistributionListViewController.o
-t1269609857
+t1269908870
 s55296
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterHTMLPreviewViewController.o
-t1269609857
-s72464
+t1269910706
+s72948
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterItemCell.o
 t1268413022
 s18692
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterItemContentView.o
-t1269609857
+t1269908870
 s87084
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSection.o
-t1269609857
+t1269908870
 s15904
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSectionsViewController.o
-t1269609857
+t1269908870
 s60668
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSettingsViewController.o
-t1269609857
+t1269910706
 s79668
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterViewController.o
-t1269609857
+t1269910706
 s101356
 
+N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewslettersScrollViewController.o
+t1269913642
+s48680
+
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewslettersViewController.o
-t1269609854
+t1269908870
 s57292
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearch.o
-t1269609855
+t1269908870
 s31392
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchController.o
-t1269609854
+t1269908870
 s57156
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SavedSearchesController.o
@@ -2941,55 +2970,55 @@ t1268784401
 s38176
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Search.o
-t1269609856
+t1269908870
 s13324
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchArguments.o
-t1269609856
+t1269908870
 s13956
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchClient.o
-t1269609856
+t1269908870
 s43292
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResult.o
-t1269609856
+t1269908870
 s21536
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResultCell.o
-t1269609854
+t1269908870
 s20704
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SearchResults.o
-t1269609856
+t1269908870
 s8808
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/SegmentedTableCell.o
-t1269609857
+t1269908870
 s21972
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/TextFieldTableCell.o
-t1269609857
+t1269908870
 s20608
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/TextViewTableCell.o
-t1269609857
+t1269908870
 s28196
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UIImage-NSCoding.o
-t1269609857
+t1269908870
 s8408
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UILabelEx.o
-t1269609855
+t1269908870
 s13124
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/UserSettings.o
-t1269609856
+t1269908870
 s9712
 
 N/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/main.o
-t1269609854
+t1269908870
 s5944
 
 N/Users/bstewart/Documents/InfoNgen-iPad/comment_edit.png
@@ -3129,9 +3158,9 @@ s355
 i<UIKit/UIKit.h>
 
 N/Users/bstewart/Documents/InfoNgen-iPad/newsletter.html
-c000000004BA02B2A0000000000002275
-t1268788010
-s8821
+c000000004BB14586000000000000228E
+t1269908870
+s8846
 
 N/Users/bstewart/Documents/InfoNgen-iPad/readability.js
 c000000004B847BED0000000000007DE0
@@ -3147,13 +3176,13 @@ t1269609854
 s13805456
 
 NUntitled-Info.plist
-c000000004B7D5475000000000000047A
-t1266504821
+c000000004B7C5AC1000000000000047A
+t1266440897
 s1146
 
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies291588564#291588564#0(0"0(0#1#0"4300911832#0"0#
+lSLF07#2@18"Check dependencies291606441#291606441#0(0"0(0#1#0"4300911832#0"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s291588083.214000
@@ -3185,8 +3214,8 @@ o/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:175: warning: '..
 lSLF07#2@69"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m291588083#291588083#0(2013"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m: In function '-[AppDelegate deleteNewsletter:]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:141: warning: local declaration of 'newsletter' hides instance variable/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:143: warning: local declaration of 'newsletter' hides instance variable/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m: In function '-[AppDelegate setCurrentNewsletter:]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:151: warning: local declaration of 'newsletter' hides instance variable/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:153: warning: local declaration of 'newsletter' hides instance variable/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:154: warning: local declaration of 'newsletter' hides instance variable/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:155: warning: local declaration of 'newsletter' hides instance variable/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:156: warning: local declaration of 'newsletter' hides instance variable/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:158: warning: local declaration of 'newsletter' hides instance variable/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:160: warning: local declaration of 'newsletter' hides instance variable/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m: In function '-[AppDelegate renderNewsletter]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:175: warning: 'UIViewController' may not respond to '-renderNewsletter'/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:175: warning: (Messages without a matching method signature/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:175: warning: will be assumed to return 'id' and accept/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:175: warning: '...' as arguments.)11(22@57"Local declaration of 'newsletter' hides instance variable291588083#111#134#0(6@61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m291587542#141#0#141#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291588083#245#134#0(6@61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m291587542#143#0#143#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291588083#494#134#0(6@61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m291587542#151#0#151#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291588083#628#134#0(6@61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m291587542#153#0#153#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291588083#762#134#0(6@61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m291587542#154#0#154#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291588083#896#134#0(6@61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m291587542#155#0#155#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291588083#1030#134#0(6@61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m291587542#156#0#156#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291588083#1164#134#0(6@61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m291587542#158#0#158#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291588083#1298#134#0(6@61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m291587542#160#0#160#0#0"0(22@57"'UIViewController' may not respond to '-renderNewsletter'291588083#1542#134#0(6@61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m291587542#175#0#175#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)291588083#1676#122#0(6@61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m291587542#175#0#175#0#0"0(0#0#61"/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m4300911832#2074"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-dsgkxewskeohilftzkbyrwmluvll/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s291302654.369275
-e291302654.764533
+s291603506.172867
+e291603506.397365
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o
@@ -3196,22 +3225,22 @@ xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m: In function '-[AppDelegate deleteNewsletter:]':
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:134: warning: local declaration of 'newsletter' hides instance variable
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:136: warning: local declaration of 'newsletter' hides instance variable
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:141: warning: local declaration of 'newsletter' hides instance variable
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:143: warning: local declaration of 'newsletter' hides instance variable
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m: In function '-[AppDelegate setCurrentNewsletter:]':
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:144: warning: local declaration of 'newsletter' hides instance variable
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:146: warning: local declaration of 'newsletter' hides instance variable
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:147: warning: local declaration of 'newsletter' hides instance variable
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:148: warning: local declaration of 'newsletter' hides instance variable
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:149: warning: local declaration of 'newsletter' hides instance variable
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:151: warning: local declaration of 'newsletter' hides instance variable
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:153: warning: local declaration of 'newsletter' hides instance variable
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:154: warning: local declaration of 'newsletter' hides instance variable
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:155: warning: local declaration of 'newsletter' hides instance variable
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:156: warning: local declaration of 'newsletter' hides instance variable
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:158: warning: local declaration of 'newsletter' hides instance variable
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:160: warning: local declaration of 'newsletter' hides instance variable
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m: In function '-[AppDelegate renderNewsletter]':
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:168: warning: 'UIViewController' may not respond to '-renderNewsletter'
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:168: warning: (Messages without a matching method signature
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:168: warning: will be assumed to return 'id' and accept
-o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:168: warning: '...' as arguments.)
-lSLF07#2@69"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m291302654#291302654#0(2013"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m: In function '-[AppDelegate deleteNewsletter:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:134: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:136: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m: In function '-[AppDelegate setCurrentNewsletter:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:144: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:146: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:147: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:148: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:149: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:151: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:153: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m: In function '-[AppDelegate renderNewsletter]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:168: warning: 'UIViewController' may not respond to '-renderNewsletter'/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:168: warning: (Messages without a matching method signature/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:168: warning: will be assumed to return 'id' and accept/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:168: warning: '...' as arguments.)11(22@57"Local declaration of 'newsletter' hides instance variable291302654#111#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m290564232#134#0#134#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291302654#245#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m290564232#136#0#136#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291302654#494#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m290564232#144#0#144#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291302654#628#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m290564232#146#0#146#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291302654#762#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m290564232#147#0#147#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291302654#896#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m290564232#148#0#148#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291302654#1030#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m290564232#149#0#149#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291302654#1164#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m290564232#151#0#151#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291302654#1298#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m290564232#153#0#153#0#0"0(22@57"'UIViewController' may not respond to '-renderNewsletter'291302654#1542#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m290564232#168#0#168#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)291302654#1676#122#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m290564232#168#0#168#0#0"0(0#0#61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m4300911832#2074"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-fklcumrcapzleccijujnnlfdaqrd/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o"0#
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:175: warning: 'UIViewController' may not respond to '-renderNewsletter'
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:175: warning: (Messages without a matching method signature
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:175: warning: will be assumed to return 'id' and accept
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:175: warning: '...' as arguments.)
+lSLF07#2@69"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m291603506#291603506#0(2013"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m: In function '-[AppDelegate deleteNewsletter:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:141: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:143: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m: In function '-[AppDelegate setCurrentNewsletter:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:151: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:153: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:154: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:155: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:156: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:158: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:160: warning: local declaration of 'newsletter' hides instance variable/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m: In function '-[AppDelegate renderNewsletter]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:175: warning: 'UIViewController' may not respond to '-renderNewsletter'/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:175: warning: (Messages without a matching method signature/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:175: warning: will be assumed to return 'id' and accept/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m:175: warning: '...' as arguments.)11(22@57"Local declaration of 'newsletter' hides instance variable291603506#111#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m291601670#141#0#141#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291603506#245#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m291601670#143#0#143#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291603506#494#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m291601670#151#0#151#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291603506#628#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m291601670#153#0#153#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291603506#762#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m291601670#154#0#154#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291603506#896#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m291601670#155#0#155#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291603506#1030#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m291601670#156#0#156#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291603506#1164#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m291601670#158#0#158#0#0"0(22@57"Local declaration of 'newsletter' hides instance variable291603506#1298#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m291601670#160#0#160#0#0"0(22@57"'UIViewController' may not respond to '-renderNewsletter'291603506#1542#134#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m291601670#175#0#175#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)291603506#1676#122#0(6@61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m291601670#175#0#175#0#0"0(0#0#61"/Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m4300911832#2074"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-fklcumrcapzleccijujnnlfdaqrd/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/AppDelegate.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/AppDelegate.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/Base64.o" /Users/Bob/Documents/InfoNgen-Publisher/Base64.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s291570802.395971
@@ -3897,8 +3926,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@93"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterHTMLPreviewViewController.m291582537#291582537#0(0"0(0#0#85"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterHTMLPreviewViewController.m4300911832#2122"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-dsgkxewskeohilftzkbyrwmluvll/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterHTMLPreviewViewController.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterHTMLPreviewViewController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterHTMLPreviewViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s291302657.635531
-e291302657.766565
+s291603506.446334
+e291603506.571811
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterHTMLPreviewViewController.o
@@ -3907,7 +3936,12 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@93"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m291302657#291302657#0(0"0(0#0#85"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m4300911832#2122"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-fklcumrcapzleccijujnnlfdaqrd/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterHTMLPreviewViewController.o"0#
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m: In function '-[NewsletterHTMLPreviewViewController renderHtml]':
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m:298: warning: 'NewsletterHTMLPreviewViewController' may not respond to '+getHTML:'
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m:298: warning: (Messages without a matching method signature
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m:298: warning: will be assumed to return 'id' and accept
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m:298: warning: '...' as arguments.)
+lSLF07#2@93"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m291603506#291603506#0(730"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m: In function '-[NewsletterHTMLPreviewViewController renderHtml]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m:298: warning: 'NewsletterHTMLPreviewViewController' may not respond to '+getHTML:'/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m:298: warning: (Messages without a matching method signature/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m:298: warning: will be assumed to return 'id' and accept/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m:298: warning: '...' as arguments.)2(22@68"'NewsletterHTMLPreviewViewController' may not respond to '+getHTML:'291603506#152#169#0(6@85"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m291603506#298#0#298#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)291603506#321#146#0(6@85"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m291603506#298#0#298#0#0"0(0#0#85"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m4300911832#2122"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-fklcumrcapzleccijujnnlfdaqrd/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterHTMLPreviewViewController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterHTMLPreviewViewController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterItemCell.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterItemCell.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s290105822.836505
@@ -4036,8 +4070,8 @@ o/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewControlle
 lSLF07#2@90"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m291570804#291570804#0(1141"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m: In function '-[NewsletterSettingsViewController tableView:didSelectRowAtIndexPath:]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m:467: warning: 'NewsletterSettingsViewController' may not respond to '-chooseImage'/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m:467: warning: (Messages without a matching method signature/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m:467: warning: will be assumed to return 'id' and accept/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m:467: warning: '...' as arguments.)/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m: At top level:/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m:561: warning: incomplete implementation of class 'NewsletterSettingsViewController'/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m:561: warning: method definition for '-preview' not found5(22@68"'NewsletterSettingsViewController' may not respond to '-chooseImage'291570804#170#166#0(6@82"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m290552104#467#0#467#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)291570804#336#143#0(6@82"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m290552104#467#0#467#0#0"0(23@13"At top level:291570804#736#98#0(6@82"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m290552104#0#0#0#0#0"0(22@69"Incomplete implementation of class 'NewsletterSettingsViewController'291570804#834#167#0(6@82"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m290552104#561#0#561#0#38"incomplete implementation of class '*'0(22@42"Method definition for '-preview' not found291570804#1001#140#0(6@82"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m290552104#561#0#561#0#35"method definition for '*' not found0(0#0#82"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m4300911832#2116"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-dsgkxewskeohilftzkbyrwmluvll/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSettingsViewController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSettingsViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s291302657.057599
-e291302657.309687
+s291603506.397904
+e291603506.592183
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSettingsViewController.o
@@ -4054,7 +4088,7 @@ o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewControlle
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m: At top level:
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:561: warning: incomplete implementation of class 'NewsletterSettingsViewController'
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:561: warning: method definition for '-preview' not found
-lSLF07#2@90"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m291302657#291302657#0(1141"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m: In function '-[NewsletterSettingsViewController tableView:didSelectRowAtIndexPath:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:467: warning: 'NewsletterSettingsViewController' may not respond to '-chooseImage'/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:467: warning: (Messages without a matching method signature/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:467: warning: will be assumed to return 'id' and accept/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:467: warning: '...' as arguments.)/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m: At top level:/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:561: warning: incomplete implementation of class 'NewsletterSettingsViewController'/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:561: warning: method definition for '-preview' not found5(22@68"'NewsletterSettingsViewController' may not respond to '-chooseImage'291302657#170#166#0(6@82"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m290564232#467#0#467#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)291302657#336#143#0(6@82"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m290564232#467#0#467#0#0"0(23@13"At top level:291302657#736#98#0(6@82"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m290564232#0#0#0#0#0"0(22@69"Incomplete implementation of class 'NewsletterSettingsViewController'291302657#834#167#0(6@82"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m290564232#561#0#561#0#38"incomplete implementation of class '*'0(22@42"Method definition for '-preview' not found291302657#1001#140#0(6@82"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m290564232#561#0#561#0#35"method definition for '*' not found0(0#0#82"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m4300911832#2116"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-fklcumrcapzleccijujnnlfdaqrd/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSettingsViewController.o"0#
+lSLF07#2@90"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m291603506#291603506#0(1141"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m: In function '-[NewsletterSettingsViewController tableView:didSelectRowAtIndexPath:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:467: warning: 'NewsletterSettingsViewController' may not respond to '-chooseImage'/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:467: warning: (Messages without a matching method signature/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:467: warning: will be assumed to return 'id' and accept/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:467: warning: '...' as arguments.)/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m: At top level:/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:561: warning: incomplete implementation of class 'NewsletterSettingsViewController'/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m:561: warning: method definition for '-preview' not found5(22@68"'NewsletterSettingsViewController' may not respond to '-chooseImage'291603506#170#166#0(6@82"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m290564232#467#0#467#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)291603506#336#143#0(6@82"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m290564232#467#0#467#0#0"0(23@13"At top level:291603506#736#98#0(6@82"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m290564232#0#0#0#0#0"0(22@69"Incomplete implementation of class 'NewsletterSettingsViewController'291603506#834#167#0(6@82"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m290564232#561#0#561#0#38"incomplete implementation of class '*'0(22@42"Method definition for '-preview' not found291603506#1001#140#0(6@82"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m290564232#561#0#561#0#35"method definition for '*' not found0(0#0#82"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m7598826449821393920#2116"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-fklcumrcapzleccijujnnlfdaqrd/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterSettingsViewController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterSettingsViewController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s291583438.462765
@@ -4086,8 +4120,8 @@ o/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:817:
 lSLF07#2@82"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m291583438#291583438#0(2186"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m: In function '-[NewsletterViewController actionSheet:clickedButtonAtIndex:]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:201: warning: 'NewsletterViewController' may not respond to '-toggleEditPage'/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:201: warning: (Messages without a matching method signature/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:201: warning: will be assumed to return 'id' and accept/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:201: warning: '...' as arguments.)/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m: In function '-[NewsletterViewController deleteSelectedRows]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:209: warning: 'UITableView' may not respond to '-indexPathsForSelectedRows'/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m: At top level:/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:817: warning: incomplete implementation of class 'NewsletterViewController'/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:817: warning: method definition for '-preview' not found/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:817: warning: method definition for '-settings' not found/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:817: warning: method definition for '-deleteNewsletter' not found/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:817: warning: method definition for '-clearNewsletterItems' not found/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:817: warning: method definition for '-setCurrentNewsletter:' not found/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:817: warning: method definition for '-toggleViewMode:' not found/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:817: warning: method definition for '-closePreview' not found12(22@63"'NewsletterViewController' may not respond to '-toggleEditPage'291583438#153#153#0(6@74"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m290552457#201#0#201#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)291583438#306#135#0(6@74"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m290552457#201#0#201#0#0"0(22@61"'UITableView' may not respond to '-indexPathsForSelectedRows'291583438#820#151#0(6@74"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m290552457#209#0#209#0#26"'*' may not respond to '*'0(23@13"At top level:291583438#971#90#0(6@74"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m290552457#0#0#0#0#0"0(22@61"Incomplete implementation of class 'NewsletterViewController'291583438#1061#151#0(6@74"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m290552457#817#0#817#0#38"incomplete implementation of class '*'0(22@42"Method definition for '-preview' not found291583438#1212#132#0(6@74"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m290552457#817#0#817#0#35"method definition for '*' not found0(22@43"Method definition for '-settings' not found291583438#1344#133#0(6@74"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m290552457#817#0#817#0#35"method definition for '*' not found0(22@51"Method definition for '-deleteNewsletter' not found291583438#1477#141#0(6@74"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m290552457#817#0#817#0#35"method definition for '*' not found0(22@55"Method definition for '-clearNewsletterItems' not found291583438#1618#145#0(6@74"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m290552457#817#0#817#0#35"method definition for '*' not found0(22@56"Method definition for '-setCurrentNewsletter:' not found291583438#1763#146#0(6@74"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m290552457#817#0#817#0#35"method definition for '*' not found0(22@50"Method definition for '-toggleViewMode:' not found291583438#1909#140#0(6@74"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m290552457#817#0#817#0#35"method definition for '*' not found0(22@47"Method definition for '-closePreview' not found291583438#2049#137#0(6@74"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m290552457#817#0#817#0#35"method definition for '*' not found0(0#0#74"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m4300911832#2100"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-dsgkxewskeohilftzkbyrwmluvll/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterViewController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s291302656.693419
-e291302657.057494
+s291603506.180673
+e291603506.445509
 r1
 xCompileC
 xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterViewController.o
@@ -4112,7 +4146,7 @@ o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817:
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-setCurrentNewsletter:' not found
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-toggleViewMode:' not found
 o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-closePreview' not found
-lSLF07#2@82"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m291302656#291302657#0(2186"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m: In function '-[NewsletterViewController actionSheet:clickedButtonAtIndex:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:201: warning: 'NewsletterViewController' may not respond to '-toggleEditPage'/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:201: warning: (Messages without a matching method signature/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:201: warning: will be assumed to return 'id' and accept/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:201: warning: '...' as arguments.)/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m: In function '-[NewsletterViewController deleteSelectedRows]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:209: warning: 'UITableView' may not respond to '-indexPathsForSelectedRows'/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m: At top level:/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: incomplete implementation of class 'NewsletterViewController'/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-preview' not found/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-settings' not found/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-deleteNewsletter' not found/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-clearNewsletterItems' not found/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-setCurrentNewsletter:' not found/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-toggleViewMode:' not found/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-closePreview' not found12(22@63"'NewsletterViewController' may not respond to '-toggleEditPage'291302656#153#153#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#201#0#201#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)291302656#306#135#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#201#0#201#0#0"0(22@61"'UITableView' may not respond to '-indexPathsForSelectedRows'291302656#820#151#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#209#0#209#0#26"'*' may not respond to '*'0(23@13"At top level:291302656#971#90#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#0#0#0#0#0"0(22@61"Incomplete implementation of class 'NewsletterViewController'291302656#1061#151#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#38"incomplete implementation of class '*'0(22@42"Method definition for '-preview' not found291302656#1212#132#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(22@43"Method definition for '-settings' not found291302656#1344#133#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(22@51"Method definition for '-deleteNewsletter' not found291302656#1477#141#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(22@55"Method definition for '-clearNewsletterItems' not found291302656#1618#145#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(22@56"Method definition for '-setCurrentNewsletter:' not found291302656#1763#146#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(22@50"Method definition for '-toggleViewMode:' not found291302656#1909#140#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(22@47"Method definition for '-closePreview' not found291302656#2049#137#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(0#0#74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m4300911832#2100"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-fklcumrcapzleccijujnnlfdaqrd/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterViewController.o"0#
+lSLF07#2@82"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m291603506#291603506#0(2186"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m: In function '-[NewsletterViewController actionSheet:clickedButtonAtIndex:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:201: warning: 'NewsletterViewController' may not respond to '-toggleEditPage'/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:201: warning: (Messages without a matching method signature/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:201: warning: will be assumed to return 'id' and accept/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:201: warning: '...' as arguments.)/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m: In function '-[NewsletterViewController deleteSelectedRows]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:209: warning: 'UITableView' may not respond to '-indexPathsForSelectedRows'/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m: At top level:/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: incomplete implementation of class 'NewsletterViewController'/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-preview' not found/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-settings' not found/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-deleteNewsletter' not found/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-clearNewsletterItems' not found/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-setCurrentNewsletter:' not found/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-toggleViewMode:' not found/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m:817: warning: method definition for '-closePreview' not found12(22@63"'NewsletterViewController' may not respond to '-toggleEditPage'291603506#153#153#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#201#0#201#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)291603506#306#135#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#201#0#201#0#0"0(22@61"'UITableView' may not respond to '-indexPathsForSelectedRows'291603506#820#151#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#209#0#209#0#26"'*' may not respond to '*'0(23@13"At top level:291603506#971#90#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#0#0#0#0#0"0(22@61"Incomplete implementation of class 'NewsletterViewController'291603506#1061#151#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#38"incomplete implementation of class '*'0(22@42"Method definition for '-preview' not found291603506#1212#132#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(22@43"Method definition for '-settings' not found291603506#1344#133#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(22@51"Method definition for '-deleteNewsletter' not found291603506#1477#141#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(22@55"Method definition for '-clearNewsletterItems' not found291603506#1618#145#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(22@56"Method definition for '-setCurrentNewsletter:' not found291603506#1763#146#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(22@50"Method definition for '-toggleViewMode:' not found291603506#1909#140#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(22@47"Method definition for '-closePreview' not found291603506#2049#137#0(6@74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m290564232#817#0#817#0#35"method definition for '*' not found0(0#0#74"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m4300911832#2100"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-fklcumrcapzleccijujnnlfdaqrd/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewsletterViewController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewsletterViewController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewslettersScrollViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s291588564.484028
@@ -4131,6 +4165,24 @@ o/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController
 o/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:163: warning: incomplete implementation of class 'NewslettersScrollViewController'
 o/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:163: warning: method definition for '-changePage:' not found
 lSLF07#2@89"Compile /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m291588564#291588564#0(678"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m: In function '-[NewslettersScrollViewController scrollViewDidScroll:]':/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:135: warning: unused variable 'page'/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m: At top level:/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:163: warning: incomplete implementation of class 'NewslettersScrollViewController'/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:163: warning: method definition for '-changePage:' not found4(22@22"Unused variable 'page'291588564#154#119#0(6@81"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m291588564#135#0#135#0#19"unused variable '*'0(23@13"At top level:291588564#273#97#0(6@81"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m291588564#0#0#0#0#0"0(22@68"Incomplete implementation of class 'NewslettersScrollViewController'291588564#370#165#0(6@81"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m291588564#163#0#163#0#38"incomplete implementation of class '*'0(22@46"Method definition for '-changePage:' not found291588564#535#143#0(6@81"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m291588564#163#0#163#0#35"method definition for '*' not found0(0#0#81"/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m4300911832#2114"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -I/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-dsgkxewskeohilftzkbyrwmluvll/Untitled_Prefix.pch -c /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewslettersScrollViewController.o"0#
+
+CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewslettersScrollViewController.o" /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s291606442.303154
+e291606442.497859
+r1
+xCompileC
+xbuild/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewslettersScrollViewController.o
+x/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m: In function '-[NewslettersScrollViewController scrollViewDidScroll:]':
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m:153: warning: unused variable 'page'
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m: At top level:
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m:181: warning: incomplete implementation of class 'NewslettersScrollViewController'
+o/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m:181: warning: method definition for '-changePage:' not found
+lSLF07#2@89"Compile /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m291606442#291606442#0(678"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m: In function '-[NewslettersScrollViewController scrollViewDidScroll:]':/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m:153: warning: unused variable 'page'/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m: At top level:/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m:181: warning: incomplete implementation of class 'NewslettersScrollViewController'/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m:181: warning: method definition for '-changePage:' not found4(22@22"Unused variable 'page'291606442#154#119#0(6@81"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m291606441#153#0#153#0#19"unused variable '*'0(23@13"At top level:291606442#273#97#0(6@81"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m291606441#0#0#0#0#0"0(22@68"Incomplete implementation of class 'NewslettersScrollViewController'291606442#370#165#0(6@81"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m291606441#181#0#181#0#38"incomplete implementation of class '*'0(22@46"Method definition for '-changePage:' not found291606442#535#143#0(6@81"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m291606441#181#0#181#0#35"method definition for '*' not found0(0#0#81"/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m4300911832#2114"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-generated-files.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-own-target-headers.hmap" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-all-target-headers.hmap" -iquote "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/InfoNgen Pub-project-headers.hmap" -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -I/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/include -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/libxml2 "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources/i386" "-I/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/DerivedSources" -include /var/folders/nT/nT6iMGQtE2WtAB31lU75rU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-fklcumrcapzleccijujnnlfdaqrd/Untitled_Prefix.pch -c /Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewslettersScrollViewController.o"0#
 
 CCompileC "build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/NewslettersViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s291570799.873708
@@ -5007,6 +5059,14 @@ xCompileXIB
 x/Users/bstewart/Documents/InfoNgen-iPad/NewsletterView.xib
 lSLF07#2@29"CompileXIB NewsletterView.xib290477197#290477197#0(0"0(0#0#58"/Users/bstewart/Documents/InfoNgen-iPad/NewsletterView.xib4300907800#498"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/NewsletterView.nib" /Users/bstewart/Documents/InfoNgen-iPad/NewsletterView.xib0#
 
+CCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/NewslettersScrollView.xib
+s291606441.905111
+e291606442.297324
+r1
+xCompileXIB
+x/Users/bstewart/Documents/InfoNgen-iPad/NewslettersScrollView.xib
+lSLF07#2@36"CompileXIB NewslettersScrollView.xib291606441#291606442#0(0"0(0#0#65"/Users/bstewart/Documents/InfoNgen-iPad/NewslettersScrollView.xib4300911832#512"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/NewslettersScrollView.nib" /Users/bstewart/Documents/InfoNgen-iPad/NewslettersScrollView.xib0#
+
 CCompileXIB /Users/bstewart/Documents/InfoNgen-iPad/NewslettersView.xib
 s290477199.130408
 e290477199.533269
@@ -5382,13 +5442,13 @@ x/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pu
 lSLF07#2@128"GenerateDSYMFile "build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"291588565#291588565#0(0"0(0#0#97"/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub4300911832#405"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM"0#
 
 CGenerateDSYMFile "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"
-s291302658.474824
-e291302658.638429
+s291606442.629746
+e291606442.743714
 r1
 xGenerateDSYMFile
 x/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM
 x/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub
-lSLF07#2@128"GenerateDSYMFile "build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"291302658#291302658#0(0"0(0#0#97"/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub4300911832#405"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM"0#
+lSLF07#2@128"GenerateDSYMFile "build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM" "build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"291606442#291606442#0(0"0(0#0#97"/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub4300911832#405"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app.dSYM"0#
 
 CLd "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" normal i386
 s291588564.966256
@@ -5401,14 +5461,14 @@ xi386
 lSLF07#2@102"Link /Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub291588564#291588565#0(0"0(0#0#0"4300911832#969"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -L/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -F/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator -filelist "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub.LinkFileList" -mmacosx-version-min=10.5 -lxml2 -framework Foundation -framework UIKit -framework CoreGraphics -framework AddressBook -framework AddressBookUI -framework QuartzCore -o "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"0#
 
 CLd "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub" normal i386
-s291302658.051153
-e291302658.474640
+s291606442.497958
+e291606442.629629
 r1
 xLd
 x/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub
 xnormal
 xi386
-lSLF07#2@102"Link /Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub291302658#291302658#0(0"0(0#0#0"4300911832#969"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -L/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -filelist "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub.LinkFileList" -mmacosx-version-min=10.5 -lxml2 -framework Foundation -framework UIKit -framework CoreGraphics -framework AddressBook -framework AddressBookUI -framework QuartzCore -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"0#
+lSLF07#2@102"Link /Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub291606442#291606442#0(0"0(0#0#0"4300911832#969"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -L/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -F/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator -filelist "/Users/bstewart/Documents/InfoNgen-iPad/build/Untitled.build/Debug-iphonesimulator/InfoNgen Pub.build/Objects-normal/i386/InfoNgen Pub.LinkFileList" -mmacosx-version-min=10.5 -lxml2 -framework Foundation -framework UIKit -framework CoreGraphics -framework AddressBook -framework AddressBookUI -framework QuartzCore -o "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app/InfoNgen Pub"0#
 
 CProcessInfoPlistFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app/Info.plist" Untitled-Info.plist
 s290550087.389020
@@ -5463,10 +5523,10 @@ x/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pu
 lSLF07#2@90"Touch /Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app291588565#291588565#0(0"0(0#0#0"4300911832#287"    cd /Users/Bob/Documents/InfoNgen-Publisher    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphonesimulator/InfoNgen Pub.app"0#
 
 CTouch "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app"
-s291302658.638519
-e291302658.675105
+s291606442.743828
+e291606442.753316
 r1
 xTouch
 x/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app
-lSLF07#2@90"Touch /Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app291302658#291302658#0(0"0(0#0#0"4300911832#287"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app"0#
+lSLF07#2@90"Touch /Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app291606442#291606442#0(0"0(0#0#0"4300911832#287"    cd /Users/bstewart/Documents/InfoNgen-iPad    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/bstewart/Documents/InfoNgen-iPad/build/Debug-iphonesimulator/InfoNgen Pub.app"0#
 

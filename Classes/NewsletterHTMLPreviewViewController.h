@@ -21,5 +21,5 @@
 - (void) renderHtml;
 
 - (IBAction) publish;
-
++ (NSString*) getHtml:(Newsletter*)newsletter;
 @end

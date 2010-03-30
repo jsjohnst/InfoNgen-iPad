@@ -135,19 +135,20 @@
 	[self renderHtml];
 }*/
 
-- (void) renderHtml
+
++ (NSString*) getHtml:(Newsletter*)newsletter
 {
 	NSString   *html = [NSString stringWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"newsletter" ofType:@"html"] 
 												 encoding: NSUTF8StringEncoding 
 													error: nil];
 	
 	
-	html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.name}}" withString:self.newsletter.name];
+	html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.name}}" withString:newsletter.name];
 	
 	
-	if (self.newsletter.logoImage) 
+	if (newsletter.logoImage) 
 	{
-		NSData *imageData = UIImagePNGRepresentation(self.newsletter.logoImage);
+		NSData *imageData = UIImagePNGRepresentation(newsletter.logoImage);
 		
 		NSString * encoded=[Base64 encode:imageData];
 		
@@ -157,12 +158,12 @@
 	{
 		html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.logoImage}}" withString:@""];
 	}
-
+	
 	NSDateFormatter *format = [[NSDateFormatter alloc] init];
 	
 	[format setDateFormat:@"MMM d, yyyy"];
 	
-	html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.lastUpdated}}" withString:[format stringFromDate:self.newsletter.lastUpdated]];
+	html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.lastUpdated}}" withString:[format stringFromDate:newsletter.lastUpdated]];
 	
 	[format release];
 	
@@ -177,10 +178,10 @@
 	NSMutableString * sections=[[NSMutableString alloc] init];
 	
 	
-	if(self.newsletter.sections)
+	if(newsletter.sections)
 	{
 		int i=0;
-		for (NewsletterSection * section in self.newsletter.sections)
+		for (NewsletterSection * section in newsletter.sections)
 		{	
 			NSString * tmp=[sectionTemplate stringByReplacingOccurrencesOfString:@"{{section.name}}" withString:section.name];
 			tmp=[tmp stringByReplacingOccurrencesOfString:@"{{section.ordinal}}" withString:[NSString stringWithFormat:@"%d",i]];
@@ -191,7 +192,7 @@
 	}
 	
 	html=[html stringByReplacingCharactersInRange:NSMakeRange(start.location   , (end.location+end.length -(start.location))) withString:sections];
-							  
+	
 	[sections release];
 	
 	start=[html rangeOfString:@"{{newsletter.sections.right}}"];
@@ -201,10 +202,10 @@
 	
 	sections=[[NSMutableString alloc] init];
 	
-	if(self.newsletter.sections)
+	if(newsletter.sections)
 	{
 		int i=0;
-		for (NewsletterSection * section in self.newsletter.sections)
+		for (NewsletterSection * section in newsletter.sections)
 		{	
 			NSString * tmp=[sectionTemplate stringByReplacingOccurrencesOfString:@"{{section.name}}" withString:section.name];
 			
@@ -284,11 +285,21 @@
 	
 	[sections release];
 	
+	
+	
+	[format release];
+	
+	return html;
+	
+}
+
+- (void) renderHtml
+{
+	NSString   *html = [NewsletterHTMLPreviewViewController getHTML:self.newsletter]; 
+	
 	[self.webView loadHTMLString:html baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
 	
 	[self.webView setNeedsDisplay];
-	
-	[format release];
 	
 	[super viewDidLoad];
 }
