@@ -1,5 +1,15 @@
-/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m: In function '-[NewslettersScrollViewController scrollViewDidScroll:]':
-/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m:174: warning: unused variable 'page'
-/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m: At top level:
-/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m:202: warning: incomplete implementation of class 'NewslettersScrollViewController'
-/Users/bstewart/Documents/InfoNgen-iPad/Classes/NewslettersScrollViewController.m:202: warning: method definition for '-changePage:' not found
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m: In function '-[NewslettersScrollViewController viewWillAppear:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:68: warning: 'NewslettersScrollViewController' may not respond to '-layoutSubviews'
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:68: warning: (Messages without a matching method signature
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:68: warning: will be assumed to return 'id' and accept
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:68: warning: '...' as arguments.)
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m: In function '-[NewslettersScrollViewController layoutSubviews]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:182: warning: format not a string literal and no format arguments
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:194: warning: 'UIViewController' may not respond to '-layoutSubviews'
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m: In function '-[NewslettersScrollViewController scrollViewDidScroll:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:228: warning: unused variable 'page'
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m: At top level:
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:256: warning: property 'navBar' requires method '-navBar' to be defined - use @synthesize, @dynamic or provide a method implementation
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:256: warning: property 'navBar' requires the method 'setNavBar:' to be defined - use @synthesize, @dynamic or provide a method implementation
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:256: warning: incomplete implementation of class 'NewslettersScrollViewController'
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m:256: warning: method definition for '-changePage:' not found

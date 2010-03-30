@@ -21,6 +21,7 @@
 #import "Newsletter.h"
 #import "UIImage-NSCoding.h"
 #import "NewslettersScrollViewController.h"
+#import "RootNavigationController.h"
 
 @implementation AppDelegate
 
@@ -39,7 +40,7 @@
 	
 	savedSearches=[client getSavedSearchesForUser];
 	
-	headlineViewController =[[NewsletterViewController alloc] initWithNibName:@"NewsletterView" bundle:nil];
+	/*headlineViewController =[[NewsletterViewController alloc] initWithNibName:@"NewsletterView" bundle:nil];
 	[headlineViewController setViewMode:NO];
 	headlineViewController.tabBarItem.title=@"Headlines";
 	headlineViewController.tabBarItem.image=[UIImage imageNamed:@"icon_document.png"];
@@ -73,12 +74,18 @@
 	newslettersViewController=[[NewslettersViewController alloc] initWithNibName:@"NewslettersView" bundle:nil];
 	
 	newslettersViewController.newsletters=self.newsletters;
+	*/
 	
-	navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+	NewslettersScrollViewController * scroller=[[NewslettersScrollViewController alloc] initWithNibName:@"NewslettersScrollView" bundle:nil];
+	
+	scroller.newsletters=self.newsletters;
+	
+	//navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+	navigationController = [[UINavigationController alloc] initWithRootViewController:scroller];
     
 	navigationController.navigationBar.barStyle=UIBarStyleBlack;
 	
-	if(self.newsletter!=nil)
+	/*if(self.newsletter!=nil)
 	{
 		newsletterSettingsViewController.newsletter=newsletter;
 		newsletterHTMLPreviewViewController.newsletter=newsletter;
@@ -89,13 +96,19 @@
 	else 
 	{
 		navigationController.navigationBar.topItem.title=@"InfoNgen Newsletter Editor";
-	}
+	}*/
+	
+	//UIBarButtonItem *button=[[UIBarButtonItem alloc] init];
+	
+	//button.title=@"Newsletters";
+	//button.target=self;
+	//button.action=@selector(showNewslettersPopOver:);
 	
 	UIBarButtonItem *button=[[UIBarButtonItem alloc] init];
 	
-	button.title=@"Newsletters";
-	button.target=self;
-	button.action=@selector(showNewslettersPopOver:);
+	button.title=@"New Newsletter";
+	//button.target=self;
+	//button.action=@selector(showNewslettersPopOver:);
 	
 	navigationController.navigationBar.topItem.leftBarButtonItem=button;
 
@@ -103,7 +116,7 @@
 	
 	navigationController.delegate=self;
 	
-	UINavigationController * masterNavController = [[UINavigationController alloc] initWithRootViewController:newslettersViewController];
+	/*UINavigationController * masterNavController = [[UINavigationController alloc] initWithRootViewController:newslettersViewController];
     
 	masterNavController.navigationBar.barStyle=UIBarStyleBlack;
 	
@@ -113,13 +126,11 @@
 	splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavController, navigationController, nil];
 	
 	splitViewController.delegate = self;
-    
-	NewslettersScrollViewController * scroller=[[NewslettersScrollViewController alloc] initWithNibName:@"NewslettersScrollView" bundle:nil];
+    */
 	
-	scroller.newsletters=self.newsletters;
 	
     // Add the split view controller's view to the window and display.
-    [window addSubview:scroller.view];
+    [window addSubview:navigationController.view];
 	
 	//[window addSubview:splitViewController.view];
     

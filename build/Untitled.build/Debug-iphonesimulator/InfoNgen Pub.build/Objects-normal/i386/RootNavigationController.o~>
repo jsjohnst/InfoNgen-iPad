@@ -1,0 +1,7 @@
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/RootNavigationController.m: In function '-[RootNavigationController initWithRootViewController:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/RootNavigationController.m:21: error: expected ']' before '}' token
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/RootNavigationController.m:21: warning: 'UIViewController' may not respond to '-initwithr'
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/RootNavigationController.m:21: warning: (Messages without a matching method signature
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/RootNavigationController.m:21: warning: will be assumed to return 'id' and accept
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/RootNavigationController.m:21: warning: '...' as arguments.)
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/RootNavigationController.m:21: error: expected ';' before '}' token

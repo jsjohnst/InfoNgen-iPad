@@ -10,18 +10,63 @@
 #import "Newsletter.h"
 #import "NewsletterHTMLPreviewViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "NewsletterScrollItemController.h"
 
 @implementation NewslettersScrollViewController
-@synthesize scrollView,newsletters;
+@synthesize scrollView,newsletters,scrollItems ;
 
 #pragma mark -
 #pragma mark UIView boilerplate
 - (void)viewDidLoad 
 {
-	[self setupPage];
+	
+	
+	scrollView.delegate = self;
+	
+	
+	//toolBar.title=@"My Newsletters";
+	
+	[self.view setBackgroundColor:[UIColor viewFlipsideBackgroundColor]];
+	
+	[self.scrollView setBackgroundColor:[UIColor clearColor]];
+	
+	[scrollView setCanCancelContentTouches:NO];
+	
+	scrollView.showsVerticalScrollIndicator=NO;
+	scrollView.showsHorizontalScrollIndicator=NO;
+	scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+	scrollView.clipsToBounds = YES;
+	scrollView.scrollEnabled = YES;
+	
+	scrollView.pagingEnabled = YES;
+	//scrollView.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+	
+	NSMutableArray * array=[[NSMutableArray alloc] init];
+	
+	for(Newsletter * newsletter in newsletters)
+	{
+		for(int i=0;i<4;i++)
+		{
+			NewsletterScrollItemController * item=[[NewsletterScrollItemController alloc] initWithNibName:@"NewsletterScrollItemView" bundle:nil];
+			
+			item.newsletter=newsletter;
+			
+			[array addObject:item];
+			[self.scrollView addSubview:item.view];
+		}
+	}
+	
+	self.scrollItems=array;
+	
+	[array release];
+	
     [super viewDidLoad];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+	[self layoutSubviews];
+}
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -47,7 +92,8 @@
 	//[pageControl release];
 	[scrollView release];
 	[newsletters release];
-    [super dealloc];
+	[scrollItems release];
+	[super dealloc];
 }
 
 
@@ -64,7 +110,7 @@
 
 #pragma mark -
 #pragma mark The Guts
-- (void)setupPage
+/*- (void)setupPage
 {
 	scrollView.delegate = self;
 	
@@ -85,52 +131,24 @@
 	int num_pages=0;
 	for(Newsletter * newsletter in newsletters)
 	{
-		
+		for(int i=0;i<4;i++)
+		{
 		//NSString *imageName = [NSString stringWithFormat:@"image%d.jpg", (nimages + 1)];
 		//UIImage *image = [UIImage imageNamed:imageName];
 		//if (image == nil) {
 		//	break;
 		//}
 		
-		NSString   *html = [NewsletterHTMLPreviewViewController getHtml:newsletter]; 
+		NewsletterScrollItemController * item=[[NewsletterScrollItemController alloc] initWithNibName:@"NewsletterScrollItemView" bundle:nil];
 		
-		UIWebView * webView=[[UIWebView alloc] init];
+		item.newsletter=newsletter;
 		
-		webView.frame=CGRectMake(0, 0, 480, 600);
+		int width=600;
+		int height=800;
 		
-		webView.scalesPageToFit=YES;
+		item.view.frame=CGRectMake(((scrollView.frame.size.width - width) / 2) + cx,100,600, 800);
 		
-		[webView loadHTMLString:html baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
-		
-		[webView setNeedsDisplay];
-		
-		//UIImage * image=[self captureView:webView];
-		
-		//UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-		
-		/*CGRect rect=imageView.frame;
-		rect.size.height = image.size.height;
-		rect.size.width = image.size.width;
-		rect.origin.x = ((scrollView.frame.size.width - image.size.width) / 2) + cx;
-		rect.origin.y = ((scrollView.frame.size.height - image.size.height) / 2);
-		*/
 		 		
-		CGRect rect=webView.frame;
-		rect.size.height = webView.frame.size.height;
-		rect.size.width = webView.frame.size.width;
-		rect.origin.x = ((scrollView.frame.size.width - webView.frame.size.width) / 2) + cx;
-		rect.origin.y = 100;//((scrollView.frame.size.height - webView.frame.size.height) / 2);
-		
-		/*
-		 
-		 Create sub-view:
-			have webview
-			have invisible button on top of web view (open newsletter on touch)
-			have drop shadow behind the web view
-			have text view below web view with newsletter title
-			have text view below title with last modified/updated date
-		 */
-		
 		// need to disable vertical scrolling
 		// need to adjust width on rotation
 		// need to add paging control
@@ -142,22 +160,58 @@
 		
 		// todo: controls under title/date for publish and delete
 		
-		webView.frame = rect;
-		
-		[scrollView addSubview:webView];
+		[scrollView addSubview:item.view];
 		//[imageView release];
 		
-		[webView release];
-		
+		//[item release];
 		
 		cx += scrollView.frame.size.width;
 		
 		num_pages++;
+		}
 	}
 	
 	//self.pageControl.numberOfPages = num_pages;
-	[scrollView setContentSize:CGSizeMake(cx, [scrollView bounds].size.height)];
+	
+}*/
+
+- (void)layoutSubviews
+{
+    NSLog(@"layoutSubviews called");
+	
+	NSLog(NSStringFromCGRect(self.view.bounds));
+	
+	CGFloat cx=0;
+	
+	CGFloat height=self.view.bounds.size.height - 100;
+	CGFloat width=self.view.bounds.size.width - 100; //height * 0.75;
+	CGFloat top=50;
+	
+	for(UIViewController * controller in self.scrollItems)
+	{
+		controller.view.frame=CGRectMake(((self.view.bounds.size.width - width) / 2)+ cx,top,width,height);
+		
+		[controller layoutSubviews];
+		
+		cx+=self.view.bounds.size.width;
+	}
+	
+	[scrollView setContentSize:CGSizeMake(cx, self.view.bounds.size.height)];
 }
+
+- (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+	NSLog(@"didRotateFromInterfaceOrientation");
+    [self layoutSubviews];
+	scrollView.hidden=NO;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+	// hide the scroll view during rotation
+	scrollView.hidden=YES;
+}
+
 
 #pragma mark -
 #pragma mark UIScrollViewDelegate stuff

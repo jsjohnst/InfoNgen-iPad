@@ -1,16 +1,16 @@
 /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m: In function '-[AppDelegate deleteNewsletter:]':
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:141: warning: local declaration of 'newsletter' hides instance variable
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:143: warning: local declaration of 'newsletter' hides instance variable
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m: In function '-[AppDelegate setCurrentNewsletter:]':
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:151: warning: local declaration of 'newsletter' hides instance variable
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:153: warning: local declaration of 'newsletter' hides instance variable
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:152: warning: local declaration of 'newsletter' hides instance variable
 /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:154: warning: local declaration of 'newsletter' hides instance variable
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:155: warning: local declaration of 'newsletter' hides instance variable
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:156: warning: local declaration of 'newsletter' hides instance variable
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:158: warning: local declaration of 'newsletter' hides instance variable
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:160: warning: local declaration of 'newsletter' hides instance variable
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m: In function '-[AppDelegate setCurrentNewsletter:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:162: warning: local declaration of 'newsletter' hides instance variable
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:164: warning: local declaration of 'newsletter' hides instance variable
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:165: warning: local declaration of 'newsletter' hides instance variable
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:166: warning: local declaration of 'newsletter' hides instance variable
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:167: warning: local declaration of 'newsletter' hides instance variable
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:169: warning: local declaration of 'newsletter' hides instance variable
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:171: warning: local declaration of 'newsletter' hides instance variable
 /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m: In function '-[AppDelegate renderNewsletter]':
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:175: warning: 'UIViewController' may not respond to '-renderNewsletter'
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:175: warning: (Messages without a matching method signature
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:175: warning: will be assumed to return 'id' and accept
-/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:175: warning: '...' as arguments.)
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:186: warning: 'UIViewController' may not respond to '-renderNewsletter'
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:186: warning: (Messages without a matching method signature
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:186: warning: will be assumed to return 'id' and accept
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m:186: warning: '...' as arguments.)
