@@ -24,14 +24,12 @@
 	searchResult.synopsis=synopsisTextView.text;
 	searchResult.notes=commentsTextView.text;
 	
-	// how to close the dialog?
 	if(delegate)
 	{
 		[delegate redraw];
 	}
 	
 	[[self parentViewController] dismissModalViewControllerAnimated:YES];
-	
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -45,31 +43,24 @@
 	synopsisTextView.layer.borderWidth=1;
 	synopsisTextView.layer.borderColor = [[UIColor grayColor] CGColor];
 	synopsisTextView.layer.cornerRadius = 8;
-	//commentsTextView.layer.opacity=0;
-	//commentsTextView.layer.alpha=0;
+	
+	//commentsTextView.layer.borderWidth=1;
+	//commentsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+	//commentsTextView.layer.cornerRadius = 8;
+	
+	
 	commentsTextView.backgroundColor=[UIColor clearColor];
-	UIImage* balloon = [[UIImage imageNamed:@"balloon.png"] stretchableImageWithLeftCapWidth:15  topCapHeight:15]; // you need to have the .png image, it's not a system one.
+	
+	UIImage* balloon = [[UIImage imageNamed:@"balloon.png"] stretchableImageWithLeftCapWidth:15  topCapHeight:15];
 	
 	UIImageView * imageView=[[UIImageView alloc] initWithImage:balloon];
-	
+	//
 	imageView.autoresizingMask=commentsTextView.autoresizingMask;
 	
 	imageView.frame=CGRectMake(commentsTextView.frame.origin.x-4, commentsTextView.frame.origin.y-8, commentsTextView.frame.size.width+16, commentsTextView.frame.size.height+16);//   commentsTextView.frame;
 	
 	[self.view addSubview:imageView];
 	[self.view sendSubviewToBack:imageView];
-	
-	
-	
-	/*commentsTextView.layer.borderWidth=1;
-	commentsTextView.layer.borderColor = [[UIColor grayColor] CGColor];
-	commentsTextView.layer.cornerRadius = 8;
-	 */
-	
-	
-	
-	
-	
 }
 
 // Override to allow orientations other than the default portrait orientation.
@@ -77,7 +68,6 @@
     // Return YES for supported orientations
     return YES;
 }
-
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

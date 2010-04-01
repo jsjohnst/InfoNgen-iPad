@@ -13,7 +13,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation NewsletterScrollItemController
-@synthesize newsletter,webView,newsletterButton;
+@synthesize webView,newsletterButton;
 
 -(IBAction) newletterTouch:(id)sender
 {
@@ -33,13 +33,18 @@
 	
 	self.view.backgroundColor=[UIColor clearColor];
 	
+	[self renderNewsletter];
+	
+	[super viewDidLoad];
+}
+
+- (void) renderNewsletter
+{
 	NSString * html=[NewsletterHTMLPreviewViewController getHtml:newsletter];
 	
 	webView.scalesPageToFit=YES;
 	
 	[webView loadHTMLString:html baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
-	
-	[super viewDidLoad];
 }
 
 // Override to allow orientations other than the default portrait orientation.
@@ -89,7 +94,6 @@
 
 - (void)dealloc 
 {
-	[newsletter release];
 	[webView release];
 	[newsletterButton release];
     [super dealloc];

@@ -13,12 +13,16 @@
 #define kDeleteActionSheet 2
 #define kClearSelectedItemsActionSheet 3
 
+#define kViewModeSections 0
+#define kViewModeHeadlines 1
+#define kViewModeSynopsis 2
+
 @class Newsletter;
 @class SearchResult;
 @class SavedSearch;
 @class NewsletterHTMLPreviewViewController;
 
-@interface NewsletterViewController : NewsletterBaseViewController< UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate> {
+@interface NewsletterViewController : NewsletterBaseViewController< UITextFieldDelegate,UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate> {
 	IBOutlet UITableView * newsletterTableView;
 	IBOutlet UIBarButtonItem * editMoveButton;
 	IBOutlet UIButton * addImageButton;
@@ -26,7 +30,9 @@
 	IBOutlet UITextField * titleTextField;
 	IBOutlet UITextView * descriptionTextField;
 	BOOL updating;
-	BOOL viewModeExpanded;
+	int viewMode;
+	//BOOL viewModeExpanded;
+	UIPopoverController * addSectionPopover;
 }
 
 @property(nonatomic,retain) IBOutlet UITableView * newsletterTableView;
@@ -35,14 +41,16 @@
 @property (nonatomic,retain) IBOutlet UISegmentedControl * segmentedControl;
 @property (nonatomic,retain) IBOutlet UITextField * titleTextField;
 @property (nonatomic,retain) IBOutlet UITextView * descriptionTextField;
+@property (nonatomic,retain) UIPopoverController * addSectionPopover;
 
 - (void) addImageTouch:(id)sender;
 
+- (void) addTouch:(id)sender;
 
 -(void) closePreview;
 - (void) scrollToSection:(NSString*)sectionName;
 
--(void) setViewMode:(BOOL)expanded;
+-(void) setViewMode:(int)mode;
 
 -(void) toggleViewMode:(id)sender;
 

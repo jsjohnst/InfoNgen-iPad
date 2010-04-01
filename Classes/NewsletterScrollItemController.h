@@ -7,16 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsletterBaseViewController.h"
 
 @class Newsletter;
 
-@interface NewsletterScrollItemController : UIViewController {
+@interface NewsletterScrollItemController : NewsletterBaseViewController {
 	IBOutlet UIWebView * webView;
-	Newsletter * newsletter;
 	IBOutlet UIButton * newsletterButton;
 }
 @property(nonatomic,retain) IBOutlet UIWebView * webView;
-@property(nonatomic,retain) Newsletter * newsletter;
 @property(nonatomic,retain) IBOutlet UIButton * newsletterButton;
 
 -(IBAction) newletterTouch:(id)sender;

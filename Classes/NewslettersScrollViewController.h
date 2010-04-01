@@ -7,16 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsletterBaseViewController.h"
+
+#define kDeleteNewsletterActionSheet 1
+#define kPublishNewsletterActionSheet 2
 
 @class Newsletter;
 
-@interface NewslettersScrollViewController : UIViewController <UIScrollViewDelegate>{
+@interface NewslettersScrollViewController : NewsletterBaseViewController <UIScrollViewDelegate,UIActionSheetDelegate>{
 	IBOutlet UIScrollView * scrollView;
 	IBOutlet UIPageControl * pageControl;
 	BOOL pageControlIsChangingPage;
-	Newsletter * currentNewsletter;
-	NSArray * newsletters;
-	NSArray * scrollItems;
+	NSMutableArray * newsletters;
+	NSMutableArray * scrollItems;
 	IBOutlet UIToolbar * toolBar;
 	IBOutlet UIButton * deleteButton;
 	IBOutlet UIButton * sendButton;
@@ -25,9 +28,8 @@
 }
 @property(nonatomic,retain) IBOutlet UIScrollView * scrollView;
 @property(nonatomic,retain) IBOutlet UIPageControl * pageControl;
-@property(nonatomic,retain) NSArray * newsletters;
-@property(nonatomic,retain) NSArray * scrollItems;
-@property(nonatomic,retain) Newsletter * currentNewsletter;
+@property(nonatomic,retain) NSMutableArray * newsletters;
+@property(nonatomic,retain) NSMutableArray * scrollItems;
 @property(nonatomic,retain) IBOutlet UIButton * deleteButton;
 @property(nonatomic,retain) IBOutlet UIButton * sendButton;
 @property(nonatomic,retain) IBOutlet UILabel * dateLabel;

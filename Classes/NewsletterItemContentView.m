@@ -15,7 +15,6 @@
 @implementation NewsletterItemContentView
 @synthesize searchResult,holdTimer,parentController,parentTableView,imagePickerPopover;
 
-
 - (id)initWithFrame:(CGRect)frame {
 	
 	if (self = [super initWithFrame:frame]) {
@@ -39,7 +38,6 @@
 	}
 	return NO;
 }
-
 
 - (BOOL) didTouchImage:(UITouch*)touch
 {
@@ -81,10 +79,8 @@
 
 - (void) touchesBegan:(NSSet*) touches withEvent:(UIEvent*)event
 {	
-	NSLog(@"touchesBegan");
-	
 	// where did user select? 
-		// if on headline, open the target...
+	// if on headline, open the target...
 	
 	if([event.allTouches count]==1)
 	{
@@ -105,7 +101,6 @@
 
 - (void) touchesMoved:(NSSet*) touches withEvent:(UIEvent*)event
 {	
-	NSLog(@"touchesMoved");
 	if ([holdTimer isValid]) 
 	{
 		[holdTimer invalidate];
@@ -114,8 +109,6 @@
 
 - (void) touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event
 {	
-	NSLog(@"touchesEnded");
-	
 	if ([holdTimer isValid]) 
 	{
 		[holdTimer invalidate];
@@ -160,15 +153,12 @@
 			
 			if ([self didTouchHeadline:touch]) 
 			{
-				NSLog(@"Touched headline");
 				[self doHeadlineTouch];
 				return;
 				// go to target
 			}
 			if ([self didTouchImage:touch]) 
 			{
-				NSLog(@"Touched image");
-				
 				// pop up image edit menu 				
 				UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:searchResult.headline delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
 				
@@ -184,8 +174,6 @@
 			}
 			if ([self didTouchSynopsis:touch] || [self didTouchComments:touch]) 
 			{
-				NSLog(@"Touched synopsis");
-				
 				// popup edit dialod
 				DocumentEditFormViewController *controller = [[DocumentEditFormViewController alloc] initWithNibName:@"DocumentEditFormView" bundle:nil];
 				
@@ -196,7 +184,6 @@
 				[controller setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
 				[controller setModalPresentationStyle:UIModalPresentationFormSheet];
 				
-				 
 				[self.parentController presentModalViewController:controller animated:YES];
 				
 				[controller release];

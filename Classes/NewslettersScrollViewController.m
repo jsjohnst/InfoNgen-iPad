@@ -13,15 +13,15 @@
 #import "NewsletterScrollItemController.h"
 
 @implementation NewslettersScrollViewController
-@synthesize scrollView,newsletters,scrollItems,currentNewsletter,deleteButton,sendButton,dateLabel,titleLabel,pageControl,toolBar ;
+@synthesize scrollView,newsletters,scrollItems,deleteButton,sendButton,dateLabel,titleLabel,pageControl,toolBar ;
 
 -(IBAction) deleteTouch:(id)sender
 {
-	UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Newsletter" otherButtonTitles:nil	];
+	UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Newsletter" otherButtonTitles:nil	];
+	
+	actionSheet.tag=kDeleteNewsletterActionSheet;
 	
 	[actionSheet showFromBarButtonItem:sender animated:YES];
-	
-	
 	
 	//UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Delete newsletter" message:@"Deleted newsletter" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	//[alertView show];
@@ -30,17 +30,101 @@
 
 -(IBAction) sendTouch:(id)sender
 {
-	UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Email as HTML",@"Email as PDF",@"Preview HTML",@"Preview PDF",nil	];
-	
+	UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Publish Newsletter",@"Show Preview",nil	];
+	actionSheet.tag=kPublishNewsletterActionSheet;
 	[actionSheet showFromBarButtonItem:sender animated:YES];
-	
-	
-	
-	
-	//UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Send newsletter" message:@"Sent newsletter" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-	//[alertView show];
-	//[alertView release];
 }
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	
+}
+
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet
+{
+	
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	
+	if(actionSheet.tag==kDeleteNewsletterActionSheet)
+	{
+		
+		if(self.newsletter)
+		{
+			for(NewsletterScrollItemController * controller in self.scrollItems)
+			{
+				if([controller.newsletter isEqual:self.newsletter])
+				{
+					
+					// remove newsletter from newsletters
+					[self.newsletters removeObject:self.newsletter];
+					
+					// remove view from scroll view
+					[controller.view removeFromSuperview];
+					
+					// remove scroll item from array
+					[self.scrollItems removeObject:controller];
+					
+					// re-adjust view
+					[self layoutSubviews];
+					
+					if([self.newsletters count]>0)
+					{
+						self.newsletter=[self.newsletters objectAtIndex:self.pageControl.currentPage];
+					}
+					else
+					{
+						self.newsletter=nil;
+					}
+					self.pageControl.numberOfPages=self.pageControl.numberOfPages-1;
+					
+					// set current newsletter to next one
+					break;
+				}
+			}
+		}
+		//[self.newsletters removeObject:self.currentNewsletter];
+		
+		//self.currentNewsletter=nil;
+		
+		// remove item with animation?
+		// redraw...
+		
+		//[UIView beginAnimations:nil context:nil];
+		//[UIView setAnimationDuration:0.75];
+		//[UIView setAnimationDelegate:self];
+		
+		//actionSheet.
+		
+		//[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:myview cache:YES];
+		//[myview removeFromSuperview];
+		//[UIView commitAnimations];
+		
+		
+		
+		
+	}
+	if(actionSheet.tag==kPublishNewsletterActionSheet)
+	{
+		if(buttonIndex==0)
+		{
+			// email
+			// popup email form and populate with HTML
+		}
+		if(buttonIndex==1)
+		{
+			// preview HTML
+		}
+	}
+}
+
 
 - (void)viewDidLoad 
 {
@@ -56,7 +140,6 @@
 	
 	self.toolBar.backgroundColor=[UIColor clearColor];
 	self.toolBar.opaque=NO;
-	
 	
 	[self.view setBackgroundColor:[UIColor viewFlipsideBackgroundColor]];
 	
@@ -92,7 +175,7 @@
 
 	if([newsletters count]>0)
 	{
-		self.currentNewsletter=[newsletters objectAtIndex:0];
+		self.newsletter=[newsletters objectAtIndex:0];
 	}
 	
 	[array release];
@@ -102,6 +185,7 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+	NSLog(@"viewWillAppear");
 	[self layoutSubviews];
 }
 
@@ -158,12 +242,19 @@
 	CGFloat width=bounds.size.width - 100;
 	CGFloat top=50;
 	
-	for(UIViewController * controller in self.scrollItems)
+	for(NewsletterScrollItemController * controller in self.scrollItems)
 	{
 		controller.view.frame=CGRectMake(((bounds.size.width - width) / 2)+ cx,top,width,height);
 		
 		[controller layoutSubviews];
 		
+		if(self.newsletter!=nil)
+		{
+			if([self.newsletter isEqual:controller.newsletter])
+			{
+				[controller renderNewsletter];
+			}
+		}
 		cx+=bounds.size.width;
 	}
 	
@@ -195,19 +286,29 @@
     
 	int page = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
 	
-	self.currentNewsletter=[self.newsletters objectAtIndex:page];
+	self.newsletter=[self.newsletters objectAtIndex:page];
 	
 	pageControl.currentPage = page;
 }
 
-- (void)setCurrentNewsletter:(Newsletter *)newsletter
+- (void)setNewsletter:(Newsletter *)_newsletter
 {
-	if(currentNewsletter!=nil)
+	if(newsletter!=nil)
 	{
-		[currentNewsletter release];
+		[newsletter release];
 	}
 	
-	currentNewsletter=newsletter;
+	newsletter=_newsletter;
+	
+	if(newsletter==nil)
+	{
+		self.titleLabel.text=nil;
+		self.dateLabel.text=nil;
+		self.navigationController.navigationBar.topItem.title=@"My Newsletters";
+
+		return;
+	}
+	
 	[newsletter retain];
 	
 	self.titleLabel.text=newsletter.name;
@@ -250,7 +351,7 @@
 	
 	//When the animated scrolling finishings, scrollViewDidEndDecelerating will turn this off
 	 
-	self.currentNewsletter=[self.newsletters objectAtIndex:pageControl.currentPage];
+	self.newsletter=[self.newsletters objectAtIndex:pageControl.currentPage];
 	
     pageControlIsChangingPage = YES;
 }

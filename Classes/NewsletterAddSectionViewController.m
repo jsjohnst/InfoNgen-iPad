@@ -11,9 +11,10 @@
 #import "NewsletterSection.h"
 #import "Newsletter.h"
 #import "AppDelegate.h"
+#import "NewsletterBaseViewController.h"
 
 @implementation NewsletterAddSectionViewController
-@synthesize sectionsTable,newsletter ,savedSearches;
+@synthesize sectionsTable,newsletter ,savedSearches,newsletterDelegate;
 
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -68,6 +69,12 @@
 		NewsletterSection * section=[self.newsletter.sections objectAtIndex:i];
 		if([section.savedSearchName isEqualToString:savedSearch.name])
 		{
+			[self.newsletter.sections removeObjectAtIndex:i];
+			
+			[aTableView reloadData];
+	
+			[newsletterDelegate renderNewsletter];
+			
 			return; // already added... so remove it...?
 		}
 	}
@@ -83,9 +90,7 @@
 	
 	[aTableView reloadData];
 	
-	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
-	
-	[delegate renderNewsletter];	
+	[newsletterDelegate renderNewsletter];
 }
 
 
@@ -107,6 +112,7 @@
 	[sectionsTable release];
 	[newsletter release];
 	[savedSearches release];
+	[newsletterDelegate release];
     [super dealloc];
 }
 

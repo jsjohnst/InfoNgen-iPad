@@ -19,26 +19,72 @@
 #import "SavedSearch.h"
 #import <QuartzCore/QuartzCore.h>
 #import "NewsletterItemContentView.h"
+#import "NewsletterAddSectionViewController.h"
 #import "BlankToolbar.h"
 
 @implementation NewsletterViewController
-@synthesize newsletterTableView,editMoveButton,addImageButton,segmentedControl,titleTextField,descriptionTextField;
+@synthesize newsletterTableView,editMoveButton,addImageButton,segmentedControl,titleTextField,descriptionTextField,addSectionPopover;
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+	// finished changing newsletter title
+	self.newsletter.name=self.titleTextField.text;
+	self.title=self.newsletter.name;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+	// finished changing newsletter title
+	self.newsletter.summary=self.descriptionTextField.text;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+	
+	[textField resignFirstResponder];
+	
+	return YES;
+}
 
 - (void) actionTouch:(id)sender
 {
 	UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Email as HTML",@"Email as PDF",@"Preview HTML",@"Preview PDF",nil	];
 	
 	[actionSheet showFromBarButtonItem:sender animated:YES];
+}
+
+- (void) addTouch:(id)sender
+{
+	// show popup with saved searches to select from
+	if(addSectionPopover==nil)
+	{
+		NewsletterAddSectionViewController * addSectionController=[[NewsletterAddSectionViewController alloc] initWithNibName:@"NewsletterAddSectionView" bundle:nil];
 	
+		addSectionController.newsletter=self.newsletter;
+		addSectionController.savedSearches=[[[UIApplication sharedApplication] delegate] savedSearches];
+		addSectionController.newsletterDelegate=self;
+		self.addSectionPopover=[[UIPopoverController alloc] initWithContentViewController:addSectionController];
+		//self.addSectionPopover.title=@"Add Sections";
+		
+		[addSectionController release];
+	}
 	
+	[self.addSectionPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 	
+	//UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"Add Section" delegate:nil cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Email as HTML",@"Email as PDF",@"Preview HTML",@"Preview PDF",nil	];
+	
+	//[actionSheet showFromBarButtonItem:sender animated:YES];
 }
 
 - (void)viewDidLoad
 {
+	
+	viewMode=kViewModeSynopsis;
+	
+	segmentedControl.selectedSegmentIndex=viewMode;
+	
 	// create a toolbar to have two buttons in the right
-	BlankToolbar* tools = [[BlankToolbar alloc] initWithFrame:CGRectMake(0, 0, 200, 44.01)];
-	//UIToolbar * tools = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 200, 44.01)];
+	BlankToolbar* tools = [[BlankToolbar alloc] initWithFrame:CGRectMake(0, 0, 300, 44.01)];
 	
 	tools.backgroundColor=[UIColor clearColor];
 	tools.opaque=NO;
@@ -54,6 +100,21 @@
 						   initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 	[buttons addObject:bi];
 	[bi release];
+	
+	bi = [[UIBarButtonItem alloc]
+		  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTouch:)];
+	bi.style = UIBarButtonItemStylePlain;
+	[buttons addObject:bi];
+	[bi release];
+	
+	// create a spacer
+	bi = [[UIBarButtonItem alloc]
+		  initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+	bi.width=30;
+	
+	[buttons addObject:bi];
+	[bi release];
+	
 	
 	bi = [[UIBarButtonItem alloc]
 		  initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionTouch:)];
@@ -106,43 +167,23 @@
 	[tools release];
 }
 
+-(void) toggleViewMode:(id)sender
+{
+	//
+	
+	viewMode=[segmentedControl selectedSegmentIndex];
+	
+	[newsletterTableView reloadData];
+	
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	NSLog(@"NewsletterViewController.viewWillAppear");
 	if(self.newsletter)
 	{
-		//UINavigationController * navController=(UINavigationController*)[self parentViewController];
-	
-		//navController.navigationBar.backItem.title=self.newsletter.name;
-		
 		self.title=self.newsletter.name;
-		
-		
 		self.titleTextField.text=self.newsletter.name;
 		self.descriptionTextField.text=self.newsletter.summary;
-		
-		//UINavigationController * navController=[(AppDelegate*)[[UIApplication sharedApplication] delegate] navigationController];
-		
-		
-		
-		
-		
-		
-		
-		/*UIBarButtonItem *button=[[UIBarButtonItem alloc] init];
-		
-		button.title=@"Edit";
-		
-		button.target=self;
-		
-		button.action=@selector(toggleEditPage:);
-		
-		navController.navigationBar.topItem.rightBarButtonItem=button;
-		
-		
-		
-		[button release];*/
 	}
 	
 	[newsletterTableView reloadData];
@@ -152,18 +193,7 @@
 
 -(void) setButtonsEnabled:(BOOL)enabled
 {
-	//if(!newsletterTableView.editing)
-	//{
-	//	self.editMoveButton.enabled=enabled;
-	//}
-
-	//self.deleteButton.enabled=enabled;
-	//self.updateButton.enabled=enabled;
-	//self.editSettingsButton.enabled=enabled;
-	
-	//[self.viewModeSegmentedControl setEnabled:enabled forSegmentAtIndex:0];
-	//[self.viewModeSegmentedControl setEnabled:enabled forSegmentAtIndex:1];
-	//[self.viewModeSegmentedControl setEnabled:enabled forSegmentAtIndex:2];	
+		
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -173,85 +203,19 @@
 	
 }
 
-/*- (IBAction) clearNewsletterItems
-{
-	if(newsletterTableView.editing)
-	{
-		UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Remove Selected Items" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Remove Selected Items" otherButtonTitles:nil];
-		
-		actionSheet.tag=kClearSelectedItemsActionSheet;
-		
-		[actionSheet showFromToolbar:self.toolBar];
-		
-		[actionSheet release];
-	}
-	else
-	{
-		UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Remove All Newsletter Items" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Remove All Items" otherButtonTitles:nil];
-	
-		actionSheet.tag=kClearItemsActionSheet;
-	
-		[actionSheet showFromToolbar:self.toolBar];
-	
-		[actionSheet release];
-	}
-}
-
-- (IBAction) deleteNewsletter
-{
-	UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Delete Newsletter" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:nil];
-	
-	actionSheet.tag=kDeleteActionSheet;
-	
-	[actionSheet showFromToolbar:self.toolBar];
-	
-	[actionSheet release];
-}
-
--(void) closePreview
-{
-	if(self.previewController!=nil)
-	{
-		[self.previewController.view removeFromSuperview];
-		[previewController release];
-		previewController=nil;
-	}	
-}
-
--(void) toggleViewMode:(id)sender
-{
-	if([self.viewModeSegmentedControl selectedSegmentIndex]!=2)
-	{
-		if(self.previewController!=nil)
-		{
-			//[UIView beginAnimations:nil context:NULL];  
-			//[UIView setAnimationDuration:0.5];  
-			//[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.newsletterTableView cache:YES];  
-		
-			[self closePreview];
-			
-			//[UIView commitAnimations]; 
-		}
-		
-		[self.newsletterTableView reloadData];
-	}
-	else 
-	{
-		[self preview];
-	}
-}*/
-
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet
 {
+
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
+
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	if(buttonIndex==0)
+	/*if(buttonIndex==0)
 	{
 		if(actionSheet.tag==kDeleteActionSheet)
 		{
@@ -300,69 +264,76 @@
 				}
 			}
 		}
-	}
+	}*/
 }
+
 - (void) deleteSelectedRows
 {
 	NSArray* selectedRows = [newsletterTableView indexPathsForSelectedRows];
-	
-	NSMutableDictionary * dict=[[NSMutableDictionary alloc] init];
-	
+		
 	if (selectedRows && [selectedRows count]>0) 
 	{
-		for (NSIndexPath * indexPath in selectedRows)
+		if(viewMode==kViewModeSections)
 		{
+			// delete sections
+			NSMutableIndexSet * sectionsSet=[[NSMutableIndexSet alloc] init];
 			
-			NSNumber * sectionNumber=[NSNumber numberWithUnsignedInt:indexPath.section];
-			
-			NSArray * tmp=[dict objectForKey:sectionNumber];
-			
-			if(tmp==nil)
+			for (NSIndexPath * indexPath in selectedRows)
 			{
-				
-				NewsletterSection * section = [self.newsletter.sections objectAtIndex:indexPath.section];
-				NSMutableIndexSet * rows=[[NSMutableIndexSet alloc] init];
-				
-				tmp=[NSArray arrayWithObjects:section,rows,nil];
-				
-				[dict setObject:tmp forKey:sectionNumber];
+				[sectionsSet addIndex:indexPath.row];
 			}
 			
-			[[tmp objectAtIndex:1] addIndex:indexPath.row];
+			[self.newsletter.sections removeObjectsAtIndexes:sectionsSet];
+			
+			[sectionsSet release];
 		}
-	}
-	
-	for(NSArray * array in [dict allValues])
-	{
-		NewsletterSection * section=[array objectAtIndex:0];
-		NSMutableIndexSet * rows=[array objectAtIndex:1];
+		else
+		{
+			// delete items
+			NSMutableDictionary * dict=[[NSMutableDictionary alloc] init];
+			
+			for (NSIndexPath * indexPath in selectedRows)
+			{
+				NSNumber * sectionNumber=[NSNumber numberWithUnsignedInt:indexPath.section];
+				
+				NSArray * tmp=[dict objectForKey:sectionNumber];
+				
+				if(tmp==nil)
+				{
+					NewsletterSection * section = [self.newsletter.sections objectAtIndex:indexPath.section];
+					NSMutableIndexSet * rows=[[NSMutableIndexSet alloc] init];
+					
+					tmp=[NSArray arrayWithObjects:section,rows,nil];
+					
+					[dict setObject:tmp forKey:sectionNumber];
+				}
+				
+				[[tmp objectAtIndex:1] addIndex:indexPath.row];
+			}
 		
-		[section.items removeObjectsAtIndexes:rows];
+			for(NSArray * array in [dict allValues])
+			{
+				NewsletterSection * section=[array objectAtIndex:0];
+				NSMutableIndexSet * rows=[array objectAtIndex:1];
+				
+				[section.items removeObjectsAtIndexes:rows];
+			}
+			
+			[dict release];
+		}
+			
+		[self.newsletterTableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
 	}
-	
-	[dict release];
-	
-	[self.newsletterTableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
+	
 }
-
-
 
 - (void)renderNewsletter
 {
 	[newsletterTableView reloadData];
-	
-	/*if(self.newsletter==nil)
-	{
-		[self setButtonsEnabled:NO];
-	}
-	else 
-	{
-		[self setButtonsEnabled:YES];
-	}*/
 }
 
 - (void) addSearchResultToCurrentNewsletter:(SearchResult*)searchResult fromSavedSearch:(SavedSearch*)savedSearch;
@@ -434,22 +405,6 @@
 	[self renderNewsletter];
 }
 
-/*- (void) setCurrentNewsletter:(Newsletter*)newsletter
-{
-	[self closePreview];
-	
-	self.viewModeSegmentedControl.selectedSegmentIndex=1;
-	
-	self.newsletter=newsletter;
-
-	// set current newsletter in app delegate so it can always remember last newsletter to show again on restart...
-	AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
-	
-	delegate.newsletter = self.newsletter;
-	
-	[self renderNewsletter];
-}*/
-
 - (IBAction) update
 {
 	if(!updating)
@@ -462,10 +417,6 @@
 	
 		// update all the saved searches associated with this page...
 		[self performSelectorInBackground:@selector(updateStart) withObject:nil];
-	
-		//UINavigationController * navController=(UINavigationController*)[self parentViewController];
-	
-		//navController.navigationBar.topItem.title=@"Updating Newsletter...";//     self.newsletter.name;
 	}
 }
 
@@ -565,31 +516,11 @@
 	app.networkActivityIndicatorVisible = NO;
 	// reload table...
 	[self.newsletterTableView reloadData];
-	
-	//UINavigationController * navController=(UINavigationController*)[self parentViewController];
-	
-	//navController.navigationBar.topItem.title=self.newsletter.name;
 }
- 
-/*- (IBAction) settings
-{
-	NewsletterSettingsViewController * settingsController=[[NewsletterSettingsViewController alloc] initWithNibName:@"NewsletterSettingsView" bundle:nil];
-	
-	settingsController.newsletter=self.newsletter;
-	
-	UINavigationController * navController=(UINavigationController*)[self parentViewController];
-	
-	[navController pushViewController:settingsController animated:YES];
-	
-	navController.navigationBar.topItem.title=@"Newsletter Settings";
-	
-	[settingsController release];
-}
-*/
 
--(void) setViewMode:(BOOL)expanded
+-(void) setViewMode:(int)mode
 {
-	viewModeExpanded=expanded;
+	viewMode=mode;
 }
 
 - (IBAction) toggleEditPage:(id)sender
@@ -609,11 +540,8 @@
 	{
 		[self.newsletterTableView setEditing:YES animated:YES];
 		
-	
 		buttonItem.style=UIBarButtonItemStyleDone;
 		buttonItem.title=@"Done";
-		//[self setButtonsEnabled:NO];
-		//self.deleteButton.enabled=YES;
 	}
 }
 
@@ -644,72 +572,83 @@
 		[self setButtonsEnabled:YES];
 	}
 	
-	if(self.newsletter && self.newsletter.sections)
+	if(viewMode==kViewModeSections)
 	{
-		return [self.newsletter.sections count];
+		return 1;
 	}
 	else
 	{
-		return 0;
+		if(self.newsletter && self.newsletter.sections)
+		{
+			return [self.newsletter.sections count];
+		}
+		else
+		{
+			return 0;
+		}
 	}
 }	
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+	if(viewMode==kViewModeSections)
+	{
+		return nil;
+	}
 	
-		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
+	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
 
-		UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, newsletterTableView.frame.size.width, 40)];
-		topView.backgroundColor=[UIColor whiteColor];
-		//topView.backgroundColor=[UIColor lightGrayColor];
-		
-		UIColor * borderColor=[NewsletterItemContentView colorWithHexString:@"#336699"];
-		
-		
-		topView.layer.borderColor=[borderColor CGColor];
-		topView.layer.borderWidth=1;
-		
-		//CAGradientLayer *gradient = [CAGradientLayer layer];
-		//gradient.frame = topView.bounds;
-		//gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor],(id)[[UIColor grayColor] CGColor], (id)[[UIColor lightGrayColor] CGColor], nil];
-		//[topView.layer insertSublayer:gradient atIndex:0];
-		
-		UIColor * nameColor=[NewsletterItemContentView colorWithHexString:@"#339933"];
-		
-		
-		UILabel *nameLabel = [self newLabelWithPrimaryColor:nameColor selectedColor:nameColor fontSize:20 bold:YES];
-		[nameLabel setFrame:CGRectMake(10, 10, 450, 22)];
-		//nameLabel.backgroundColor=[UIColor clearColor];
-		nameLabel.text = newsletterSection.name;
-		
-		[topView addSubview:nameLabel];
-		
-		/*if(updating)
-		{
-			UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-			[activityView setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
-			[activityView startAnimating];
-			[topView addSubview:activityView];
-			[activityView release];
-		}
-		else 
-		{
-			UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
-			[refreshButton setImage:[UIImage imageNamed:@"icon_refresh.png"] forState:UIControlStateNormal];
-			[refreshButton setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
-			[refreshButton addTarget:self action:@selector(update) forControlEvents:UIControlEventTouchUpInside];
-			[topView addSubview:refreshButton];
-		}*/
-
-		return topView;
+	UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, newsletterTableView.frame.size.width, 40)];
 	
+	topView.backgroundColor=[UIColor whiteColor];
+		
+	UIColor * borderColor=[NewsletterItemContentView colorWithHexString:@"#336699"];
+	
+	topView.layer.borderColor=[borderColor CGColor];
+	topView.layer.borderWidth=1;
+	
+	//CAGradientLayer *gradient = [CAGradientLayer layer];
+	//gradient.frame = topView.bounds;
+	//gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor],(id)[[UIColor grayColor] CGColor], (id)[[UIColor lightGrayColor] CGColor], nil];
+	//[topView.layer insertSublayer:gradient atIndex:0];
+	
+	UIColor * nameColor=[NewsletterItemContentView colorWithHexString:@"#339933"];
+	
+	
+	UILabel *nameLabel = [self newLabelWithPrimaryColor:nameColor selectedColor:nameColor fontSize:20 bold:YES];
+	[nameLabel setFrame:CGRectMake(10, 10, 450, 22)];
+	//nameLabel.backgroundColor=[UIColor clearColor];
+	nameLabel.text = newsletterSection.name;
+	
+	[topView addSubview:nameLabel];
+	
+	/*if(updating)
+	{
+		UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+		[activityView setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
+		[activityView startAnimating];
+		[topView addSubview:activityView];
+		[activityView release];
+	}
+	else 
+	{
+		UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		[refreshButton setImage:[UIImage imageNamed:@"icon_refresh.png"] forState:UIControlStateNormal];
+		[refreshButton setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
+		[refreshButton addTarget:self action:@selector(update) forControlEvents:UIControlEventTouchUpInside];
+		[topView addSubview:refreshButton];
+	}*/
+
+	return topView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-	
-		return 40;
-	
+	if(viewMode==kViewModeSections)
+	{
+		return 0;
+	}
+	return 40;
 }
 
 - (UILabel *)newLabelWithPrimaryColor:(UIColor *)primaryColor selectedColor:(UIColor *)selectedColor fontSize:(CGFloat)fontSize bold:(BOOL)bold
@@ -720,8 +659,8 @@
     else 
         font = [UIFont systemFontOfSize:fontSize];
     
-	
 	UILabel *newLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+	
 	newLabel.backgroundColor = [UIColor whiteColor];
 	newLabel.opaque = YES;
 	newLabel.textColor = primaryColor;
@@ -733,16 +672,17 @@
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    NSLog(@"numberOfRowsInSection");
-	
-	
-	
-	if(self.newsletter==nil || self.newsletter.sections==nil)
+    if(self.newsletter==nil || self.newsletter.sections==nil)
 	{
 		return 0;
 	}
 	else
 	{
+		if(viewMode==kViewModeSections)
+		{
+			return [self.newsletter.sections count];
+		}
+		
 		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
 		
 		if (newsletterSection==nil) 
@@ -769,39 +709,69 @@
     
 	NSLog(@"cellForRowAtIndexPath");
 	
-	static NSString *CellIdentifier = @"SearchResultCellIdentifier";
-	 
-	UITableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	
-	if(cell==nil)
+	if(viewMode==kViewModeSections)
 	{
-		cell=[[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
-	
-		cell.contentView.autoresizesSubviews=YES;
-		//cell.selectionStyle=UITableViewCellSelectionStyleNone;
-	
-		NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, cell.contentView.bounds.size.width, cell.contentView.bounds.size.height)];
-	
-		// set view mode...
-		//[contentView setViewMode:viewModeSegmentedControl];
-		contentView.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-		contentView.parentController=self;
-		contentView.parentTableView=tableView;
-	
-		[cell.contentView addSubview:contentView];
-	
-		contentView.contentMode=UIViewContentModeRedraw;
-	}
-	
-	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
-	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
-	NewsletterItemContentView * contentView=(NewsletterItemContentView *)[cell.contentView.subviews objectAtIndex:[cell.contentView.subviews count]-1];
-	[contentView setViewMode:viewModeExpanded];
-	//[contentView setViewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1)];
-	contentView.searchResult=result;
-	[contentView setNeedsDisplay];
+		static NSString *SectionCellIdentifier = @"SectionCellIdentifier";
 		
-	return cell;
+		UITableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:SectionCellIdentifier];
+		
+		if(cell==nil)
+		{
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:SectionCellIdentifier] autorelease];
+			
+			//cell.selectionStyle=UITableViewCellSelectionStyleNone;
+		
+		}
+		
+		//if(!tableView.editing)
+		//{
+		//	cell.selectionStyle=UITableViewCellSelectionStyleNone;
+		//}
+		
+		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.row];
+		
+		cell.textLabel.text=newsletterSection.name;
+		
+		return cell;
+	}
+	else 
+	{
+		static NSString *CellIdentifier = @"SearchResultCellIdentifier";
+		 
+		UITableViewCell * cell=[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		
+		if(cell==nil)
+		{
+			cell=[[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+			
+			cell.contentView.autoresizesSubviews=YES;
+			//cell.selectionStyle=UITableViewCellSelectionStyleNone;
+		
+			NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, cell.contentView.bounds.size.width, cell.contentView.bounds.size.height)];
+		
+			// set view mode...
+			//[contentView setViewMode:viewModeSegmentedControl];
+			contentView.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+			contentView.parentController=self;
+			contentView.parentTableView=tableView;
+		
+			[cell.contentView addSubview:contentView];
+		
+			contentView.contentMode=UIViewContentModeRedraw;
+		}
+		
+		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
+		SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
+		NewsletterItemContentView * contentView=(NewsletterItemContentView *)[cell.contentView.subviews objectAtIndex:[cell.contentView.subviews count]-1];
+		
+		
+		[contentView setViewMode:(viewMode==kViewModeSynopsis)];
+		//[contentView setViewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1)];
+		contentView.searchResult=result;
+		[contentView setNeedsDisplay];
+			
+		return cell;
+	}
 }
 
 - (BOOL) tableView:(UITableView*)tableView
@@ -814,14 +784,22 @@ canMoveRowAtIndexPath:(NSIndexPath*)indexPath
 - (CGFloat)tableView:(UITableView*)tableView
 heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
+	if(viewMode==kViewModeSections)
+	{
+		return 44;
+	}
+	else 
+	{
+		
+		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
 
-	SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
-	
-	//ItemSize itemSize=[NewsletterItemContentView sizeForCell:result viewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1) rect:CGRectZero];
-	ItemSize itemSize=[NewsletterItemContentView sizeForCell:result viewMode:viewModeExpanded rect:CGRectZero];
-	
-	return itemSize.size.height;
+		SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
+		
+		//ItemSize itemSize=[NewsletterItemContentView sizeForCell:result viewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1) rect:CGRectZero];
+		ItemSize itemSize=[NewsletterItemContentView sizeForCell:result viewMode:(viewMode==kViewModeSynopsis) rect:CGRectZero];
+		
+		return itemSize.size.height;
+	}
 }
 
 - (void)tableView:(UITableView*)tableView 
@@ -832,24 +810,46 @@ moveRowAtIndexPath:(NSIndexPath*)fromIndexPath
 	NSUInteger fromRow=[fromIndexPath row];
 	NSUInteger toRow=[toIndexPath row];
 	
-	NewsletterSection * newsletterSection1=[self.newsletter.sections objectAtIndex:fromIndexPath.section];
-	NewsletterSection * newsletterSection2=[self.newsletter.sections objectAtIndex:toIndexPath.section];
-	
-	id object=[[newsletterSection1.items objectAtIndex:fromRow] retain];
-	[newsletterSection1.items removeObjectAtIndex:fromRow];
-	[newsletterSection2.items insertObject:object atIndex:toRow];
-	[object release];
+	if(viewMode==kViewModeSections)
+	{
+		NewsletterSection * newsletterSection1=[[self.newsletter.sections objectAtIndex:fromRow] retain];
+		//NewsletterSection * newsletterSection2=[self.newsletter.sections objectAtIndex:toRow];
+		
+		[self.newsletter.sections removeObjectAtIndex:fromRow];
+		[self.newsletter.sections insertObject:newsletterSection1 atIndex:toRow];
+		[newsletterSection1 release];
+		
+	}
+	else
+	{
+		NewsletterSection * newsletterSection1=[self.newsletter.sections objectAtIndex:fromIndexPath.section];
+		NewsletterSection * newsletterSection2=[self.newsletter.sections objectAtIndex:toIndexPath.section];
+		
+		id object=[[newsletterSection1.items objectAtIndex:fromRow] retain];
+		[newsletterSection1.items removeObjectAtIndex:fromRow];
+		[newsletterSection2.items insertObject:object atIndex:toRow];
+		[object release];
+	}
 }
 
 - (void) tableView:(UITableView*)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
  forRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	NSUInteger row=[indexPath	row];
-	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
+	if(viewMode==kViewModeSections)
+	{
+		[self.newsletter.sections removeObjectAtIndex:indexPath.row];
+		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+		
+	}
+	else 
+	{
+		NSUInteger row=[indexPath	row];
+		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
 
-	[newsletterSection.items removeObjectAtIndex:row];
-	[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+		[newsletterSection.items removeObjectAtIndex:row];
+		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+	}
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView*)tableView editingStyleForRowAtIndexPath:(NSIndexPath*)indexPath {
@@ -857,6 +857,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	return 3;
 	//return UITableViewCellEditingStyleDelete;
 }
+
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
     if( sourceIndexPath.section != proposedDestinationIndexPath.section )
@@ -868,6 +869,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
         return proposedDestinationIndexPath;
     }
 }
+
 - (void) scrollToSection:(NSString*)sectionName
 {
 	// get section by name
@@ -882,13 +884,12 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 		section_number++;
 	}
 	
-	//if(section_number<[self.newsletterTableView.sections count])
-	//{
-		NSIndexPath * indexPath=[NSIndexPath indexPathForRow:NSNotFound inSection:section_number];
+	NSIndexPath * indexPath=[NSIndexPath indexPathForRow:NSNotFound inSection:section_number];
 	
-		[self.newsletterTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-	//}
+	[self.newsletterTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+	
 }
+
 /*
 - (IBAction) preview
 {
@@ -915,42 +916,21 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	
 	//[UIView commitAnimations];  
 }*/
-/*
-- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-	if(!aTableView.editing)
-	{
-		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
-		
-		SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
-		
-		DocumentEditViewController * editController=[[DocumentEditViewController alloc] initWithNibName:@"DocumentEditView" bundle:nil];
-		
-		editController.searchResult=result;
-		
-		UINavigationController * navController=(UINavigationController*)[self parentViewController];
-		
-		[navController pushViewController:editController animated:YES];
-		
-		navController.navigationBar.topItem.title=@"Edit Headline";
-		
-		[editController release];
-	}
-}
-*/
 
 - (void) addImageTouch:(id)sender
 {
 	
 }
 
-- (void)dealloc {
+- (void)dealloc 
+{
     [newsletterTableView release];
 	[editMoveButton release];
 	[addImageButton release];
 	[segmentedControl release];
 	[titleTextField  release];
 	[descriptionTextField release];
-	    [super dealloc];
+	[addSectionPopover release];
+	[super dealloc];
 }
 @end
