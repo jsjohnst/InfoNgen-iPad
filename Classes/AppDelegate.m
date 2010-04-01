@@ -107,8 +107,8 @@
 	UIBarButtonItem *button=[[UIBarButtonItem alloc] init];
 	
 	button.title=@"New Newsletter";
-	//button.target=self;
-	//button.action=@selector(showNewslettersPopOver:);
+	button.target=self;
+	button.action=@selector(newNewsletter);
 	
 	navigationController.navigationBar.topItem.leftBarButtonItem=button;
 
@@ -139,6 +139,20 @@
 	return YES;
 }
 
+- (void) newNewsletter
+{
+	Newsletter * newNewsletter=[[Newsletter alloc] init];
+	
+	newNewsletter.name=@"Untitled";
+	
+	[self.newsletters addObject:newNewsletter];
+	
+	[self editNewsletter:newNewsletter];
+	
+	[newNewsletter release];
+	
+}
+
 - (void)showNewslettersPopOver:(id)sender{
 	if(newslettersPopoverController==nil)
 	{
@@ -155,6 +169,19 @@
 	{
 		[self setCurrentNewsletter:nil];
 	}	
+}
+
+- (void) editNewsletter:(Newsletter*)_newsletter
+{
+	self.newsletter=_newsletter;
+	
+	NewsletterViewController * newsletterView=[[NewsletterViewController alloc] initWithNibName:@"NewsletterView" bundle:nil];
+	
+	newsletterView.newsletter=_newsletter;
+	
+	[navigationController pushViewController:newsletterView animated:NO];
+	
+	[newsletterView release];
 }
 
 - (void) setCurrentNewsletter:(Newsletter*)newsletter

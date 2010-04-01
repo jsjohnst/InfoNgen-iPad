@@ -31,7 +31,7 @@
 
 
 - (void)dealloc {
-	[newsletter dealloc];
+	[newsletter release];
     [super dealloc];
 }
 

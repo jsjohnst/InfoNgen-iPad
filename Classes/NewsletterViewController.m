@@ -19,9 +19,93 @@
 #import "SavedSearch.h"
 #import <QuartzCore/QuartzCore.h>
 #import "NewsletterItemContentView.h"
+#import "BlankToolbar.h"
 
 @implementation NewsletterViewController
-@synthesize newsletterTableView,editMoveButton;
+@synthesize newsletterTableView,editMoveButton,addImageButton,segmentedControl,titleTextField,descriptionTextField;
+
+- (void) actionTouch:(id)sender
+{
+	UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Email as HTML",@"Email as PDF",@"Preview HTML",@"Preview PDF",nil	];
+	
+	[actionSheet showFromBarButtonItem:sender animated:YES];
+	
+	
+	
+}
+
+- (void)viewDidLoad
+{
+	// create a toolbar to have two buttons in the right
+	BlankToolbar* tools = [[BlankToolbar alloc] initWithFrame:CGRectMake(0, 0, 200, 44.01)];
+	//UIToolbar * tools = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 200, 44.01)];
+	
+	tools.backgroundColor=[UIColor clearColor];
+	tools.opaque=NO;
+	
+	// create the array to hold the buttons, which then gets added to the toolbar
+	NSMutableArray* buttons = [[NSMutableArray alloc] init];
+	
+	// create a standard "action" button
+	UIBarButtonItem* bi;
+	
+	// create a spacer to push items to the right
+	bi= [[UIBarButtonItem alloc]
+						   initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	[buttons addObject:bi];
+	[bi release];
+	
+	bi = [[UIBarButtonItem alloc]
+		  initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionTouch:)];
+	bi.style = UIBarButtonItemStylePlain;
+	[buttons addObject:bi];
+	[bi release];
+	
+	// create a spacer
+	bi = [[UIBarButtonItem alloc]
+		  initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+	bi.width=30;
+	
+	[buttons addObject:bi];
+	[bi release];
+	 
+	
+	// create a standard "refresh" button
+	bi = [[UIBarButtonItem alloc]
+		  initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(update)];
+	bi.style = UIBarButtonItemStylePlain;
+	[buttons addObject:bi];
+	[bi release];
+	
+	// create a spacer
+	bi = [[UIBarButtonItem alloc]
+		  initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+	bi.width=30;
+	[buttons addObject:bi];
+	[bi release];
+	
+	// create a standard "edit" button
+	bi = [[UIBarButtonItem alloc] init];
+	bi.title=@"Edit";
+	bi.target=self;
+	bi.action=@selector(toggleEditPage:) ;
+	
+		  //initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(toggleEditPage:)];
+	bi.style = UIBarButtonItemStyleBordered;
+	[buttons addObject:bi];
+	[bi release];
+
+	// stick the buttons in the toolbar
+	[tools setItems:buttons animated:NO];
+	
+	[buttons release];
+	
+	// and put the toolbar in the nav bar
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:tools];
+	
+	[tools release];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -32,9 +116,21 @@
 	
 		//navController.navigationBar.backItem.title=self.newsletter.name;
 		
-		UINavigationController * navController=[(AppDelegate*)[[UIApplication sharedApplication] delegate] navigationController];
+		self.title=self.newsletter.name;
 		
-		UIBarButtonItem *button=[[UIBarButtonItem alloc] init];
+		
+		self.titleTextField.text=self.newsletter.name;
+		self.descriptionTextField.text=self.newsletter.summary;
+		
+		//UINavigationController * navController=[(AppDelegate*)[[UIApplication sharedApplication] delegate] navigationController];
+		
+		
+		
+		
+		
+		
+		
+		/*UIBarButtonItem *button=[[UIBarButtonItem alloc] init];
 		
 		button.title=@"Edit";
 		
@@ -44,7 +140,9 @@
 		
 		navController.navigationBar.topItem.rightBarButtonItem=button;
 		
-		[button release];
+		
+		
+		[button release];*/
 	}
 	
 	[newsletterTableView reloadData];
@@ -510,6 +608,8 @@
 	else
 	{
 		[self.newsletterTableView setEditing:YES animated:YES];
+		
+	
 		buttonItem.style=UIBarButtonItemStyleDone;
 		buttonItem.title=@"Done";
 		//[self setButtonsEnabled:NO];
@@ -556,46 +656,60 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
+	
+		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
 
-	UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, newsletterTableView.frame.size.width, 40)];
-	topView.backgroundColor=[UIColor lightGrayColor];
-	
-	CAGradientLayer *gradient = [CAGradientLayer layer];
-	gradient.frame = topView.bounds;
-	gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor],(id)[[UIColor grayColor] CGColor], (id)[[UIColor lightGrayColor] CGColor], nil];
-	[topView.layer insertSublayer:gradient atIndex:0];
-	
-	UILabel *nameLabel = [self newLabelWithPrimaryColor:[UIColor whiteColor] selectedColor:[UIColor whiteColor] fontSize:20 bold:YES];
-	[nameLabel setFrame:CGRectMake(10, 10, 450, 22)];
-	nameLabel.backgroundColor=[UIColor clearColor];
-	nameLabel.text = newsletterSection.name;
-	
-	[topView addSubview:nameLabel];
-	
-	if(updating)
-	{
-		UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-		[activityView setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
-		[activityView startAnimating];
-		[topView addSubview:activityView];
-		[activityView release];
-	}
-	else 
-	{
-		UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
-		[refreshButton setImage:[UIImage imageNamed:@"icon_refresh.png"] forState:UIControlStateNormal];
-		[refreshButton setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
-		[refreshButton addTarget:self action:@selector(update) forControlEvents:UIControlEventTouchUpInside];
-		[topView addSubview:refreshButton];
-	}
+		UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, newsletterTableView.frame.size.width, 40)];
+		topView.backgroundColor=[UIColor whiteColor];
+		//topView.backgroundColor=[UIColor lightGrayColor];
+		
+		UIColor * borderColor=[NewsletterItemContentView colorWithHexString:@"#336699"];
+		
+		
+		topView.layer.borderColor=[borderColor CGColor];
+		topView.layer.borderWidth=1;
+		
+		//CAGradientLayer *gradient = [CAGradientLayer layer];
+		//gradient.frame = topView.bounds;
+		//gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor],(id)[[UIColor grayColor] CGColor], (id)[[UIColor lightGrayColor] CGColor], nil];
+		//[topView.layer insertSublayer:gradient atIndex:0];
+		
+		UIColor * nameColor=[NewsletterItemContentView colorWithHexString:@"#339933"];
+		
+		
+		UILabel *nameLabel = [self newLabelWithPrimaryColor:nameColor selectedColor:nameColor fontSize:20 bold:YES];
+		[nameLabel setFrame:CGRectMake(10, 10, 450, 22)];
+		//nameLabel.backgroundColor=[UIColor clearColor];
+		nameLabel.text = newsletterSection.name;
+		
+		[topView addSubview:nameLabel];
+		
+		/*if(updating)
+		{
+			UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+			[activityView setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
+			[activityView startAnimating];
+			[topView addSubview:activityView];
+			[activityView release];
+		}
+		else 
+		{
+			UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
+			[refreshButton setImage:[UIImage imageNamed:@"icon_refresh.png"] forState:UIControlStateNormal];
+			[refreshButton setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
+			[refreshButton addTarget:self action:@selector(update) forControlEvents:UIControlEventTouchUpInside];
+			[topView addSubview:refreshButton];
+		}*/
 
-	return topView;
+		return topView;
+	
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-	return 40;
+	
+		return 40;
+	
 }
 
 - (UILabel *)newLabelWithPrimaryColor:(UIColor *)primaryColor selectedColor:(UIColor *)selectedColor fontSize:(CGFloat)fontSize bold:(BOOL)bold
@@ -620,6 +734,9 @@
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     NSLog(@"numberOfRowsInSection");
+	
+	
+	
 	if(self.newsletter==nil || self.newsletter.sections==nil)
 	{
 		return 0;
@@ -690,6 +807,7 @@
 - (BOOL) tableView:(UITableView*)tableView
 canMoveRowAtIndexPath:(NSIndexPath*)indexPath
 {
+	
 	return YES;
 }
 
@@ -710,12 +828,13 @@ heightForRowAtIndexPath:(NSIndexPath*)indexPath
 moveRowAtIndexPath:(NSIndexPath*)fromIndexPath
 	  toIndexPath:(NSIndexPath*)toIndexPath
 {
+		
 	NSUInteger fromRow=[fromIndexPath row];
 	NSUInteger toRow=[toIndexPath row];
 	
 	NewsletterSection * newsletterSection1=[self.newsletter.sections objectAtIndex:fromIndexPath.section];
 	NewsletterSection * newsletterSection2=[self.newsletter.sections objectAtIndex:toIndexPath.section];
-
+	
 	id object=[[newsletterSection1.items objectAtIndex:fromRow] retain];
 	[newsletterSection1.items removeObjectAtIndex:fromRow];
 	[newsletterSection2.items insertObject:object atIndex:toRow];
@@ -738,7 +857,17 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	return 3;
 	//return UITableViewCellEditingStyleDelete;
 }
-
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+{
+    if( sourceIndexPath.section != proposedDestinationIndexPath.section )
+    {
+        return sourceIndexPath;
+    }
+    else
+    {
+        return proposedDestinationIndexPath;
+    }
+}
 - (void) scrollToSection:(NSString*)sectionName
 {
 	// get section by name
@@ -809,9 +938,19 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	}
 }
 */
+
+- (void) addImageTouch:(id)sender
+{
+	
+}
+
 - (void)dealloc {
     [newsletterTableView release];
 	[editMoveButton release];
+	[addImageButton release];
+	[segmentedControl release];
+	[titleTextField  release];
+	[descriptionTextField release];
 	    [super dealloc];
 }
 @end

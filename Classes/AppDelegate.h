@@ -57,7 +57,8 @@
 @property(nonatomic,retain) NewsletterSettingsViewController * newsletterSettingsViewController;
 @property(nonatomic,retain) NewsletterHTMLPreviewViewController * newsletterHTMLPreviewViewController;
 
-
+- (void) editNewsletter:(Newsletter*)newsletter;
+- (void) newNewsletter;
 - (void) deleteNewsletter:(Newsletter*)newsletter;
 - (void) setCurrentNewsletter:(Newsletter*)newsletter;
 - (void) showNewslettersPopOver:(id)sender;

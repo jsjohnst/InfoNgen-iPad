@@ -36,6 +36,7 @@
 		B047D08C113F1C4000E50884 /* icon_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = B047D08B113F1C4000E50884 /* icon_cancel.png */; };
 		B04E0CBC11481CC9006E634A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04E0CBB11481CC9006E634A /* QuartzCore.framework */; };
 		B08BC367112C4CDC00851E7A /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B08BC366112C4CDC00851E7A /* UserSettings.m */; };
+		B0C078141163F0F7003F0C22 /* BlankToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C078131163F0F7003F0C22 /* BlankToolbar.m */; };
 		B0D6F254114A9B05008CC24D /* NewsletterItemContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D6F253114A9B05008CC24D /* NewsletterItemContentView.m */; };
 		C4158C22112097500070FE54 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4158C21112097500070FE54 /* SearchResultCell.m */; };
 		C4158C24112097710070FE54 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4158C23112097710070FE54 /* SearchResultCell.xib */; };
@@ -157,6 +158,8 @@
 		B04E0CBB11481CC9006E634A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B08BC365112C4CDC00851E7A /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
 		B08BC366112C4CDC00851E7A /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
+		B0C078121163F0F7003F0C22 /* BlankToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlankToolbar.h; sourceTree = "<group>"; };
+		B0C078131163F0F7003F0C22 /* BlankToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlankToolbar.m; sourceTree = "<group>"; };
 		B0D6F252114A9B05008CC24D /* NewsletterItemContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsletterItemContentView.h; sourceTree = "<group>"; };
 		B0D6F253114A9B05008CC24D /* NewsletterItemContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsletterItemContentView.m; sourceTree = "<group>"; };
 		C4158C20112097500070FE54 /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
@@ -348,6 +351,8 @@
 				C485C93D11614120005CFD2E /* NewslettersScrollViewController.m */,
 				C47E3B10116248A800BDB577 /* NewsletterScrollItemController.h */,
 				C47E3B11116248A800BDB577 /* NewsletterScrollItemController.m */,
+				B0C078121163F0F7003F0C22 /* BlankToolbar.h */,
+				B0C078131163F0F7003F0C22 /* BlankToolbar.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -714,6 +719,7 @@
 				C4D46A3711516E8B00597793 /* NewsletterBaseViewController.m in Sources */,
 				C485C93E11614120005CFD2E /* NewslettersScrollViewController.m in Sources */,
 				C47E3B12116248A800BDB577 /* NewsletterScrollItemController.m in Sources */,
+				B0C078141163F0F7003F0C22 /* BlankToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
