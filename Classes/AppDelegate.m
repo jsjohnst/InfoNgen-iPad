@@ -177,6 +177,8 @@
 	
 	NewsletterViewController * newsletterView=[[NewsletterViewController alloc] initWithNibName:@"NewsletterView" bundle:nil];
 	
+	[newsletterView setViewMode:YES];
+	//newsletterView.viewModeExpanded=YES;
 	newsletterView.newsletter=_newsletter;
 	
 	[navigationController pushViewController:newsletterView animated:NO];
