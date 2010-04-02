@@ -40,16 +40,14 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-	
 	[textField resignFirstResponder];
-	
 	return YES;
 }
 
 - (void) actionTouch:(id)sender
 {
-	UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Email as HTML",@"Email as PDF",@"Preview HTML",@"Preview PDF",nil	];
-	
+	UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Publish Newsletter",@"Show Preview",nil	];
+	actionSheet.tag=kPublishPreviewActionSheet;
 	[actionSheet showFromBarButtonItem:sender animated:YES];
 }
 
@@ -64,24 +62,16 @@
 		addSectionController.savedSearches=[[[UIApplication sharedApplication] delegate] savedSearches];
 		addSectionController.newsletterDelegate=self;
 		self.addSectionPopover=[[UIPopoverController alloc] initWithContentViewController:addSectionController];
-		//self.addSectionPopover.title=@"Add Sections";
 		
 		[addSectionController release];
 	}
 	
 	[self.addSectionPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-	
-	//UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"Add Section" delegate:nil cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Email as HTML",@"Email as PDF",@"Preview HTML",@"Preview PDF",nil	];
-	
-	//[actionSheet showFromBarButtonItem:sender animated:YES];
 }
 
 - (void)viewDidLoad
 {
-	
 	viewMode=kViewModeSynopsis;
-	
-	//segmentedControl.selectedSegmentIndex=viewMode;
 	
 	UISegmentedControl * segmentedControl=[[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sections",@"Headlines",@"Synopsis",nil]];
 	
@@ -161,8 +151,6 @@
 	bi.title=@"Edit";
 	bi.target=self;
 	bi.action=@selector(toggleEditPage:) ;
-	
-		  //initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(toggleEditPage:)];
 	bi.style = UIBarButtonItemStyleBordered;
 	[buttons addObject:bi];
 	[bi release];
@@ -180,12 +168,9 @@
 
 -(void) toggleViewMode:(id)sender
 {
-	//
-	
 	viewMode=[sender selectedSegmentIndex];
 	
 	[newsletterTableView reloadData];
-	
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -198,8 +183,6 @@
 		
 			[self.addImageButton removeFromSuperview];
 		
-			//[self.addImageButton release];
-		
 			self.addImageButton=[UIButton buttonWithType:UIButtonTypeCustom];
 		
 			self.addImageButton.frame=newFrame;
@@ -211,7 +194,6 @@
 			[self.view addSubview:self.addImageButton];		
 		}
 		
-		//self.title=self.newsletter.name;
 		self.titleTextField.text=self.newsletter.name;
 		self.descriptionTextField.text=self.newsletter.summary;
 	
@@ -229,31 +211,38 @@
 	[super viewWillAppear:animated];
 }
 
--(void) setButtonsEnabled:(BOOL)enabled
-{
-		
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
-	
 	[super viewDidAppear:animated];
-	
 }
 
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet
 {
-
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	
+	if (actionSheet.tag==kPublishPreviewActionSheet) {
+		if(buttonIndex==0)
+		{
+			// publish
+		}
+		if(buttonIndex==1)
+		{
+			// preview
+			NewsletterHTMLPreviewViewController * previewController=[[NewsletterHTMLPreviewViewController alloc] initWithNibName:@"NewsletterHTMLPreviewView" bundle:nil];
+			
+			previewController.newsletter=self.newsletter;
+			
+			[self.navigationController pushViewController:previewController animated:NO];
+			
+			[previewController release];
+		}
+	}
 	if(actionSheet.tag==kEditLogoImageActionSheet)
 	{
 		if(buttonIndex==0)
@@ -396,7 +385,6 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-	
 }
 
 - (void)renderNewsletter
@@ -477,7 +465,7 @@
 {
 	if(!updating)
 	{
-		[self setButtonsEnabled:NO];
+		//[self setButtonsEnabled:NO];
 	
 		updating=YES;
 	
@@ -521,7 +509,6 @@
 					}
 					else
 					{
-				
 						// only add new items, and dont add duplicates...
 						NSMutableDictionary * dict=[[NSMutableDictionary alloc] init];
 						
@@ -578,7 +565,7 @@
 - (void)updateEnd
 {
 	updating=NO;
-	[self setButtonsEnabled:YES];
+	//[self setButtonsEnabled:YES];
 	
 	UIApplication* app = [UIApplication sharedApplication];
 	app.networkActivityIndicatorVisible = NO;
@@ -637,7 +624,7 @@
 	
 	if(self.newsletter)
 	{
-		[self setButtonsEnabled:YES];
+		//[self setButtonsEnabled:YES];
 	}
 	
 	if(viewMode==kViewModeSections)
@@ -681,7 +668,6 @@
 	//[topView.layer insertSublayer:gradient atIndex:0];
 	
 	UIColor * nameColor=[NewsletterItemContentView colorWithHexString:@"#339933"];
-	
 	
 	UILabel *nameLabel = [self newLabelWithPrimaryColor:nameColor selectedColor:nameColor fontSize:20 bold:YES];
 	[nameLabel setFrame:CGRectMake(10, 10, 450, 22)];

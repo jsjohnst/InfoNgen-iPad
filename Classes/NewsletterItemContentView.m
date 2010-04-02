@@ -13,7 +13,7 @@
 #import "DocumentWebViewController.h"
 
 @implementation NewsletterItemContentView
-@synthesize searchResult,holdTimer,parentController,parentTableView,imagePickerPopover;
+@synthesize searchResult,parentController,parentTableView,imagePickerPopover;//,holdTimer;
 
 - (id)initWithFrame:(CGRect)frame {
 	
@@ -21,11 +21,50 @@
 	
 		self.opaque = YES;
 		self.backgroundColor = [UIColor whiteColor];
+		
+		imageButton=[[UIButton buttonWithType:UIButtonTypeCustom] retain];
+		imageButton.frame=CGRectZero;
+		imageButton.hidden=YES;
+		imageButton.backgroundColor=[UIColor clearColor];
+		imageButton.opaque=NO;
+		[imageButton addTarget:self action:@selector(touchImage) forControlEvents:UIControlEventTouchUpInside];
+		
+		addImageButton=[[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+		[addImageButton setTitle:@"Add Image" forState:UIControlStateNormal];
+		addImageButton.frame=CGRectZero;
+		addImageButton.hidden=YES;
+		[addImageButton addTarget:self action:@selector(addImage) forControlEvents:UIControlEventTouchUpInside];
+		
+		headlineButton=[[UIButton buttonWithType:UIButtonTypeCustom] retain];
+		synopsisButton1=[[UIButton buttonWithType:UIButtonTypeCustom] retain];
+		synopsisButton2=[[UIButton buttonWithType:UIButtonTypeCustom] retain];
+		commentsButton=[[UIButton buttonWithType:UIButtonTypeCustom] retain];
+		
+		[headlineButton addTarget:self action:@selector(touchHeadline) forControlEvents:UIControlEventTouchUpInside];
+		[synopsisButton1 addTarget:self action:@selector(touchSynopsis) forControlEvents:UIControlEventTouchUpInside];
+		[synopsisButton2 addTarget:self action:@selector(touchSynopsis) forControlEvents:UIControlEventTouchUpInside];
+		[commentsButton addTarget:self action:@selector(touchComments) forControlEvents:UIControlEventTouchUpInside];
+		
+		synopsisButton1.hidden=YES;
+		synopsisButton2.hidden=YES;
+		commentsButton.hidden=YES;
+		synopsisButton1.frame=CGRectZero;
+		synopsisButton2.frame=CGRectZero;
+		commentsButton.frame=CGRectZero;
+		
+		
+		
+		[self addSubview:imageButton];
+		[self addSubview:addImageButton];
+		[self addSubview:headlineButton];
+		[self addSubview:synopsisButton1];
+		[self addSubview:synopsisButton2];
+		[self addSubview:commentsButton];
 	}
 	return self;
 }
 
-- (BOOL) didTouchRect:(UITouch*)touch rect:(CGRect)rect
+/*- (BOOL) didTouchRect:(UITouch*)touch rect:(CGRect)rect
 {
 	CGPoint loc=[touch locationInView:self];
 	
@@ -37,15 +76,27 @@
 		}
 	}
 	return NO;
-}
+}*/
 
+- (void) touchImage
+{
+	UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+	
+	[actionSheet addButtonWithTitle:@"Choose Existing Image"];
+	[actionSheet addButtonWithTitle:@"Delete Image"];
+	
+	[actionSheet showFromRect:_itemSize.image_rect inView:self animated:YES];
+	
+	[actionSheet release];
+}
+/*
 - (BOOL) didTouchImage:(UITouch*)touch
 {
-	if(searchResult.image)
-	{
+	//if(searchResult.image)
+	//{
 		return [self didTouchRect:touch rect:_itemSize.image_rect];
-	}
-	return NO;
+	//}
+	//return NO;
 }
 
 - (BOOL) didTouchSynopsis:(UITouch*)touch
@@ -114,7 +165,8 @@
 		[holdTimer invalidate];
 	}
 }
-
+*/
+/*
 - (void) doHeadlineTouch
 {
 	if(self.searchResult.url && [self.searchResult.url length]>0)
@@ -123,20 +175,22 @@
 		
 		docViewController.searchResult=self.searchResult;
 		
+		//[self.navigationController pushNavigationItem:docViewController animated:YES];
+		
 		UINavigationController * navController=[(AppDelegate*)[[UIApplication sharedApplication] delegate] navigationController];
 	
 		[navController pushViewController:docViewController animated:YES];
 		
 		[docViewController release];
 	}
-}
+}*/
 
 - (void) redraw
 {
 	[self setNeedsDisplay];
 	[parentTableView reloadData];
 }
-
+/*
 - (void)doSomething:(NSTimer *)theTimer
 {
 	NSLog(@"Timer Fired");
@@ -157,21 +211,7 @@
 				return;
 				// go to target
 			}
-			if ([self didTouchImage:touch]) 
-			{
-				// pop up image edit menu 				
-				UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:searchResult.headline delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
-				
-				[actionSheet addButtonWithTitle:@"Choose Existing Image"];
-				//[actionSheet addButtonWithTitle:@"Edit Image"];
-				[actionSheet addButtonWithTitle:@"Delete Image"];
-			
-				[actionSheet showInView:self];
-				
-				[actionSheet release];
-				return;
-				
-			}
+			 			 
 			if ([self didTouchSynopsis:touch] || [self didTouchComments:touch]) 
 			{
 				// popup edit dialod
@@ -187,6 +227,7 @@
 				[self.parentController presentModalViewController:controller animated:YES];
 				
 				[controller release];
+				
 				return;
 				
 			}
@@ -194,7 +235,46 @@
 		}
 	}
 }
+*/
 
+- (void) touchSynopsis
+{
+	DocumentEditFormViewController *controller = [[DocumentEditFormViewController alloc] initWithNibName:@"DocumentEditFormView" bundle:nil];
+	
+	controller.searchResult=searchResult;
+	
+	controller.delegate=self;
+	
+	[controller setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+	[controller setModalPresentationStyle:UIModalPresentationFormSheet];
+	
+	[self.parentController presentModalViewController:controller animated:YES];
+	
+	[controller release];
+}
+
+- (void) touchHeadline
+{
+	if(self.searchResult.url && [self.searchResult.url length]>0)
+	{
+		DocumentWebViewController * docViewController=[[DocumentWebViewController alloc] initWithNibName:@"DocumentWebView" bundle:nil];
+		
+		docViewController.searchResult=self.searchResult;
+		
+		//[self.navigationController pushNavigationItem:docViewController animated:YES];
+		
+		UINavigationController * navController=[(AppDelegate*)[[UIApplication sharedApplication] delegate] navigationController];
+		
+		[navController pushViewController:docViewController animated:YES];
+		
+		[docViewController release];
+	}
+}
+
+- (void) touchComments
+{
+	[self touchSynopsis];
+}
 
 - (void) setViewMode:(BOOL)expanded
 {
@@ -204,7 +284,6 @@
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet
 {
 	NSLog(@"actionSheetCancel");
-	
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
@@ -213,52 +292,55 @@
 	
 }
 
+- (void) addImage
+{
+	UIImagePickerController * picker=[[UIImagePickerController alloc] init];
+	
+	picker.allowsEditing = YES;
+	
+	picker.delegate=self;
+	
+	if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+	{
+		picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	}
+	else
+	{
+		if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+		{
+			picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+			
+		}
+		else
+		{
+			if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+			{
+				picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+			}
+			else 
+			{
+				return;
+			}
+		}
+	}
+	
+	UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:picker];
+	
+	self.imagePickerPopover=popover;
+	
+	[popover presentPopoverFromRect:_itemSize.image_rect inView:self permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	
+	[picker release];
+	
+	[popover release];
+}
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 	if(buttonIndex==0)
 	{
-		UIImagePickerController * picker=[[UIImagePickerController alloc] init];
-		
-		picker.allowsEditing = YES;
-		
-		picker.delegate=self;
-		
-		if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
-		{
-			picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-		}
-		else
-		{
-			if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
-			{
-				picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+		[self addImage];
 				
-			}
-			else
-			{
-				if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-				{
-					picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-				}
-				else 
-				{
-					return;
-				}
-			}
-		}
-		
-		UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:picker];
-		
-		self.imagePickerPopover=popover;
-		
-		//CGRect rect=CGRectMake(self.bounds.origin.x+(self.bounds.size.width/2)-10, self.bounds.origin.y+(self.bounds.size.height/2)-10, 20, 20);
-		
-		[popover presentPopoverFromRect:_itemSize.image_rect inView:self permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-	
-		[picker release];
-		
-		[popover release];
-		
 		return;
 	}	
 	if(buttonIndex==1)
@@ -269,10 +351,8 @@
 	}
 }
 
-
 + (int) findBestFit:(NSString*)text constraint:(CGSize)constraint
 {
-	
 	// replace & chars since their appears to be a BUG in sizeWithFont where it returns WRONG value if string has & in it...
 	int i=[text length] -1;
 	
@@ -331,6 +411,7 @@
 
 	itemSize.size.width=cellWidth;
 	
+	// TODO: make headline_rect respect the width of the headline text so we can only touch on the headline text to go to URL
 	itemSize.headline_rect=CGRectMake(kCellPadding, kLineSpacing, cellWidth-(kCellPadding*2), kHeadlineFontSize+kLineSpacing);
 	
 	itemSize.date_rect=CGRectMake(kCellPadding, itemSize.headline_rect.origin.y+itemSize.headline_rect.size.height+kLineSpacing,cellWidth-(kCellPadding*2),kDateFontSize+kLineSpacing);
@@ -344,49 +425,58 @@
 		if(image)
 		{
 			itemSize.image_rect=CGRectMake(kCellPadding, itemSize.date_rect.origin.y+itemSize.date_rect.size.height+kCellPadding, image.size.width, image.size.height);
-		
-			itemSize.size.height=itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kCellPadding;
-			
-			if(synopsis && [synopsis length]>0)
-			{
-				if(image.size.width < cellWidth * .67)
-				{
-					CGSize constraint = CGSizeMake(cellWidth - image.size.width  -  (kCellPadding * 3), 20000.0f);
-					
-					itemSize.synopsis_rect1=CGRectMake(itemSize.image_rect.origin.x+itemSize.image_rect.size.width+kCellPadding, itemSize.image_rect.origin.y, constraint.width, image.size.height+kFontSize);
-					
-					CGSize size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-					
-					if(size.height > image.size.height+kFontSize)
-					{
-						itemSize.synopsis_break=[NewsletterItemContentView findBestFit:synopsis constraint:CGSizeMake(cellWidth-image.size.width - (kCellPadding*3), image.size.height+kFontSize)];
-						
-						if(itemSize.synopsis_break>0)
-						{
-							NSString * second_part=[synopsis substringFromIndex:itemSize.synopsis_break+2];
-							
-							size=[second_part sizeWithFont:font constrainedToSize:CGSizeMake(cellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
-							
-							itemSize.synopsis_rect2=CGRectMake(kCellPadding, itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kFontSize, cellWidth-(kCellPadding*2), size.height);
-
-							itemSize.size.height=itemSize.synopsis_rect2.origin.y+itemSize.synopsis_rect2.size.height+kCellPadding;
-						}
-					}
-				}
-				else 
-				{
-					CGSize constraint = CGSizeMake(cellWidth-(kCellPadding*2), 20000.0f);
-					
-					CGSize size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-					
-					itemSize.synopsis_rect1=CGRectMake(kCellPadding,itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kFontSize,cellWidth-(kCellPadding*2),size.height);
-				
-					itemSize.size.height=itemSize.synopsis_rect1.origin.y+itemSize.synopsis_rect1.size.height+kCellPadding;
-				}
-			}
 		}
 		else 
 		{
+			itemSize.image_rect=CGRectMake(kCellPadding, itemSize.date_rect.origin.y+itemSize.date_rect.size.height+kCellPadding, 88, 88);
+		}
+
+		itemSize.size.height=itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kCellPadding;
+		
+		if(synopsis && [synopsis length]>0)
+		{
+			if(image.size.width < cellWidth * .67)
+			{
+				CGSize constraint = CGSizeMake(cellWidth - itemSize.image_rect.size.width  -  (kCellPadding * 3), 20000.0f);
+				
+				itemSize.synopsis_rect1=CGRectMake(itemSize.image_rect.origin.x+itemSize.image_rect.size.width+kCellPadding, itemSize.image_rect.origin.y, constraint.width, itemSize.image_rect.size.height+kFontSize);
+				
+				CGSize size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+				
+				if(size.height > itemSize.image_rect.size.height+kFontSize)
+				{
+					itemSize.synopsis_break=[NewsletterItemContentView findBestFit:synopsis constraint:CGSizeMake(cellWidth-itemSize.image_rect.size.width - (kCellPadding*3), itemSize.image_rect.size.height+kFontSize)];
+					
+					if(itemSize.synopsis_break>0)
+					{
+						NSString * second_part=[synopsis substringFromIndex:itemSize.synopsis_break+2];
+						
+						size=[second_part sizeWithFont:font constrainedToSize:CGSizeMake(cellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
+						
+						itemSize.synopsis_rect2=CGRectMake(kCellPadding, itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kFontSize, cellWidth-(kCellPadding*2), size.height);
+
+						itemSize.size.height=itemSize.synopsis_rect2.origin.y+itemSize.synopsis_rect2.size.height+kCellPadding;
+					}
+				}
+			}
+			else 
+			{
+				CGSize constraint = CGSizeMake(cellWidth-(kCellPadding*2), 20000.0f);
+				
+				CGSize size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+				
+				itemSize.synopsis_rect1=CGRectMake(kCellPadding,itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kFontSize,cellWidth-(kCellPadding*2),size.height);
+			
+				itemSize.size.height=itemSize.synopsis_rect1.origin.y+itemSize.synopsis_rect1.size.height+kCellPadding;
+			}
+		}
+		/*}
+		else 
+		{
+			// for "add image" button
+			itemSize.image_rect=CGRectMake(kCellPadding, itemSize.date_rect.origin.y+itemSize.date_rect.size.height+kCellPadding, 88, 88);
+			itemSize.size.height=itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kCellPadding;
+			
 			if(synopsis && [synopsis length]>0)
 			{
 				CGSize constraint = CGSizeMake(cellWidth-(kCellPadding*2), 20000.0f);
@@ -397,7 +487,7 @@
 			
 				itemSize.size.height=itemSize.synopsis_rect1.origin.y+itemSize.synopsis_rect1.size.height+kCellPadding;
 			}
-		}
+		}*/
 		
 		if(comments && [comments length]>0)
 		{
@@ -450,12 +540,121 @@
                            alpha:1.0f];  
 } 
 
-- (void)drawRect:(CGRect)rect
+- (void) layoutButtons:(ItemSize) itemSize
 {
+	UIImage * image=searchResult.image;
+	NSString * synopsis=searchResult.synopsis;
+	NSString * comments=searchResult.notes;
+	
+	headlineButton.frame=itemSize.headline_rect;
+	headlineButton.backgroundColor=[UIColor clearColor];
+	headlineButton.opaque=NO;
+	
+	if(viewModeExpanded)
+	{
+		if (image) 
+		{
+			addImageButton.frame=CGRectZero;
+			addImageButton.hidden=YES;
+			
+			imageButton.frame=itemSize.image_rect;
+			imageButton.hidden=NO;
+		}
+		else 
+		{
+			imageButton.hidden=YES;
+			imageButton.frame=CGRectZero;
+		
+			addImageButton.hidden=NO;
+			addImageButton.frame=itemSize.image_rect;
+		}
+		
+		// draw synopsis
+		if(synopsis && [synopsis length]>0)
+		{
+			if(itemSize.synopsis_break>0)
+			{
+				synopsisButton1.hidden=NO;
+
+				synopsisButton1.frame=itemSize.synopsis_rect1;
+				synopsisButton1.backgroundColor=[UIColor clearColor];
+				synopsisButton1.opaque=NO;
+				
+				synopsisButton2.hidden=NO;
+
+				synopsisButton2.frame=itemSize.synopsis_rect2;
+				synopsisButton2.backgroundColor=[UIColor clearColor];
+				synopsisButton2.opaque=NO;
+			}
+			else
+			{
+				synopsisButton1.hidden=NO;
+				synopsisButton1.frame=itemSize.synopsis_rect1;
+				synopsisButton1.backgroundColor=[UIColor clearColor];
+				synopsisButton1.opaque=NO;
+				
+				synopsisButton2.hidden=YES;
+				synopsisButton2.frame=CGRectZero;
+			}
+		}
+		
+		if(comments && [comments length]>0)
+		{ 
+			commentsButton.hidden=NO;
+			commentsButton.frame=itemSize.comments_rect;
+		}
+		else {
+			commentsButton.hidden=YES;
+			commentsButton.frame=CGRectZero;
+		}
+
+	}
+	else {
+		// hide buttons on headline view
+		addImageButton.hidden=YES;
+		addImageButton.frame=CGRectZero;
+		imageButton.hidden=YES;
+		imageButton.frame=CGRectZero;
+		synopsisButton1.hidden=YES;
+		synopsisButton1.frame=CGRectZero;
+		synopsisButton2.hidden=YES;
+		synopsisButton2.frame=CGRectZero;
+		commentsButton.hidden=YES;
+		commentsButton.frame=CGRectZero;
+		
+	} 
+	
+
+}
+
+- (void) layoutSubviews
+{
+	[super layoutSubviews];
+	
+	NSLog(@"NewsletterItemContentView:layoutSubviews: %@",NSStringFromCGRect(self.bounds));
+	
+	CGRect rect=self.bounds;
+	
 	ItemSize itemSize=[NewsletterItemContentView sizeForCell:searchResult viewMode:viewModeExpanded rect:rect];
 	
 	_itemSize=itemSize;
 	
+	[self layoutButtons:itemSize];
+}
+
+- (void)drawRect:(CGRect)rect
+{
+	NSLog(@"NewsletterItemContentView:drawRect: %@",NSStringFromCGRect(rect));
+	
+	ItemSize itemSize=[NewsletterItemContentView sizeForCell:searchResult viewMode:viewModeExpanded rect:rect];
+	
+	_itemSize=itemSize;
+	
+	[self drawText:itemSize];
+}
+
+- (void) drawText:(ItemSize) itemSize
+{
 	UIImage * image=searchResult.image;
 	NSString * synopsis=searchResult.synopsis;
 	NSString * comments=searchResult.notes;
@@ -488,16 +687,7 @@
 		{
 			[image drawInRect:itemSize.image_rect];
 		}
-		/*else 
-		{
-			UIButton * button=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-			button.frame=itemSize.image_rect;
-			[button setTitle:@"Add Image" forState:UIControlStateNormal];
-			[button addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
-			
-			[self addSubview:button];
-		}*/
-
+		
 		// draw synopsis
 		if(synopsis && [synopsis length]>0)
 		{
@@ -521,71 +711,16 @@
 		{ 
 			UIImage* balloon = [[UIImage imageNamed:@"balloon.png"] stretchableImageWithLeftCapWidth:15  topCapHeight:15]; // you need to have the .png image, it's not a system one.
 			
-			
 			CGRect rect=CGRectMake(itemSize.comments_rect.origin.x-kCellPadding, itemSize.comments_rect.origin.y-kCellPadding, itemSize.comments_rect.size.width+(kCellPadding*2), itemSize.comments_rect.size.height+(kCellPadding*2));
 			
 			[balloon drawInRect:rect];
 			
-			/*CGContextRef context = UIGraphicsGetCurrentContext();
-			
-			CGContextSetFillColorWithColor(context, [UIColor yellowColor].CGColor);
-			
-			//CGContextSetRGBFillColor(context, 0,0,0,0.75);
-			
-			CGFloat radius=kCellPadding;
-			
-			CGContextMoveToPoint(context, rect.origin.x, rect.origin.y + radius);
-			
-			CGContextAddLineToPoint(context, rect.origin.x, rect.origin.y + rect.size.height - radius);
-			
-			CGContextAddArc(context, rect.origin.x + radius, rect.origin.y + rect.size.height - radius, 
-							radius, M_PI / 4, M_PI / 2, 1);
-			
-			CGContextAddLineToPoint(context, rect.origin.x + rect.size.width - radius, 
-									rect.origin.y + rect.size.height);
-			
-			CGContextAddArc(context, rect.origin.x + rect.size.width - radius, 
-							rect.origin.y + rect.size.height - radius, radius, M_PI / 2, 0.0f, 1);
-			
-			CGContextAddLineToPoint(context, rect.origin.x + rect.size.width, rect.origin.y + radius);
-			
-			CGContextAddArc(context, rect.origin.x + rect.size.width - radius, rect.origin.y + radius, 
-							radius, 0.0f, -M_PI / 2, 1);
-			
-			CGContextAddLineToPoint(context, rect.origin.x + radius, rect.origin.y);
-			
-			CGContextAddArc(context, rect.origin.x + radius, rect.origin.y + radius, radius, 
-							-M_PI / 2, M_PI, 1);
-			
-			CGContextFillPath(context);
-			 */
 			CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(),[UIColor blackColor].CGColor); //   [NewsletterItemContentView colorWithHexString:@"b00027"].CGColor);//b00027
 			
 			[comments drawInRect:itemSize.comments_rect withFont:font];
-		
 		}
 	}
-	// draw row seperators
-	
-	
-	
-	
-	// set width of line to single pixel
-	/*CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 1.0);
-	 
-	 // draw seperator line on top of cell rect
-	 CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 1.0, 1.0, 1.0, 0.8);
-	 CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 0, 0);
-	 CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), rect.size.width, 0);
-	 CGContextStrokePath(UIGraphicsGetCurrentContext());	
-	 
-	 // draw seperator line on bottom of cell rect in a different color
-	 CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 0.25, 0.25, 0.25, 0.8);
-	 CGContextMoveToPoint(UIGraphicsGetCurrentContext(), 0, rect.size.height);
-	 CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), rect.size.width, rect.size.height);
-	 CGContextStrokePath(UIGraphicsGetCurrentContext());*/
 }
-
 
 - (void)imagePickerController:(UIImagePickerController *)picker 
 		didFinishPickingImage:(UIImage *)image
@@ -595,29 +730,34 @@
     // Dismiss the image selection, hide the picker and
     //show the image view with the picked image
     [imagePickerPopover dismissPopoverAnimated:YES];
-	//[imagePickerPopover release];
-	
+
 	self.searchResult.image=image;
 	
 	[self redraw];
-	//[self.editTable reloadData];
 }
-
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     // Dismiss the image selection and close the program
-    //[picker dismissModalViewControllerAnimated:YES];
     [imagePickerPopover dismissPopoverAnimated:YES];
-	//[imagePickerPopover release];
 }
 
 - (void)dealloc {
 	[searchResult release];
-	[holdTimer release];
 	[parentController release];
 	[parentTableView release];
 	[imagePickerPopover release];
+	//[headlineLabel release];
+	[headlineButton release];
+	//[dateLabel release];
+	//[synopsisLabel1 release];
+	[synopsisButton1 release];
+	//[synopsisLabel2 release];
+	[synopsisButton2 release];
+//[commentsLabel release];
+	[commentsButton release];
+	[imageButton release];
+	[addImageButton release];
     [super dealloc];
 }
 

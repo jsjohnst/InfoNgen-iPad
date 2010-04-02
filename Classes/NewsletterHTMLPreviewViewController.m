@@ -20,10 +20,14 @@
 
 - (void) renderNewsletter
 {
-	[self renderHtml];
+	NSString   *html = [NewsletterHTMLPreviewViewController getHtml:self.newsletter]; 
+	
+	[self.webView loadHTMLString:html baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
+	
+	[self.webView setNeedsDisplay];	
 }
 
-- (IBAction) publish
+/*- (IBAction) publish
 {
 	UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Publish Newsletter" message:@"Not implemented yet." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	
@@ -31,15 +35,8 @@
 	
 	[alertView release];
 	
-	/*UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Publish Newsletter to:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Distribution List",@"Specific Contact",nil];
-	
-	//actionSheet.tag=kDeleteActionSheet;
-	
-	[actionSheet showFromToolbar:self.toolBar];
-	
-	[actionSheet release];*/
-}
-
+}*/
+/*
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet
 {
 	NSLog(@"actionSheetCancel");
@@ -80,7 +77,7 @@
 			//NSURL *url = [[NSURL alloc] initWithString:@"mailto:bstewart.ny@gmail.com?subject=This is my subject&body=this is the body"];
 			//[[UIApplication sharedApplication] openURL:url];
 			
-			/*NSString *htmlBody = @"you probably want something HTML-y here";
+			NSString *htmlBody = @"you probably want something HTML-y here";
 			
 			// First escape the body using a CF call
 			NSString *escapedBody = [(NSString*)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,  (CFStringRef)htmlBody, NULL,  CFSTR("?=&+"), kCFStringEncodingUTF8) autorelease];
@@ -94,47 +91,24 @@
 			// And let the application open the merged URL
 			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:mailtoStr]];
 			
-			*/
+			
 			
 			
 		}
 	}
 
+}*/
+
+- (void)viewDidLoad
+{
+	self.navigationItem.title=@"Newsletter Preview";
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-	NSLog(@"NewsletterHTMLPreviewViewController.viewWillAppear");
-
-	UINavigationController * navController=[(AppDelegate*)[[UIApplication sharedApplication] delegate] navigationController];
-	
-	UIBarButtonItem *button=[[UIBarButtonItem alloc] init];
-	
-	button.style=UIBarButtonItemStyleDone;
-	button.title=@"Publish";
-	
-	button.target=self;
-	
-	button.action=@selector(publish);
-	
-	navController.navigationBar.topItem.rightBarButtonItem=button;
-	
-	[button release];
-	
-	
-	[self renderHtml];
-	
+	[self renderNewsletter];
 	[super viewWillAppear:animated];
 }
-
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-/*- (void)viewDidLoad {
-	
-	[self renderHtml];
-}*/
-
 
 + (NSString*) getHtml:(Newsletter*)newsletter
 {
@@ -142,10 +116,14 @@
 												 encoding: NSUTF8StringEncoding 
 													error: nil];
 	
-	
-	html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.name}}" withString:newsletter.name];
-	
-	
+	if (newsletter.name!=nil) 
+	{
+		html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.name}}" withString:newsletter.name];
+	}
+	if(newsletter.summary!=nil)
+	{
+		html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.summary}}" withString:newsletter.summary];
+	}
 	if (newsletter.logoImage) 
 	{
 		NSData *imageData = UIImagePNGRepresentation(newsletter.logoImage);
@@ -285,46 +263,28 @@
 	
 	[sections release];
 	
-	
-	
 	[format release];
 	
 	return html;
-	
 }
-
-- (void) renderHtml
-{
-	NSString   *html = [NewsletterHTMLPreviewViewController getHTML:self.newsletter]; 
-	
-	[self.webView loadHTMLString:html baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
-	
-	[self.webView setNeedsDisplay];
-	
-	[super viewDidLoad];
-}
-
-
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return YES;
 }
 
-
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-	
+{	
 }
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
 	return YES;
 }
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-	
-}
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{	
+}
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -339,12 +299,10 @@
     // e.g. self.myOutlet = nil;
 }
 
-
 - (void)dealloc {
 	[newsletter release]; 
 	[webView release];
-	 [super dealloc];
+	[super dealloc];
 }
-
 
 @end

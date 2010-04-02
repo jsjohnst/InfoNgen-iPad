@@ -48,5 +48,6 @@
 -(IBAction) edit;
 */
 - (IBAction) readability;
+- (NSString *)showSubviews:(UIView *)view tabs:(NSString *)tabs;
 
 @end

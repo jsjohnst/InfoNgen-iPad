@@ -31,32 +31,46 @@ typedef struct ItemSize ItemSize;
 
 @interface NewsletterItemContentView : UIView <UIActionSheetDelegate>{
 	SearchResult * searchResult;
-	NSTimer * holdTimer;
+	//NSTimer * holdTimer;
 	UIViewController * parentController;
 	UITableView * parentTableView;
 	UIPopoverController * imagePickerPopover;
+	
 	BOOL viewModeExpanded;
+	
 	ItemSize _itemSize;
+	
+	UIButton * imageButton;
+	UIButton * addImageButton;
+	UIButton * synopsisButton1;
+	UIButton * synopsisButton2;
+	UIButton * commentsButton;
+	UIButton * headlineButton;
+	 
+	
 }
 @property (nonatomic,retain) SearchResult * searchResult;
-@property(nonatomic,retain) NSTimer * holdTimer;
+//@property(nonatomic,retain) NSTimer * holdTimer;
 @property(nonatomic,retain) UIViewController * parentController;
 @property(nonatomic,retain) UITableView * parentTableView;
 @property(nonatomic,retain) UIPopoverController * imagePickerPopover;
 + (int) findBestFit:(NSString*)text constraint:(CGSize)constraint;
 
 - (void) redraw;
+- (void) touchHeadline;
+- (void) touchSynopsis;
+- (void) touchComments;
 
 - (void) setViewMode:(BOOL)expanded;
-- (BOOL) didTouchRect:(UITouch*)touch rect:(CGRect)rect;
+//- (BOOL) didTouchRect:(UITouch*)touch rect:(CGRect)rect;
 
 + (ItemSize) sizeForCell:(SearchResult *)searchResult viewMode:(BOOL)expanded rect:(CGRect)rect;
 //+(CGFloat) heightForCell:(SearchResult *)searchResult viewMode:(BOOL)expanded;
 + (UIColor *) colorWithHexString: (NSString *) stringToConvert;
-- (void)doSomething:(NSTimer *)theTimer;
+/*- (void)doSomething:(NSTimer *)theTimer;
 - (BOOL) didTouchImage:(UITouch*)touch;
 - (BOOL) didTouchSynopsis:(UITouch*)touch;
 - (BOOL) didTouchComments:(UITouch*)touch;
 - (BOOL) didTouchHeadline:(UITouch*)touch;
-- (void) doHeadlineTouch;
+- (void) doHeadlineTouch;*/
 @end

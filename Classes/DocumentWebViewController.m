@@ -40,7 +40,6 @@
 	else {
 		return 0;
 	}
-
 }
 
 - (IBAction) readability
@@ -48,11 +47,8 @@
 	// run readability bookmarklet to extract article text into readable text view of html...
 	NSString * bookmarklet=@"readStyle='style-ebook';readSize='size-large';readMargin='margin-narrow';_readability_script=document.createElement('SCRIPT');_readability_script.type='text/javascript';_readability_script.src='http://lab.arc90.com/experiments/readability/js/readability.js?x='+(Math.random());document.getElementsByTagName('head')[0].appendChild(_readability_script);_readability_css=document.createElement('LINK');_readability_css.rel='stylesheet';_readability_css.href='http://lab.arc90.com/experiments/readability/css/readability.css';_readability_css.type='text/css';_readability_css.media='all';document.getElementsByTagName('head')[0].appendChild(_readability_css);_readability_print_css=document.createElement('LINK');_readability_print_css.rel='stylesheet';_readability_print_css.href='http://lab.arc90.com/experiments/readability/css/readability-print.css';_readability_print_css.media='print';_readability_print_css.type='text/css';document.getElementsByTagName('head')[0].appendChild(_readability_print_css);";
 	
-	
 	[self getString:bookmarklet];
 }
-
-
 
 /*
 - (NSString *)flattenHTML:(NSString *)html {
@@ -256,7 +252,11 @@
 						
 						// add click handler if user taps on the highlighted image
 						
-						[self getString:[NSString stringWithFormat:@"document.images[%d].onclick=function(){document.location='infongen:'+(event.x-window.pageXOffset)+'$$'+(event.y-window.pageYOffset)+'$$'+this.src+'$$'+this.parentNode.getAttribute('href');  return false;}",i]];
+						//[self getString:[NSString stringWithFormat:@"document.images[%d].onclick=function(){document.location='infongen:'+(event.x-window.pageXOffset)+'$$'+(event.y-window.pageYOffset)+'$$'+this.src+'$$'+this.parentNode.getAttribute('href');  return false;}",i]];
+						
+						[self getString:[NSString stringWithFormat:@"document.images[%d].onclick=function(){document.location='infongen:'+(this.x-window.pageXOffset)+'$$'+(this.y-window.pageYOffset)+'$$'+this.width+'$$'+this.height+'$$'+this.src+'$$'+this.parentNode.getAttribute('href');  return false;}",i]];
+						
+						//[self getString:[NSString stringWithFormat:@"document.images[%d].onclick=function(){document.location='infongen:'+this.x+'$$'+this.y+'$$'+this.width+'$$'+this.height+'$$'+this.src+'$$'+this.parentNode.getAttribute('href');  return false;}",i]];
 						
 						//[self getString:[NSString stringWithFormat:@"document.images[%d].onclick=function(){alert('x='+event.x+', y='+event.y +', pageXOffset='+window.pageXOffset +', pageYOffset='+window.pageYOffset);}",i]];
 						
@@ -415,20 +415,29 @@
 		
 		NSInteger touchX=[[parts objectAtIndex:0] intValue];
 		NSInteger touchY=[[parts objectAtIndex:1] intValue];
+		NSInteger width=[[parts objectAtIndex:2] intValue];
+		NSInteger height=[[parts objectAtIndex:3] intValue];
 		
-		self.selectedImageSource=[parts objectAtIndex:2];
+		self.selectedImageSource=[parts objectAtIndex:4];
 		
 		self.selectedImageLink=nil;
 		
-		if([parts count]>3)
+		if([parts count]>5)
 		{
-			self.selectedImageLink=[parts objectAtIndex:3];
+			self.selectedImageLink=[parts objectAtIndex:5];
 		}
 		
-		NSLog(@"x=%d",touchX);
-		NSLog(@"y=%d",touchY);
-		NSLog(@"url=%@",self.selectedImageSource);
-		NSLog(@"href=%@",self.selectedImageLink);
+		//NSLog(@"x=%d",touchX);
+		//NSLog(@"y=%d",touchY);
+		//NSLog(@"width=%d",width);
+		//NSLog(@"height=%d",height);
+		////NSLog(@"url=%@",self.selectedImageSource);
+		//NSLog(@"href=%@",self.selectedImageLink);
+		
+		
+		//float zoomScale=[[[self.webView subviews] objectAtIndex:0] zoomScale];
+		
+		//NSLog(@"zoomScale=%f",zoomScale);
 		
 		NSString * actionSheetTitle=@"";
 		
@@ -448,7 +457,7 @@
 		
 		
 		
-		UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+		UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Capture Image" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
 		
 		/*if(self.selectedImageLink && [self.selectedImageLink length]>0 &&(!([self.selectedImageLink isEqualToString:@"null"])))
 		{
@@ -457,6 +466,8 @@
 		}*/
 									 
 		[actionSheet addButtonWithTitle:@"Set Headline Image"];
+		
+		//[actionSheet showFromRect:CGRectMake(touchX*zoomScale, touchY*zoomScale, width*zoomScale, height*zoomScale) inView:self.webView animated:YES];
 		
 		[actionSheet showInView:self.webView];
 		
@@ -586,7 +597,25 @@
 		navController.navigationBar.topItem.rightBarButtonItem=nil;
 	}
 	
+	NSLog([self showSubviews:self.webView tabs:@""]);
+	
 }
+
+- (NSString *)showSubviews:(UIView *)view tabs:(NSString *)tabs {
+	if (!tabs) tabs = @"";
+	NSString *currStr = tabs;
+	currStr = [NSString stringWithFormat:@"%@%@\n", tabs, [view class], nil];
+	
+	if (view.subviews && [view.subviews count] > 0) {
+		tabs = [tabs stringByAppendingString:@"\t"];
+		for (UIView *subview in view.subviews) {
+			currStr = [currStr stringByAppendingString:[self showSubviews:subview tabs:tabs]];
+		}
+	}
+	
+	return currStr;
+}
+
 
 //Sent after a web view starts loading content.
 - (void)webViewDidStartLoad:(UIWebView *)webView

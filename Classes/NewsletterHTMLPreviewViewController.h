@@ -15,11 +15,7 @@
 @interface NewsletterHTMLPreviewViewController : NewsletterBaseViewController <UIWebViewDelegate,UIActionSheetDelegate>{
 	IBOutlet UIWebView * webView;
 }
-
 @property(nonatomic,retain) IBOutlet UIWebView * webView;
 
-- (void) renderHtml;
-
-- (IBAction) publish;
 + (NSString*) getHtml:(Newsletter*)newsletter;
 @end

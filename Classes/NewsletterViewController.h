@@ -14,7 +14,7 @@
 #define kClearSelectedItemsActionSheet 3
 
 #define kEditLogoImageActionSheet 4
-
+#define kPublishPreviewActionSheet 5
 
 #define kViewModeSections 0
 #define kViewModeHeadlines 1
