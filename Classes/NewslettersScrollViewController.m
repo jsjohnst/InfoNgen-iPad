@@ -22,10 +22,6 @@
 	actionSheet.tag=kDeleteNewsletterActionSheet;
 	
 	[actionSheet showFromBarButtonItem:sender animated:YES];
-	
-	//UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Delete newsletter" message:@"Deleted newsletter" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-	//[alertView show];
-	//[alertView release];
 }
 
 -(IBAction) sendTouch:(id)sender
@@ -37,59 +33,50 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-	
 }
 
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet
 {
-	
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
+}
+
+- (void) removeCurrentPage
+{
+	NewsletterScrollItemController * controller = [self.scrollItems objectAtIndex:self.pageControl.currentPage];
 	
+	// remove newsletter from newsletters
+	[self.newsletters removeObjectAtIndex:self.pageControl.currentPage];
+	
+	// remove view from scroll view
+	[controller.view removeFromSuperview];
+	
+	// remove scroll item from array
+	[self.scrollItems removeObjectAtIndex:self.pageControl.currentPage];
+	
+	// if we are on the last page, then scroll left to previous page
+	//if (self.pageControl.currentPage>0 && self.pageControl.currentPage==self.pageControl.numberOfPages-1)
+	//{
+	//	sel f.pageControl.currentPage=self.pageControl.currentPage-1;
+	//	[self scrollToPage:self.pageControl.currentPage];
+	//}
+	
+	self.pageControl.numberOfPages=self.pageControl.numberOfPages-1;
+	
+	[self displayCurrentPageInfo];
+	 
+	// re-adjust view
+	[self layoutSubviews];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	
 	if(actionSheet.tag==kDeleteNewsletterActionSheet)
 	{
+		[self removeCurrentPage];
 		
-		if(self.newsletter)
-		{
-			for(NewsletterScrollItemController * controller in self.scrollItems)
-			{
-				if([controller.newsletter isEqual:self.newsletter])
-				{
-					
-					// remove newsletter from newsletters
-					[self.newsletters removeObject:self.newsletter];
-					
-					// remove view from scroll view
-					[controller.view removeFromSuperview];
-					
-					// remove scroll item from array
-					[self.scrollItems removeObject:controller];
-					
-					// re-adjust view
-					[self layoutSubviews];
-					
-					if([self.newsletters count]>0)
-					{
-						self.newsletter=[self.newsletters objectAtIndex:self.pageControl.currentPage];
-					}
-					else
-					{
-						self.newsletter=nil;
-					}
-					self.pageControl.numberOfPages=self.pageControl.numberOfPages-1;
-					
-					// set current newsletter to next one
-					break;
-				}
-			}
-		}
 		//[self.newsletters removeObject:self.currentNewsletter];
 		
 		//self.currentNewsletter=nil;
@@ -106,10 +93,6 @@
 		//[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:myview cache:YES];
 		//[myview removeFromSuperview];
 		//[UIView commitAnimations];
-		
-		
-		
-		
 	}
 	if(actionSheet.tag==kPublishNewsletterActionSheet)
 	{
@@ -145,7 +128,8 @@
 	
 	[self.scrollView setBackgroundColor:[UIColor clearColor]];
 	
-	self.navigationController.navigationBar.topItem.title=@"My Newsletters";
+	self.title=@"My Newsletters";
+	//self.navigationController.navigationBar.topItem.title=@"My Newsletters";
 
 	[scrollView setCanCancelContentTouches:NO];
 	
@@ -156,31 +140,27 @@
 	scrollView.scrollEnabled = YES;	
 	scrollView.pagingEnabled = YES;
 	
-	NSMutableArray * array=[[NSMutableArray alloc] init];
+	self.scrollItems=[[NSMutableArray alloc] init];
 	
-	for(Newsletter * newsletter in newsletters)
+	for(Newsletter * n in newsletters)
 	{
-		NewsletterScrollItemController * item=[[NewsletterScrollItemController alloc] initWithNibName:@"NewsletterScrollItemView" bundle:nil];
-		
-		item.newsletter=newsletter;
-		
-		[array addObject:item];
-	
-		[self.scrollView addSubview:item.view];
+		[self addNewsletterPage:n];
 	}
-	
-	self.scrollItems=array;
-	
-	self.pageControl.numberOfPages = [self.scrollItems count];
-
-	if([newsletters count]>0)
-	{
-		self.newsletter=[newsletters objectAtIndex:0];
-	}
-	
-	[array release];
-	
+ 	
     [super viewDidLoad];
+}
+
+- (void) addNewsletterPage:(Newsletter*)_newsletter
+{
+	NewsletterScrollItemController * item=[[NewsletterScrollItemController alloc] initWithNibName:@"NewsletterScrollItemView" bundle:nil];
+	
+	item.newsletter=_newsletter;
+	
+	[self.scrollItems addObject:item];
+	
+	[self.scrollView addSubview:item.view];
+	
+	self.pageControl.numberOfPages=[self.scrollItems count];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -242,28 +222,34 @@
 	CGFloat width=bounds.size.width - 100;
 	CGFloat top=50;
 	
-	for(NewsletterScrollItemController * controller in self.scrollItems)
-	{
+	for(int page=0;page<[self.scrollItems count];page++)
+	{	
+		NewsletterScrollItemController * controller = [self.scrollItems objectAtIndex:page];
+		
 		controller.view.frame=CGRectMake(((bounds.size.width - width) / 2)+ cx,top,width,height);
 		
 		[controller layoutSubviews];
 		
-		if(self.newsletter!=nil)
+		if(page==self.pageControl.currentPage)
 		{
-			if([self.newsletter isEqual:controller.newsletter])
-			{
-				[controller renderNewsletter];
-			}
+			[controller renderNewsletter];
 		}
+		
 		cx+=bounds.size.width;
 	}
-	
+
 	[scrollView setContentSize:CGSizeMake(cx, bounds.size.height)];
+	
+	[self displayCurrentPageInfo];
 }
 
 - (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	[self layoutSubviews];
+	if(self.pageControl.numberOfPages>1)
+	{
+		[self scrollToPage:self.pageControl.currentPage];
+	}
 	scrollView.hidden=NO;
 }
 
@@ -286,52 +272,40 @@
     
 	int page = floor((_scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
 	
-	self.newsletter=[self.newsletters objectAtIndex:page];
-	
 	pageControl.currentPage = page;
+	
+	[self displayCurrentPageInfo];
 }
 
-- (void)setNewsletter:(Newsletter *)_newsletter
+- (void) displayCurrentPageInfo
 {
-	if(newsletter!=nil)
-	{
-		[newsletter release];
-	}
-	
-	newsletter=_newsletter;
-	
-	if(newsletter==nil)
+	if([self.scrollItems count]==0)
 	{
 		self.titleLabel.text=nil;
 		self.dateLabel.text=nil;
-		self.navigationController.navigationBar.topItem.title=@"My Newsletters";
-
-		return;
+		self.title=@"My Newsletters";
+		//self.navigationController.navigationBar.topItem.title=@"My Newsletters";
+		self.toolBar.hidden=YES;
 	}
-	
-	[newsletter retain];
-	
-	self.titleLabel.text=newsletter.name;
-	
-	NSDateFormatter *format = [[NSDateFormatter alloc] init];
-	
-	[format setDateFormat:@"MMM d, yyyy"];
-	
-	self.dateLabel.text=[format stringFromDate:newsletter.lastUpdated]; //  [newsletter.lastUpdated description];
-	
-	[format release];
-	
-	int ordinal=0;
-	
-	for(ordinal=0;ordinal<[self.newsletters count];ordinal++)
+	else 
 	{
-		if([newsletter isEqual:[self.newsletters objectAtIndex:ordinal]])
-		{
-			break;
-		}
+		Newsletter * newsletter=[self.newsletters objectAtIndex:self.pageControl.currentPage];
+		
+		self.toolBar.hidden=NO;
+		
+		self.titleLabel.text=newsletter.name;
+		
+		NSDateFormatter *format = [[NSDateFormatter alloc] init];
+		
+		[format setDateFormat:@"MMM d, yyyy"];
+		
+		self.dateLabel.text=[format stringFromDate:newsletter.lastUpdated]; 
+		
+		[format release];
+		 
+		self.title=[NSString stringWithFormat:@"My Newsletters (%d of %d)",(self.pageControl.currentPage+1),self.pageControl.numberOfPages];
+		//self.navigationController.navigationBar.topItem.title=[NSString stringWithFormat:@"My Newsletters (%d of %d)",(self.pageControl.currentPage+1),self.pageControl.numberOfPages];
 	}
-	
-	self.navigationController.navigationBar.topItem.title=[NSString stringWithFormat:@"My Newsletters (%d of %d)",(ordinal+1),[self.newsletters count]];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)_scrollView 
@@ -339,19 +313,24 @@
     pageControlIsChangingPage = NO;
 }
 
-- (IBAction)changePage:(id)sender 
+- (void) scrollToPage:(int) pageNumber
 {
-	// 	Change the scroll view
-	 
-    CGRect frame = scrollView.frame;
-    frame.origin.x = frame.size.width * pageControl.currentPage;
+	CGRect frame = scrollView.frame;
+    frame.origin.x = frame.size.width * pageNumber;
     frame.origin.y = 0;
 	
     [scrollView scrollRectToVisible:frame animated:YES];
+}
+
+- (IBAction)changePage:(id)sender 
+{
+	// 	Change the scroll view
+	[self scrollToPage:pageControl.currentPage];
 	
 	//When the animated scrolling finishings, scrollViewDidEndDecelerating will turn this off
 	 
-	self.newsletter=[self.newsletters objectAtIndex:pageControl.currentPage];
+	[self displayCurrentPageInfo];
+	//self.newsletter=[self.newsletters objectAtIndex:pageControl.currentPage];
 	
     pageControlIsChangingPage = YES;
 }

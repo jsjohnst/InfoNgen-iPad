@@ -23,7 +23,7 @@
 #import "BlankToolbar.h"
 
 @implementation NewsletterViewController
-@synthesize newsletterTableView,editMoveButton,addImageButton,segmentedControl,titleTextField,descriptionTextField,addSectionPopover;
+@synthesize newsletterTableView,editMoveButton,dateLabel,addImageButton,titleTextField,descriptionTextField,addSectionPopover,imagePickerPopover;
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -81,10 +81,21 @@
 	
 	viewMode=kViewModeSynopsis;
 	
+	//segmentedControl.selectedSegmentIndex=viewMode;
+	
+	UISegmentedControl * segmentedControl=[[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sections",@"Headlines",@"Synopsis",nil]];
+	
+	segmentedControl.segmentedControlStyle=UISegmentedControlStyleBar;
 	segmentedControl.selectedSegmentIndex=viewMode;
+	[segmentedControl addTarget:self
+						 action:@selector(toggleViewMode:)
+			   forControlEvents:UIControlEventValueChanged];
+	self.navigationItem.titleView=segmentedControl;
+	
+	[segmentedControl release];
 	
 	// create a toolbar to have two buttons in the right
-	BlankToolbar* tools = [[BlankToolbar alloc] initWithFrame:CGRectMake(0, 0, 300, 44.01)];
+	BlankToolbar* tools = [[BlankToolbar alloc] initWithFrame:CGRectMake(0, 0, 250, 44.01)];
 	
 	tools.backgroundColor=[UIColor clearColor];
 	tools.opaque=NO;
@@ -171,7 +182,7 @@
 {
 	//
 	
-	viewMode=[segmentedControl selectedSegmentIndex];
+	viewMode=[sender selectedSegmentIndex];
 	
 	[newsletterTableView reloadData];
 	
@@ -181,9 +192,36 @@
 {
 	if(self.newsletter)
 	{
-		self.title=self.newsletter.name;
+		if(self.newsletter.logoImage)
+		{
+			CGRect newFrame=CGRectMake(self.addImageButton.frame.origin.x,self.addImageButton.frame.origin.y,self.newsletter.logoImage.size.width,self.newsletter.logoImage.size.height);
+		
+			[self.addImageButton removeFromSuperview];
+		
+			//[self.addImageButton release];
+		
+			self.addImageButton=[UIButton buttonWithType:UIButtonTypeCustom];
+		
+			self.addImageButton.frame=newFrame;
+		
+			[self.addImageButton setBackgroundImage:self.newsletter.logoImage forState:UIControlStateNormal];
+		
+			[self.addImageButton addTarget:self action:@selector(imageTouched:) forControlEvents:UIControlEventTouchUpInside];
+		
+			[self.view addSubview:self.addImageButton];		
+		}
+		
+		//self.title=self.newsletter.name;
 		self.titleTextField.text=self.newsletter.name;
 		self.descriptionTextField.text=self.newsletter.summary;
+	
+		NSDateFormatter *format = [[NSDateFormatter alloc] init];
+		
+		[format setDateFormat:@"MMM d, yyyy"];
+		
+		self.dateLabel.text=[format stringFromDate:newsletter.lastUpdated]; 
+		
+		[format release];
 	}
 	
 	[newsletterTableView reloadData];
@@ -215,6 +253,36 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+	
+	if(actionSheet.tag==kEditLogoImageActionSheet)
+	{
+		if(buttonIndex==0)
+		{
+			// choose existing image
+			[self addImageTouch:self.addImageButton];
+		}
+		
+		if(buttonIndex==1)
+		{
+			// delete image
+			self.newsletter.logoImage=nil;
+	
+			CGRect newFrame=CGRectMake(self.addImageButton.frame.origin.x, self.addImageButton.frame.origin.y, 88, 88);
+			// replace old button...
+			[self.addImageButton removeFromSuperview];
+			
+			self.addImageButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+			
+			//self.addImageButton.title=@"Add Image";
+			[self.addImageButton setTitle:@"Add Image" forState:UIControlStateNormal];
+			
+			self.addImageButton.frame=newFrame;
+			[self.addImageButton addTarget:self action:@selector(addImageTouch:) forControlEvents:UIControlEventTouchUpInside];
+			
+			[self.view addSubview:self.addImageButton];
+		}
+	}
+	
 	/*if(buttonIndex==0)
 	{
 		if(actionSheet.tag==kDeleteActionSheet)
@@ -917,9 +985,131 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	//[UIView commitAnimations];  
 }*/
 
+- (void)imageTouched:(id)sender
+{
+	UIView * button=(UIView*)sender;
+	
+	UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+	actionSheet.tag=kEditLogoImageActionSheet;
+	[actionSheet addButtonWithTitle:@"Choose Existing Image"];
+	[actionSheet addButtonWithTitle:@"Delete Image"];
+	[actionSheet showFromRect:button.frame inView:self.view animated:YES];
+	
+	//[actionSheet showInView:self.view];
+	
+	[actionSheet release];
+}
+
 - (void) addImageTouch:(id)sender
 {
+	UIImagePickerController * picker=[[UIImagePickerController alloc] init];
 	
+	picker.allowsEditing = YES;
+	
+	picker.delegate=self;
+	
+	if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+	{
+		picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+	}
+	else
+	{
+		if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+		{
+			picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+			
+		}
+		else
+		{
+			if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+			{
+				picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+			}
+			else 
+			{
+				return;
+			}
+		}
+	}
+	
+	UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:picker];
+	
+	self.imagePickerPopover=popover;
+	
+	UIView * button=(UIView*)sender;
+	
+	[popover presentPopoverFromRect:[button convertRect:button.frame toView:self.view] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	
+	[picker release];
+	
+	[popover release];
+}
+ 
+
+- (void)imagePickerController:(UIImagePickerController *)picker 
+		didFinishPickingImage:(UIImage *)image
+				  editingInfo:(NSDictionary *)editingInfo
+{
+	
+    // Dismiss the image selection, hide the picker and
+    //show the image view with the picked image
+    [imagePickerPopover dismissPopoverAnimated:YES];
+	
+	
+	//222 px x 118px
+	
+	if(image.size.width>222  || image.size.height>118)
+	{
+		CGSize newSize;
+		// resize
+		if(image.size.width>image.size.height)
+		{
+			CGFloat ratio=222.0/image.size.width;
+			CGFloat newWidth=ratio * image.size.width;
+			CGFloat newHeight=ratio * image.size.height;
+			newSize.width=newWidth;
+			newSize.height=newHeight;
+		}
+		else
+		{
+			CGFloat ratio=118.0/image.size.height;
+			CGFloat newWidth=ratio * image.size.width;
+			CGFloat newHeight=ratio * image.size.height;
+			newSize.width=newWidth;
+			newSize.height=newHeight;
+		}
+		
+		UIGraphicsBeginImageContext( newSize );// a CGSize that has the size you want
+		[image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+		//image is the original UIImage
+		image = UIGraphicsGetImageFromCurrentImageContext();
+		UIGraphicsEndImageContext();
+	}
+
+	self.newsletter.logoImage=image;
+	
+	CGRect newFrame=CGRectMake(self.addImageButton.frame.origin.x,self.addImageButton.frame.origin.y,image.size.width,image.size.height);
+	
+	[self.addImageButton removeFromSuperview];
+	
+	//[self.addImageButton release];
+	
+	self.addImageButton=[UIButton buttonWithType:UIButtonTypeCustom];
+	
+	self.addImageButton.frame=newFrame;
+	
+	[self.addImageButton setBackgroundImage:image forState:UIControlStateNormal];
+
+	[self.addImageButton addTarget:self action:@selector(imageTouched:) forControlEvents:UIControlEventTouchUpInside];
+						 
+	[self.view addSubview:self.addImageButton];					 
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    // Dismiss the image selection and close the program
+    [imagePickerPopover dismissPopoverAnimated:YES];
 }
 
 - (void)dealloc 
@@ -927,10 +1117,12 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     [newsletterTableView release];
 	[editMoveButton release];
 	[addImageButton release];
-	[segmentedControl release];
+	//[segmentedControl release];
 	[titleTextField  release];
 	[descriptionTextField release];
 	[addSectionPopover release];
+	[imagePickerPopover release];
+	[dateLabel release];
 	[super dealloc];
 }
 @end

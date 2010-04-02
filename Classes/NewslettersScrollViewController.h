@@ -14,7 +14,7 @@
 
 @class Newsletter;
 
-@interface NewslettersScrollViewController : NewsletterBaseViewController <UIScrollViewDelegate,UIActionSheetDelegate>{
+@interface NewslettersScrollViewController : UIViewController <UIScrollViewDelegate,UIActionSheetDelegate>{
 	IBOutlet UIScrollView * scrollView;
 	IBOutlet UIPageControl * pageControl;
 	BOOL pageControlIsChangingPage;
@@ -36,10 +36,14 @@
 @property(nonatomic,retain) IBOutlet UILabel * titleLabel;
 @property(nonatomic,retain) IBOutlet UIToolbar * toolBar;
 
+
+- (void) addNewsletterPage:(Newsletter*)_newsletter;
+
 - (IBAction)changePage:(id)sender;
 //- (UIImage*)captureView:(UIView *)view ;
 -(IBAction) deleteTouch:(id)sender;
 -(IBAction) sendTouch:(id)sender;
-
+- (void) scrollToPage:(int) pageNumber;
+- (void) displayCurrentPageInfo;
 
 @end

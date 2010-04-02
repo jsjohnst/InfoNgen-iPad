@@ -17,6 +17,7 @@
 @class SearchResult;
 @class Newsletter;
 @class SavedSearch;
+@class NewslettersScrollViewController;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate,UISplitViewControllerDelegate, UINavigationControllerDelegate> {
     
@@ -31,7 +32,7 @@
 	UITabBarController * tabBarController;
 	
 	NewslettersViewController * newslettersViewController;
-	
+	NewslettersScrollViewController * scroller;
 	NewsletterViewController * headlineViewController;
 	NewsletterViewController * synopsisViewController;
 	NewsletterSettingsViewController * newsletterSettingsViewController;
@@ -56,6 +57,7 @@
 @property(nonatomic,retain) UITabBarController * tabBarController;
 @property(nonatomic,retain) NewsletterSettingsViewController * newsletterSettingsViewController;
 @property(nonatomic,retain) NewsletterHTMLPreviewViewController * newsletterHTMLPreviewViewController;
+@property(nonatomic,retain) NewslettersScrollViewController * scroller;
 
 - (void) editNewsletter:(Newsletter*)newsletter;
 - (void) newNewsletter;

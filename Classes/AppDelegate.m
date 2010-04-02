@@ -25,7 +25,7 @@
 
 @implementation AppDelegate
 
-@synthesize newsletters,savedSearches,window,newsletter,tabBarController,newsletterSettingsViewController,newsletterHTMLPreviewViewController,splitViewController,synopsisViewController,headlineViewController,newslettersViewController,navigationController,newslettersPopoverController; 
+@synthesize newsletters,savedSearches,window,newsletter,scroller,tabBarController,newsletterSettingsViewController,newsletterHTMLPreviewViewController,splitViewController,synopsisViewController,headlineViewController,newslettersViewController,navigationController,newslettersPopoverController; 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
@@ -76,12 +76,12 @@
 	newslettersViewController.newsletters=self.newsletters;
 	*/
 	
-	NewslettersScrollViewController * scroller=[[NewslettersScrollViewController alloc] initWithNibName:@"NewslettersScrollView" bundle:nil];
+	self.scroller=[[NewslettersScrollViewController alloc] initWithNibName:@"NewslettersScrollView" bundle:nil];
 	
-	scroller.newsletters=self.newsletters;
+	self.scroller.newsletters=self.newsletters;
 	
 	//navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
-	navigationController = [[UINavigationController alloc] initWithRootViewController:scroller];
+	navigationController = [[UINavigationController alloc] initWithRootViewController:self.scroller];
     
 	navigationController.navigationBar.barStyle=UIBarStyleBlack;
 	
@@ -147,6 +147,18 @@
 	
 	[self.newsletters addObject:newNewsletter];
 	
+	[self.scroller addNewsletterPage:newNewsletter];
+	
+	//self.scroller.pageControl.currentPage=[self.scroller.pageControl.numberOfPages-1];
+	
+	[self.scroller layoutSubviews];
+	
+	[self.scroller scrollToPage:self.scroller.pageControl.numberOfPages-1];
+	
+	[self.scroller displayCurrentPageInfo];
+	
+	//self.scroller.newsletter=newNewsletter;
+	
 	[self editNewsletter:newNewsletter];
 	
 	[newNewsletter release];
@@ -180,6 +192,8 @@
 	[newsletterView setViewMode:YES];
 	//newsletterView.viewModeExpanded=YES;
 	newsletterView.newsletter=_newsletter;
+	
+	newsletterView.title=_newsletter.name;
 	
 	[navigationController pushViewController:newsletterView animated:NO];
 	
@@ -361,6 +375,7 @@
 	[savedSearches release];
 	[newsletter release];
 	[tabBarController release];
+	[scroller release];
     [super dealloc];
 }
 

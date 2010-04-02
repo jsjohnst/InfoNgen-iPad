@@ -13,6 +13,9 @@
 #define kDeleteActionSheet 2
 #define kClearSelectedItemsActionSheet 3
 
+#define kEditLogoImageActionSheet 4
+
+
 #define kViewModeSections 0
 #define kViewModeHeadlines 1
 #define kViewModeSynopsis 2
@@ -26,22 +29,26 @@
 	IBOutlet UITableView * newsletterTableView;
 	IBOutlet UIBarButtonItem * editMoveButton;
 	IBOutlet UIButton * addImageButton;
-	IBOutlet UISegmentedControl * segmentedControl;
+	//IBOutlet UISegmentedControl * segmentedControl;
 	IBOutlet UITextField * titleTextField;
+	IBOutlet  UILabel * dateLabel;
 	IBOutlet UITextView * descriptionTextField;
 	BOOL updating;
 	int viewMode;
 	//BOOL viewModeExpanded;
 	UIPopoverController * addSectionPopover;
+	UIPopoverController * imagePickerPopover;
 }
 
 @property(nonatomic,retain) IBOutlet UITableView * newsletterTableView;
 @property (nonatomic,retain) IBOutlet UIBarButtonItem * editMoveButton;
 @property (nonatomic,retain) IBOutlet UIButton * addImageButton;
-@property (nonatomic,retain) IBOutlet UISegmentedControl * segmentedControl;
+//@property (nonatomic,retain) IBOutlet UISegmentedControl * segmentedControl;
 @property (nonatomic,retain) IBOutlet UITextField * titleTextField;
 @property (nonatomic,retain) IBOutlet UITextView * descriptionTextField;
 @property (nonatomic,retain) UIPopoverController * addSectionPopover;
+@property(nonatomic,retain) IBOutlet UILabel * dateLabel;
+@property(nonatomic,retain) UIPopoverController * imagePickerPopover;
 
 - (void) addImageTouch:(id)sender;
 
@@ -49,7 +56,7 @@
 
 -(void) closePreview;
 - (void) scrollToSection:(NSString*)sectionName;
-
+- (void)imageTouched:(id)sender;
 -(void) setViewMode:(int)mode;
 
 -(void) toggleViewMode:(id)sender;
