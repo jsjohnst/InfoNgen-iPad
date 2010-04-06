@@ -16,6 +16,7 @@
 	NSString * url;
 	NSString * notes;
 	UIImage * image;
+	NSMutableArray * metadata;
 }
 
 @property(nonatomic,retain) NSString * headline;
@@ -24,6 +25,7 @@
 @property(nonatomic,retain) NSDate * date;
 @property(nonatomic,retain) NSString * notes;
 @property(nonatomic,retain) UIImage * image;
+@property(nonatomic,retain) NSMutableArray * metadata;
 
 - (id) initWithHeadline:(NSString *)theHeadline withUrl:(NSString *) theUrl withSynopsis:(NSString*)theSynopsis withDate:(NSDate*)theDate;
 -(NSString *)relativeDateOffset;

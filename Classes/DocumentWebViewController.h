@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class SearchResult;
+@class MetaTag;
 
 @interface DocumentWebViewController : UIViewController <UIWebViewDelegate,UIActionSheetDelegate> {
 	IBOutlet UIWebView * webView;
@@ -35,6 +36,7 @@
 @property(nonatomic,retain) NSString * selectedImageSource;
 @property(nonatomic,retain) NSString * selectedImageLink;
 
+- (void) highlightText:(MetaTag *)tag;
 - (IBAction) selectImages:(id)sender;
 - (void)appendSynopsis:(id)sender;
 - (void)replaceSynopsis:(id)sender;
@@ -43,9 +45,9 @@
 - (void)doSomething:(NSTimer *)theTimer;
 -(NSString*) getString:(NSString*)javascript;
 -(NSInteger) getInt:(NSString*)javascript;
-/*-(IBAction) getImages;
+/*-(IBAction) getImages;*/
 -(IBAction) getText;
--(IBAction) edit;
+/*-(IBAction) edit;
 */
 - (IBAction) readability;
 - (NSString *)showSubviews:(UIView *)view tabs:(NSString *)tabs;

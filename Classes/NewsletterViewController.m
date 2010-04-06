@@ -194,6 +194,11 @@
 			[self.view addSubview:self.addImageButton];		
 		}
 		
+		
+		UIColor * headlineColor=[NewsletterItemContentView colorWithHexString:@"336699"];
+		
+		self.titleTextField.textColor=headlineColor;
+		
 		self.titleTextField.text=self.newsletter.name;
 		self.descriptionTextField.text=self.newsletter.summary;
 	
@@ -653,11 +658,11 @@
 	
 	NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:section];
 
-	UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, newsletterTableView.frame.size.width, 40)];
+	UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, newsletterTableView.frame.size.width, 44)];
 	
 	topView.backgroundColor=[UIColor whiteColor];
 		
-	UIColor * borderColor=[NewsletterItemContentView colorWithHexString:@"#336699"];
+	UIColor * borderColor=[NewsletterItemContentView colorWithHexString:@"336699"];
 	
 	topView.layer.borderColor=[borderColor CGColor];
 	topView.layer.borderWidth=1;
@@ -667,11 +672,12 @@
 	//gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor],(id)[[UIColor grayColor] CGColor], (id)[[UIColor lightGrayColor] CGColor], nil];
 	//[topView.layer insertSublayer:gradient atIndex:0];
 	
-	UIColor * nameColor=[NewsletterItemContentView colorWithHexString:@"#339933"];
+	UIColor * nameColor=[NewsletterItemContentView colorWithHexString:@"339933"];
 	
-	UILabel *nameLabel = [self newLabelWithPrimaryColor:nameColor selectedColor:nameColor fontSize:20 bold:YES];
-	[nameLabel setFrame:CGRectMake(10, 10, 450, 22)];
-	//nameLabel.backgroundColor=[UIColor clearColor];
+	UILabel *nameLabel = [self newLabelWithPrimaryColor:nameColor selectedColor:[UIColor whiteColor] fontSize:20 bold:YES];
+	
+	[nameLabel setFrame:CGRectMake(10, 11, 450, 22)];
+	
 	nameLabel.text = newsletterSection.name;
 	
 	[topView addSubview:nameLabel];
@@ -702,7 +708,7 @@
 	{
 		return 0;
 	}
-	return 40;
+	return 44;
 }
 
 - (UILabel *)newLabelWithPrimaryColor:(UIColor *)primaryColor selectedColor:(UIColor *)selectedColor fontSize:(CGFloat)fontSize bold:(BOOL)bold
@@ -784,6 +790,23 @@
 		
 		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.row];
 		
+		UIColor * borderColor=[NewsletterItemContentView colorWithHexString:@"336699"];
+		
+		cell.layer.borderColor=[borderColor CGColor];
+		cell.layer.borderWidth=1;
+		
+		//CAGradientLayer *gradient = [CAGradientLayer layer];
+		//gradient.frame = topView.bounds;
+		//gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor],(id)[[UIColor grayColor] CGColor], (id)[[UIColor lightGrayColor] CGColor], nil];
+		//[topView.layer insertSublayer:gradient atIndex:0];
+		
+		UIColor * nameColor=[NewsletterItemContentView colorWithHexString:@"339933"];
+		
+		
+		
+		
+		
+		cell.textLabel.textColor=nameColor;
 		cell.textLabel.text=newsletterSection.name;
 		
 		return cell;

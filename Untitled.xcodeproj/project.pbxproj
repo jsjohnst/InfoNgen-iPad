@@ -53,6 +53,13 @@
 		C47E3B12116248A800BDB577 /* NewsletterScrollItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47E3B11116248A800BDB577 /* NewsletterScrollItemController.m */; };
 		C47E3B1411624B1500BDB577 /* NewsletterScrollItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47E3B1311624B1500BDB577 /* NewsletterScrollItemView.xib */; };
 		C47E3BBE1162901900BDB577 /* RootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47E3BBD1162901900BDB577 /* RootView.xib */; };
+		C47E684B116A3391008C8AB2 /* MetaTag.m in Sources */ = {isa = PBXBuildFile; fileRef = C47E684A116A3391008C8AB2 /* MetaTag.m */; };
+		C47E68F8116B9497008C8AB2 /* TextMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C47E68F7116B9497008C8AB2 /* TextMatch.m */; };
+		C47E6924116B9AEC008C8AB2 /* highlightText.js in Sources */ = {isa = PBXBuildFile; fileRef = C47E6923116B9AEC008C8AB2 /* highlightText.js */; };
+		C47E693E116BACD5008C8AB2 /* readability2.js in Sources */ = {isa = PBXBuildFile; fileRef = C47E693D116BACD5008C8AB2 /* readability2.js */; };
+		C47E6968116BAF72008C8AB2 /* readability2.js in Resources */ = {isa = PBXBuildFile; fileRef = C47E693D116BACD5008C8AB2 /* readability2.js */; };
+		C47E696D116BAF79008C8AB2 /* highlightText.js in Resources */ = {isa = PBXBuildFile; fileRef = C47E6923116B9AEC008C8AB2 /* highlightText.js */; };
+		C47E69CD116BC057008C8AB2 /* readability.css in Resources */ = {isa = PBXBuildFile; fileRef = C47E69CC116BC057008C8AB2 /* readability.css */; };
 		C47EB321112B004100DDD1D5 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C47EB30A112B004100DDD1D5 /* CXMLDocument_CreationExtensions.m */; };
 		C47EB322112B004100DDD1D5 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C47EB30C112B004100DDD1D5 /* CXMLNode_CreationExtensions.m */; };
 		C47EB323112B004100DDD1D5 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C47EB30E112B004100DDD1D5 /* CXMLDocument_PrivateExtensions.m */; };
@@ -181,6 +188,13 @@
 		C47E3B11116248A800BDB577 /* NewsletterScrollItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsletterScrollItemController.m; sourceTree = "<group>"; };
 		C47E3B1311624B1500BDB577 /* NewsletterScrollItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsletterScrollItemView.xib; sourceTree = "<group>"; };
 		C47E3BBD1162901900BDB577 /* RootView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootView.xib; sourceTree = "<group>"; };
+		C47E6849116A3391008C8AB2 /* MetaTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaTag.h; sourceTree = "<group>"; };
+		C47E684A116A3391008C8AB2 /* MetaTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaTag.m; sourceTree = "<group>"; };
+		C47E68F6116B9497008C8AB2 /* TextMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextMatch.h; sourceTree = "<group>"; };
+		C47E68F7116B9497008C8AB2 /* TextMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextMatch.m; sourceTree = "<group>"; };
+		C47E6923116B9AEC008C8AB2 /* highlightText.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = highlightText.js; sourceTree = "<group>"; };
+		C47E693D116BACD5008C8AB2 /* readability2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = readability2.js; sourceTree = "<group>"; };
+		C47E69CC116BC057008C8AB2 /* readability.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = readability.css; sourceTree = "<group>"; };
 		C47EB309112B004100DDD1D5 /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
 		C47EB30A112B004100DDD1D5 /* CXMLDocument_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_CreationExtensions.m; sourceTree = "<group>"; };
 		C47EB30B112B004100DDD1D5 /* CXMLNode_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_CreationExtensions.h; sourceTree = "<group>"; };
@@ -448,6 +462,9 @@
 				C485C93911613FF4005CFD2E /* NewslettersScrollView.xib */,
 				C47E3B1311624B1500BDB577 /* NewsletterScrollItemView.xib */,
 				C47E3BBD1162901900BDB577 /* RootView.xib */,
+				C47E6923116B9AEC008C8AB2 /* highlightText.js */,
+				C47E693D116BACD5008C8AB2 /* readability2.js */,
+				C47E69CC116BC057008C8AB2 /* readability.css */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -503,6 +520,10 @@
 				C47EB33D112B006600DDD1D5 /* SearchResults.m */,
 				C4E34D23112B1E6E00F193D9 /* LoginTicket.h */,
 				C4E34D24112B1E6E00F193D9 /* LoginTicket.m */,
+				C47E6849116A3391008C8AB2 /* MetaTag.h */,
+				C47E684A116A3391008C8AB2 /* MetaTag.m */,
+				C47E68F6116B9497008C8AB2 /* TextMatch.h */,
+				C47E68F7116B9497008C8AB2 /* TextMatch.m */,
 			);
 			name = InfoNgenSearch;
 			sourceTree = "<group>";
@@ -606,7 +627,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
+				C47E696D116BAF79008C8AB2 /* highlightText.js in Resources */,
+				C47E69CD116BC057008C8AB2 /* readability.css in Resources */,
 				C4F0B18B1118E6570036B900 /* SavedSearchesView.xib in Resources */,
+				C47E6968116BAF72008C8AB2 /* readability2.js in Resources */,
 				C4158C24112097710070FE54 /* SearchResultCell.xib in Resources */,
 				C47EB35D112B027E00DDD1D5 /* Settings.bundle in Resources */,
 				C4BF00F7112DC41C0005AA73 /* NewsletterView.xib in Resources */,
@@ -720,6 +744,10 @@
 				C485C93E11614120005CFD2E /* NewslettersScrollViewController.m in Sources */,
 				C47E3B12116248A800BDB577 /* NewsletterScrollItemController.m in Sources */,
 				B0C078141163F0F7003F0C22 /* BlankToolbar.m in Sources */,
+				C47E684B116A3391008C8AB2 /* MetaTag.m in Sources */,
+				C47E68F8116B9497008C8AB2 /* TextMatch.m in Sources */,
+				C47E6924116B9AEC008C8AB2 /* highlightText.js in Sources */,
+				C47E693E116BACD5008C8AB2 /* readability2.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

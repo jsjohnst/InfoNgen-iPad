@@ -14,6 +14,9 @@
 #import "DocumentEditViewController.h"
 #import "AppDelegate.h"
 #import "NewslettersViewController.h"
+#import "SearchClient.h"
+#import "MetaTag.h"
+#import "TextMatch.h"
 
 @implementation DocumentWebViewController
 @synthesize webView,searchResult,backButton,forwardButton,selectImageButton,readabilityButton,selectedImageSource,selectedImageLink;//,stopButton,reloadButton;
@@ -42,21 +45,76 @@
 	}
 }
 
-- (IBAction) readability
+- (void) highlightText:(MetaTag *)tag
 {
-	// run readability bookmarklet to extract article text into readable text view of html...
-	NSString * bookmarklet=@"readStyle='style-ebook';readSize='size-large';readMargin='margin-narrow';_readability_script=document.createElement('SCRIPT');_readability_script.type='text/javascript';_readability_script.src='http://lab.arc90.com/experiments/readability/js/readability.js?x='+(Math.random());document.getElementsByTagName('head')[0].appendChild(_readability_script);_readability_css=document.createElement('LINK');_readability_css.rel='stylesheet';_readability_css.href='http://lab.arc90.com/experiments/readability/css/readability.css';_readability_css.type='text/css';_readability_css.media='all';document.getElementsByTagName('head')[0].appendChild(_readability_css);_readability_print_css=document.createElement('LINK');_readability_print_css.rel='stylesheet';_readability_print_css.href='http://lab.arc90.com/experiments/readability/css/readability-print.css';_readability_print_css.media='print';_readability_print_css.type='text/css';document.getElementsByTagName('head')[0].appendChild(_readability_print_css);";
-	
-	[self getString:bookmarklet];
+	// inject javascript function to highlight content
+	 				
+	if(tag.matches)
+	{
+		for(TextMatch * textMatch in tag.matches)
+		{
+			[self getString:[NSString stringWithFormat:@"highlightText('%@','%@','%@');",@"yellow",@"tagclass",textMatch.text]];
+		}
+	}
 }
 
-/*
+- (IBAction) readability
+{
+	// push CSS from local disk...
+	//[self getString:@"_readability_css=document.createElement('LINK');_readability_css.rel='stylesheet';_readability_css.href='readability.css';_readability_css.type='text/css';_readability_css.media='all';document.getElementsByTagName('head')[0].appendChild(_readability_css);"];
+	
+	NSString * path=[[NSBundle mainBundle] pathForResource:@"readability" ofType:@"css"];
+	
+	/*if (path) 
+	{
+		NSString *css = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+		
+		if(css)
+		{
+			[self getString:@"_readability_css=document.createElement('STYLE');"];
+			[self getString:@"_readability_css.type='text/css';"];
+			
+			[self getString:[NSString stringWithFormat:@"_readability_css.innerHTML='%@'",css]];
+			
+			[self getString:@"document.getElementsByTagName('head')[0].appendChild(_readability_css);"];
+		}
+	}*/
+	
+	// push readability functions from local disk...
+	path=[[NSBundle mainBundle] pathForResource:@"readability2" ofType:@"js"];
+	
+	if (path) 
+	{
+		NSString *javascript = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+		
+		if(javascript)
+		{
+			// insert javascript functions into the document
+			[self getString:javascript];
+			
+			// then run the code...
+			[self getString:@"readStyle='style-ebook';readSize='size-large';readMargin='margin-narrow';readability.init();"];
+		}
+	}
+	
+	// needs to finish syncronously here, not async by pulling from web...
+	// run readability bookmarklet to extract article text into readable text view of html...
+	//NSString * bookmarklet=@"readStyle='style-ebook';readSize='size-large';readMargin='margin-narrow';_readability_script=document.createElement('SCRIPT');_readability_script.type='text/javascript';_readability_script.src='http://lab.arc90.com/experiments/readability/js/readability.js?x='+(Math.random());document.getElementsByTagName('head')[0].appendChild(_readability_script);_readability_css=document.createElement('LINK');_readability_css.rel='stylesheet';_readability_css.href='http://lab.arc90.com/experiments/readability/css/readability.css';_readability_css.type='text/css';_readability_css.media='all';document.getElementsByTagName('head')[0].appendChild(_readability_css);_readability_print_css=document.createElement('LINK');_readability_print_css.rel='stylesheet';_readability_print_css.href='http://lab.arc90.com/experiments/readability/css/readability-print.css';_readability_print_css.media='print';_readability_print_css.type='text/css';document.getElementsByTagName('head')[0].appendChild(_readability_print_css);";
+	
+	//[self getString:bookmarklet];
+}
+
+
 - (NSString *)flattenHTML:(NSString *)html {
 	
     NSScanner *theScanner;
     NSString *text = nil;
 	
 	// relplace <p> with line break
+	
+	
+	
+	
 	// replace <br> with line break
 	// replace &nbsp; with space
 	// replace &amp; with &
@@ -89,35 +147,44 @@
 {
 	// get javascript file from bundle...
 	
-	NSString * path=[[NSBundle mainBundle] pathForResource:@"readability" ofType:@"js"];
+	[self readability];
 	
-	if (path) {
-		NSString *javascript = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+	NSString * text=[self getString:@"document.getElementById('readability-content').textContent;"];
 	
-		if(javascript)
+	if(text && [text length]>0)
+	{
+		SearchClient * searchClient =[[SearchClient alloc] init];
+	
+		NSArray * tags=[searchClient getTags:text];
+		
+		if(tags && [tags count]>0)
 		{
-			// insert javascript functions into the document
-			[self getString:javascript];
+			NSString * path=[[NSBundle mainBundle] pathForResource:@"highlightText" ofType:@"js"];
 	
-			NSString * text=[self getString:@"readability.extractArticleText()"];
-	
-			text=[self flattenHTML:text];
+			if (path) 
+			{
+				NSString * javascript = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+				
+				if(javascript)
+				{
+					// insert javascript functions into the document
+					[self getString:javascript];	
+				}
+			}
 			
-			// render extracted text in scrollable text view and allow user to select portions of the text for the synopsis
-
-			DocumentTextViewController * textController=[[DocumentTextViewController alloc] initWithNibName:@"DocumentTextView" bundle:nil];
-	
-			textController.searchResult=self.searchResult;
-			textController.text=text;
-	
-			UINavigationController * navController=(UINavigationController*)[self parentViewController];
-			
-			[navController pushViewController:textController animated:YES];
-			[textController release];
+			for(MetaTag * tag in tags)
+			{
+				[self highlightText:tag];
+			}
 		}
+		
+		[tags release];
+		
+		[searchClient release];
 	}
 }
 
+/*
 -(IBAction) edit
 {
 	DocumentEditViewController * editController=[[DocumentEditViewController alloc] initWithNibName:@"DocumentEditView" bundle:nil];
@@ -247,20 +314,8 @@
 					// ignore huge images (such as background images, etc.)
 					if (width<800 && height<800) {
 						
-						// add highlighted border to the images which are selectable by the user...
-						//[self getString:[NSString stringWithFormat:@"document.images[%d].style.border='4px dashed yellow'",i]];
-						
-						// add click handler if user taps on the highlighted image
-						
-						//[self getString:[NSString stringWithFormat:@"document.images[%d].onclick=function(){document.location='infongen:'+(event.x-window.pageXOffset)+'$$'+(event.y-window.pageYOffset)+'$$'+this.src+'$$'+this.parentNode.getAttribute('href');  return false;}",i]];
-						
 						[self getString:[NSString stringWithFormat:@"document.images[%d].onclick=function(){document.location='infongen:'+(this.x-window.pageXOffset)+'$$'+(this.y-window.pageYOffset)+'$$'+this.width+'$$'+this.height+'$$'+this.src+'$$'+this.parentNode.getAttribute('href');  return false;}",i]];
 						
-						//[self getString:[NSString stringWithFormat:@"document.images[%d].onclick=function(){document.location='infongen:'+this.x+'$$'+this.y+'$$'+this.width+'$$'+this.height+'$$'+this.src+'$$'+this.parentNode.getAttribute('href');  return false;}",i]];
-						
-						//[self getString:[NSString stringWithFormat:@"document.images[%d].onclick=function(){alert('x='+event.x+', y='+event.y +', pageXOffset='+window.pageXOffset +', pageYOffset='+window.pageYOffset);}",i]];
-						
-						//[self getString:[NSString stringWithFormat:@"document.images[%d].onmousedown=function(){this.style.border='4px solid blue'; document.location='infongen:'+this.src;  return false;}",i]];
 						
 					}
 				}
@@ -268,41 +323,6 @@
 		}
 	}
 }
-
-
-
-/*- (void) touchesBegan:(NSSet*) touches withEvent:(UIEvent*)event
-{	
-	NSLog(@"touchesBegan");
-	_holdTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(doSomething:) userInfo:nil repeats:NO];
-	[_holdTimer retain];
-}
-
-- (void) touchesMoved:(NSSet*) touches withEvent:(UIEvent*)event
-{	
-	NSLog(@"touchesMoved");
-
-	if ([_holdTimer isValid]) {
-		[_holdTimer invalidate];
-	}
-}
-
-- (void) touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event
-{	
-	NSLog(@"touchesEnded");
-
-	if ([_holdTimer isValid]) {
-		[_holdTimer invalidate];
-	}
-}
-
-- (void)doSomething:(NSTimer *)theTimer
-{
-	NSLog(@"Timer Fired");
-	NSLog(@"Image=%@",_selectedImage);
-}*/
-
-
 
 - (void)viewDidLoad {
 	
@@ -319,12 +339,8 @@
 																	URLWithString:self.searchResult.url] 
 																	  cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:90.0];
 	
-			NSLog(@"loadRequest");
 			[self.webView loadRequest: theRequest];
-			NSLog(@"after loadRequest");
-			NSLog(@"setNeedsDisplay");
 			[self.webView setNeedsDisplay];
-			NSLog(@"after setNeedsDisplay");
 		}
 	}
 	
@@ -335,10 +351,11 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
 	NSLog(@"didFailLoadWithError");
+	NSLog([error description]);
 	//self.stopButton.enabled=NO;
 	//self.reloadButton.enabled=YES;
-	self.selectImageButton.enabled=NO;
-	self.readabilityButton.enabled=NO;
+	//self.selectImageButton.enabled=NO;
+	//self.readabilityButton.enabled=NO;
 	UINavigationController * navController=(UINavigationController*)[self parentViewController];
 	if(navController)
 	{
@@ -409,14 +426,14 @@
 	
 	if([url hasPrefix:@"infongen:"])
 	{
-		NSLog(url);
+		//NSLog(url);
 		
 		NSArray * parts=[[url substringFromIndex:9] componentsSeparatedByString:@"$$"];
 		
-		NSInteger touchX=[[parts objectAtIndex:0] intValue];
-		NSInteger touchY=[[parts objectAtIndex:1] intValue];
-		NSInteger width=[[parts objectAtIndex:2] intValue];
-		NSInteger height=[[parts objectAtIndex:3] intValue];
+		//NSInteger touchX=[[parts objectAtIndex:0] intValue];
+		//NSInteger touchY=[[parts objectAtIndex:1] intValue];
+		//NSInteger width=[[parts objectAtIndex:2] intValue];
+		//NSInteger height=[[parts objectAtIndex:3] intValue];
 		
 		self.selectedImageSource=[parts objectAtIndex:4];
 		
@@ -426,97 +443,17 @@
 		{
 			self.selectedImageLink=[parts objectAtIndex:5];
 		}
-		
-		//NSLog(@"x=%d",touchX);
-		//NSLog(@"y=%d",touchY);
-		//NSLog(@"width=%d",width);
-		//NSLog(@"height=%d",height);
-		////NSLog(@"url=%@",self.selectedImageSource);
-		//NSLog(@"href=%@",self.selectedImageLink);
-		
-		
-		//float zoomScale=[[[self.webView subviews] objectAtIndex:0] zoomScale];
-		
-		//NSLog(@"zoomScale=%f",zoomScale);
-		
-		NSString * actionSheetTitle=@"";
-		
-		/*if(self.selectedImageLink && [self.selectedImageLink length]>0 && (![self.selectedImageLink isEqualToString:@"null"]))
-		{
-			actionSheetTitle=self.selectedImageLink;
-		}
-		else 
-		{
-			actionSheetTitle=self.selectedImageSource;
-		}
-		
-		if([actionSheetTitle length]>150)
-		{
-			actionSheetTitle=[NSString stringWithFormat:@"%@...",[actionSheetTitle substringToIndex:147]];
-		}*/
-		
-		
+			
+		//NSString * actionSheetTitle=@"";
 		
 		UIActionSheet * actionSheet=[[UIActionSheet alloc] initWithTitle:@"Capture Image" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
-		
-		/*if(self.selectedImageLink && [self.selectedImageLink length]>0 &&(!([self.selectedImageLink isEqualToString:@"null"])))
-		{
-			actionSheet.tag=1;
-			[actionSheet addButtonWithTitle:@"Open"];
-		}*/
-									 
+				 
 		[actionSheet addButtonWithTitle:@"Set Headline Image"];
-		
-		//[actionSheet showFromRect:CGRectMake(touchX*zoomScale, touchY*zoomScale, width*zoomScale, height*zoomScale) inView:self.webView animated:YES];
 		
 		[actionSheet showInView:self.webView];
 		
 		[actionSheet release];
 		
-		//[actionSheet release];
-		
-		//AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
-		
-		//UIPopoverController * popover=delegate.newslettersPopoverController;
-		
-		//if(popover==nil)
-		//{
-		//	popover=[[UIPopoverController alloc] initWithContentViewController:delegate.newslettersViewController];
-		//}
-		//[popover presentPopoverFromRect:CGRectMake(touchX,touchY,10,10) inView:self.webView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-		
-		// do custom callback function...
-		//NSString * command=[url substringFromIndex:9];
-		
-		//_selectedImage=command;
-		 
-			// get image...
-			 
-		/*	NSURL *url = [NSURL URLWithString:command];
-			NSData *data = [NSData dataWithContentsOfURL:url];
-			UIImage *img = [[UIImage alloc] initWithData:data];
-			
-			if(img)
-			{
-				self.searchResult.image=img;
-				
-				UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Selected Image" message:@"Headline image has been changed." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-				
-				[alertView show];
-				
-				[alertView release];
-			}
-			else
-			{
-				UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Image Load Failed" message:@"Could not download selected image." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-				
-				[alertView show];
-				
-				[alertView release];
-			}
-			
-			[img release];
-		 		*/
 		return NO;
 	}
 	
@@ -531,7 +468,6 @@
 	
 	if(selectedText && [selectedText length]>0)
 	{
-		//NSLog(selectedText);
 		if(self.searchResult.synopsis && [self.searchResult.synopsis length]>0)
 		{
 			self.searchResult.synopsis=[NSString stringWithFormat:@"%@\n%@",self.searchResult.synopsis,selectedText];
@@ -597,10 +533,10 @@
 		navController.navigationBar.topItem.rightBarButtonItem=nil;
 	}
 	
-	NSLog([self showSubviews:self.webView tabs:@""]);
+	//NSLog([self showSubviews:self.webView tabs:@""]);
 	
 }
-
+/*
 - (NSString *)showSubviews:(UIView *)view tabs:(NSString *)tabs {
 	if (!tabs) tabs = @"";
 	NSString *currStr = tabs;
@@ -614,7 +550,7 @@
 	}
 	
 	return currStr;
-}
+}*/
 
 
 //Sent after a web view starts loading content.

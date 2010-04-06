@@ -1,0 +1,8 @@
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextMatch.m:13: error: no declaration of property 'text' found in the interface
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextMatch.m:13: error: no declaration of property 'position' found in the interface
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextMatch.m:13: error: no declaration of property 'length' found in the interface
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextMatch.m:13: error: no declaration of property 'weight' found in the interface
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextMatch.m: In function '-[TextMatch dealloc]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextMatch.m:16: error: 'text' undeclared (first use in this function)
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextMatch.m:16: error: (Each undeclared identifier is reported only once
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextMatch.m:16: error: for each function it appears in.)

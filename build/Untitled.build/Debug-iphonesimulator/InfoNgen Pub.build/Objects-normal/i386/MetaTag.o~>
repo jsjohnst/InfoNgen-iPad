@@ -1,0 +1,6 @@
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/MetaTag.m:13: error: no declaration of property 'matches' found in the interface
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/MetaTag.m:13: error: no declaration of property 'relevance' found in the interface
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/MetaTag.m: In function '-[MetaTag dealloc]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/MetaTag.m:21: error: 'matches' undeclared (first use in this function)
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/MetaTag.m:21: error: (Each undeclared identifier is reported only once
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/MetaTag.m:21: error: for each function it appears in.)

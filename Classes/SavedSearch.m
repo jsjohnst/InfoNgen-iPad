@@ -10,6 +10,7 @@
 #import "SearchResult.h"
 #import "Base64.h"
 #import "TouchXML.h"
+#import "MetaTag.h"
 
 @implementation SavedSearch
 @synthesize name,url,items,username,password,lastUpdated,ID;
@@ -147,6 +148,8 @@
 				}
 			}
 			
+			
+			
 			NSString * title=[[[itemNode elementsForName:@"title"] objectAtIndex:0] stringValue];
 			
 			if([dict objectForKey:title]==nil)
@@ -161,6 +164,56 @@
 				
 					SearchResult * result=[[SearchResult alloc] initWithHeadline:title withUrl:link withSynopsis:synopsis withDate:theDate];
 				
+					NSArray * issuerNodes=[itemNode nodesForXPath:@".//rixml:Issuer" namespaceMappings:nsdict error:nil];
+					
+					
+					if(issuerNodes)
+					{
+						for(CXMLElement * issuerNode in issuerNodes)
+						{
+							MetaTag * tag=[[MetaTag alloc] init];
+							
+							NSString * primaryIndicator=[[issuerNode attributeForName:@"primaryIndicator"] stringValue];
+							
+							if([primaryIndicator isEqualToString:@"Yes"])
+							{
+								tag.fieldName=@"primarycompany";
+							}
+							else {
+								tag.fieldName=@"company";
+							}
+							
+							NSArray * nameNodes=[issuerNode nodesForXPath:@"rixml:IssuerName/rixml:NameValue" namespaceMappings:nsdict error:nil];
+							if(nameNodes)
+							{
+								//tag.fieldName=@"company";
+								
+								tag.name=[[nameNodes objectAtIndex:0] stringValue];
+								
+								nameNodes=[issuerNode nodesForXPath:@"rixml:IssuerID[@idType='PublisherDefined']" namespaceMappings:nsdict error:nil];
+								
+								if (nameNodes) 
+								{
+									for(CXMLElement * nameNode in nameNodes)
+									{
+										NSString * nameType=[[nameNode attributeForName:@"publisherDefinedValue"] stringValue];
+										if([nameType isEqualToString:@"IssuerId"])
+										{
+											tag.fieldValue=[[nameNode attributeForName:@"idValue"] stringValue];
+										}
+										else
+										{
+											if ([nameType isEqualToString:@"ExchangeTicker"]) {
+												tag.ticker=[[nameNode attributeForName:@"idValue"] stringValue];
+											}
+										}
+									}
+								}
+								[result.metadata addObject:tag];
+							}
+						}
+					}
+					
 					[array addObject:result];
 				
 					[dict setObject:result forKey:result.headline];

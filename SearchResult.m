@@ -7,10 +7,10 @@
 //
 
 #import "SearchResult.h"
-
+#import "MetaTag.h"
 
 @implementation SearchResult
-@synthesize headline,url,synopsis,date,notes,image;
+@synthesize headline,url,synopsis,date,notes,image,metadata;
 
 - (id) init
 {
@@ -28,6 +28,8 @@
 	self.synopsis=theSynopsis;
 	self.url=theUrl;
 	self.date=theDate;
+	
+	self.metadata=[[NSMutableArray alloc] init];
 	
 	
 	return self;
@@ -64,6 +66,7 @@
 	[encoder encodeObject:date forKey:@"date"];	
 	[encoder encodeObject:image forKey:@"image"];
 	[encoder encodeObject:notes	forKey:@"notes"];
+	[encoder encodeObject:metadata forKey:@"metadata"];
 }
 
 - (id)initWithCoder:(NSCoder*)decoder
@@ -76,6 +79,7 @@
 		self.date=[decoder decodeObjectForKey:@"date"];
 		self.image=[decoder decodeObjectForKey:@"image"];
 		self.notes=[decoder decodeObjectForKey:@"notes"];
+		self.metadata=[decoder decodeObjectForKey:@"metadata"];
 	}
 	return self;
 }
@@ -89,6 +93,7 @@
 	copy.date=[self.date copy];
 	copy.notes=[self.notes copy];
 	copy.image=[self.image copy];
+	copy.metadata=[self.metadata copy];
 	
 	return copy;
 }
@@ -96,6 +101,18 @@
 - (NSString*) description
 {
 	return [NSString stringWithFormat:@"%@",headline];
+}
+
+- (BOOL) hasMetaTag:(NSString*)fieldName withValue:(NSString*)fieldValue
+{
+	for(MetaTag * tag in metadata)
+	{
+		if([tag.fieldName isEqualToString:fieldName] && [tag.fieldValue isEqualToString:fieldValue])
+		{
+			return YES;
+		}
+	}
+	return NO;
 }
 
 
@@ -106,6 +123,7 @@
 	[date release];
 	[notes release];
 	[image release];
+	[metadata release];
 	
 	[super dealloc];
 }

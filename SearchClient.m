@@ -15,6 +15,8 @@
 #import "Base64.h"
 #import "LoginTicket.h"
 #import "SavedSearch.h"
+#import "MetaTag.h"
+#import "TextMatch.h"
 
 @implementation SearchClient
 @synthesize serverUrl,username,password;
@@ -165,6 +167,112 @@
  */
 
 
+- (NSMutableArray*) getTags:(NSString*)text
+{
+	NSMutableArray * tags=[[NSMutableArray alloc] init];
+	
+	NSString * license=@"LIC/1.0/D79488B7-A51F-4e65-86A6-5908F0A852F2";
+	
+	NSURL * url=[NSURL URLWithString:@"https://opentagging.infongen.com/InfoNgen.OpenTagging.Service/RevealSemantics2"];
+	
+	NSMutableURLRequest * request=[NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
+	
+	[request setHTTPMethod:@"POST"];
+	
+	[request addValue:license forHTTPHeaderField:@"InfoNgen-LicenseId"];
+	[request addValue:@"XML/InfoNgen/Semantics/2.0" forHTTPHeaderField:@"InfoNgen-OutputFormat"];
+	[request addValue:@"text/plain; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+	[request addValue:@"ReportCompanySymbols" forHTTPHeaderField:@"InfoNgen-Options"];
+	[request addValue:@"Company;Topic;Industry;Region;Country" forHTTPHeaderField:@"InfoNgen-EntityTypes"];
+	[request addValue:@"Sample Program" forHTTPHeaderField:@"InfoNgen-ClientApplication"];
+	[request addValue:@"1.0.0.0" forHTTPHeaderField:@"InfoNgen-ClientApplicationVersion"];
+	
+	NSString *post = text;
+	
+	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+	
+	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+	
+	[request addValue:postLength forHTTPHeaderField:@"Content-Length"];
+	
+	[request setHTTPBody:postData];
+	
+	NSURLResponse * response=NULL;
+	
+	NSData * data=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];	
+	
+	if(data)
+	{
+		NSDictionary *nsdict = [NSDictionary dictionaryWithObjectsAndKeys:
+								@"http://schemas.infongen.com/Service/OpenTagging/RevealSemanticsResult/2.0",
+								@"ii", 
+								nil];
+		
+		CXMLDocument *xmlParser = [[[CXMLDocument alloc] initWithData:data options:0 error:nil] autorelease];
+		
+		NSLog([xmlParser description]);
+		
+		NSArray * entities=[xmlParser nodesForXPath:@"ii:RevealSemanticsResult/ii:Metadata/ii:Entities/ii:Entity" namespaceMappings:nsdict error:nil];
+		
+		if(entities)
+		{
+			for(CXMLElement * entity in entities)
+			{
+				NSString * category=[[entity attributeForName:@"Category"] stringValue];
+				NSString * value=[[entity attributeForName:@"Id"] stringValue];
+				NSString * name=[[entity attributeForName:@"Name"] stringValue];
+				NSString * rel=[[entity attributeForName:@"Relevance"] stringValue];
+				
+				MetaTag * tag=[[MetaTag alloc] init];
+				
+				tag.fieldName=category;
+				tag.fieldValue=value;
+				tag.value=name;
+				tag.name=category;
+				
+				if(rel)
+				{
+					tag.relevance=[rel intValue];
+				}
+				
+				NSArray * symbolNodes=[entity nodesForXPath:@"ii:Symbol" namespaceMappings:nsdict error:nil];
+				
+				if(symbolNodes && [symbolNodes count]>0)
+				{
+					CXMLElement * symbolNode=[symbolNodes objectAtIndex:0];
+					
+					tag.ticker=[[symbolNode attributeForName:@"Value"] stringValue];
+				}
+				
+				NSArray * textMatches=[entity nodesForXPath:@"ii:TextMatches/ii:TextMatch" namespaceMappings:nsdict error:nil];
+				
+				if(textMatches && [textMatches count]>0)
+				{
+					NSMutableArray * tmp=[[NSMutableArray alloc] init];
+					for(CXMLElement * match in textMatches)
+					{
+						TextMatch * textMatch=[[TextMatch alloc] init];
+						
+						textMatch.text=[[match attributeForName:@"Text"] stringValue];
+						textMatch.position=[[[match attributeForName:@"Position"] stringValue] intValue];
+						textMatch.length=[[[match attributeForName:@"Length"] stringValue] intValue];
+						textMatch.weight=[[[match attributeForName:@"Weight"] stringValue] intValue];
+						
+						[tmp addObject:textMatch];
+					}
+					tag.matches=tmp;
+				}
+				
+				[tags addObject:tag];
+				
+			}
+		}
+	}
+	
+	return tags;
+}
+
+
 
 - (NSMutableArray*) getSavedSearchesForUser
 {
@@ -208,17 +316,18 @@
 	
 	if(data)
 	{
+		//NSLog(data);
+		
 		CXMLDocument *xmlParser = [[[CXMLDocument alloc] initWithData:data options:0 error:nil] autorelease];
 		
 		NSArray * searchItems = [xmlParser nodesForXPath:@"//SearchItem" error:nil];
 		
 		// Loop through the resultNodes to access each items actual data
 		for (CXMLElement *searchItem in searchItems) {
-			
+		
 			// <SearchItem index="4"><PageId>Feeds</PageId><ID>241052525</ID><Title>Microsoft</Title><AlrId>0</AlrId></SearchItem>
 			NSString * ID=[[[searchItem elementsForName:@"ID"] objectAtIndex:0] stringValue];
 			NSString * Title=[self urlEncodeValue:[[[searchItem elementsForName:@"Title"] objectAtIndex:0] stringValue]];
-			
 			
 			NSString* escapedTitle = [Title   
 									stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]; 

@@ -40,49 +40,106 @@ var readability = {
 
 	bodyElement:null,
 
+	extractArticleText:function() {
+	
+		if(!readability.bodyElement)
+		{
+			readability.bodyElement=document.createElement('body');
+			readability.bodyElement.innerHTML=document.body.innerHTML;
+		}
+		
+		if(!readability.bodyCache)
+		{
+			readability.bodyCache=readability.bodyElement.innerHTML;
+		}
+		
+		readability.prepDocument();
+		
+		var articleTitle   = readability.getArticleTitle();
+		var articleContent = readability.grabArticle();
+		
+		/**
+		 * If we attempted to strip unlikely candidates on the first run through, and we ended up with no content,
+		 * that may mean we stripped out the actual content so we couldn't parse it. So re-run init while preserving
+		 * unlikely candidates to have a better shot at getting our content out properly.
+		 **/
+		if(readability.getInnerText(articleContent, false).length < 250)
+		{
+			if (readability.flagIsActive(readability.FLAG_STRIP_UNLIKELYS)) {
+				readability.removeFlag(readability.FLAG_STRIP_UNLIKELYS);
+				readability.bodyElement.innerHTML=readability.bodyCache;
+				return readability.extractArticleText();
+			}
+			else if (readability.flagIsActive(readability.FLAG_WEIGHT_CLASSES)) {
+				readability.removeFlag(readability.FLAG_WEIGHT_CLASSES);
+				readability.bodyElement.innerHTML = readability.bodyCache;
+				return readability.extractArticleText();
+			}
+			else {
+				articleContent.innerHTML = "Sorry, we were unable to parse this page for content."; 
+			}
+		}
+		
+		/*var text='';
+		
+		for(var i=0;i<articleContent.childNodes.length;i++)
+		{
+			var node=articleContent.childNodes[i];
+			
+			if(i>0)
+			{
+				text+='\n';
+			}
+			text+=node.textContent;
+		}*/
+		
+		
+		return articleTitle.textContent + '\n\n'+ articleContent.textContent;
+	},
+	
 	/*
 	 Just return extracted text...
 	 */
-	extractArticleText: function() {
+	extractArticleHtml: function() {
 	
-	if(!readability.bodyElement)
-	{
-		readability.bodyElement=document.createElement('body');
-		readability.bodyElement.innerHTML=document.body.innerHTML;
-	}
-	
-	if(!readability.bodyCache)
-	{
-		readability.bodyCache=readability.bodyElement.innerHTML;
-	}
-	
-	readability.prepDocument();
-	
-	var articleTitle   = readability.getArticleTitle();
-	var articleContent = readability.grabArticle();
-	
-	/**
-	 * If we attempted to strip unlikely candidates on the first run through, and we ended up with no content,
-	 * that may mean we stripped out the actual content so we couldn't parse it. So re-run init while preserving
-	 * unlikely candidates to have a better shot at getting our content out properly.
-	 **/
-	if(readability.getInnerText(articleContent, false).length < 250)
-	{
-		if (readability.flagIsActive(readability.FLAG_STRIP_UNLIKELYS)) {
-			readability.removeFlag(readability.FLAG_STRIP_UNLIKELYS);
-			readability.bodyElement.innerHTML=readability.bodyCache;
-			return readability.extractArticleText();
+		if(!readability.bodyElement)
+		{
+			readability.bodyElement=document.createElement('body');
+			readability.bodyElement.innerHTML=document.body.innerHTML;
 		}
-		else if (readability.flagIsActive(readability.FLAG_WEIGHT_CLASSES)) {
-			readability.removeFlag(readability.FLAG_WEIGHT_CLASSES);
-			readability.bodyElement.innerHTML = readability.bodyCache;
-			return readability.extractArticleText();
+		
+		if(!readability.bodyCache)
+		{
+			readability.bodyCache=readability.bodyElement.innerHTML;
 		}
-		else {
-			articleContent.innerHTML = "Sorry, we were unable to parse this page for content."; 
+		
+		readability.prepDocument();
+		
+		var articleTitle   = readability.getArticleTitle();
+		var articleContent = readability.grabArticle();
+		
+		/**
+		 * If we attempted to strip unlikely candidates on the first run through, and we ended up with no content,
+		 * that may mean we stripped out the actual content so we couldn't parse it. So re-run init while preserving
+		 * unlikely candidates to have a better shot at getting our content out properly.
+		 **/
+		if(readability.getInnerText(articleContent, false).length < 250)
+		{
+			if (readability.flagIsActive(readability.FLAG_STRIP_UNLIKELYS)) {
+				readability.removeFlag(readability.FLAG_STRIP_UNLIKELYS);
+				readability.bodyElement.innerHTML=readability.bodyCache;
+				return readability.extractArticleHtml();
+			}
+			else if (readability.flagIsActive(readability.FLAG_WEIGHT_CLASSES)) {
+				readability.removeFlag(readability.FLAG_WEIGHT_CLASSES);
+				readability.bodyElement.innerHTML = readability.bodyCache;
+				return readability.extractArticleHtml();
+			}
+			else {
+				articleContent.innerHTML = "Sorry, we were unable to parse this page for content."; 
+			}
 		}
-	}
-	return articleTitle.textContent + '\n\n'+ articleContent.textContent;
+		return articleTitle.textContent + '<BR><BR>'+ articleContent.outerHTML;
 	},
 	
 

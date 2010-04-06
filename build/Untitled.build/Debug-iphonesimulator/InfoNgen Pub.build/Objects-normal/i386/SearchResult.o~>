@@ -1,0 +1,20 @@
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:10:20: error: MetaTag.h: No such file or directory
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:13: error: no declaration of property 'metadata' found in the interface
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m: In function '-[SearchResult initWithHeadline:withUrl:withSynopsis:withDate:]':
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:32: error: request for member 'metadata' in something not a structure or union
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m: In function '-[SearchResult encodeWithCoder:]':
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:69: error: 'metadata' undeclared (first use in this function)
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:69: error: (Each undeclared identifier is reported only once
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:69: error: for each function it appears in.)
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m: In function '-[SearchResult initWithCoder:]':
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:82: error: request for member 'metadata' in something not a structure or union
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m: In function '-[SearchResult copyWithZone:]':
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:96: error: request for member 'metadata' in something not a structure or union
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:96: error: request for member 'metadata' in something not a structure or union
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m: In function '-[SearchResult hasMetaTag:withValue:]':
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:108: error: 'MetaTag' undeclared (first use in this function)
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:108: error: 'tag' undeclared (first use in this function)
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:108: error: 'metadata' undeclared (first use in this function)
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:114: error: selector element does not have a valid object type
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m: In function '-[SearchResult dealloc]':
+/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m:126: error: 'metadata' undeclared (first use in this function)
