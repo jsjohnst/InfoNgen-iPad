@@ -120,10 +120,16 @@
 	{
 		html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.name}}" withString:newsletter.name];
 	}
+	
 	if(newsletter.summary!=nil)
 	{
-		html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.summary}}" withString:newsletter.summary];
+		html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.summary}}" withString:[newsletter.summary stringByReplacingOccurrencesOfString:@"\n" withString:@"<BR />"]];
 	}
+	else 
+	{
+		html=[html stringByReplacingOccurrencesOfString:@"{{newsletter.summary}}" withString:@""];
+	}
+
 	if (newsletter.logoImage) 
 	{
 		NSData *imageData = UIImagePNGRepresentation(newsletter.logoImage);

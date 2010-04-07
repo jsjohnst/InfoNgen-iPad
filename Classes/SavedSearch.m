@@ -134,7 +134,6 @@
 		// Loop through the resultNodes to access each items actual data
 		for (CXMLElement *itemNode in itemNodes) 
 		{
-		
 			NSArray * contentNodes=[itemNode nodesForXPath:@".//rixml:Synopsis" namespaceMappings:nsdict error:nil];
 			
 			NSString * synopsis=nil;
@@ -147,8 +146,6 @@
 					
 				}
 			}
-			
-			
 			
 			NSString * title=[[[itemNode elementsForName:@"title"] objectAtIndex:0] stringValue];
 			
@@ -166,7 +163,6 @@
 				
 					NSArray * issuerNodes=[itemNode nodesForXPath:@".//rixml:Issuer" namespaceMappings:nsdict error:nil];
 					
-					
 					if(issuerNodes)
 					{
 						for(CXMLElement * issuerNode in issuerNodes)
@@ -179,15 +175,14 @@
 							{
 								tag.fieldName=@"primarycompany";
 							}
-							else {
+							else 
+							{
 								tag.fieldName=@"company";
 							}
 							
 							NSArray * nameNodes=[issuerNode nodesForXPath:@"rixml:IssuerName/rixml:NameValue" namespaceMappings:nsdict error:nil];
 							if(nameNodes)
 							{
-								//tag.fieldName=@"company";
-								
 								tag.name=[[nameNodes objectAtIndex:0] stringValue];
 								
 								nameNodes=[issuerNode nodesForXPath:@"rixml:IssuerID[@idType='PublisherDefined']" namespaceMappings:nsdict error:nil];
@@ -203,7 +198,8 @@
 										}
 										else
 										{
-											if ([nameType isEqualToString:@"ExchangeTicker"]) {
+											if ([nameType isEqualToString:@"ExchangeTicker"]) 
+											{
 												tag.ticker=[[nameNode attributeForName:@"idValue"] stringValue];
 											}
 										}

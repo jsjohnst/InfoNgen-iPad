@@ -24,6 +24,7 @@
 @class SearchResult;
 @class SavedSearch;
 @class NewsletterHTMLPreviewViewController;
+@class NewsletterUpdateFormViewController;
 
 @interface NewsletterViewController : NewsletterBaseViewController< UITextFieldDelegate,UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate> {
 	IBOutlet UITableView * newsletterTableView;
@@ -38,6 +39,7 @@
 	//BOOL viewModeExpanded;
 	UIPopoverController * addSectionPopover;
 	UIPopoverController * imagePickerPopover;
+	NewsletterUpdateFormViewController * updateFormViewController;
 }
 
 @property(nonatomic,retain) IBOutlet UITableView * newsletterTableView;
@@ -49,6 +51,7 @@
 @property (nonatomic,retain) UIPopoverController * addSectionPopover;
 @property(nonatomic,retain) IBOutlet UILabel * dateLabel;
 @property(nonatomic,retain) UIPopoverController * imagePickerPopover;
+@property(nonatomic,retain) NewsletterUpdateFormViewController * updateFormViewController;
 
 - (void) addImageTouch:(id)sender;
 

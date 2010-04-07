@@ -13,6 +13,9 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+		B02F24B4116CF705008A0200 /* NewsletterUpdateFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B02F24B3116CF705008A0200 /* NewsletterUpdateFormViewController.m */; };
+		B02F24C3116CF8AB008A0200 /* NewsletterUpdateFormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02F24C2116CF8AB008A0200 /* NewsletterUpdateFormView.xib */; };
+		B02F25F5116D152B008A0200 /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = B02F25F4116D152B008A0200 /* blank.png */; };
 		B0338D5E11356A8B00764C4A /* icon_post.png in Resources */ = {isa = PBXBuildFile; fileRef = B0338D5D11356A8B00764C4A /* icon_post.png */; };
 		B0338D8911356EF200764C4A /* comment_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = B0338D8811356EF200764C4A /* comment_edit.png */; };
 		B0338F131135A98B00764C4A /* TextViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0338F121135A98B00764C4A /* TextViewTableCell.m */; };
@@ -138,6 +141,10 @@
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Untitled-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Untitled-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		B02F24B2116CF705008A0200 /* NewsletterUpdateFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsletterUpdateFormViewController.h; sourceTree = "<group>"; };
+		B02F24B3116CF705008A0200 /* NewsletterUpdateFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsletterUpdateFormViewController.m; sourceTree = "<group>"; };
+		B02F24C2116CF8AB008A0200 /* NewsletterUpdateFormView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsletterUpdateFormView.xib; sourceTree = "<group>"; };
+		B02F25F4116D152B008A0200 /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
 		B0338D5D11356A8B00764C4A /* icon_post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_post.png; sourceTree = "<group>"; };
 		B0338D8811356EF200764C4A /* comment_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment_edit.png; sourceTree = "<group>"; };
 		B0338F111135A98B00764C4A /* TextViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTableCell.h; sourceTree = "<group>"; };
@@ -367,6 +374,8 @@
 				C47E3B11116248A800BDB577 /* NewsletterScrollItemController.m */,
 				B0C078121163F0F7003F0C22 /* BlankToolbar.h */,
 				B0C078131163F0F7003F0C22 /* BlankToolbar.m */,
+				B02F24B2116CF705008A0200 /* NewsletterUpdateFormViewController.h */,
+				B02F24B3116CF705008A0200 /* NewsletterUpdateFormViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -407,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				C4EBFF97115001BF00CD6FC9 /* balloon_left.png */,
+				B02F25F4116D152B008A0200 /* blank.png */,
 				C4EBFF90114FFF7200CD6FC9 /* Balloon_2.png */,
 				C4EBFF6D114FFAF700CD6FC9 /* balloon.png */,
 				C48370481140480E005633B3 /* icon_measures.png */,
@@ -465,6 +475,7 @@
 				C47E6923116B9AEC008C8AB2 /* highlightText.js */,
 				C47E693D116BACD5008C8AB2 /* readability2.js */,
 				C47E69CC116BC057008C8AB2 /* readability.css */,
+				B02F24C2116CF8AB008A0200 /* NewsletterUpdateFormView.xib */,
 			);
 			name = "Resources-iPad";
 			sourceTree = "<group>";
@@ -685,6 +696,8 @@
 				C485C93A11613FF4005CFD2E /* NewslettersScrollView.xib in Resources */,
 				C47E3B1411624B1500BDB577 /* NewsletterScrollItemView.xib in Resources */,
 				C47E3BBE1162901900BDB577 /* RootView.xib in Resources */,
+				B02F24C3116CF8AB008A0200 /* NewsletterUpdateFormView.xib in Resources */,
+				B02F25F5116D152B008A0200 /* blank.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,6 +761,7 @@
 				C47E68F8116B9497008C8AB2 /* TextMatch.m in Sources */,
 				C47E6924116B9AEC008C8AB2 /* highlightText.js in Sources */,
 				C47E693E116BACD5008C8AB2 /* readability2.js in Sources */,
+				B02F24B4116CF705008A0200 /* NewsletterUpdateFormViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

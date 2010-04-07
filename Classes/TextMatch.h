@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface TextMatch : NSObject {
+@interface TextMatch : NSObject<NSCoding, NSCopying> {
 	NSString * text;
 	NSInteger position;
 	NSInteger length;

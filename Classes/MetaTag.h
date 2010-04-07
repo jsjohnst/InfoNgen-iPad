@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface MetaTag : NSObject {
+@interface MetaTag : NSObject <NSCoding, NSCopying>{
 	NSString * value;
 	NSString * name;
 	NSString * ticker;

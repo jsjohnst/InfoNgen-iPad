@@ -21,9 +21,11 @@
 #import "NewsletterItemContentView.h"
 #import "NewsletterAddSectionViewController.h"
 #import "BlankToolbar.h"
+#import "NewsletterUpdateFormViewController.h"
+
 
 @implementation NewsletterViewController
-@synthesize newsletterTableView,editMoveButton,dateLabel,addImageButton,titleTextField,descriptionTextField,addSectionPopover,imagePickerPopover;
+@synthesize newsletterTableView,editMoveButton,dateLabel,addImageButton,titleTextField,descriptionTextField,addSectionPopover,imagePickerPopover,updateFormViewController;
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -476,6 +478,20 @@
 	
 		[newsletterTableView reloadData];
 	
+		
+		updateFormViewController = [[NewsletterUpdateFormViewController alloc] initWithNibName:@"NewsletterUpdateFormView" bundle:nil];
+		
+		updateFormViewController.sections=self.newsletter.sections;
+		
+		//controller.delegate=self;
+		
+		[updateFormViewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+		[updateFormViewController setModalPresentationStyle:UIModalPresentationFormSheet];
+		
+		[self.parentViewController presentModalViewController:updateFormViewController animated:YES];
+	
+		//[updateFormViewController release];
+		
 		// update all the saved searches associated with this page...
 		[self performSelectorInBackground:@selector(updateStart) withObject:nil];
 	}
@@ -498,8 +514,17 @@
 			
 			if([section.savedSearchName isEqualToString:savedSearch.name])
 			{
+				NSLog(@"Updating saved search: %@",savedSearch.name);
+				
+				[updateFormViewController startProgressForSection:section];
+				//[updateFormViewController setProgress:0.25 forSection:section];
+				[updateFormViewController setStatusText:@"Updating..." forSection:section];
+				
 				[savedSearch update];
 				
+				//[updateFormViewController setProgress:0.75 forSection:section];
+				
+				int new_added_count=0;
 				if (savedSearch.items && [savedSearch.items count]>0) 
 				{
 					NSLog(@"Got %d items from saved search %@",[savedSearch.items count],savedSearch.name);
@@ -511,6 +536,8 @@
 						section.items=tmp;
 						
 						[tmp release];
+						
+						new_added_count=[savedSearch.items count];
 					}
 					else
 					{
@@ -549,6 +576,7 @@
 										// insert at front in sorted order (newest first)
 										[section.items insertObject:result atIndex:index];
 										index++;
+										new_added_count++;
 									}
 								}
 							}
@@ -557,6 +585,9 @@
 						[dict release];
 					}
 				}
+				//[updateFormViewController setProgress:1.0 forSection:section];
+				[updateFormViewController endProgressForSection:section];
+				[updateFormViewController setStatusText:[NSString stringWithFormat:@"%d new items",new_added_count]  forSection:section];
 				break;
 			}
 		}
@@ -1131,6 +1162,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	[descriptionTextField release];
 	[addSectionPopover release];
 	[imagePickerPopover release];
+	[updateFormViewController release];
 	[dateLabel release];
 	[super dealloc];
 }

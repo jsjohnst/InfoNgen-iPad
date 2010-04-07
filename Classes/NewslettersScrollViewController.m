@@ -142,6 +142,8 @@
 	
 	self.scrollItems=[[NSMutableArray alloc] init];
 	
+	self.pageControl.numberOfPages=0;
+	
 	for(Newsletter * n in newsletters)
 	{
 		[self addNewsletterPage:n];
