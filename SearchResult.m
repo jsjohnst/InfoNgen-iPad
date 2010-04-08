@@ -28,6 +28,7 @@
 	self.synopsis=theSynopsis;
 	self.url=theUrl;
 	self.date=theDate;
+	//self.itemSize=nil;
 	
 	self.metadata=[[NSMutableArray alloc] init];
 	

@@ -1,0 +1,18 @@
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m: In function '-[NewsletterViewController addTouch:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:64: warning: '-savedSearches' not found in protocol(s)
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m: In function '-[NewsletterViewController deleteSelectedRows]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:292: warning: 'UITableView' may not respond to '-indexPathsForSelectedRows'
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:292: warning: (Messages without a matching method signature
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:292: warning: will be assumed to return 'id' and accept
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:292: warning: '...' as arguments.)
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m: In function '-[NewsletterViewController addImageTouch:]':
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:918: warning: class 'NewsletterViewController' does not implement the 'UINavigationControllerDelegate' protocol
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m: At top level:
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:1032: warning: incomplete implementation of class 'NewsletterViewController'
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:1032: warning: method definition for '-setButtonsEnabled:' not found
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:1032: warning: method definition for '-preview' not found
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:1032: warning: method definition for '-settings' not found
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:1032: warning: method definition for '-deleteNewsletter' not found
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:1032: warning: method definition for '-clearNewsletterItems' not found
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:1032: warning: method definition for '-setCurrentNewsletter:' not found
+/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m:1032: warning: method definition for '-closePreview' not found

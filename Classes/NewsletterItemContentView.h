@@ -25,6 +25,7 @@ struct ItemSize {
 	CGRect synopsis_rect1;
 	CGRect synopsis_rect2;
 	CGRect comments_rect;
+	CGRect rect; // the rect this size was generated for...
 };
 typedef struct ItemSize ItemSize;
 

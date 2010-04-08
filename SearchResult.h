@@ -17,6 +17,7 @@
 	NSString * notes;
 	UIImage * image;
 	NSMutableArray * metadata;
+	NSObject * itemSize; // cache previous generated size for display - yes this is a HACK sir.
 }
 
 @property(nonatomic,retain) NSString * headline;

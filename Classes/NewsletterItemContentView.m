@@ -11,6 +11,7 @@
 #import "DocumentEditFormViewController.h"
 #import "AppDelegate.h"
 #import "DocumentWebViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation NewsletterItemContentView
 @synthesize searchResult,parentController,parentTableView,imagePickerPopover;//,holdTimer;
@@ -52,8 +53,6 @@
 		synopsisButton2.frame=CGRectZero;
 		commentsButton.frame=CGRectZero;
 		
-		
-		
 		[self addSubview:imageButton];
 		[self addSubview:addImageButton];
 		[self addSubview:headlineButton];
@@ -63,20 +62,6 @@
 	}
 	return self;
 }
-
-/*- (BOOL) didTouchRect:(UITouch*)touch rect:(CGRect)rect
-{
-	CGPoint loc=[touch locationInView:self];
-	
-	if(loc.y>=rect.origin.y && loc.y<=rect.origin.y+rect.size.height)
-	{
-		if(loc.x>=rect.origin.x && loc.x<=rect.origin.x+rect.size.width)
-		{
-			return YES;
-		}
-	}
-	return NO;
-}*/
 
 - (void) touchImage
 {
@@ -89,153 +74,14 @@
 	
 	[actionSheet release];
 }
-/*
-- (BOOL) didTouchImage:(UITouch*)touch
-{
-	//if(searchResult.image)
-	//{
-		return [self didTouchRect:touch rect:_itemSize.image_rect];
-	//}
-	//return NO;
-}
-
-- (BOOL) didTouchSynopsis:(UITouch*)touch
-{
-	if ([self didTouchImage:touch]) 
-	{
-		return NO;
-	}
-	else 
-	{
-		return ([self didTouchRect:touch rect:_itemSize.synopsis_rect1] || [self didTouchRect:touch rect:_itemSize.synopsis_rect2] );
-	}
-}
-
-- (BOOL) didTouchComments:(UITouch*)touch
-{
-	if ([self didTouchImage:touch]) 
-	{
-		return NO;
-	}
-	else 
-	{
-		return ([self didTouchRect:touch rect:_itemSize.comments_rect]);
-	}
-}
-
-- (BOOL) didTouchHeadline:(UITouch*)touch
-{
-	return [self didTouchRect:touch rect:_itemSize.headline_rect];
-}
-
-- (void) touchesBegan:(NSSet*) touches withEvent:(UIEvent*)event
-{	
-	// where did user select? 
-	// if on headline, open the target...
-	
-	if([event.allTouches count]==1)
-	{
-		if([self didTouchHeadline:[event.allTouches anyObject]])
-		{
-			NSLog(@"touchesBegan touched headline");
-			[self doHeadlineTouch];
-			return;
-		}
-	}
-	
-	if(viewModeExpanded)
-	{
-		holdTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(doSomething:) userInfo:event repeats:NO];
-		[holdTimer retain];
-	}
-}
-
-- (void) touchesMoved:(NSSet*) touches withEvent:(UIEvent*)event
-{	
-	if ([holdTimer isValid]) 
-	{
-		[holdTimer invalidate];
-	}
-}
-
-- (void) touchesEnded:(NSSet*)touches withEvent:(UIEvent*)event
-{	
-	if ([holdTimer isValid]) 
-	{
-		[holdTimer invalidate];
-	}
-}
-*/
-/*
-- (void) doHeadlineTouch
-{
-	if(self.searchResult.url && [self.searchResult.url length]>0)
-	{
-		DocumentWebViewController * docViewController=[[DocumentWebViewController alloc] initWithNibName:@"DocumentWebView" bundle:nil];
-		
-		docViewController.searchResult=self.searchResult;
-		
-		//[self.navigationController pushNavigationItem:docViewController animated:YES];
-		
-		UINavigationController * navController=[(AppDelegate*)[[UIApplication sharedApplication] delegate] navigationController];
-	
-		[navController pushViewController:docViewController animated:YES];
-		
-		[docViewController release];
-	}
-}*/
 
 - (void) redraw
 {
+	NSLog(@"redraw");
 	[self setNeedsDisplay];
+	[self setNeedsLayout];
 	[parentTableView reloadData];
 }
-/*
-- (void)doSomething:(NSTimer *)theTimer
-{
-	NSLog(@"Timer Fired");
-	
-	if([theTimer isValid])
-	{
-		UIEvent * event=(UIEvent*)theTimer.userInfo;
-	
-		NSSet * touches=[event allTouches];
-		
-		for(UITouch * touch in touches)
-		{
-			// what did user touch on hold on?
-			
-			if ([self didTouchHeadline:touch]) 
-			{
-				[self doHeadlineTouch];
-				return;
-				// go to target
-			}
-			 			 
-			if ([self didTouchSynopsis:touch] || [self didTouchComments:touch]) 
-			{
-				// popup edit dialod
-				DocumentEditFormViewController *controller = [[DocumentEditFormViewController alloc] initWithNibName:@"DocumentEditFormView" bundle:nil];
-				
-				controller.searchResult=searchResult;
-				
-				controller.delegate=self;
-				
-				[controller setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-				[controller setModalPresentationStyle:UIModalPresentationFormSheet];
-				
-				[self.parentController presentModalViewController:controller animated:YES];
-				
-				[controller release];
-				
-				return;
-				
-			}
-			 
-		}
-	}
-}
-*/
 
 - (void) touchSynopsis
 {
@@ -289,7 +135,6 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
 	NSLog(@"actionSheet:willDismissWithButtonIndex %d",buttonIndex);
-	
 }
 
 - (void) addImage
@@ -353,7 +198,6 @@
 
 + (int) findBestFit:(NSString*)text constraint:(CGSize)constraint
 {
-	// replace & chars since their appears to be a BUG in sizeWithFont where it returns WRONG value if string has & in it...
 	int i=[text length] -1;
 	
 	UIFont * font=[UIFont systemFontOfSize:kFontSize];
@@ -382,6 +226,8 @@
 
 +(ItemSize) sizeForCell:(SearchResult *)searchResult viewMode:(BOOL)expanded rect:(CGRect)rect
 {
+	NSLog(@"NewsletterItemContentView:sizeForCell: %@",searchResult.headline);
+	
 	ItemSize itemSize;
 	
 	itemSize.size=CGSizeZero;
@@ -391,6 +237,7 @@
 	itemSize.synopsis_rect1=CGRectZero;
 	itemSize.synopsis_rect2=CGRectZero;
 	itemSize.comments_rect=CGRectZero;
+	itemSize.rect=rect;
 	
 	int cellWidth;
 	
@@ -404,6 +251,12 @@
 	}
 
 	UIFont * font=[UIFont systemFontOfSize:kFontSize];
+	
+	NSString * fonttmp=@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	
+	CGSize fontsize=[fonttmp sizeWithFont:font constrainedToSize:CGSizeMake(20000.0, 20000.0) lineBreakMode:UILineBreakModeWordWrap];
+	
+	CGFloat fontHeight=fontsize.height;
 	
 	UIImage * image=searchResult.image;
 	NSString * synopsis=searchResult.synopsis;
@@ -435,25 +288,37 @@
 		
 		if(synopsis && [synopsis length]>0)
 		{
-			if(image.size.width < cellWidth * .67)
+			if(itemSize.image_rect.size.width < cellWidth * .67)
 			{
 				CGSize constraint = CGSizeMake(cellWidth - itemSize.image_rect.size.width  -  (kCellPadding * 3), 20000.0f);
 				
-				itemSize.synopsis_rect1=CGRectMake(itemSize.image_rect.origin.x+itemSize.image_rect.size.width+kCellPadding, itemSize.image_rect.origin.y, constraint.width, itemSize.image_rect.size.height+kFontSize);
+				itemSize.synopsis_rect1=CGRectMake(itemSize.image_rect.origin.x+itemSize.image_rect.size.width+kCellPadding, itemSize.image_rect.origin.y, constraint.width, itemSize.image_rect.size.height+fontHeight);
 				
 				CGSize size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
 				
-				if(size.height > itemSize.image_rect.size.height+kFontSize)
+				if(size.height > itemSize.image_rect.size.height+fontHeight)
 				{
-					itemSize.synopsis_break=[NewsletterItemContentView findBestFit:synopsis constraint:CGSizeMake(cellWidth-itemSize.image_rect.size.width - (kCellPadding*3), itemSize.image_rect.size.height+kFontSize)];
+					itemSize.synopsis_break=[NewsletterItemContentView findBestFit:synopsis constraint:CGSizeMake(cellWidth-itemSize.image_rect.size.width - (kCellPadding*3), itemSize.image_rect.size.height+fontHeight)];
 					
 					if(itemSize.synopsis_break>0)
 					{
+						NSString * first_part=[synopsis substringToIndex:itemSize.synopsis_break+1];
+						
+						CGSize newSize=[first_part sizeWithFont:font constrainedToSize:itemSize.synopsis_rect1.size lineBreakMode:UILineBreakModeWordWrap];
+						
+						// compensate for incorrect height when there are consecutive line breaks (not sure why yet...)
+						if(newSize.height <= itemSize.image_rect.size.height)
+						{
+							newSize.height=itemSize.image_rect.size.height+1;
+						}
+						
+						itemSize.synopsis_rect1.size.height=newSize.height;
+						
 						NSString * second_part=[synopsis substringFromIndex:itemSize.synopsis_break+2];
 						
 						size=[second_part sizeWithFont:font constrainedToSize:CGSizeMake(cellWidth - (kCellPadding*2), 20000.0f) lineBreakMode:UILineBreakModeWordWrap];
 						
-						itemSize.synopsis_rect2=CGRectMake(kCellPadding, itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kFontSize, cellWidth-(kCellPadding*2), size.height);
+						itemSize.synopsis_rect2=CGRectMake(kCellPadding,  itemSize.synopsis_rect1.origin.y+itemSize.synopsis_rect1.size.height, cellWidth-(kCellPadding*2), size.height);
 
 						itemSize.size.height=itemSize.synopsis_rect2.origin.y+itemSize.synopsis_rect2.size.height+kCellPadding;
 					}
@@ -465,29 +330,11 @@
 				
 				CGSize size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
 				
-				itemSize.synopsis_rect1=CGRectMake(kCellPadding,itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kFontSize,cellWidth-(kCellPadding*2),size.height);
+				itemSize.synopsis_rect1=CGRectMake(kCellPadding,itemSize.image_rect.origin.y+itemSize.image_rect.size.height+fontHeight,cellWidth-(kCellPadding*2),size.height);
 			
 				itemSize.size.height=itemSize.synopsis_rect1.origin.y+itemSize.synopsis_rect1.size.height+kCellPadding;
 			}
 		}
-		/*}
-		else 
-		{
-			// for "add image" button
-			itemSize.image_rect=CGRectMake(kCellPadding, itemSize.date_rect.origin.y+itemSize.date_rect.size.height+kCellPadding, 88, 88);
-			itemSize.size.height=itemSize.image_rect.origin.y+itemSize.image_rect.size.height+kCellPadding;
-			
-			if(synopsis && [synopsis length]>0)
-			{
-				CGSize constraint = CGSizeMake(cellWidth-(kCellPadding*2), 20000.0f);
-				
-				CGSize size = [synopsis sizeWithFont:font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-				
-				itemSize.synopsis_rect1=CGRectMake(kCellPadding,itemSize.date_rect.origin.y+itemSize.date_rect.size.height+kCellPadding,cellWidth-(kCellPadding*2),size.height);
-			
-				itemSize.size.height=itemSize.synopsis_rect1.origin.y+itemSize.synopsis_rect1.size.height+kCellPadding;
-			}
-		}*/
 		
 		if(comments && [comments length]>0)
 		{
@@ -556,7 +403,6 @@
 		{
 			addImageButton.frame=CGRectZero;
 			addImageButton.hidden=YES;
-			
 			imageButton.frame=itemSize.image_rect;
 			imageButton.hidden=NO;
 		}
@@ -564,7 +410,6 @@
 		{
 			imageButton.hidden=YES;
 			imageButton.frame=CGRectZero;
-		
 			addImageButton.hidden=NO;
 			addImageButton.frame=itemSize.image_rect;
 		}
@@ -575,13 +420,10 @@
 			if(itemSize.synopsis_break>0)
 			{
 				synopsisButton1.hidden=NO;
-
 				synopsisButton1.frame=itemSize.synopsis_rect1;
 				synopsisButton1.backgroundColor=[UIColor clearColor];
 				synopsisButton1.opaque=NO;
-				
 				synopsisButton2.hidden=NO;
-
 				synopsisButton2.frame=itemSize.synopsis_rect2;
 				synopsisButton2.backgroundColor=[UIColor clearColor];
 				synopsisButton2.opaque=NO;
@@ -592,7 +434,6 @@
 				synopsisButton1.frame=itemSize.synopsis_rect1;
 				synopsisButton1.backgroundColor=[UIColor clearColor];
 				synopsisButton1.opaque=NO;
-				
 				synopsisButton2.hidden=YES;
 				synopsisButton2.frame=CGRectZero;
 			}
@@ -603,13 +444,14 @@
 			commentsButton.hidden=NO;
 			commentsButton.frame=itemSize.comments_rect;
 		}
-		else {
+		else 
+		{
 			commentsButton.hidden=YES;
 			commentsButton.frame=CGRectZero;
 		}
-
 	}
-	else {
+	else 
+	{
 		// hide buttons on headline view
 		addImageButton.hidden=YES;
 		addImageButton.frame=CGRectZero;
@@ -621,36 +463,28 @@
 		synopsisButton2.frame=CGRectZero;
 		commentsButton.hidden=YES;
 		commentsButton.frame=CGRectZero;
-		
 	} 
-	
-
 }
 
 - (void) layoutSubviews
 {
+	NSLog(@"NewsletterItemContentView:layoutSubviews");
 	[super layoutSubviews];
-	
-	NSLog(@"NewsletterItemContentView:layoutSubviews: %@",NSStringFromCGRect(self.bounds));
 	
 	CGRect rect=self.bounds;
 	
-	ItemSize itemSize=[NewsletterItemContentView sizeForCell:searchResult viewMode:viewModeExpanded rect:rect];
+	_itemSize=[NewsletterItemContentView sizeForCell:searchResult viewMode:viewModeExpanded rect:rect];
 	
-	_itemSize=itemSize;
-	
-	[self layoutButtons:itemSize];
+	[self layoutButtons:_itemSize];
 }
 
 - (void)drawRect:(CGRect)rect
 {
-	NSLog(@"NewsletterItemContentView:drawRect: %@",NSStringFromCGRect(rect));
+	NSLog(@"NewsletterItemContentView:drawRect");
 	
-	ItemSize itemSize=[NewsletterItemContentView sizeForCell:searchResult viewMode:viewModeExpanded rect:rect];
+	_itemSize=[NewsletterItemContentView sizeForCell:searchResult viewMode:viewModeExpanded rect:rect];
 	
-	_itemSize=itemSize;
-	
-	[self drawText:itemSize];
+	[self drawText:_itemSize];
 }
 
 - (void) drawText:(ItemSize) itemSize
@@ -731,7 +565,7 @@
     //show the image view with the picked image
     [imagePickerPopover dismissPopoverAnimated:YES];
 
-	self.searchResult.image=image;
+	searchResult.image=image;
 	
 	[self redraw];
 }
@@ -747,14 +581,9 @@
 	[parentController release];
 	[parentTableView release];
 	[imagePickerPopover release];
-	//[headlineLabel release];
 	[headlineButton release];
-	//[dateLabel release];
-	//[synopsisLabel1 release];
 	[synopsisButton1 release];
-	//[synopsisLabel2 release];
 	[synopsisButton2 release];
-//[commentsLabel release];
 	[commentsButton release];
 	[imageButton release];
 	[addImageButton release];

@@ -71,9 +71,6 @@
 	[self.addSectionPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
- 
-
-
 - (void)viewDidLoad
 {
 	viewMode=kViewModeSynopsis;
@@ -85,12 +82,6 @@
 	self.descriptionTextField.layer.borderColor=[[UIColor grayColor] CGColor];
 	self.descriptionTextField.layer.borderWidth=1;
 	self.descriptionTextField.layer.cornerRadius=8;
-	
-	//synopsisTextView.layer.borderWidth=1;
-	//synopsisTextView.layer.borderColor = [[UIColor grayColor] CGColor];
-	//synopsisTextView.layer.cornerRadius = 8;
-	
-	
 	
 	UISegmentedControl * segmentedControl=[[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sections",@"Headlines",@"Synopsis",nil]];
 	
@@ -194,6 +185,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+	NSLog(@"NewsletterViewController:viewWillAppear");
 	if(self.newsletter)
 	{
 		if(self.newsletter.logoImage)
@@ -212,7 +204,6 @@
 		
 			[self.view addSubview:self.addImageButton];		
 		}
-		
 		
 		UIColor * headlineColor=[NewsletterItemContentView colorWithHexString:@"336699"];
 		
@@ -286,7 +277,6 @@
 			
 			self.addImageButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
 			
-			//self.addImageButton.title=@"Add Image";
 			[self.addImageButton setTitle:@"Add Image" forState:UIControlStateNormal];
 			
 			self.addImageButton.frame=newFrame;
@@ -295,57 +285,6 @@
 			[self.view addSubview:self.addImageButton];
 		}
 	}
-	
-	/*if(buttonIndex==0)
-	{
-		if(actionSheet.tag==kDeleteActionSheet)
-		{
-			//user clicked delete...
-			
-			AppDelegate * delegate=(AppDelegate*)[[UIApplication sharedApplication] delegate];
-			
-			// delete current newsletter from newsletters list...
-			delegate.newsletter=nil;
-			[delegate.newsletters removeObject:self.newsletter];
-			self.newsletter=nil;
-			
-			[self setButtonsEnabled:NO];
-			
-			[self renderNewsletter];
-			
-			UINavigationController * navController=(UINavigationController*)[self parentViewController];
-			
-			navController.navigationBar.topItem.title=@"InfoNgen Newsletter Editor";
-			
-			UIAlertView * alertView=[[UIAlertView alloc] initWithTitle:@"Delete" message:@"Newsletter has been deleted." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-			
-			[alertView show];
-			
-			[alertView release];
-		}
-		else
-		{
-			if(actionSheet.tag==kClearItemsActionSheet)
-			{
-				for(NewsletterSection * section in self.newsletter.sections)
-				{
-					[section.items removeAllObjects];
-				}
-				
-				[self renderNewsletter];
-			}
-			else 
-			{
-				if(actionSheet.tag==kClearSelectedItemsActionSheet)
-				{
-					[self deleteSelectedRows];
-					
-					
-					[self toggleEditPage];
-				}
-			}
-		}
-	}*/
 }
 
 - (void) deleteSelectedRows
@@ -413,15 +352,14 @@
 
 - (void)renderNewsletter
 {
+	NSLog(@"NewsletterViewController:renderNewsletter");
 	[newsletterTableView reloadData];
 }
 
 - (void) addSearchResultToCurrentNewsletter:(SearchResult*)searchResult fromSavedSearch:(SavedSearch*)savedSearch;
 {
 	// TODO: what section to add to?
-	
 	// if newsletter has no sections, add a new section with this saved search and add the item...
-	
 	// if newsletter has a section with same saved search, append to that section
 	// otherwise, create a new section for that saved search...
 	NewsletterSection * section=nil;
@@ -459,7 +397,6 @@
 	}
 	else 
 	{
-		
 		//find location to insert object
 		// we will by default sort by date desc (newest at top)
 		// so start from the top and insert item where it fits based on date
@@ -474,10 +411,12 @@
 			}
 		}
 		
-		if (i<[section.items count]) {
+		if (i<[section.items count]) 
+		{
 			[section.items insertObject:searchResult atIndex:i];
 		}
-		else {
+		else 
+		{
 			[section.items addObject:searchResult];
 		}
 	}
@@ -489,26 +428,18 @@
 {
 	if(!updating)
 	{
-		//[self setButtonsEnabled:NO];
-	
 		updating=YES;
 	
 		[newsletterTableView reloadData];
 	
-		
 		updateFormViewController = [[NewsletterUpdateFormViewController alloc] initWithNibName:@"NewsletterUpdateFormView" bundle:nil];
 		
 		updateFormViewController.sections=self.newsletter.sections;
-		
-		//controller.delegate=self;
 		
 		[updateFormViewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
 		[updateFormViewController setModalPresentationStyle:UIModalPresentationFormSheet];
 		
 		[self.parentViewController presentModalViewController:updateFormViewController animated:YES];
-	
-		//[updateFormViewController release];
-		
 		// update all the saved searches associated with this page...
 		[self performSelectorInBackground:@selector(updateStart) withObject:nil];
 	}
@@ -534,12 +465,9 @@
 				NSLog(@"Updating saved search: %@",savedSearch.name);
 				
 				[updateFormViewController startProgressForSection:section];
-				//[updateFormViewController setProgress:0.25 forSection:section];
 				[updateFormViewController setStatusText:@"Updating..." forSection:section];
 				
 				[savedSearch update];
-				
-				//[updateFormViewController setProgress:0.75 forSection:section];
 				
 				int new_added_count=0;
 				if (savedSearch.items && [savedSearch.items count]>0) 
@@ -602,7 +530,6 @@
 						[dict release];
 					}
 				}
-				//[updateFormViewController setProgress:1.0 forSection:section];
 				[updateFormViewController endProgressForSection:section];
 				[updateFormViewController setStatusText:[NSString stringWithFormat:@"%d new items",new_added_count]  forSection:section];
 				break;
@@ -618,7 +545,6 @@
 - (void)updateEnd
 {
 	updating=NO;
-	//[self setButtonsEnabled:YES];
 	
 	UIApplication* app = [UIApplication sharedApplication];
 	app.networkActivityIndicatorVisible = NO;
@@ -656,6 +582,7 @@
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
 {    
+	[self.view setNeedsDisplay];
 	return YES;
 }
 
@@ -674,11 +601,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
     // Return the number of sections.
     NSLog(@"numberOfSectionsInTableView");
-	
-	if(self.newsletter)
-	{
-		//[self setButtonsEnabled:YES];
-	}
 	
 	if(viewMode==kViewModeSections)
 	{
@@ -704,7 +626,8 @@
 	{
 		return path;
 	}
-	else {
+	else 
+	{
 		return nil;
 	}
 }
@@ -722,16 +645,6 @@
 	
 	topView.backgroundColor=[UIColor whiteColor];
 		
-	//UIColor * borderColor=[NewsletterItemContentView colorWithHexString:@"336699"];
-	
-	//topView.layer.borderColor=[borderColor CGColor];
-	//topView.layer.borderWidth=1;
-	
-	//CAGradientLayer *gradient = [CAGradientLayer layer];
-	//gradient.frame = topView.bounds;
-	//gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor],(id)[[UIColor grayColor] CGColor], (id)[[UIColor lightGrayColor] CGColor], nil];
-	//[topView.layer insertSublayer:gradient atIndex:0];
-	
 	UIColor * nameColor=[NewsletterItemContentView colorWithHexString:@"339933"];
 	
 	UILabel *nameLabel = [self newLabelWithPrimaryColor:nameColor selectedColor:[UIColor whiteColor] fontSize:20 bold:YES];
@@ -741,24 +654,7 @@
 	nameLabel.text = newsletterSection.name;
 	
 	[topView addSubview:nameLabel];
-	
-	/*if(updating)
-	{
-		UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-		[activityView setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
-		[activityView startAnimating];
-		[topView addSubview:activityView];
-		[activityView release];
-	}
-	else 
-	{
-		UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
-		[refreshButton setImage:[UIImage imageNamed:@"icon_refresh.png"] forState:UIControlStateNormal];
-		[refreshButton setFrame:CGRectMake(newsletterTableView.frame.size.width-35, 10, 25, 25)];
-		[refreshButton addTarget:self action:@selector(update) forControlEvents:UIControlEventTouchUpInside];
-		[topView addSubview:refreshButton];
-	}*/
-
+		
 	return topView;
 }
 
@@ -827,7 +723,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-	NSLog(@"cellForRowAtIndexPath");
+	NSLog(@"NewsletterViewController:cellForRowAtIndexPath");
 	
 	if(viewMode==kViewModeSections)
 	{
@@ -838,33 +734,11 @@
 		if(cell==nil)
 		{
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:SectionCellIdentifier] autorelease];
-			
-			//cell.selectionStyle=UITableViewCellSelectionStyleNone;
-		
 		}
-		
-		//if(!tableView.editing)
-		//{
-		//	cell.selectionStyle=UITableViewCellSelectionStyleNone;
-		//}
 		
 		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.row];
 		
-		//UIColor * borderColor=[NewsletterItemContentView colorWithHexString:@"336699"];
-		
-		//cell.layer.borderColor=[borderColor CGColor];
-		//cell.layer.borderWidth=1;
-		
-		//CAGradientLayer *gradient = [CAGradientLayer layer];
-		//gradient.frame = topView.bounds;
-		//gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor lightGrayColor] CGColor],(id)[[UIColor grayColor] CGColor], (id)[[UIColor lightGrayColor] CGColor], nil];
-		//[topView.layer insertSublayer:gradient atIndex:0];
-		
 		UIColor * nameColor=[NewsletterItemContentView colorWithHexString:@"339933"];
-		
-		
-		
-		
 		
 		cell.textLabel.textColor=nameColor;
 		cell.textLabel.text=newsletterSection.name;
@@ -887,7 +761,6 @@
 			NewsletterItemContentView * contentView=[[NewsletterItemContentView alloc] initWithFrame:CGRectMake(0.0, 0.0, cell.contentView.bounds.size.width, cell.contentView.bounds.size.height)];
 		
 			// set view mode...
-			//[contentView setViewMode:viewModeSegmentedControl];
 			contentView.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 			contentView.parentController=self;
 			contentView.parentTableView=tableView;
@@ -901,11 +774,10 @@
 		SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
 		NewsletterItemContentView * contentView=(NewsletterItemContentView *)[cell.contentView.subviews objectAtIndex:[cell.contentView.subviews count]-1];
 		
-		
 		[contentView setViewMode:(viewMode==kViewModeSynopsis)];
-		//[contentView setViewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1)];
 		contentView.searchResult=result;
 		[contentView setNeedsDisplay];
+		[contentView setNeedsLayout];
 			
 		return cell;
 	}
@@ -914,25 +786,23 @@
 - (BOOL) tableView:(UITableView*)tableView
 canMoveRowAtIndexPath:(NSIndexPath*)indexPath
 {
-	
 	return YES;
 }
 
 - (CGFloat)tableView:(UITableView*)tableView
 heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
+	NSLog(@"NewsletterViewController:heightForRowAtIndexPath");
 	if(viewMode==kViewModeSections)
 	{
 		return 44;
 	}
 	else 
 	{
-		
 		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.section];
 
 		SearchResult * result=(SearchResult *)[newsletterSection.items objectAtIndex:indexPath.row];
 		
-		//ItemSize itemSize=[NewsletterItemContentView sizeForCell:result viewMode:([self.viewModeSegmentedControl selectedSegmentIndex]==1) rect:CGRectZero];
 		ItemSize itemSize=[NewsletterItemContentView sizeForCell:result viewMode:(viewMode==kViewModeSynopsis) rect:CGRectZero];
 		
 		return itemSize.size.height;
@@ -950,7 +820,6 @@ moveRowAtIndexPath:(NSIndexPath*)fromIndexPath
 	if(viewMode==kViewModeSections)
 	{
 		NewsletterSection * newsletterSection1=[[self.newsletter.sections objectAtIndex:fromRow] retain];
-		//NewsletterSection * newsletterSection2=[self.newsletter.sections objectAtIndex:toRow];
 		
 		[self.newsletter.sections removeObjectAtIndex:fromRow];
 		[self.newsletter.sections insertObject:newsletterSection1 atIndex:toRow];
@@ -991,7 +860,7 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 
 -(UITableViewCellEditingStyle)tableView:(UITableView*)tableView editingStyleForRowAtIndexPath:(NSIndexPath*)indexPath {
 
-	return 3;
+	return 3; // style value for multi-select delete checkboxes
 	//return UITableViewCellEditingStyleDelete;
 }
 
@@ -1027,33 +896,6 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	
 }
 
-/*
-- (IBAction) preview
-{
-	if(self.newsletter==nil)
-	{
-		return;
-	}
-	
-	self.previewController=[[NewsletterHTMLPreviewViewController alloc] initWithNibName:@"NewsletterHTMLPreviewView" bundle:nil];
-	
-	//previewController.savedSearches=((AppDelegate*)[[UIApplication sharedApplication] delegate]).savedSearches;
-
-	previewController.newsletter=self.newsletter;
-
-	//[UIView beginAnimations:nil context:NULL];  
-	//[UIView setAnimationDuration:0.5];  
-	//[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.newsletterTableView cache:YES];  
-
-	[self.view addSubview:previewController.view];
-	[self.view bringSubviewToFront:previewController.view];
-
-	//[self.newsletterTableView addSubview:previewController.view];  
-	//[self.newsletterTableView bringSubviewToFront:previewController.view];
-	
-	//[UIView commitAnimations];  
-}*/
-
 - (void)imageTouched:(id)sender
 {
 	UIView * button=(UIView*)sender;
@@ -1063,8 +905,6 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	[actionSheet addButtonWithTitle:@"Choose Existing Image"];
 	[actionSheet addButtonWithTitle:@"Delete Image"];
 	[actionSheet showFromRect:button.frame inView:self.view animated:YES];
-	
-	//[actionSheet showInView:self.view];
 	
 	[actionSheet release];
 }
@@ -1114,17 +954,14 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	[popover release];
 }
  
-
 - (void)imagePickerController:(UIImagePickerController *)picker 
 		didFinishPickingImage:(UIImage *)image
 				  editingInfo:(NSDictionary *)editingInfo
 {
-	
     // Dismiss the image selection, hide the picker and
     //show the image view with the picked image
     [imagePickerPopover dismissPopoverAnimated:YES];
-	
-	
+
 	//222 px x 118px
 	
 	if(image.size.width>222  || image.size.height>118)
@@ -1161,8 +998,6 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 	
 	[self.addImageButton removeFromSuperview];
 	
-	//[self.addImageButton release];
-	
 	self.addImageButton=[UIButton buttonWithType:UIButtonTypeCustom];
 	
 	self.addImageButton.frame=newFrame;
@@ -1186,7 +1021,6 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     [newsletterTableView release];
 	[editMoveButton release];
 	[addImageButton release];
-	//[segmentedControl release];
 	[titleTextField  release];
 	[descriptionTextField release];
 	[addSectionPopover release];

@@ -778,6 +778,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: robert stewart (48WE8248AA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: robert stewart (48WE8248AA)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -785,6 +787,8 @@
 				GCC_PREFIX_HEADER = Untitled_Prefix.pch;
 				INFOPLIST_FILE = "Untitled-Info.plist";
 				PRODUCT_NAME = "InfoNgen Pub";
+				PROVISIONING_PROFILE = "D92BD1C4-E6BD-4400-B348-32CCE2CD12AD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D92BD1C4-E6BD-4400-B348-32CCE2CD12AD";
 				TARGETED_DEVICE_FAMILY = 2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -794,11 +798,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: robert stewart (48WE8248AA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: robert stewart (48WE8248AA)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Untitled_Prefix.pch;
 				INFOPLIST_FILE = "Untitled-Info.plist";
 				PRODUCT_NAME = Untitled;
+				PROVISIONING_PROFILE = "D92BD1C4-E6BD-4400-B348-32CCE2CD12AD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D92BD1C4-E6BD-4400-B348-32CCE2CD12AD";
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};

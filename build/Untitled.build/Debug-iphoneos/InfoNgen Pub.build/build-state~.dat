@@ -1,0 +1,2108 @@
+TInfoNgen Pub
+v7
+r1
+cCheck dependencies
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk
+c000000004BBDEF790000000000000110
+t1270738809
+s272
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/ResourceRules.plist
+c000000004B9F103D00000000000001E5
+t1268715581
+s485
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/AddressBook.framework/AddressBook
+c000000004B9F27A900000000000657E0
+t1268721577
+s415712
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/AddressBook.framework/Headers/AddressBook.h
+c000000004B9F27A50000000000000424
+t1268721573
+s1060
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
+c000000004B9F33BA0000000000207C60
+t1268724666
+s2128992
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/AddressBookUI.framework/Headers/AddressBookUI.h
+c000000004B9F33A400000000000001D4
+t1268724644
+s468
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004BA03AC100000000003B4B70
+t1268792001
+s3885936
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004B9F26D2000000000036A650
+t1268721362
+s3581520
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004B9F26B90000000000001355
+t1268721337
+s4949
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.h
+c000000004B9F28EE000000000000007D
+t1268721902
+s125
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c000000004B9F2A1500000000002215A0
+t1268722197
+s2233760
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004B9F318D000000000000098F
+t1268724109
+s2447
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004B9F32090000000002703230
+t1268724233
+s40907312
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/usr/include/Availability.h
+c000000004B9F27C60000000000001A1A
+t1268721606
+s6682
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/usr/include/libxml2/libxml/parser.h
+c000000004B9F265800000000000098A9
+t1268721240
+s39081
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/usr/include/libxml2/libxml/tree.h
+c000000004B9F26580000000000008F14
+t1268721240
+s36628
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/usr/include/libxml2/libxml/xpath.h
+c000000004B9F26580000000000003F47
+t1268721240
+s16199
+
+N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/usr/include/libxml2/libxml/xpathInternals.h
+c000000004B9F26590000000000004BF8
+t1268721241
+s19448
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Balloon_2.png
+c000000004B9FC7B30000000000000F1E
+t1268762547
+s3870
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Base64.h
+c000000004B7ABB9900000000000001CE
+t1266334617
+s462
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Base64.m
+c000000004B7ABB990000000000000BBD
+t1266334617
+s3005
+i"Base64.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLDocument.h
+c000000004B7ABB990000000000000A9A
+t1266334617
+s2714
+i"CXMLNode.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLDocument.m
+c000000004B7ABB990000000000001ADD
+t1266334617
+s6877
+i"CXMLDocument.h"
+i<libxml/parser.h>
+i"CXMLNode_PrivateExtensions.h"
+i"CXMLElement.h"
+i"CTidy.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLDocument_PrivateExtensions.h
+c000000004B7ABB9900000000000005FE
+t1266334617
+s1534
+i"CXMLDocument.h"
+i<libxml/parser.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLDocument_PrivateExtensions.m
+c000000004B7ABB99000000000000067A
+t1266334617
+s1658
+i"CXMLDocument_PrivateExtensions.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLElement.h
+c000000004B9904DE00000000000007B7
+t1268319454
+s1975
+i"CXMLNode.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLElement.m
+c000000004B9904DE0000000000001185
+t1268319454
+s4485
+i"CXMLElement.h"
+i"CXMLNode_PrivateExtensions.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLElement_CreationExtensions.h
+c000000004B7ABB99000000000000059D
+t1266334617
+s1437
+i"CXMLElement.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLElement_CreationExtensions.m
+c000000004B7ABB990000000000000850
+t1266334617
+s2128
+i"CXMLElement_CreationExtensions.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLElement_ElementTreeExtensions.h
+c000000004B7ABB990000000000000580
+t1266334617
+s1408
+i"CXMLElement.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLElement_ElementTreeExtensions.m
+c000000004B7ABB990000000000000668
+t1266334617
+s1640
+i"CXMLElement_ElementTreeExtensions.h"
+i"CXMLElement_CreationExtensions.h"
+i"CXMLNode_CreationExtensions.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLNode.h
+c000000004B7ABB990000000000000B4E
+t1266334617
+s2894
+i<Foundation/Foundation.h>
+i<libxml/tree.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLNode.m
+c000000004B7ABB9900000000000020C2
+t1266334617
+s8386
+i"CXMLNode.h"
+i"CXMLNode_PrivateExtensions.h"
+i"CXMLDocument.h"
+i"CXMLElement.h"
+i<libxml/xpath.h>
+i<libxml/xpathInternals.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLNode_PrivateExtensions.h
+c000000004B7ABB9900000000000005DC
+t1266334617
+s1500
+i"CXMLNode.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLNode_PrivateExtensions.m
+c000000004B7ABB990000000000000A13
+t1266334617
+s2579
+i"CXMLNode_PrivateExtensions.h"
+i"CXMLElement.h"
+i"CXMLDocument_PrivateExtensions.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLNode_XPathExtensions.h
+c000000004B7ABB9900000000000005B3
+t1266334617
+s1459
+i"CXMLNode.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/CXMLNode_XPathExtensions.m
+c000000004B7ABB990000000000000A7E
+t1266334617
+s2686
+i"CXMLNode_XPathExtensions.h"
+i"CXMLDocument.h"
+i"CXMLNode_PrivateExtensions.h"
+i<libxml/xpath.h>
+i<libxml/xpathInternals.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.h
+c000000004BB9E8F70000000000000AE5
+t1270474999
+s2789
+i<UIKit/UIKit.h>
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m
+c000000004BB9E8F70000000000002F25
+t1270474999
+s12069
+i"AppDelegate.h"
+i"NewslettersViewController.h"
+i"NewsletterViewController.h"
+i"NewsletterSettingsViewController.h"
+i"NewsletterHTMLPreviewViewController.h"
+i"Newsletter.h"
+i"LoginTicket.h"
+i"SearchClient.h"
+i"SavedSearch.h"
+i"SearchResult.h"
+i"UserSettings.h"
+i"Newsletter.h"
+i"UIImage-NSCoding.h"
+i"NewslettersScrollViewController.h"
+i"RootNavigationController.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/BlankToolbar.h
+c000000004BB49C2100000000000000CF
+t1270127649
+s207
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/BlankToolbar.m
+c000000004BB49C210000000000000124
+t1270127649
+s292
+i"BlankToolbar.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditFormViewController.h
+c000000004BB103350000000000000310
+t1269891893
+s784
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditFormViewController.m
+c000000004BB4A97C0000000000000AA1
+t1270131068
+s2721
+i"DocumentEditFormViewController.h"
+i"SearchResult.h"
+i<QuartzCore/QuartzCore.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditViewController.h
+c000000004B996AA1000000000000045E
+t1268345505
+s1118
+i<UIKit/UIKit.h>
+i<QuartzCore/QuartzCore.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditViewController.m
+c000000004B996BED000000000000393A
+t1268345837
+s14650
+i"DocumentEditViewController.h"
+i"SearchResult.h"
+i"DocumentTextViewController.h"
+i"DocumentWebViewController.h"
+i"TextFieldTableCell.h"
+i"TextViewTableCell.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentImage.h
+c000000004B829A930000000000000216
+t1266850451
+s534
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentImage.m
+c000000004B829A93000000000000021B
+t1266850451
+s539
+i"DocumentImage.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentTextViewController.h
+c000000004B82C0A70000000000000224
+t1266860199
+s548
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentWebViewController.h
+c000000004BBB6E66000000000000073E
+t1270574694
+s1854
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentWebViewController.m
+c000000004BBB924C0000000000004397
+t1270583884
+s17303
+i"DocumentWebViewController.h"
+i"SearchResult.h"
+i"DocumentImage.h"
+i"DocumentTextViewController.h"
+i"DocumentEditViewController.h"
+i"AppDelegate.h"
+i"NewslettersViewController.h"
+i"SearchClient.h"
+i"MetaTag.h"
+i"TextMatch.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/LoginTicket.h
+c000000004B7D547500000000000001B6
+t1266504821
+s438
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/LoginTicket.m
+c000000004B7D54750000000000000C5C
+t1266504821
+s3164
+i"LoginTicket.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/MainViewController.h
+c000000004B8BD6C30000000000000567
+t1267455683
+s1383
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/MetaTag.h
+c000000004BBDDE3600000000000002BA
+t1270734390
+s698
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/MetaTag.m
+c000000004BBDDE3600000000000006C2
+t1270734390
+s1730
+i"MetaTag.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/Newsletter.h
+c000000004B8BD6C30000000000000429
+t1267455683
+s1065
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/Newsletter.m
+c000000004B8BF9A30000000000000B3B
+t1267464611
+s2875
+i"Newsletter.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterAddSectionViewController.h
+c000000004BB4B5F300000000000002C3
+t1270134259
+s707
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterAddSectionViewController.m
+c000000004BB4B5F20000000000000C36
+t1270134258
+s3126
+i"NewsletterAddSectionViewController.h"
+i"SavedSearch.h"
+i"NewsletterSection.h"
+i"Newsletter.h"
+i"AppDelegate.h"
+i"NewsletterBaseViewController.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterBaseViewController.h
+c000000004BA138DC0000000000000172
+t1268857052
+s370
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterBaseViewController.m
+c000000004BB49C2200000000000002DE
+t1270127650
+s734
+i"NewsletterBaseViewController.h"
+i"Newsletter.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterDistributionListViewController.h
+c000000004B8D6D2E0000000000000297
+t1267559726
+s663
+i<UIKit/UIKit.h>
+i<AddressBook/AddressBook.h>
+i<AddressBookUI/AddressBookUI.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterDistributionListViewController.m
+c000000004B8D71000000000000001E15
+t1267560704
+s7701
+i"NewsletterDistributionListViewController.h"
+i"newsletter.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterHTMLPreviewViewController.h
+c000000004BB9E8F700000000000001F8
+t1270474999
+s504
+i<UIKit/UIKit.h>
+i"NewsletterBaseViewController.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterHTMLPreviewViewController.m
+c000000004BBDDE36000000000000267A
+t1270734390
+s9850
+i"NewsletterHTMLPreviewViewController.h"
+i"SavedSearch.h"
+i"Newsletter.h"
+i"NewsletterSection.h"
+i"SearchResult.h"
+i"Base64.h"
+i"AppDelegate.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterItemContentView.h
+c000000004BB9E8F70000000000000811
+t1270474999
+s2065
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterItemContentView.m
+c000000004BBB960E0000000000005655
+t1270584846
+s22101
+i"NewsletterItemContentView.h"
+i"SearchResult.h"
+i"DocumentEditFormViewController.h"
+i"AppDelegate.h"
+i"DocumentWebViewController.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterScrollItemController.h
+c000000004BB4D119000000000000022B
+t1270141209
+s555
+i<UIKit/UIKit.h>
+i"NewsletterBaseViewController.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterScrollItemController.m
+c000000004BB4D1190000000000000A5E
+t1270141209
+s2654
+i"NewsletterScrollItemController.h"
+i"Newsletter.h"
+i"AppDelegate.h"
+i"NewsletterHTMLPreviewViewController.h"
+i<QuartzCore/QuartzCore.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.h
+c000000004B9904DE0000000000000265
+t1268319454
+s613
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m
+c000000004B9904DE00000000000005A0
+t1268319454
+s1440
+i"NewsletterSection.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSectionsViewController.h
+c000000004BA1169F00000000000002D6
+t1268848287
+s726
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSectionsViewController.m
+c000000004BA13974000000000000150B
+t1268857204
+s5387
+i"NewsletterSectionsViewController.h"
+i"NewsletterAddSectionViewController.h"
+i"NewsletterSection.h"
+i"AppDelegate.h"
+i"Newsletter.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.h
+c000000004BA13C930000000000000530
+t1268858003
+s1328
+i<UIKit/UIKit.h>
+i"NewsletterBaseViewController.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m
+c000000004BA141A80000000000003D84
+t1268859304
+s15748
+i"NewsletterSettingsViewController.h"
+i"TextFieldTableCell.h"
+i"Newsletter.h"
+i"SegmentedTableCell.h"
+i"TextViewTableCell.h"
+i"NewsletterSectionsViewController.h"
+i"NewsletterDistributionListViewController.h"
+i"AppDelegate.h"
+i"NewsletterHTMLPreviewViewController.h"
+i<QuartzCore/QuartzCore.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterUpdateFormViewController.h
+c000000004BBDDE3600000000000003FB
+t1270734390
+s1019
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterUpdateFormViewController.m
+c000000004BBDDE36000000000000107C
+t1270734390
+s4220
+i"NewsletterUpdateFormViewController.h"
+i"NewsletterSection.h"
+i"NewsletterItemContentView.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterView.h
+c000000004BBDDE3600000000000000CF
+t1270734390
+s207
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterView.m
+c000000004BBDDE3600000000000003B8
+t1270734390
+s952
+i"NewsletterView.h"
+i"NewsletterItemContentView.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.h
+c000000004BBDDE360000000000000B21
+t1270734390
+s2849
+i<UIKit/UIKit.h>
+i"NewsletterBaseViewController.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m
+c000000004BBDDE3600000000000085C6
+t1270734390
+s34246
+i"NewsletterViewController.h"
+i"SearchResult.h"
+i"SearchResultCell.h"
+i"Newsletter.h"
+i"DocumentWebViewController.h"
+i"NewsletterSettingsViewController.h"
+i"DocumentEditViewController.h"
+i"NewsletterHTMLPreviewViewController.h"
+i"AppDelegate.h"
+i"NewsletterSection.h"
+i"SavedSearch.h"
+i<QuartzCore/QuartzCore.h>
+i"NewsletterItemContentView.h"
+i"NewsletterAddSectionViewController.h"
+i"BlankToolbar.h"
+i"NewsletterUpdateFormViewController.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.h
+c000000004BB9E8F70000000000000634
+t1270474999
+s1588
+i<UIKit/UIKit.h>
+i"NewsletterBaseViewController.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m
+c000000004BBDDE360000000000002369
+t1270734390
+s9065
+i"NewslettersScrollViewController.h"
+i"Newsletter.h"
+i"NewsletterHTMLPreviewViewController.h"
+i<QuartzCore/QuartzCore.h>
+i"NewsletterScrollItemController.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersViewController.h
+c000000004BA13F2500000000000002C0
+t1268858661
+s704
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersViewController.m
+c000000004BA13C9300000000000010DA
+t1268858003
+s4314
+i"NewslettersViewController.h"
+i"Newsletter.h"
+i"MainViewController.h"
+i"AppDelegate.h"
+i"NewsletterSectionsViewController.h"
+i"SavedSearchesViewController.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/RootNavigationController.h
+c000000004BB2638D000000000000010A
+t1269982093
+s266
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearch.h
+c000000004B7D54750000000000000330
+t1266504821
+s816
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearch.m
+c000000004BBDDE360000000000001E42
+t1270734390
+s7746
+i"SavedSearch.h"
+i"SearchResult.h"
+i"Base64.h"
+i"TouchXML.h"
+i"MetaTag.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.h
+c000000004B868DD10000000000000181
+t1267109329
+s385
+i<UIKit/UIKit.h>
+i"SavedSearch.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m
+c000000004B900B64000000000000152A
+t1267731300
+s5418
+i"SavedSearchController.h"
+i"AppDelegate.h"
+i"SavedSearch.h"
+i"SearchResult.h"
+i"Newsletter.h"
+i"SearchResultCell.h"
+i"NewsletterViewController.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchesViewController.h
+c000000004B8BD6C3000000000000019B
+t1267455683
+s411
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SearchResultCell.h
+c000000004B706F6B00000000000001FD
+t1265659755
+s509
+i<UIKit/UIKit.h>
+i"UILabelEx.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SearchResultCell.m
+c000000004B71C77E00000000000002BA
+t1265747838
+s698
+i"SearchResultCell.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SegmentedTableCell.h
+c000000004B83FFA600000000000001C9
+t1266941862
+s457
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/SegmentedTableCell.m
+c000000004B8402850000000000000BC2
+t1266942597
+s3010
+i"SegmentedTableCell.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextFieldTableCell.h
+c000000004B8BD6C3000000000000012E
+t1267455683
+s302
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextFieldTableCell.m
+c000000004B8BD6C3000000000000086F
+t1267455683
+s2159
+i"TextFieldTableCell.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextMatch.h
+c000000004BBDDE3600000000000001D7
+t1270734390
+s471
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextMatch.m
+c000000004BBDDE360000000000000412
+t1270734390
+s1042
+i"TextMatch.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextViewTableCell.h
+c000000004B868DD10000000000000129
+t1267109329
+s297
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/TextViewTableCell.m
+c000000004B90137A000000000000082B
+t1267733370
+s2091
+i"TextViewTableCell.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/UIImage-NSCoding.h
+c000000004B868DD10000000000000148
+t1267109329
+s328
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/UIImage-NSCoding.m
+c000000004B868DD1000000000000027F
+t1267109329
+s639
+i"UIImage-NSCoding.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/UILabelEx.h
+c000000004B706D950000000000000213
+t1265659285
+s531
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/UILabelEx.m
+c000000004B706D970000000000000598
+t1265659287
+s1432
+i"UILabelEx.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/UserSettings.h
+c000000004B7D54750000000000000145
+t1266504821
+s325
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Classes/UserSettings.m
+c000000004B868DD10000000000000568
+t1267109329
+s1384
+i"UserSettings.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Creation/CXMLDocument_CreationExtensions.h
+c000000004B7ABB990000000000000814
+t1266334617
+s2068
+i"CXMLDocument.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Creation/CXMLDocument_CreationExtensions.m
+c000000004B7ABB990000000000000720
+t1266334617
+s1824
+i"CXMLDocument_CreationExtensions.h"
+i"CXMLElement.h"
+i"CXMLNode_PrivateExtensions.h"
+i"CXMLDocument_PrivateExtensions.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Creation/CXMLNode_CreationExtensions.h
+c000000004B7ABB990000000000000954
+t1266334617
+s2388
+i"CXMLNode.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Creation/CXMLNode_CreationExtensions.m
+c000000004B7ABB990000000000000F70
+t1266334617
+s3952
+i"CXMLNode_CreationExtensions.h"
+i"CXMLDocument.h"
+i"CXMLElement.h"
+i"CXMLNode_PrivateExtensions.h"
+i"CXMLDocument_PrivateExtensions.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Default-Landscape.png
+c000000004B840D78000000000007C004
+t1266945400
+s507908
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Default-LandscapeLeft.png
+c000000004B840D78000000000007C004
+t1266945400
+s507908
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Default-LandscapeRight.png
+c000000004B840D78000000000007C004
+t1266945400
+s507908
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Default-Portrait.png
+c000000004B840F7B000000000006F702
+t1266945915
+s456450
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Default-PortraitUpsideDown.png
+c000000004B840F7B000000000006F702
+t1266945915
+s456450
+
+N/Users/Bob/Documents/InfoNgen-Publisher/DocumentEditFormView.xib
+c000000004BB4A96F000000000000730D
+t1270131055
+s29453
+
+N/Users/Bob/Documents/InfoNgen-Publisher/DocumentEditView.xib
+c000000004B996B5F0000000000005D3B
+t1268345695
+s23867
+
+N/Users/Bob/Documents/InfoNgen-Publisher/DocumentTextView.xib
+c000000004B82CF3D0000000000005009
+t1266863933
+s20489
+
+N/Users/Bob/Documents/InfoNgen-Publisher/DocumentWebView.xib
+c000000004BBB4E510000000000007CBB
+t1270566481
+s31931
+
+N/Users/Bob/Documents/InfoNgen-Publisher/FacetField.h
+c000000004B7ABB9900000000000001B9
+t1266334617
+s441
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/FacetField.m
+c000000004B7ABB99000000000000015E
+t1266334617
+s350
+i"FacetField.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/FacetValue.h
+c000000004B7ABB99000000000000024D
+t1266334617
+s589
+i<Foundation/Foundation.h>
+i"Search.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/FacetValue.m
+c000000004B8BEE5C000000000000019A
+t1267461724
+s410
+i"FacetValue.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/ImagePickerView.xib
+c000000004B868DD10000000000005103
+t1267109329
+s20739
+
+N/Users/Bob/Documents/InfoNgen-Publisher/MainWindow.xib
+c000000004B6AF03E0000000000004988
+t1265299518
+s18824
+
+N/Users/Bob/Documents/InfoNgen-Publisher/NewsletterAddSectionView.xib
+c000000004BA10C5B0000000000004E7B
+t1268845659
+s20091
+
+N/Users/Bob/Documents/InfoNgen-Publisher/NewsletterDistributionListView.xib
+c000000004B8D6C130000000000004DAD
+t1267559443
+s19885
+
+N/Users/Bob/Documents/InfoNgen-Publisher/NewsletterHTMLPreviewView.xib
+c000000004BA11C4600000000000051D3
+t1268849734
+s20947
+
+N/Users/Bob/Documents/InfoNgen-Publisher/NewsletterScrollItemView.xib
+c000000004BB49C220000000000005611
+t1270127650
+s22033
+
+N/Users/Bob/Documents/InfoNgen-Publisher/NewsletterSectionsView.xib
+c000000004BA1019400000000000067E3
+t1268842900
+s26595
+
+N/Users/Bob/Documents/InfoNgen-Publisher/NewsletterSettingsView.xib
+c000000004BA12B9C0000000000005137
+t1268853660
+s20791
+
+N/Users/Bob/Documents/InfoNgen-Publisher/NewsletterUpdateFormView.xib
+c000000004BBDDE360000000000005D91
+t1270734390
+s23953
+
+N/Users/Bob/Documents/InfoNgen-Publisher/NewsletterView.xib
+c000000004BBDDE36000000000000835E
+t1270734390
+s33630
+
+N/Users/Bob/Documents/InfoNgen-Publisher/NewslettersScrollView.xib
+c000000004BB49C220000000000007EF6
+t1270127650
+s32502
+
+N/Users/Bob/Documents/InfoNgen-Publisher/NewslettersView.xib
+c000000004B9FEF12000000000000675F
+t1268772626
+s26463
+
+N/Users/Bob/Documents/InfoNgen-Publisher/RootView.xib
+c000000004BB25FDC000000000000664D
+t1269981148
+s26189
+
+N/Users/Bob/Documents/InfoNgen-Publisher/SavedSearchesView.xib
+c000000004B8D72270000000000005866
+t1267560999
+s22630
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Search.h
+c000000004B7ABB990000000000000223
+t1266334617
+s547
+i<Foundation/Foundation.h>
+i"SearchArguments.h"
+i"SearchResults.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Search.m
+c000000004B7ABB990000000000000DA4
+t1266334617
+s3492
+i"Search.h"
+i"SearchArguments.h"
+i"SearchResults.h"
+i"SearchResult.h"
+i"FacetField.h"
+i"FacetValue.h"
+i"SearchClient.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/SearchArguments.h
+c000000004B7ABB9900000000000001BE
+t1266334617
+s446
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/SearchArguments.m
+c000000004B7AF2D5000000000000093B
+t1266348757
+s2363
+i"SearchArguments.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/SearchClient.h
+c000000004B9904DE0000000000000362
+t1268319454
+s866
+i<Foundation/Foundation.h>
+i"SearchResults.h"
+i"SearchArguments.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/SearchClient.m
+c000000004BBB5EE7000000000006487B
+t1270570727
+s411771
+i"SearchClient.h"
+i"TouchXML.h"
+i"SearchResults.h"
+i"SearchResult.h"
+i"FacetField.h"
+i"FacetValue.h"
+i"Base64.h"
+i"LoginTicket.h"
+i"SavedSearch.h"
+i"MetaTag.h"
+i"TextMatch.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.h
+c000000004BBA01E40000000000000384
+t1270481380
+s900
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m
+c000000004BBA01E40000000000000C82
+t1270481380
+s3202
+i"SearchResult.h"
+i"MetaTag.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/SearchResultCell.xib
+c000000004B868DD100000000000057CD
+t1267109329
+s22477
+
+N/Users/Bob/Documents/InfoNgen-Publisher/SearchResults.h
+c000000004B7ABB99000000000000016D
+t1266334617
+s365
+i<Foundation/Foundation.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/SearchResults.m
+c000000004B7ABB990000000000000141
+t1266334617
+s321
+i"SearchResults.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/SelectImageView.xib
+c000000004B99405D0000000000001665
+t1268334685
+s5733
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Settings.bundle
+c000000004B7ACD7F00000000000000AA
+t1266339199
+s170
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Tidy/CTidy.h
+c000000004B7ABB990000000000000762
+t1266334617
+s1890
+i<Foundation/Foundation.h>
+i"tidy.h"
+i"buffio.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Tidy/CTidy.m
+c000000004B7ABB990000000000001D6D
+t1266334617
+s7533
+i"CTidy.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/TouchXML.h
+c000000004B7ABB9900000000000005F3
+t1266334617
+s1523
+i"CXMLDocument.h"
+i"CXMLDocument_CreationExtensions.h"
+i"CXMLElement.h"
+i"CXMLElement_CreationExtensions.h"
+i"CXMLElement_ElementTreeExtensions.h"
+i"CXMLNode.h"
+i"CXMLNode_CreationExtensions.h"
+i"CXMLNode_XPathExtensions.h"
+
+N/Users/Bob/Documents/InfoNgen-Publisher/Untitled_Prefix.pch
+c000000004B68935F0000000000000142
+t1265144671
+s322
+i<Availability.h>
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/balloon.png
+c000000004B9FC353000000000000078E
+t1268761427
+s1934
+
+N/Users/Bob/Documents/InfoNgen-Publisher/balloon_left.png
+c000000004B9FCA2F00000000000007A1
+t1268763183
+s1953
+
+N/Users/Bob/Documents/InfoNgen-Publisher/blank.png
+c000000004BBDDE3600000000000000B6
+t1270734390
+s182
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app.dSYM
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Balloon_2.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Default-Landscape.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Default-LandscapeLeft.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Default-LandscapeRight.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Default-Portrait.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Default-PortraitUpsideDown.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/DocumentEditFormView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/DocumentEditView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/DocumentTextView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/DocumentWebView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/ImagePickerView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Info.plist
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/InfoNgen Pub
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/MainWindow.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/NewsletterAddSectionView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/NewsletterDistributionListView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/NewsletterHTMLPreviewView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/NewsletterScrollItemView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/NewsletterSectionsView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/NewsletterSettingsView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/NewsletterUpdateFormView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/NewsletterView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/NewslettersScrollView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/NewslettersView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/PkgInfo
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/ResourceRules.plist
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/RootView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/SavedSearchesView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/SearchResultCell.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/SelectImageView.nib
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Settings.bundle
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/balloon.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/balloon_left.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/blank.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/comment_edit.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/highlightText.js
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/ico-1.gif
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/ico-2.gif
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_add.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_arrow_left.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_arrow_right.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_cancel.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_circle_arrow_right.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_delete.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_document.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_error.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_filming.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_mail.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_measures.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_paper_trash.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_paragraph.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_photo.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_post.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_refresh.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_resize.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_rss.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_settings.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_text_align_left.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_trash.png
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/logo2.gif
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/newsletter.html
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/readability.css
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/readability.js
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/readability2.js
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/AppDelegate.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/Base64.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/BlankToolbar.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CTidy.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLDocument.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLDocument_CreationExtensions.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLDocument_PrivateExtensions.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLElement.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLElement_CreationExtensions.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLElement_ElementTreeExtensions.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLNode.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLNode_CreationExtensions.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLNode_PrivateExtensions.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLNode_XPathExtensions.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/DocumentEditFormViewController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/DocumentEditViewController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/DocumentImage.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/DocumentWebViewController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/FacetField.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/FacetValue.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/InfoNgen Pub.LinkFileList
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/InfoNgen Pub_vers.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/LoginTicket.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/MetaTag.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/Newsletter.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterAddSectionViewController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterBaseViewController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterDistributionListViewController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterHTMLPreviewViewController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterItemContentView.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterScrollItemController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterSection.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterSectionsViewController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterSettingsViewController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterUpdateFormViewController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterView.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterViewController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewslettersScrollViewController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewslettersViewController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SavedSearch.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SavedSearchController.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/Search.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SearchArguments.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SearchClient.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SearchResult.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SearchResultCell.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SearchResults.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SegmentedTableCell.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/TextFieldTableCell.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/TextMatch.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/TextViewTableCell.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/UIImage-NSCoding.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/UILabelEx.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/UserSettings.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/main.o
+t2
+s0
+
+N/Users/Bob/Documents/InfoNgen-Publisher/comment_edit.png
+c000000004B868DD1000000000000031F
+t1267109329
+s799
+
+N/Users/Bob/Documents/InfoNgen-Publisher/highlightText.js
+c000000004BBB7E5A000000000000059F
+t1270578778
+s1439
+
+N/Users/Bob/Documents/InfoNgen-Publisher/ico-1.gif
+c000000004B8C1368000000000000068C
+t1267471208
+s1676
+
+N/Users/Bob/Documents/InfoNgen-Publisher/ico-2.gif
+c000000004B8C136C000000000000067E
+t1267471212
+s1662
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon.png
+c000000004B70268A00000000000009C9
+t1265641098
+s2505
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_add.png
+c000000004B8FC38300000000000000F2
+t1267712899
+s242
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_arrow_left.png
+c000000004AA90C6300000000000001A1
+t1252592739
+s417
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_arrow_right.png
+c000000004B8FC3830000000000000180
+t1267712899
+s384
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_cancel.png
+c000000004B8FC3830000000000000383
+t1267712899
+s899
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_circle_arrow_right.png
+c000000004B8FC383000000000000028C
+t1267712899
+s652
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_delete.png
+c000000004B8FC383000000000000024A
+t1267712899
+s586
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_document.png
+c000000004B8FC383000000000000017C
+t1267712899
+s380
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_error.png
+c000000004B8FC383000000000000028F
+t1267712899
+s655
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_filming.png
+c000000004B8FC3830000000000000231
+t1267712899
+s561
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_mail.png
+c000000004B8FC3830000000000000202
+t1267712899
+s514
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_measures.png
+c000000004AA9132500000000000001B1
+t1252594469
+s433
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_paper_trash.png
+c000000004B8FC3830000000000000192
+t1267712899
+s402
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_paragraph.png
+c000000004AA911FD0000000000000147
+t1252594173
+s327
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_photo.png
+c000000004B8FC383000000000000025F
+t1267712899
+s607
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_post.png
+c000000004B868DD10000000000000186
+t1267109329
+s390
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_refresh.png
+c000000004B8FC3830000000000000257
+t1267712899
+s599
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_resize.png
+c000000004B8FC3830000000000000233
+t1267712899
+s563
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_rss.png
+c000000004B8FC383000000000000027C
+t1267712899
+s636
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_settings.png
+c000000004B8FC3830000000000000310
+t1267712899
+s784
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_text_align_left.png
+c000000004AA9125D00000000000000E5
+t1252594269
+s229
+
+N/Users/Bob/Documents/InfoNgen-Publisher/icon_trash.png
+c000000004B8FC383000000000000012B
+t1267712899
+s299
+
+N/Users/Bob/Documents/InfoNgen-Publisher/logo2.gif
+c000000004B8C137D0000000000000E2D
+t1267471229
+s3629
+
+N/Users/Bob/Documents/InfoNgen-Publisher/main.m
+c000000004B68935F0000000000000163
+t1265144671
+s355
+i<UIKit/UIKit.h>
+
+N/Users/Bob/Documents/InfoNgen-Publisher/newsletter.html
+c000000004BBDDE3A00000000000022BD
+t1270734394
+s8893
+
+N/Users/Bob/Documents/InfoNgen-Publisher/readability.css
+c000000004BBB8D8000000000000012B3
+t1270582656
+s4787
+
+N/Users/Bob/Documents/InfoNgen-Publisher/readability.js
+c000000004BBB559700000000000084E9
+t1270568343
+s34025
+
+N/Users/Bob/Documents/InfoNgen-Publisher/readability2.js
+c000000004BBB94C60000000000008C12
+t1270584518
+s35858
+
+N/var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cceadxplctntjyeiwbsnogfbklzj/Untitled_Prefix.pch.gch
+t2
+s0
+
+NUntitled-Info.plist
+c000000004B7D5475000000000000047A
+t1266504821
+s1146
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies292441484#292441484#0(563"[WARN]warning: no rule to process file '$(PROJECT_DIR)/highlightText.js' of type sourcecode.javascript for architecture armv6[WARN]warning: no rule to process file '$(PROJECT_DIR)/readability2.js' of type sourcecode.javascript for architecture armv6[BEROR]Code Sign error: The identity 'iPhone Developer' doesn't match any valid certificate/private key pair in the default keychain[BWARN]warning: building for SDK 'Device - iPhone OS 3.2' requires an armv7 architecture.[BWARN]warning: building for deployment target '3.2' should omit the armv6 architecture.5(22@119"warning: no rule to process file '$(PROJECT_DIR)/highlightText.js' of type sourcecode.javascript for architecture armv6292441484#18446744073709551615#0#0(1@0"0(22@118"warning: no rule to process file '$(PROJECT_DIR)/readability2.js' of type sourcecode.javascript for architecture armv6292441484#18446744073709551615#0#0(1@0"0(4@125"Code Sign error: The identity 'iPhone Developer' doesn't match any valid certificate/private key pair in the default keychain292441484#18446744073709551615#0#0(1@0"0(22@82"warning: building for SDK 'Device - iPhone OS 3.2' requires an armv7 architecture.292441484#18446744073709551615#0#0(1@0"0(22@81"warning: building for deployment target '3.2' should omit the armv6 architecture.292441484#18446744073709551615#0#0(1@0"0(0#1#0"7947009927035180032#0"0#
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/AppDelegate.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/AppDelegate.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/Base64.o" /Users/Bob/Documents/InfoNgen-Publisher/Base64.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/BlankToolbar.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/BlankToolbar.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CTidy.o" /Users/Bob/Documents/InfoNgen-Publisher/Tidy/CTidy.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLDocument.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLDocument.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLDocument_CreationExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/Creation/CXMLDocument_CreationExtensions.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLDocument_PrivateExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLDocument_PrivateExtensions.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLElement.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLElement.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLElement_CreationExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLElement_CreationExtensions.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLElement_ElementTreeExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLElement_ElementTreeExtensions.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLNode.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLNode.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLNode_CreationExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/Creation/CXMLNode_CreationExtensions.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLNode_PrivateExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLNode_PrivateExtensions.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/CXMLNode_XPathExtensions.o" /Users/Bob/Documents/InfoNgen-Publisher/CXMLNode_XPathExtensions.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/DocumentEditFormViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditFormViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/DocumentEditViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentEditViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/DocumentImage.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentImage.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/DocumentWebViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/DocumentWebViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/FacetField.o" /Users/Bob/Documents/InfoNgen-Publisher/FacetField.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/FacetValue.o" /Users/Bob/Documents/InfoNgen-Publisher/FacetValue.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/InfoNgen Pub_vers.o" "/Users/Bob/Documents/InfoNgen-Publisher/build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/DerivedSources/InfoNgen Pub_vers.c" normal armv6 c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/LoginTicket.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/LoginTicket.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/MetaTag.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/MetaTag.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/Newsletter.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/Newsletter.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterAddSectionViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterAddSectionViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterBaseViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterBaseViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterDistributionListViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterDistributionListViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterHTMLPreviewViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterHTMLPreviewViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterItemContentView.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterItemContentView.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterScrollItemController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterScrollItemController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterSection.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSection.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterSectionsViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSectionsViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterSettingsViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterSettingsViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterUpdateFormViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterUpdateFormViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterView.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterView.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewsletterViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewsletterViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewslettersScrollViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersScrollViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/NewslettersViewController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/NewslettersViewController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SavedSearch.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearch.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SavedSearchController.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SavedSearchController.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/Search.o" /Users/Bob/Documents/InfoNgen-Publisher/Search.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SearchArguments.o" /Users/Bob/Documents/InfoNgen-Publisher/SearchArguments.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SearchClient.o" /Users/Bob/Documents/InfoNgen-Publisher/SearchClient.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SearchResult.o" /Users/Bob/Documents/InfoNgen-Publisher/SearchResult.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SearchResultCell.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SearchResultCell.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SearchResults.o" /Users/Bob/Documents/InfoNgen-Publisher/SearchResults.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/SegmentedTableCell.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/SegmentedTableCell.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/TextFieldTableCell.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/TextFieldTableCell.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/TextMatch.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/TextMatch.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/TextViewTableCell.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/TextViewTableCell.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/UIImage-NSCoding.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/UIImage-NSCoding.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/UILabelEx.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/UILabelEx.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/UserSettings.o" /Users/Bob/Documents/InfoNgen-Publisher/Classes/UserSettings.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC "build/Untitled.build/Debug-iphoneos/InfoNgen Pub.build/Objects-normal/armv6/main.o" /Users/Bob/Documents/InfoNgen-Publisher/main.m normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/DocumentEditFormView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/DocumentEditView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/DocumentTextView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/DocumentWebView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/ImagePickerView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/MainWindow.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterAddSectionView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterDistributionListView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterHTMLPreviewView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterScrollItemView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterSectionsView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterSettingsView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterUpdateFormView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewsletterView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewslettersScrollView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/NewslettersView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/RootView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/SavedSearchesView.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/SearchResultCell.xib
+r0
+
+CCompileXIB /Users/Bob/Documents/InfoNgen-Publisher/SelectImageView.xib
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Balloon_2.png" Balloon_2.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Default-Landscape.png" Default-Landscape.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Default-LandscapeLeft.png" Default-LandscapeLeft.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Default-LandscapeRight.png" Default-LandscapeRight.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Default-Portrait.png" Default-Portrait.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Default-PortraitUpsideDown.png" Default-PortraitUpsideDown.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/balloon.png" balloon.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/balloon_left.png" balloon_left.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/blank.png" blank.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/comment_edit.png" comment_edit.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon.png" icon.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_add.png" icon_add.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_arrow_left.png" icon_arrow_left.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_arrow_right.png" icon_arrow_right.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_cancel.png" icon_cancel.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_circle_arrow_right.png" icon_circle_arrow_right.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_delete.png" icon_delete.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_document.png" icon_document.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_error.png" icon_error.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_filming.png" icon_filming.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_mail.png" icon_mail.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_measures.png" icon_measures.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_paper_trash.png" icon_paper_trash.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_paragraph.png" icon_paragraph.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_photo.png" icon_photo.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_post.png" icon_post.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_refresh.png" icon_refresh.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_resize.png" icon_resize.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_rss.png" icon_rss.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_settings.png" icon_settings.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_text_align_left.png" icon_text_align_left.png
+r0
+
+CCopyPNGFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/icon_trash.png" icon_trash.png
+r0
+
+CCpResource "build/Debug-iphoneos/InfoNgen Pub.app/ResourceRules.plist" /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/ResourceRules.plist
+r0
+
+CCpResource "build/Debug-iphoneos/InfoNgen Pub.app/Settings.bundle" Settings.bundle
+r0
+
+CCpResource "build/Debug-iphoneos/InfoNgen Pub.app/highlightText.js" highlightText.js
+r0
+
+CCpResource "build/Debug-iphoneos/InfoNgen Pub.app/ico-1.gif" ico-1.gif
+r0
+
+CCpResource "build/Debug-iphoneos/InfoNgen Pub.app/ico-2.gif" ico-2.gif
+r0
+
+CCpResource "build/Debug-iphoneos/InfoNgen Pub.app/logo2.gif" logo2.gif
+r0
+
+CCpResource "build/Debug-iphoneos/InfoNgen Pub.app/newsletter.html" newsletter.html
+r0
+
+CCpResource "build/Debug-iphoneos/InfoNgen Pub.app/readability.css" readability.css
+r0
+
+CCpResource "build/Debug-iphoneos/InfoNgen Pub.app/readability.js" readability.js
+r0
+
+CCpResource "build/Debug-iphoneos/InfoNgen Pub.app/readability2.js" readability2.js
+r0
+
+CGenerateDSYMFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app.dSYM" "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/InfoNgen Pub"
+r0
+
+CLd "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/InfoNgen Pub" normal armv6
+r0
+
+CProcessInfoPlistFile "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app/Info.plist" Untitled-Info.plist
+r0
+
+CProcessPCH /var/folders/1L/1LDbQ4cHGSiHTrP38QqSgU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Untitled_Prefix-cceadxplctntjyeiwbsnogfbklzj/Untitled_Prefix.pch.gch Untitled_Prefix.pch normal armv6 objective-c com.apple.compilers.gcc.4_2
+r0
+
+CTouch "/Users/Bob/Documents/InfoNgen-Publisher/build/Debug-iphoneos/InfoNgen Pub.app"
+r0
+
