@@ -71,9 +71,26 @@
 	[self.addSectionPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
+ 
+
+
 - (void)viewDidLoad
 {
 	viewMode=kViewModeSynopsis;
+	
+	self.dateLabel.textColor=[UIColor whiteColor];
+	self.dateLabel.backgroundColor=[NewsletterItemContentView colorWithHexString:@"339933"];
+	
+	self.descriptionTextField.textColor=[NewsletterItemContentView colorWithHexString:@"339933"];
+	self.descriptionTextField.layer.borderColor=[[UIColor grayColor] CGColor];
+	self.descriptionTextField.layer.borderWidth=1;
+	self.descriptionTextField.layer.cornerRadius=8;
+	
+	//synopsisTextView.layer.borderWidth=1;
+	//synopsisTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+	//synopsisTextView.layer.cornerRadius = 8;
+	
+	
 	
 	UISegmentedControl * segmentedControl=[[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sections",@"Headlines",@"Synopsis",nil]];
 	
@@ -680,6 +697,18 @@
 	}
 }	
 
+- (NSIndexPath *)tableView:(UITableView *)tv willSelectRowAtIndexPath:(NSIndexPath *)path
+{
+    // Determine if row is selectable based on the NSIndexPath.
+	if(tv.editing)
+	{
+		return path;
+	}
+	else {
+		return nil;
+	}
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
 	if(viewMode==kViewModeSections)
@@ -693,10 +722,10 @@
 	
 	topView.backgroundColor=[UIColor whiteColor];
 		
-	UIColor * borderColor=[NewsletterItemContentView colorWithHexString:@"336699"];
+	//UIColor * borderColor=[NewsletterItemContentView colorWithHexString:@"336699"];
 	
-	topView.layer.borderColor=[borderColor CGColor];
-	topView.layer.borderWidth=1;
+	//topView.layer.borderColor=[borderColor CGColor];
+	//topView.layer.borderWidth=1;
 	
 	//CAGradientLayer *gradient = [CAGradientLayer layer];
 	//gradient.frame = topView.bounds;
@@ -821,10 +850,10 @@
 		
 		NewsletterSection * newsletterSection=[self.newsletter.sections objectAtIndex:indexPath.row];
 		
-		UIColor * borderColor=[NewsletterItemContentView colorWithHexString:@"336699"];
+		//UIColor * borderColor=[NewsletterItemContentView colorWithHexString:@"336699"];
 		
-		cell.layer.borderColor=[borderColor CGColor];
-		cell.layer.borderWidth=1;
+		//cell.layer.borderColor=[borderColor CGColor];
+		//cell.layer.borderWidth=1;
 		
 		//CAGradientLayer *gradient = [CAGradientLayer layer];
 		//gradient.frame = topView.bounds;

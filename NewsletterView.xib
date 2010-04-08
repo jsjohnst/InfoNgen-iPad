@@ -45,7 +45,7 @@
 					<object class="IBUITableView" id="309643492">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">258</int>
-						<string key="NSFrame">{{0, 218}, {768, 693}}</string>
+						<string key="NSFrame">{{0, 250}, {768, 661}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="924431909">
 							<int key="NSColorSpace">3</int>
@@ -67,7 +67,7 @@
 					<object class="IBUIButton" id="959620930">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 20}, {88, 88}}</string>
+						<string key="NSFrame">{{20, 38}, {88, 88}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -96,7 +96,7 @@
 					<object class="IBUITextField" id="454339165">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{385, 38}, {363, 31}}</string>
+						<string key="NSFrame">{{385, 66}, {363, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -124,8 +124,8 @@
 					</object>
 					<object class="IBUITextView" id="629066999">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{385, 77}, {363, 127}}</string>
+						<int key="NSvFlags">290</int>
+						<string key="NSFrame">{{20, 173}, {728, 69}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -134,13 +134,11 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<bool key="IBUIScrollEnabled">NO</bool>
 						<bool key="IBUIShowsHorizontalScrollIndicator">NO</bool>
-						<bool key="IBUIShowsVerticalScrollIndicator">NO</bool>
 						<bool key="IBUIDelaysContentTouches">NO</bool>
 						<bool key="IBUICanCancelContentTouches">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
-						<string key="IBUIText"/>
+						<string key="IBUIText">* Touch here to enter summary *</string>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -149,7 +147,7 @@
 					<object class="IBUILabel" id="735905179">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{524, 9}, {224, 21}}</string>
+						<string key="NSFrame">{{586, 9}, {162, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -288,10 +286,10 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="309643492"/>
-							<reference ref="959620930"/>
-							<reference ref="629066999"/>
-							<reference ref="454339165"/>
 							<reference ref="735905179"/>
+							<reference ref="959620930"/>
+							<reference ref="454339165"/>
+							<reference ref="629066999"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -339,6 +337,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>-1.CustomClassName</string>
 					<string>-2.CustomClassName</string>
+					<string>1.CustomClassName</string>
 					<string>1.IBEditorWindowLastContentRect</string>
 					<string>1.IBPluginDependency</string>
 					<string>46.IBPluginDependency</string>
@@ -351,6 +350,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>NewsletterViewController</string>
 					<string>UIResponder</string>
+					<string>NewsletterView</string>
 					<string>{{688, 73}, {783, 963}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -390,6 +390,14 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">NewsletterView</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Classes/NewsletterView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">NewsletterViewController</string>
 					<string key="superclassName">NewsletterBaseViewController</string>
 					<object class="NSMutableDictionary" key="actions">
@@ -401,6 +409,7 @@
 							<string>addTouch:</string>
 							<string>clearNewsletterItems</string>
 							<string>deleteNewsletter</string>
+							<string>imageTouched:</string>
 							<string>preview</string>
 							<string>settings</string>
 							<string>toggleEditPage:</string>
@@ -409,6 +418,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
